@@ -1,74 +1,111 @@
-import styled from 'styled-components';
-
-const P = styled.p`
-    color: ${props => props.color};
-    font-size: ${props => props.fontSize};
-`
-
-export default function Dropdown({
-    color = "red",
-    fontSize = "12px",
-    text = "Hello World",
-    onClick = () => { }
-}) {
-    <P
-        color={color}
-        fontSize={fontSize}
-    >{text}</P>
-}
-/* import * as React from 'react';
-import Divider from '@mui/material/Divider';
-import Paper from '@mui/material/Paper';
-import MenuList from '@mui/material/MenuList';
+import * as React from 'react';
+import { styled, alpha } from '@mui/material/styles';
+import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import ListItemText from '@mui/material/ListItemText';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import Typography from '@mui/material/Typography';
-import ContentCut from '@mui/icons-material/ContentCut';
-import ContentCopy from '@mui/icons-material/ContentCopy';
-import ContentPaste from '@mui/icons-material/ContentPaste';
-import Cloud from '@mui/icons-material/Cloud';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import OptionsBtn from '../../styles/styledComps';
 
-export default function IconMenu() {
+const StyledMenu = styled((props) => (
+    <Menu
+        elevation={0}
+        anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'right',
+        }}
+        transformOrigin={{
+            vertical: 'top',
+            horizontal: 'right',
+        }}
+        {...props}
+    />
+))(({ theme }) => ({
+    '& .MuiPaper-root': {
+        borderRadius: 6,
+        marginTop: theme.spacing(1),
+        minWidth: 180,
+        color:
+            theme.palette.mode === 'light' ? 'rgb(55, 65, 81)' : theme.palette.grey[300],
+        boxShadow:
+            'rgb(255, 255, 255) 0px 0px 0px 0px, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px',
+        '& .MuiMenu-list': {
+            padding: '4px 0',
+        },
+        '& .MuiMenuItem-root': {
+            '& .MuiSvgIcon-root': {
+                fontSize: 18,
+                color: theme.palette.text.secondary,
+                marginRight: theme.spacing(1.5),
+            },
+            '&:active': {
+                backgroundColor: alpha(
+                    theme.palette.primary.main,
+                    theme.palette.action.selectedOpacity,
+                ),
+            },
+        },
+    },
+}));
+
+export default function CustomizedMenus({
+    op1 = 'Option 1',
+    op2 = 'Option 2',
+    op3 = 'Option 3',
+    op4 = 'Option 4',
+    icon1 = { icon1 },
+    icon2 = { icon2 },
+    // icon3 = { icon3 },
+    // icon4 = { icon4 },
+}) {
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
     return (
-        <Paper sx={{ width: 320, maxWidth: '100%' }}>
-            <MenuList>
-                <MenuItem>
-                    <ListItemIcon>
-                        <ContentCut fontSize="small" />
-                    </ListItemIcon>
-                    <ListItemText>Cut</ListItemText>
-                    <Typography variant="body2" color="text.secondary">
-                        ⌘X
-                    </Typography>
+        <div>
+            <OptionsBtn
+                // id="demo-customized-button"
+                aria-controls={open ? 'demo-customized-menu' : undefined}
+                // aria-haspopup="true"
+                aria-expanded={open ? 'true' : undefined}
+                variant="contained"
+                disableElevation
+                onClick={handleClick}
+                endIcon={<KeyboardArrowDownIcon />}
+            >
+                Please Select
+            </OptionsBtn>
+            <StyledMenu
+                id="demo-customized-menu"
+                MenuListProps={{
+                    'aria-labelledby': 'demo-customized-button',
+                }}
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+            >
+
+                <MenuItem onClick={handleClose} disableRipple>
+                    {icon1}
+                    {op1}
                 </MenuItem>
-                <MenuItem>
-                    <ListItemIcon>
-                        <ContentCopy fontSize="small" />
-                    </ListItemIcon>
-                    <ListItemText>Copy</ListItemText>
-                    <Typography variant="body2" color="text.secondary">
-                        ⌘C
-                    </Typography>
+                <MenuItem onClick={handleClose} disableRipple>
+                    {icon2}
+                    {op2}
                 </MenuItem>
-                <MenuItem>
-                    <ListItemIcon>
-                        <ContentPaste fontSize="small" />
-                    </ListItemIcon>
-                    <ListItemText>Paste</ListItemText>
-                    <Typography variant="body2" color="text.secondary">
-                        ⌘V
-                    </Typography>
+                {/* <MenuItem onClick={handleClose} disableRipple>
+                    {icon3}
+                    {op3}
                 </MenuItem>
-                <Divider />
-                <MenuItem>
-                    <ListItemIcon>
-                        <Cloud fontSize="small" />
-                    </ListItemIcon>
-                    <ListItemText>Web Clipboard</ListItemText>
-                </MenuItem>
-            </MenuList>
-        </Paper>
+                <MenuItem onClick={handleClose} disableRipple>
+                    {icon4}
+                    {op4}
+                </MenuItem> */}
+            </StyledMenu>
+        </div>
     );
 }
- */
