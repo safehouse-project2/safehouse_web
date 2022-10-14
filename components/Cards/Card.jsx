@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 import { useRouter } from 'next/router';
 
 export default function CardComp({
-    src = './vercel.svg',
+    src = './placeholder.png',
     title = 'Default Title',
     description = 'Default Description',
     btnText = 'Default Button Text',
@@ -21,7 +21,8 @@ export default function CardComp({
                 component="img"
                 height="140"
                 image={src}
-                alt="green iguana"
+                alt="image"
+                sx={{ objectFit: 'cover', width: '100%' }}
             />
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div">

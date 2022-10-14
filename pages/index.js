@@ -3,6 +3,7 @@ import HotelIcon from '@mui/icons-material/Hotel';
 import ForestIcon from '@mui/icons-material/Forest';
 import Card from "../components/Cards/Card";
 import Slider from "../components/Slider/Slider";
+import Navbar from "../components/Navbar/Navbar";
 
 export default function Home() {
 
@@ -20,6 +21,8 @@ export default function Home() {
       <Card />
       <br />
       <Slider />
+      <br />
+      <Navbar />
     </div>
   );
 }
