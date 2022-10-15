@@ -2,7 +2,6 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 const BackgroundImageContainer = styled.div`
-    background-image: url(${props => props.src});
     background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 33.98%, rgba(0, 0, 0, 0.85) 100%), url(${props => props.src});
     background-size: cover;
     background-position: center;
@@ -16,6 +15,10 @@ const BackgroundImageContainer = styled.div`
     justify-content: flex-start;
     padding: 120px 20px 20px 20px;
     box-shadow: 0px 4px 37px rgba(0, 0, 0, 0.35);
+    transition: all 0.4s ease-in-out;
+    // :hover {
+    //     scale: 1.05;
+    // }
 `;
 
 export default function Slider({
