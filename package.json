@@ -18,7 +18,8 @@
     "react-dom": "18.2.0",
     "react-google-autocomplete": "^2.7.0",
     "react-places-autocomplete": "^7.3.0",
-    "storybook-addon-next": "^1.6.9"
+    "storybook-addon-next": "^1.6.9",
+    "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",
