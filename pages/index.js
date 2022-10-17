@@ -4,6 +4,9 @@ import ForestIcon from '@mui/icons-material/Forest';
 import Card from "../components/Cards/Card";
 import Slider from "../components/Slider/Slider";
 import Navbar from "../components/Navbar/Navbar";
+import SpeedDial from "../components/SpeedDial/SpeedDial";
+import Image from "../components/Image/Image";
+import ProgressBar from "../components/ProgressBar/ProgressBar";
 
 export default function Home() {
 
@@ -23,6 +26,12 @@ export default function Home() {
       <Slider />
       <br />
       <Navbar />
+      <br />
+      <SpeedDial />
+      <br />
+      <Image />
+      <br />
+      <ProgressBar />
     </div>
   );
 }
