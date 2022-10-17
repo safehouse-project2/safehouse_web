@@ -8,12 +8,12 @@ import Button from '@mui/material/Button';
 
 
 //Sofia Comps
-import Title from '../components/Header';
-import AppText from '../components/AppText';
-import Input from '../components/Input';
-import AppButton from '../components/Button';
-import SignUp from '../components/SignUp';
-import Icon from '../components/Icon';
+import index from '../components/Header/Header';
+import index from '../components/AppText/AppText';
+import index from '../components/Input/Input';
+import index from '../components/Button/Button';
+import index from '../components/SignUp/SignUp';
+import index from '../components/Icon/Iocn';
 
 
 export default function Home() {
@@ -26,7 +26,7 @@ export default function Home() {
       <Input/>
       <AppButton/>
       <SignUp/>
-      <Icon/>
+      {/* <Icon/> */}
     </div>
   );
 }
