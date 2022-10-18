@@ -8,8 +8,8 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-import { Input, Menu } from 'semantic-ui-react'
-import 'semantic-ui-css/semantic.min.css'
+// import { Input, Menu } from 'semantic-ui-react'
+// import 'semantic-ui-css/semantic.min.css'
 
 export default function Navbar({
     onBtnClick = () => { },
