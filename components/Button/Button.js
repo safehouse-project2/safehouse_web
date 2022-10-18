@@ -1,6 +1,6 @@
 //import * as React from 'react';
 import Button from '@mui/material/Button';
 
-function AppButton() {
+export default function AppButton() {
   return <Button variant="contained">Hello World</Button>;
 }

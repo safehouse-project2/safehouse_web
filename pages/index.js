@@ -7,8 +7,9 @@ import HomeIcon from '@mui/icons-material/Home';
 import Button from '@mui/material/Button';
 
 
+
 //Sofia Comps
-import Header from '../components/Header/Header';
+import Title from '../components/Header/Header';
 import AppText from '../components/AppText/AppText';
 import Input from '../components/Input/Input';
 import AppButton from '../components/Button/Button';
@@ -26,7 +27,7 @@ export default function Home() {
       <Input/>
       <AppButton/>
       <SignUp/>
-      {/* <Icon/> */}
+      <Icon/>
     </div>
   );
 }
