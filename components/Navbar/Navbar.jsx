@@ -7,36 +7,62 @@ import HelpIcon from '@mui/icons-material/Help';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
+// import { Input, Menu } from 'semantic-ui-react'
+// import 'semantic-ui-css/semantic.min.css'
 
 export default function Navbar({
-    btnState = "inactive",
     onBtnClick = () => { },
 }) {
     let homeBgColor = "#272727";
+    const r = useRouter();
+    const goToHome = () => {
+        r.push("/");
+    }
+    const goToChat = () => {
+        r.push("/chat");
+    }
+    const goToHelp = () => {
+        r.push("/help");
+    }
+    const goToProfile = () => {
+        r.push("/profile");
+    }
+
+    const [homeState, setHomeState] = useState("inactive");
 
     return (
         <div className='flex justify-around bg-slate-500 py-3 text-white sticky'>
 
             {/* Home */}
-            <div className='flex flex-col items-center justify-center cursor-pointer'>
-                <HomeOutlinedIcon />
-                Home
-            </div>
+            {
+                homeState === "active" ? (
+                    <div className='flex flex-col items-center justify-center cursor-pointer'>
+                        <HomeOutlinedIcon />
+                        Home
+                    </div>
+                ) : (
+                    <div className='flex flex-col items-center justify-center cursor-pointer' >
+                        <HomeIcon />
+                        Home
+                    </div>
+                )
+            }
 
             {/*Chat */}
-            <div className='flex flex-col items-center justify-center cursor-pointer'>
+            <div className='flex flex-col items-center justify-center cursor-pointer' onClick={goToChat}>
                 <MarkUnreadChatAltOutlinedIcon />
                 Chat
             </div>
 
             {/* Help */}
-            <div className='flex flex-col items-center justify-center cursor-pointer'>
+            <div className='flex flex-col items-center justify-center cursor-pointer' onClick={goToHelp}>
                 <HelpOutlineIcon />
                 Help
             </div>
 
             {/* Profile */}
-            <div className='flex flex-col items-center justify-center cursor-pointer'>
+            <div className='flex flex-col items-center justify-center cursor-pointer' onClick={goToProfile}>
                 <AccountCircleOutlinedIcon />
                 Profile
             </div>
