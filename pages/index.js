@@ -1,72 +1,33 @@
-import Dropdown from "../components/Dropdown/Dropdown";
-// import HotelIcon from '@mui/icons-material/Hotel';
-// import ForestIcon from '@mui/icons-material/Forest';
-import Card from "../components/Cards/Card";
-import Slider from "../components/Slider/Slider";
-import Navbar from "../components/Navbar/Navbar";
-import SpeedDial from "../components/SpeedDial/SpeedDial";
-import ProgressBar from "../components/ProgressBar/ProgressBar";
+import Head from 'next/head'
+import Image from 'next/image'
+import Link from 'next/link'
+import Listing from '../components/CRUD/listing'
 
-import Image from '../components/Image/ImageComp';
-
-
-//import Head from 'next/head';
-//import Image from 'next/image';
-import styles from '../styles/Home.module.css';
-import styled from 'styled-components';
-import React from 'react';
-import HomeIcon from '@mui/icons-material/Home';
-import Button from '@mui/material/Button';
-
-
-
-//Sofia Comps
-import Title from '../components/Header/Header';
-import AppText from '../components/AppText/AppText';
-import Input from '../components/Input/Input';
-import AppButton from '../components/Button/Button';
-import SignUp from '../components/SignUp/SignUp';
-import Icon from '../components/Icon/Icon';
 
 
 export default function Home() {
   return (
-    <div className="App">
-      <h1 className='text-3xl'>Safehouse</h1>
-      <br />
-      {/* <Dropdown
-        op1="Host"
-        icon1={<HotelIcon />}
-        op2="Evacuee"
-        icon2={<ForestIcon />}
-      /> */}
-      <br />
-      <Card />
-      <br />
-      <Slider />
-      <br />
-      <Navbar />
-      <br />
-      <SpeedDial />
-      <br />
-      <Image />
-      <br />
-      <ProgressBar />
+    <div className='flex flex-col items-center justify-center min-h-screen py-2'>
 
-      <br />
-      <Title />
-      <br />
-      <AppText />
-      <br />
-      <Input />
-      <br />
-      <AppButton />
-      <br />
-      <SignUp />
-      <br />
-      <Icon />
+      <h1 className="text-3xl">Home Page</h1>
+      <Link href="/Dashboard">
+        <a className="text-blue-500">Dashboard</a>
+      </Link>
+
+      <Link href="/host">
+        <a className="text-blue-500">I am a host</a>
+      </Link>
+
+      <Link href="/evacuee">
+        <a className="text-blue-500">I am an Evacuee</a>
+      </Link>
+
+      <Link href="/listings">
+        <a className="text-blue-500">All Listings</a>
+      </Link>
+
+      <Listing/>
 
     </div>
-  );
+  )
 }
-

@@ -1,7 +1,7 @@
 import AppText from "../components/AppText/AppText"
 import Input from "../components/Input/Input";
 import Slider from "../components/Slider/Slider"
-import { BackgroundContainer, MainContainer } from '../styles/styledComps';
+import { BackgroundContainer, MainContainer } from '../../styles/styledComps';
 import SearchIcon from "@mui/icons-material/Search";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Image from "../components/Image/ImageComp";

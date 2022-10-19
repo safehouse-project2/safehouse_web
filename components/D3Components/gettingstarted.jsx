@@ -2,7 +2,7 @@ import AppText from '../components/AppText/AppText';
 import Button from '../components/Button/Button';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Input from '../components/Input/Input';
-import { BackgroundContainer, MainContainer } from '../styles/styledComps';
+import { BackgroundContainer, MainContainer } from '../../styles/styledComps';
 
 export default function GettingStarted() {
     return (
