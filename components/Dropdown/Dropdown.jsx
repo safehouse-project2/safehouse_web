@@ -65,6 +65,14 @@ export default function CustomizedMenus({
         setAnchorEl(null);
     };
 
+    // const hostClick = () => {
+    //     console.log('Host clicked');
+    // }
+
+    function hostClick() {
+        console.log('Host clicked');
+    }
+
     return (
         <div>
             <OptionsBtn
@@ -89,11 +97,11 @@ export default function CustomizedMenus({
                 onClose={handleClose}
             >
 
-                <MenuItem onClick={handleClose} disableRipple>
+                <MenuItem onClick={[handleClose, hostClick]} disableRipple>
                     {icon1}
                     {op1}
                 </MenuItem>
-                <MenuItem onClick={handleClose} disableRipple>
+                <MenuItem onClick={[handleClose, hostClick]} disableRipple>
                     {icon2}
                     {op2}
                 </MenuItem>
