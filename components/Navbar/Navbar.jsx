@@ -1,45 +1,56 @@
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import BottomNavigation from '@mui/material/BottomNavigation';
+import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import HomeIcon from '@mui/icons-material/Home';
-import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
-import ChatIcon from '@mui/icons-material/Chat';
-import MarkUnreadChatAltOutlinedIcon from '@mui/icons-material/MarkUnreadChatAltOutlined';
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
-import HelpIcon from '@mui/icons-material/Help';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
-import { useState } from 'react';
+import { Chat } from '@mui/icons-material';
+import HelpIcon from '@mui/icons-material/Help';
+import Paper from '@mui/material/Paper';
 
 export default function Navbar({
-    btnState = "inactive",
     onBtnClick = () => { },
 }) {
-    let homeBgColor = "#272727";
+    const r = useRouter();
+    const goToHome = () => {
+        r.push("/userhome");
+    }
+    const goToChat = () => {
+        r.push("/chat");
+    }
+    const goToHelp = () => {
+        r.push("/help");
+    }
+    const goToProfile = () => {
+        r.push("/profile");
+    }
+    const [value, setValue] = React.useState(0);
+    const ref = React.useRef(null);
+
+    React.useEffect(() => {
+        ref.current.ownerDocument.body.scrollTop = 0;
+    }, []);
 
     return (
-        <div className='flex justify-around bg-slate-500 py-3 text-white sticky'>
-
-            {/* Home */}
-            <div className='flex flex-col items-center justify-center cursor-pointer'>
-                <HomeOutlinedIcon />
-                Home
-            </div>
-
-            {/*Chat */}
-            <div className='flex flex-col items-center justify-center cursor-pointer'>
-                <MarkUnreadChatAltOutlinedIcon />
-                Chat
-            </div>
-
-            {/* Help */}
-            <div className='flex flex-col items-center justify-center cursor-pointer'>
-                <HelpOutlineIcon />
-                Help
-            </div>
-
-            {/* Profile */}
-            <div className='flex flex-col items-center justify-center cursor-pointer'>
-                <AccountCircleOutlinedIcon />
-                Profile
-            </div>
-        </div>
+        <Box sx={{}} ref={ref}>
+            <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
+                <BottomNavigation
+                    showLabels
+                    value={value}
+                    onChange={(event, newValue) => {
+                        setValue(newValue);
+                    }}
+                >
+                    <BottomNavigationAction label="Home" icon={<HomeIcon />} onClick={goToHome} />
+                    <BottomNavigationAction label="Chat" icon={<Chat />} onClick={goToChat} />
+                    <BottomNavigationAction label="Help" icon={<HelpIcon />} onClick={goToHelp} />
+                    <BottomNavigationAction label="Profile" icon={<AccountCircleIcon onClick={goToProfile} />} />
+                </BottomNavigation>
+            </Paper>
+        </Box>
     )
 }
+
+// sx={{ borderRadius: '20px' }}
