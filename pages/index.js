@@ -6,7 +6,19 @@ import Slider from "../components/Slider/Slider";
 import Navbar from "../components/Navbar/Navbar";
 import SpeedDial from "../components/SpeedDial/SpeedDial";
 import ProgressBar from "../components/ProgressBar/ProgressBar";
+
 import Image from '../components/Image/ImageComp';
+
+
+//import Head from 'next/head';
+//import Image from 'next/image';
+import styles from '../styles/Home.module.css';
+import styled from 'styled-components';
+import React from 'react';
+import HomeIcon from '@mui/icons-material/Home';
+import Button from '@mui/material/Button';
+
+
 
 //Sofia Comps
 import Title from '../components/Header/Header';
@@ -40,6 +52,7 @@ export default function Home() {
       <Image />
       <br />
       <ProgressBar />
+
       <br />
       <Title />
       <br />
@@ -52,6 +65,7 @@ export default function Home() {
       <SignUp />
       <br />
       <Icon />
+
     </div>
   );
 }
