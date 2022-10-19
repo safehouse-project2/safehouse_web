@@ -19,6 +19,7 @@ export default function Autocomplete({ setPostCenter, postCenter }) {
       )
       .catch(error => console.error("Error", error));
   };
+
   return (
     <PlacesAutocomplete
       value={state.address}

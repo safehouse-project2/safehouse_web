@@ -4,6 +4,7 @@ import {
   Marker,
   InfoWindow,
   useLoadScript,
+  DistanceMatrixService,
 } from "@react-google-maps/api";
 import axios from "axios";
 import Autocomplete from "../components/Autocomplete";
@@ -17,9 +18,12 @@ const Location = () => {
   });
   const [data, setData] = useState([]);
   const [locationInfo, setLocationInfo] = useState(null);
-  const [postCenter, setPostCenter] = useState([]);
+  const [postCenter, setPostCenter] = useState([
+    { lat: 49.2835, lng: -123.1153 },
+  ]);
   const [isSearched, setIsSearched] = useState(false);
   const nasaApiKey = process.env.NEXT_PUBLIC_NASA_API;
+  const [distanceInfo, setDistanceInfo] = useState(null);
 
   useEffect(() => {
     (async () => {
@@ -80,6 +84,44 @@ const Location = () => {
     }
   };
 
+  const findNearMe = () => {
+    console.log("postCenter", postCenter);
+    return (
+      <div>
+        <DistanceMatrixService
+          options={{
+            destinations: [{ lat: postCenter[0].lat, lng: postCenter[0].lng }],
+            origins: [{ lat: center.lat, lng: center.lng }],
+            travelMode: "DRIVING",
+          }}
+          callback={response => {
+            console.log("response", response);
+            setDistanceInfo(response);
+          }}
+        />
+      </div>
+    );
+  };
+  const callback = (response, status) => {
+    if (status == "OK") {
+      let origins = response.originAddresses;
+      let destinations = response.destinationAddresses;
+
+      for (let i = 0; i < origins.length; i++) {
+        let results = response.rows[i].elements;
+        for (let j = 0; j < results.length; j++) {
+          let element = results[j];
+          let distance = element.distance.text;
+          let duration = element.duration.text;
+          let from = origins[i];
+          let to = destinations[j];
+        }
+      }
+    }
+  };
+
+  console.log(distanceInfo);
+
   const containerStyle = {
     width: "1000px",
     height: "800px",
@@ -96,6 +138,21 @@ const Location = () => {
       <div>
         <button onClick={findmylocation}>Current Location</button>
       </div>
+      <div>
+        <button onClick={findNearMe}>Near me</button>
+      </div>
+      {distanceInfo}
+      <DistanceMatrixService
+        options={{
+          destinations: [{ lat: postCenter[0].lat, lng: postCenter[0].lng }],
+          origins: [{ lat: center.lat, lng: center.lng }],
+          travelMode: "DRIVING",
+        }}
+        callback={response => {
+          setDistanceInfo(response.rows[0].elements[0].distance.text);
+        }}
+      />
+
       <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={5}>
         {fireMarkers}
         {isSearched
@@ -149,4 +206,5 @@ const Location = () => {
     </div>
   );
 };
+
 export default Location;
