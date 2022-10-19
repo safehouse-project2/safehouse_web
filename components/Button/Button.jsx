@@ -11,15 +11,15 @@ const MyBtn = styled(Button)`
 `
 
 export default function AppButton({
-    txt = "Default Btn Text",
+    txt = "Default Text",
     variant = "contained",
     size = "small",
     startIcon = null,
     endIcon = null,
     color = "f5f5f5",
-    padding = "0px 0px 0px 0px",
+    padding = "8px 20px 8px 20px",
     margin = "0px 0px 0px 0px",
-    backgroundColor = "",
+    backgroundColor = "#B38A58",
     borderRadius = "41px",
     onBtnClick = () => {},
 }) {
