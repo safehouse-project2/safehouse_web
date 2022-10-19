@@ -1,5 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
+import AppText from '../AppText/AppText';
 
 const BackgroundImageContainer = styled.div`
     background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 33.98%, rgba(0, 0, 0, 0.85) 100%), url(${props => props.src || './vercel.svg'});
@@ -28,10 +29,22 @@ export default function Slider({
 }) {
     return (
         <BackgroundImageContainer src={src}>
-            <p className='text-[#f5f5f5] text-2xl'>{title}</p>
-            <div className='flex gap-[100px] items-center'>
-                <p className='text-[#cdcdcd] text-lg'>{distance}</p>
-                <p className='text-[#cdcdcd]'>1/7</p>
+            <AppText
+                txt={title}
+                color='#f5f5f5'
+                fontSize='24px'
+            />
+            <div className='flex gap-[200px] items-center'>
+                <AppText
+                    txt={distance}
+                    color='#cdcdcd'
+                    fontSize='16px'
+                />
+                <AppText
+                    txt="1/7"
+                    color='#cdcdcd'
+                    fontSize='16px'
+                />
             </div>
         </BackgroundImageContainer>
     )
