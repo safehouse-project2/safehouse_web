@@ -7,17 +7,17 @@ import PlacesAutocomplete, {
 export default function Autocomplete({ setPostCenter, postCenter }) {
   const [state, setState] = useState({ address: "" });
 
-  const handleChange = address => {
+  const handleChange = (address) => {
     setState({ address });
   };
 
-  const handleSelect = address => {
+  const handleSelect = (address) => {
     geocodeByAddress(address)
-      .then(results => getLatLng(results[0]))
-      .then(latLng =>
+      .then((results) => getLatLng(results[0]))
+      .then((latLng) =>
         console.log("Success", setPostCenter([latLng, ...postCenter]))
       )
-      .catch(error => console.error("Error", error));
+      .catch((error) => console.error("Error", error));
   };
   return (
     <PlacesAutocomplete
@@ -35,7 +35,7 @@ export default function Autocomplete({ setPostCenter, postCenter }) {
           />
           <div className="autocomplete-dropdown-container">
             {loading && <div>Loading...</div>}
-            {suggestions.map(suggestion => {
+            {suggestions.map((suggestion) => {
               const className = suggestion.active
                 ? "suggestion-item--active"
                 : "suggestion-item";
