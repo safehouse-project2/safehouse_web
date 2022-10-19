@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
-//import DeleteIcon from '@mui/icons-material/Delete';
+
+import Icon from '@mui/material/Icon';
 
 export default function Icon(){
     return <div>
         <HomeIcon/>
-        {/* <SearchIcon/> */}
+        <SearchIcon/>
     </div>
 }
