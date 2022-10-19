@@ -1,12 +1,12 @@
 import Dropdown from "../components/Dropdown/Dropdown";
-import HotelIcon from '@mui/icons-material/Hotel';
-import ForestIcon from '@mui/icons-material/Forest';
+// import HotelIcon from '@mui/icons-material/Hotel';
+// import ForestIcon from '@mui/icons-material/Forest';
 import Card from "../components/Cards/Card";
 import Slider from "../components/Slider/Slider";
 import Navbar from "../components/Navbar/Navbar";
 import SpeedDial from "../components/SpeedDial/SpeedDial";
 import ProgressBar from "../components/ProgressBar/ProgressBar";
-import Image from '../components/Image/Image';
+import Image from '../components/Image/ImageComp';
 
 //Sofia Comps
 import Title from '../components/Header/Header';
@@ -18,17 +18,16 @@ import Icon from '../components/Icon/Icon';
 
 
 export default function Home() {
-
   return (
     <div className="App">
       <h1 className='text-3xl'>Safehouse</h1>
       <br />
-      <Dropdown
+      {/* <Dropdown
         op1="Host"
         icon1={<HotelIcon />}
         op2="Evacuee"
         icon2={<ForestIcon />}
-      />
+      /> */}
       <br />
       <Card />
       <br />

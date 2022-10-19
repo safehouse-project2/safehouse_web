@@ -1,20 +1,13 @@
-import styled from 'styled-components';
 import AppText from '../components/AppText/AppText';
 import Button from '../components/Button/Button';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-
-const BackgroundContainer = styled.div`
-    background-image: url('./homeBG.png');
-    width: 100vw;
-    height: 100vh;
-    background-size: cover;
-    background-repeat: no-repeat;
-`
+import Input from '../components/Input/Input';
+import { BackgroundContainer, MainContainer } from '../styles/styledComps';
 
 export default function GettingStarted() {
     return (
-        <BackgroundContainer>
-            <div className='flex flex-col'>
+        <BackgroundContainer src="./homeBG.png">
+            <MainContainer>
                 <div className='flex justify-start flex-col px-[20px] pt-[10px] pb-[150px]'>
                     <AppText
                         txt="What is your name?"
@@ -22,7 +15,10 @@ export default function GettingStarted() {
                         fontSize='45px'
                         padding='0px 0px 15px 0px'
                     />
-                    <input type="text" placeholder='Enter your name?' />
+                    <Input
+                        label='Enter your name?'
+                        maxWidth='309px'
+                    />
                 </div>
                 <div>
                     <div className='flex justify-center items-center'>
@@ -34,6 +30,7 @@ export default function GettingStarted() {
                             variant='contained'
                             padding='8px 27px 8px 27px'
                             textTransform='capitalize'
+                            hoverColor='#E9B473'
                         />
                     </div>
 
@@ -55,7 +52,7 @@ export default function GettingStarted() {
                         />
                     </div>
                 </div>
-            </div>
+            </MainContainer>
         </BackgroundContainer>
     )
 }

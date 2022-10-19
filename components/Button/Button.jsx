@@ -10,6 +10,9 @@ const MyBtn = styled(Button)`
     text-align: center;
     text-transform: ${(props) => props.textTransform || "capitalize"};
     font-size: ${(props) => props.fontSize || "18px"};
+    :hover {
+        background-color: ${(props) => props.hoverColor || ""} !important;
+    }
 `
 
 export default function AppButton({
@@ -25,6 +28,7 @@ export default function AppButton({
   borderRadius = "41px",
   textTransform = "lowercase",
   fontSize = "18px",
+  hoverColor = "",
   onBtnClick = () => { },
 }) {
   return <MyBtn
@@ -43,6 +47,7 @@ export default function AppButton({
     fontSize={fontSize}
     borderRadius={borderRadius}
     textTransform={textTransform}
+    hoverColor={hoverColor}
   >
     {txt}
   </MyBtn>;

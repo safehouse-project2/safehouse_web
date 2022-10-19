@@ -51,8 +51,8 @@ export default function CustomizedMenus({
     op2 = 'Option 2',
     op3 = 'Option 3',
     op4 = 'Option 4',
-    icon1 = { icon1 },
-    icon2 = { icon2 },
+    icon1 = null,
+    icon2 = null,
     // icon3 = { icon3 },
     // icon4 = { icon4 },
 }) {
@@ -96,12 +96,11 @@ export default function CustomizedMenus({
                 open={open}
                 onClose={handleClose}
             >
-
-                <MenuItem onClick={[handleClose, hostClick]} disableRipple>
+                <MenuItem onClick={handleClose} disableRipple>
                     {icon1}
                     {op1}
                 </MenuItem>
-                <MenuItem onClick={[handleClose, hostClick]} disableRipple>
+                <MenuItem onClick={handleClose} disableRipple>
                     {icon2}
                     {op2}
                 </MenuItem>

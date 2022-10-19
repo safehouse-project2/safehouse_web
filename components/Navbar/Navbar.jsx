@@ -1,23 +1,21 @@
-import HomeIcon from '@mui/icons-material/Home';
-import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
-import ChatIcon from '@mui/icons-material/Chat';
-import MarkUnreadChatAltOutlinedIcon from '@mui/icons-material/MarkUnreadChatAltOutlined';
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
-import HelpIcon from '@mui/icons-material/Help';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-// import { Input, Menu } from 'semantic-ui-react'
-// import 'semantic-ui-css/semantic.min.css'
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import BottomNavigation from '@mui/material/BottomNavigation';
+import BottomNavigationAction from '@mui/material/BottomNavigationAction';
+import HomeIcon from '@mui/icons-material/Home';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { Chat } from '@mui/icons-material';
+import HelpIcon from '@mui/icons-material/Help';
+import Paper from '@mui/material/Paper';
 
 export default function Navbar({
     onBtnClick = () => { },
 }) {
-    let homeBgColor = "#272727";
     const r = useRouter();
     const goToHome = () => {
-        r.push("/");
+        r.push("/userhome");
     }
     const goToChat = () => {
         r.push("/chat");
@@ -28,44 +26,31 @@ export default function Navbar({
     const goToProfile = () => {
         r.push("/profile");
     }
+    const [value, setValue] = React.useState(0);
+    const ref = React.useRef(null);
 
-    const [homeState, setHomeState] = useState("inactive");
+    React.useEffect(() => {
+        ref.current.ownerDocument.body.scrollTop = 0;
+    }, []);
 
     return (
-        <div className='flex justify-around bg-slate-500 py-3 text-white sticky'>
-
-            {/* Home */}
-            {
-                homeState === "active" ? (
-                    <div className='flex flex-col items-center justify-center cursor-pointer'>
-                        <HomeOutlinedIcon />
-                        Home
-                    </div>
-                ) : (
-                    <div className='flex flex-col items-center justify-center cursor-pointer' >
-                        <HomeIcon />
-                        Home
-                    </div>
-                )
-            }
-
-            {/*Chat */}
-            <div className='flex flex-col items-center justify-center cursor-pointer' onClick={goToChat}>
-                <MarkUnreadChatAltOutlinedIcon />
-                Chat
-            </div>
-
-            {/* Help */}
-            <div className='flex flex-col items-center justify-center cursor-pointer' onClick={goToHelp}>
-                <HelpOutlineIcon />
-                Help
-            </div>
-
-            {/* Profile */}
-            <div className='flex flex-col items-center justify-center cursor-pointer' onClick={goToProfile}>
-                <AccountCircleOutlinedIcon />
-                Profile
-            </div>
-        </div>
+        <Box sx={{}} ref={ref}>
+            <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
+                <BottomNavigation
+                    showLabels
+                    value={value}
+                    onChange={(event, newValue) => {
+                        setValue(newValue);
+                    }}
+                >
+                    <BottomNavigationAction label="Home" icon={<HomeIcon />} onClick={goToHome} />
+                    <BottomNavigationAction label="Chat" icon={<Chat />} onClick={goToChat} />
+                    <BottomNavigationAction label="Help" icon={<HelpIcon />} onClick={goToHelp} />
+                    <BottomNavigationAction label="Profile" icon={<AccountCircleIcon onClick={goToProfile} />} />
+                </BottomNavigation>
+            </Paper>
+        </Box>
     )
 }
+
+// sx={{ borderRadius: '20px' }}
