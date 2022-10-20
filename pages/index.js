@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import Listing from '../components/CRUD/listing'
+import Listing from '../components/CRUDtesting/listing'
 
 
 
