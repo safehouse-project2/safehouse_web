@@ -5,7 +5,6 @@ import Todo from './Todo'
 
 export default function TodoList() {
     const [todos, setTodos] = useState([])
-  
     useEffect(() => {
         const todosRef = collection(db, 'todos')
         const q = query(todosRef, orderBy("timestamp", "desc"))

@@ -28,6 +28,7 @@ export default function Todo({id, timestamp, title, detail}) {
      <IconButton onClick={e => deleteTodo(id, e)}>
          <DeleteIcon/>
      </IconButton>
+     
      <IconButton>
          <MoreVertIcon/>
      </IconButton>
