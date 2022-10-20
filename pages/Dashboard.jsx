@@ -11,6 +11,7 @@ export default function Dashboard() {
   const [open, setOpen] = useState(false);
   const [alertType, setAlertType] = useState("success");
   const [alertMessage, setAlertMessage] = useState("");
+  const [todo, setTodo] =useState({title:'', detail:''})
 
   const showAlert = (type, message) => {
     setAlertType(type);
@@ -26,11 +27,13 @@ export default function Dashboard() {
   }
 
   return (
-    <CRUDContext.Provider value={{showAlert}}>
+    <CRUDContext.Provider value={{showAlert, todo, setTodo}}>
     <Container maxWidth="sm">
       <NavBar />
       <TodoForm/>
-      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+      <Snackbar 
+      anchorOrigin={{vertical: 'top', horizontal: 'center'}}
+      open={open} autoHideDuration={6000} onClose={handleClose}>
         <Alert onClose={handleClose} severity={alertType} sx={{ width: '100%' }}>
           {alertMessage}
         </Alert>
