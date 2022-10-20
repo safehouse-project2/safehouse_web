@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import Autocomplete from "../Autocomplete";
+import { useRouter } from "next/router";
 import axios from "axios";
 import {
   GoogleMap,
@@ -34,6 +35,7 @@ const EvacueePosting = ({ onSubmit }) => {
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAP_API,
     libraries: ["places"],
   });
+  const router = useRouter();
   useEffect(() => {
     (async () => {
       const response = await axios.get(
@@ -76,6 +78,7 @@ const EvacueePosting = ({ onSubmit }) => {
   const submitHandler = e => {
     e.preventDefault();
     onSubmit({ address: people.address, number: people.number });
+    router.push("/Dashboard");
   };
   const handleChange = address => {
     setState({ address });
@@ -132,7 +135,6 @@ const EvacueePosting = ({ onSubmit }) => {
               <div className="autocomplete-dropdown-container">
                 {loading && <div>Loading...</div>}
                 {suggestions.map(suggestion => {
-                  console.log(suggestion);
                   setPeople({ ...people, address: suggestion.description });
                   const className = suggestion.active
                     ? "suggestion-item--active"

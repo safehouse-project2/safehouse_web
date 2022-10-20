@@ -11,8 +11,12 @@ import {
   DistanceMatrixService,
 } from "@react-google-maps/api";
 
-export default function Autocomplete(props) {
-  const { fireMarkers, locationInfo, setLocationInfo } = props;
+export default function Autocomplete({
+  onSubmit,
+  fireMarkers,
+  locationInfo,
+  setLocationInfo,
+}) {
   const [state, setState] = useState({ address: "" });
   const [center, setCenter] = useState({ lat: 49.2835, lng: -123.1153 });
   const [selected, setSelected] = useState(false);
@@ -27,10 +31,30 @@ export default function Autocomplete(props) {
   ]);
   const [isSearched, setIsSearched] = useState(false);
   const [distanceInfo, setDistanceInfo] = useState(null);
+  const [people, setPeople] = useState([
+    {
+      id: "",
+      name: "",
+      mark: "",
+      description: "",
+      address: "",
+      number: 4,
+    },
+  ]);
 
   useEffect(() => {
     setIsSearched(true);
   }, [postCenter]);
+
+  const onSubmitHandler = e => {
+    e.preventDefault();
+    onSubmit({
+      address: people.address,
+      distance: distanceInfo,
+      center: postCenter,
+    });
+    router.push("/Dashboard");
+  };
 
   const handleChange = address => {
     setState({ address });
@@ -89,69 +113,75 @@ export default function Autocomplete(props) {
 
   return (
     <div>
-      <div>
-        <PlacesAutocomplete
-          value={state.address}
-          onChange={handleChange}
-          onSelect={handleSelect}
-        >
-          {({
-            getInputProps,
-            suggestions,
-            getSuggestionItemProps,
-            loading,
-          }) => (
-            <div>
-              <input
-                {...getInputProps({
-                  placeholder: "Search Places ...",
-                  className: "location-search-input",
-                })}
-              />
-              <div className="autocomplete-dropdown-container">
-                {loading && <div>Loading...</div>}
-                {suggestions.map(suggestion => {
-                  const className = suggestion.active
-                    ? "suggestion-item--active"
-                    : "suggestion-item";
-                  const style = suggestion.active
-                    ? { backgroundColor: "#fafafa", cursor: "pointer" }
-                    : { backgroundColor: "#ffffff", cursor: "pointer" };
-                  return (
-                    <div
-                      key={suggestion.description}
-                      {...getSuggestionItemProps(suggestion, {
-                        className,
-                        style,
-                      })}
-                    >
-                      <span>{suggestion.description}</span>
-                    </div>
-                  );
-                })}
+      <form onSubmit={onSubmitHandler}>
+        <div>
+          <PlacesAutocomplete
+            value={state.address}
+            onChange={handleChange}
+            onSelect={handleSelect}
+          >
+            {({
+              getInputProps,
+              suggestions,
+              getSuggestionItemProps,
+              loading,
+            }) => (
+              <div>
+                <input
+                  {...getInputProps({
+                    placeholder: "Search Places ...",
+                    className: "location-search-input",
+                  })}
+                />
+                <div className="autocomplete-dropdown-container">
+                  {loading && <div>Loading...</div>}
+                  {suggestions.map(suggestion => {
+                    setPeople({ ...people, address: suggestion.description });
+                    const className = suggestion.active
+                      ? "suggestion-item--active"
+                      : "suggestion-item";
+                    const style = suggestion.active
+                      ? { backgroundColor: "#fafafa", cursor: "pointer" }
+                      : { backgroundColor: "#ffffff", cursor: "pointer" };
+                    return (
+                      <div
+                        key={suggestion.description}
+                        {...getSuggestionItemProps(suggestion, {
+                          className,
+                          style,
+                        })}
+                      >
+                        <span>{suggestion.description}</span>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
-          )}
-        </PlacesAutocomplete>
-      </div>
+            )}
+          </PlacesAutocomplete>
 
-      <div>
-        <button onClick={findmylocation}>Current Location</button>
-      </div>
-      {/* <div>
+          <div>
+            <button onClick={findmylocation}>Current Location</button>
+          </div>
+          {/* <div>
         <button onClick={findNearMe}>Near me</button>
       </div> */}
-      {distanceInfo}
-      <DistanceMatrixService
-        options={{
-          destinations: [{ lat: postCenter[0].lat, lng: postCenter[0].lng }],
-          origins: [{ lat: center.lat, lng: center.lng }],
-          travelMode: "DRIVING",
-        }}
-        callback={response => {
-          setDistanceInfo(response.rows[0].elements[0].distance.text);
-        }}
-      />
+          {distanceInfo}
+          <DistanceMatrixService
+            options={{
+              destinations: [
+                { lat: postCenter[0].lat, lng: postCenter[0].lng },
+              ],
+              origins: [{ lat: center.lat, lng: center.lng }],
+              travelMode: "DRIVING",
+            }}
+            callback={response => {
+              setDistanceInfo(response.rows[0].elements[0].distance.text);
+            }}
+          />
+        </div>
+        <button type="submit">Submit</button>
+      </form>
       <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={5}>
         {fireMarkers ? fireMarkers : null}
         {isSearched
