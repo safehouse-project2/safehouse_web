@@ -4,7 +4,7 @@ export default {
     title: "Autocomplete",
     component: Autocomplete,
     argTypes: {
-        onselect: { action: 'logging in thing' },
+        onSubmit: { action: 'logging in thing' },
     }
 }
 
