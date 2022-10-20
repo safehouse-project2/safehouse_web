@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
+import { useRouter } from 'next/router'
 import Autocomplete from "../components/Autocomplete";
 import style from "../styles/Host.module.css";
 
@@ -10,17 +11,19 @@ const Host = () => {
   });
 
   const [postCenter, setPostCenter] = useState([]);
-  const [isSearched, setIsSearched] = useState(false);
+  const [isPosted, setIsPosted] = useState(false);
   const [address, setAddress] = useState("");
-  const [guests, setGuests] = useState(0);
+  const [guests, setGuests] = useState(null);
+  const [file, setFile] = useState(null);
+  const fileRef = useRef(null);
+  const [description, setDescription] = useState("");
+  const router = useRouter();
 
   const handleSubmit = (e) => {
-    setIsSearched(true);
+    e.preventDefault();
+    setIsPosted(true);
+    router.push("/Dashboard");
   };
-
-  useEffect(() => {
-    setIsSearched(true);
-  }, [postCenter]);
 
   const containerStyle = {
     width: "1000px",
@@ -38,33 +41,42 @@ const Host = () => {
       <div className={style.search}>
         <div className={style.inputForm}>
           <div>
-            <input
-              value={address}
-              className={style.input}
-              onChange={(e) => setAddress(e.target.value)}
-              type="text"
-              placeholder="Address"
-            />
-            <input
-              value={guests}
-              className={style.input}
-              onChange={(e) => setGuests(e.target.value)}
-              type="number"
-              placeholder="Number of Guests"
-            />
-            <Autocomplete
-              className={style.autoComplete}
-              setPostCenter={setPostCenter}
-              postCenter={postCenter}
-              value={address}
-            />
-            <button
-              value={isSearched}
-              className={style.button}
-              onClick={handleSubmit}
-            >
-              Submit
-            </button>
+            <form onSubmit={handleSubmit}>
+              <input
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+                type="text"
+                placeholder="Address"
+              />
+              <input
+                value={guests}
+                onChange={(e) => setGuests(e.target.value)}
+                type="number"
+                placeholder="Number of Guests"
+              />
+              <input
+                type="file"
+                ref={fileRef}
+                accept="image/*"
+                onChange={(e) => setFile(e.target.files[0])}
+                placeholder="Upload Image"
+              />
+              <textarea
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                type="text"
+                placeholder="Description"
+              />
+
+              <Autocomplete
+                setPostCenter={setPostCenter}
+                postCenter={postCenter}
+                value={address}
+              />
+              <button className={style.button} type="submit">
+                Submit
+              </button>
+            </form>
           </div>
         </div>
 
