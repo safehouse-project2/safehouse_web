@@ -47,7 +47,7 @@ export default function Input({
     placeholder = "",
     maxWidth = "",
     maxHeight = "",
-    icon = null,
+    icon = <SearchIcon />,
     backgroundColor = "#ECECEC",
 }) {
     // const [options, setOptions] = useState('chocolate');
@@ -70,26 +70,26 @@ export default function Input({
             maxWidth={maxWidth}
             maxHeight={maxHeight}
             iconI={icon}
-            icon={InputProps => (
-                <InputAdornment position="end">
-                    {icon}
-                </InputAdornment>
-            )}
+            // icon={InputProps => (
+            //     <InputAdornment position="end">
+            //         {icon}
+            //     </InputAdornment>
+            // )}
             InputLabelProps={{
                 style: styles.floatingLabelFocusStyle,
             }}
-        // InputProps={{
-        //     style: {
-        //         border: null,
-        //     }
-        // }}
-        // InputProps={{
-        //     startAdornment: (
-        //         <InputAdornment position="start">
-        //             <SearchIcon />
-        //         </InputAdornment>
-        //     )
-        // }}
+            // InputProps={{
+            //     style: {
+            //         border: null,
+            //     }
+            // }}
+            InputProps={{
+                startAdornment: (
+                    <InputAdornment position="start">
+                        {icon}
+                    </InputAdornment>
+                )
+            }}
         />
     )
 }

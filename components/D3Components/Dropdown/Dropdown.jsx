@@ -3,7 +3,7 @@ import { styled, alpha } from '@mui/material/styles';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import OptionsBtn from '../../styles/styledComps';
+import { OptionsBtn } from '../../../styles/styledComps';
 
 const StyledMenu = styled((props) => (
     <Menu
@@ -55,14 +55,22 @@ export default function CustomizedMenus({
     icon2 = null,
     // icon3 = { icon3 },
     // icon4 = { icon4 },
+    ops = [{
+        name: "Option 1",
+        icon: null
+    }],
+    onClose = () => { }
 }) {
     const [anchorEl, setAnchorEl] = React.useState(null);
+    const [val, setVal] = React.useState('Please Select')
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
-    const handleClose = () => {
+    const handleClose = (selected_val = 'nothing') => {
         setAnchorEl(null);
+        setVal(selected_val)
+        onClose(selected_val);
     };
 
     // const hostClick = () => {
@@ -85,8 +93,9 @@ export default function CustomizedMenus({
                 onClick={handleClick}
                 endIcon={<KeyboardArrowDownIcon />}
             >
-                Please Select
+                {val}
             </OptionsBtn>
+
             <StyledMenu
                 id="demo-customized-menu"
                 MenuListProps={{
@@ -96,22 +105,13 @@ export default function CustomizedMenus({
                 open={open}
                 onClose={handleClose}
             >
-                <MenuItem onClick={handleClose} disableRipple>
-                    {icon1}
-                    {op1}
-                </MenuItem>
-                <MenuItem onClick={handleClose} disableRipple>
-                    {icon2}
-                    {op2}
-                </MenuItem>
-                {/* <MenuItem onClick={handleClose} disableRipple>
-                    {icon3}
-                    {op3}
-                </MenuItem>
-                <MenuItem onClick={handleClose} disableRipple>
-                    {icon4}
-                    {op4}
-                </MenuItem> */}
+                {ops.map((o, i) => {
+                    return <MenuItem onClick={() => handleClose(o.name)} disableRipple>
+                        {o.icon}
+                        {o.name}
+                    </MenuItem>
+
+                })}
             </StyledMenu>
         </div>
     );

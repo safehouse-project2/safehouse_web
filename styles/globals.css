@@ -7,8 +7,8 @@
     background-color: #1a202c;
 }
 
-body, html{
-    font-family: 'Poppins', sans-serif;
+body, html, *{
+    font-family: 'Poppins', sans-serif !important; 
 }
 
 .dropd{
