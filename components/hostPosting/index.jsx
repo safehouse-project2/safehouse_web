@@ -2,6 +2,10 @@ import { useState, useRef } from "react";
 import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
 import { useRouter } from "next/router";
 import Autocomplete from "../Autocomplete";
+import PlacesAutocomplete, {
+  geocodeByAddress,
+  getLatLng,
+} from "react-places-autocomplete";
 
 const Host = ({ onSubmit }) => {
   const { isLoaded, loadError } = useLoadScript({
@@ -13,6 +17,7 @@ const Host = ({ onSubmit }) => {
   const [isPosted, setIsPosted] = useState(false);
   const [address, setAddress] = useState("");
   const [guests, setGuests] = useState(null);
+    const [state, setState] = useState({ address: "" });
   const [file, setFile] = useState(null);
   const fileRef = useRef(null);
   const [description, setDescription] = useState("");
@@ -23,7 +28,7 @@ const Host = ({ onSubmit }) => {
     e.preventDefault();
     setIsPosted(true);
     setData({
-      address,
+      address: state.address,
       guests,
       file,
       description,
@@ -32,6 +37,18 @@ const Host = ({ onSubmit }) => {
     router.push("/Dashboard");
   };
 
+  const handleChange = address => {
+    setState({ address });
+  };
+
+  const handleSelect = address => {
+    geocodeByAddress(address)
+      .then(results => getLatLng(results[0]))
+      .then(latLng =>
+        console.log("Success", setPostCenter([latLng, ...postCenter]))
+      )
+      .catch(error => console.error("Error", error));
+  };
   const containerStyle = {
     width: "1000px",
     height: "800px",
@@ -48,12 +65,57 @@ const Host = ({ onSubmit }) => {
       <div>
         <div>
           <form onSubmit={handleSubmit}>
-            <input
+          <div>
+        <PlacesAutocomplete
+          value={state.address}
+          onChange={handleChange}
+          onSelect={handleSelect}
+        >
+          {({
+            getInputProps,
+            suggestions,
+            getSuggestionItemProps,
+            loading,
+          }) => (
+            <div>
+              <input
+                {...getInputProps({
+                  placeholder: "Search Places ...",
+                  className: "location-search-input",
+                })}
+              />
+              <div className="autocomplete-dropdown-container">
+                {loading && <div>Loading...</div>}
+                {suggestions.map(suggestion => {
+                  const className = suggestion.active
+                    ? "suggestion-item--active"
+                    : "suggestion-item";
+                  const style = suggestion.active
+                    ? { backgroundColor: "#fafafa", cursor: "pointer" }
+                    : { backgroundColor: "#ffffff", cursor: "pointer" };
+                  return (
+                    <div
+                      key={suggestion.description}
+                      {...getSuggestionItemProps(suggestion, {
+                        className,
+                        style,
+                      })}
+                    >
+                      <span>{suggestion.description}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+        </PlacesAutocomplete>
+      </div>
+            {/* <input
               value={address}
               onChange={(e) => setAddress(e.target.value)}
               type="text"
               placeholder="Address"
-            />
+            /> */}
             <input
               value={guests}
               onChange={(e) => setGuests(e.target.value)}
