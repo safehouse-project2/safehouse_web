@@ -13,7 +13,6 @@ import SubmitForm from './ConfirmForm';
 import { useRouter } from 'next/router'
 
 function CreatHomePost() {
-
     const router = useRouter()
     const [formData, setFormData] = useState({
 
@@ -25,6 +24,7 @@ function CreatHomePost() {
         city: '',
         province: '',
         postalCode: '',
+        country: '',
 
         guests: 0,
         bedrooms: 0,
@@ -71,7 +71,6 @@ function CreatHomePost() {
     };
 
 
-
     function handleNext(e) {
         e.preventDefault();
         if (page === 0) {
@@ -84,7 +83,7 @@ function CreatHomePost() {
             }
         }
         if (page === 1) {
-            if (formData.addressLine1 === '') {
+            if (formData.address === '') {
                 alert('Please enter an address');
             } else if (formData.city === '') {
                 alert('Please enter a city');
@@ -115,7 +114,7 @@ function CreatHomePost() {
 
         if (page === 6) {
             console.log(formData);
-            
+
         }
 
 

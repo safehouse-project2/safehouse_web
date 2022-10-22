@@ -17,7 +17,7 @@ import { Button } from "@mui/material";
 const EvacueePosting = ({ onSubmit, home, setHome }) => {
   const [data, setData] = useState([]);
   const [locationInfo, setLocationInfo] = useState(null);
-  const [state, setState] = useState({ address: "" });
+
   const [postCenter, setPostCenter] = useState({
     lat: 49.2835,
     lng: -123.1153,
