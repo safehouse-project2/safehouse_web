@@ -45,7 +45,6 @@ function CreatHomePost() {
         city: '',
         province: '',
         postalCode: '',
-        country: '',
 
         guests: 0,
         bedrooms: 0,

@@ -132,17 +132,6 @@ export default function FormAddressDetail({ formData, setFormData }) {
             onChange={(e) => setFormData({ ...formData, city: e.target.value })}
           />
         </FormControl>
-        <FormControl>
-          <label htmlFor="coutnry">Country</label>
-          <TextField
-            type="text"
-            name="country"
-            id="country"
-            variant='outlined'
-            value={addressAry[addressAry.length - 1]}
-            onChange={(e) => setFormData({ ...formData, coutnry: e.target.value })}
-          />
-        </FormControl>
         {/* <FormControl>
           <label htmlFor="province">Province</label>
           <select
@@ -185,8 +174,7 @@ export default function FormAddressDetail({ formData, setFormData }) {
               ...formData,
               addressLine1: addressAry[0] ? addressAry[0] : state.address,
               city: addressAry[addressAry.length - 3] ? addressAry[addressAry.length - 3] : formData.city,
-              province: addressAry[addressAry.length - 2] ? addressAry[addressAry.length - 2] : formData.province,
-              coutnry: addressAry[addressAry.length - 1] ? addressAry[addressAry.length - 1] : formData.coutnry,
+              province: addressAry[addressAry.length - 2] ? addressAry[addressAry.length - 2] : formData.province
             })}
           />
         </FormControl>
