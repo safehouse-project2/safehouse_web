@@ -17,14 +17,14 @@ const Host = ({ onSubmit }) => {
   const [isPosted, setIsPosted] = useState(false);
   const [address, setAddress] = useState("");
   const [guests, setGuests] = useState(null);
-    const [state, setState] = useState({ address: "" });
+  const [state, setState] = useState({ address: "" });
   const [file, setFile] = useState(null);
   const fileRef = useRef(null);
   const [description, setDescription] = useState("");
   const [data, setData] = useState(null);
   const router = useRouter();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
     setIsPosted(true);
     setData({
@@ -65,60 +65,60 @@ const Host = ({ onSubmit }) => {
       <div>
         <div>
           <form onSubmit={handleSubmit}>
-          <div>
-        <PlacesAutocomplete
-          value={state.address}
-          onChange={handleChange}
-          onSelect={handleSelect}
-        >
-          {({
-            getInputProps,
-            suggestions,
-            getSuggestionItemProps,
-            loading,
-          }) => (
             <div>
-              <input
-                {...getInputProps({
-                  placeholder: "Search Places ...",
-                  className: "location-search-input",
-                })}
-              />
-              <div className="autocomplete-dropdown-container">
-                {loading && <div>Loading...</div>}
-                {suggestions.map(suggestion => {
-                  const className = suggestion.active
-                    ? "suggestion-item--active"
-                    : "suggestion-item";
-                  const style = suggestion.active
-                    ? { backgroundColor: "#fafafa", cursor: "pointer" }
-                    : { backgroundColor: "#ffffff", cursor: "pointer" };
-                  return (
-                    <div
-                      key={suggestion.description}
-                      {...getSuggestionItemProps(suggestion, {
-                        className,
-                        style,
+              <PlacesAutocomplete
+                value={state.address}
+                onChange={handleChange}
+                onSelect={handleSelect}
+              >
+                {({
+                  getInputProps,
+                  suggestions,
+                  getSuggestionItemProps,
+                  loading,
+                }) => (
+                  <div>
+                    <input
+                      {...getInputProps({
+                        placeholder: "Search Places ...",
+                        className: "location-search-input",
                       })}
-                    >
-                      <span>{suggestion.description}</span>
+                    />
+                    <div className="autocomplete-dropdown-container">
+                      {loading && <div>Loading...</div>}
+                      {suggestions.map(suggestion => {
+                        const className = suggestion.active
+                          ? "suggestion-item--active"
+                          : "suggestion-item";
+                        const style = suggestion.active
+                          ? { backgroundColor: "#fafafa", cursor: "pointer" }
+                          : { backgroundColor: "#ffffff", cursor: "pointer" };
+                        return (
+                          <div
+                            key={suggestion.description}
+                            {...getSuggestionItemProps(suggestion, {
+                              className,
+                              style,
+                            })}
+                          >
+                            <span>{suggestion.description}</span>
+                          </div>
+                        );
+                      })}
                     </div>
-                  );
-                })}
-              </div>
+                  </div>
+                )}
+              </PlacesAutocomplete>
             </div>
-          )}
-        </PlacesAutocomplete>
-      </div>
-            {/* <input
+            <input
               value={address}
-              onChange={(e) => setAddress(e.target.value)}
+              onChange={e => setAddress(e.target.value)}
               type="text"
               placeholder="Address"
-            /> */}
+            />
             <input
               value={guests}
-              onChange={(e) => setGuests(e.target.value)}
+              onChange={e => setGuests(e.target.value)}
               type="number"
               placeholder="Number of Guests"
             />
@@ -126,12 +126,12 @@ const Host = ({ onSubmit }) => {
               type="file"
               ref={fileRef}
               accept="image/*"
-              onChange={(e) => setFile(e.target.files[0])}
+              onChange={e => setFile(e.target.files[0])}
               placeholder="Upload Image"
             />
             <textarea
               value={description}
-              onChange={(e) => setDescription(e.target.value)}
+              onChange={e => setDescription(e.target.value)}
               type="text"
               placeholder="Description"
             />
@@ -147,7 +147,7 @@ const Host = ({ onSubmit }) => {
         center={{ lat: 49.2835, lng: -123.1153 }}
         zoom={5}
       >
-        {postCenter.map((item, index) => (
+        {home.map((item, index) => (
           <div key={index}>
             <Marker
               key={item.lat}
