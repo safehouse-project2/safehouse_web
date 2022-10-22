@@ -17,6 +17,7 @@ import { Button } from "@mui/material";
 const EvacueePosting = ({ onSubmit, home, setHome }) => {
   const [data, setData] = useState([]);
   const [locationInfo, setLocationInfo] = useState(null);
+  const [state, setState] = useState({ address: "" });
 
   const [postCenter, setPostCenter] = useState({
     lat: 49.2835,
@@ -200,7 +201,14 @@ const EvacueePosting = ({ onSubmit, home, setHome }) => {
                     id: item.id,
                     title: (
                       <Button variant="outlined" href={`/home/${item.id}`}>
-                        {item.address}
+                        {
+                          /* {  {item.addressLine1 ? item.addressLine1 : null}
+                        {item.description ? item.description : null}} */
+                          {
+                            address: item.addressLine1,
+                            description: item.description,
+                          }
+                        }
                       </Button>
                     ),
                     lat: item.lat,
@@ -232,7 +240,8 @@ const EvacueePosting = ({ onSubmit, home, setHome }) => {
             }}
           >
             <div>
-              <h2>{locationInfo.title}</h2>
+              <h2>{locationInfo.title.address}</h2>
+              <h2>{locationInfo.title.description}</h2>
             </div>
           </InfoWindow>
         )}
