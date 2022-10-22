@@ -1,4 +1,4 @@
-import EvacueePosting from "./index";
+import EvacueePosting from "./evacueePosting.jsx"
 
 export default {
     title: "EvacueePosting",
