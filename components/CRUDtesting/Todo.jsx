@@ -2,11 +2,12 @@ import React, { useContext } from "react";
 import { IconButton, ListItem, ListItemText } from "@mui/material";
 import moment from "moment";
 //yarn add moment
-import DeleteIcon from "@mui/icons-material/Delete";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
-import { CRUDContext } from "../../pages/CRUDContext";
-import { deleteDoc, doc } from "firebase/firestore";
-import { db } from "../../firebase";
+
+import DeleteIcon from '@mui/icons-material/Delete';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { CRUDContext } from '../../CRUDContext'
+import{deleteDoc, doc} from 'firebase/firestore'
+import { db } from '../../firebase'
 
 export default function Todo({ id, timestamp, title, detail }) {
   const { showAlert, setTodo } = useContext(CRUDContext);
