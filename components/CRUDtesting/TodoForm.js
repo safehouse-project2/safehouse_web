@@ -2,7 +2,7 @@ import { TextField, Button,} from '@mui/material'
 import React, { useContext, useEffect, useRef } from 'react'
 import { collection, addDoc, serverTimestamp, updateDoc, doc} from 'firebase/firestore'
 import { db } from '../../firebase'
-import { CRUDContext } from '../../pages/CRUDContext'
+import { CRUDContext } from '../../CRUDContext'
 
 export default function TodoForm() {
     const inputAreaRef = useRef();
