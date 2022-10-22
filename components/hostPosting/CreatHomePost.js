@@ -10,8 +10,11 @@ import { db } from '../../firebase'
 
 import React, { useState } from 'react'
 import SubmitForm from './ConfirmForm';
+import { useRouter } from 'next/router'
 
 function CreatHomePost() {
+
+    const router = useRouter()
     const [formData, setFormData] = useState({
 
         homeType: '',
@@ -116,7 +119,7 @@ function CreatHomePost() {
         }
 
 
-        //setPage(page + 1);
+        // setPage(page + 1);
     }
 
 
@@ -128,6 +131,7 @@ function CreatHomePost() {
                 serverTimestamp()
         })
         alert('success', `Home with id ${docRef.id} added successfully`)
+        router.push('/host')
     }
 
     return (
