@@ -110,12 +110,12 @@ const Host = ({ onSubmit }) => {
                 )}
               </PlacesAutocomplete>
             </div>
-            {/* <input
+            <input
               value={address}
-              onChange={(e) => setAddress(e.target.value)}
+              onChange={e => setAddress(e.target.value)}
               type="text"
               placeholder="Address"
-            /> */}
+            />
             <input
               value={guests}
               onChange={e => setGuests(e.target.value)}
@@ -147,7 +147,7 @@ const Host = ({ onSubmit }) => {
         center={{ lat: 49.2835, lng: -123.1153 }}
         zoom={5}
       >
-        {postCenter.map((item, index) => (
+        {home.map((item, index) => (
           <div key={index}>
             <Marker
               key={item.lat}

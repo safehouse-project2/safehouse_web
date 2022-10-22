@@ -18,8 +18,8 @@ export default function Home() {
           <p>Apply to become a host</p>
         </Box>
         <Box sx={{ m: 2 }}>
-  
-          <Button variant="outlined" href="/login">
+
+          <Button variant="outlined" href="/evacuee">
             Evacuee
           </Button>
           <p>Apply to be an evacuee</p>

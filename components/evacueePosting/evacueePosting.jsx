@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import Autocomplete from "../Autocomplete";
 import { useRouter } from "next/router";
 import axios from "axios";
 import {
@@ -8,34 +7,31 @@ import {
   Marker,
   InfoWindow,
   useLoadScript,
-  DistanceMatrixService,
 } from "@react-google-maps/api";
 import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from "react-places-autocomplete";
+import { Button } from "@mui/material";
 
-const EvacueePosting = ({ onSubmit }) => {
+const EvacueePosting = ({ onSubmit, home, setHome }) => {
   const [data, setData] = useState([]);
   const [locationInfo, setLocationInfo] = useState(null);
   const [state, setState] = useState({ address: "" });
-  const [postCenter, setPostCenter] = useState([]);
-  const [people, setPeople] = useState([
-    {
-      id: "",
-      name: "",
-      mark: "",
-      description: "",
-      address: "",
-      number: 4,
-    },
-  ]);
+  const [postCenter, setPostCenter] = useState({
+    lat: 49.2835,
+    lng: -123.1153,
+  });
+  const [selected, setSelected] = useState(false);
+  const [center, setCenter] = useState({ lat: 49.2835, lng: -123.1153 });
+
   const nasaApiKey = process.env.NEXT_PUBLIC_NASA_API;
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAP_API,
     libraries: ["places"],
   });
   const router = useRouter();
+
   useEffect(() => {
     (async () => {
       const response = await axios.get(
@@ -45,6 +41,7 @@ const EvacueePosting = ({ onSubmit }) => {
       setData(events);
     })();
   }, []);
+
   const fireMarkers = data.map(item => {
     if (item.categories[0].id === "wildfires") {
       return (
@@ -77,21 +74,38 @@ const EvacueePosting = ({ onSubmit }) => {
   });
   const submitHandler = e => {
     e.preventDefault();
-    onSubmit({ address: people.address, number: people.number });
+    onSubmit({
+      country: state.address.split(",")[state.address.split(",").length - 1],
+      province: state.address.split(",")[state.address.split(",").length - 2],
+      city: state.address.split(",")[state.address.split(",").length - 3],
+      address: state.address,
+      lat: home.lat,
+      lng: home.lng,
+    });
     router.push("/Dashboard");
-  };
-  const handleChange = address => {
-    setState({ address });
   };
 
   const handleSelect = address => {
     geocodeByAddress(address)
       .then(results => getLatLng(results[0]))
-      .then(latLng =>
-        console.log("Success", setPostCenter([latLng, ...postCenter]))
-      )
+      .then(latLng => setHome({ ...home, lat: latLng.lat, lng: latLng.lng }))
       .catch(error => console.error("Error", error));
   };
+  const findmylocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        setCenter({
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+          animation: google.maps.Animation.DROP,
+        });
+        setSelected(true);
+      });
+    } else {
+      alert("Sorry, your browser does not support HTML5 geolocation.");
+    }
+  };
+
   const containerStyle = {
     width: "1000px",
     height: "800px",
@@ -101,22 +115,15 @@ const EvacueePosting = ({ onSubmit }) => {
     return "Error loading maps";
   }
   if (!isLoaded) return <div>Loading Maps</div>;
-
   return (
     <div>
+      <div>
+        <button onMouseDown={findmylocation}>Current Location</button>
+      </div>
       <form onSubmit={submitHandler}>
-        <input
-          value={people.number}
-          onChange={event =>
-            setPeople({ ...people, number: event.target.value })
-          }
-          type="number"
-          placeholder="How many people?"
-        />
-
         <PlacesAutocomplete
           value={state.address}
-          onChange={handleChange}
+          onChange={address => setState({ address })}
           onSelect={handleSelect}
         >
           {({
@@ -128,14 +135,15 @@ const EvacueePosting = ({ onSubmit }) => {
             <div>
               <input
                 {...getInputProps({
-                  placeholder: "Search Places ...",
+                  placeholder: "Search Places",
                   className: "location-search-input",
                 })}
               />
               <div className="autocomplete-dropdown-container">
                 {loading && <div>Loading...</div>}
                 {suggestions.map(suggestion => {
-                  setPeople({ ...people, address: suggestion.description });
+                  // console.log(suggestion);
+                  // setHome({ ...home, address: suggestion.description });
                   const className = suggestion.active
                     ? "suggestion-item--active"
                     : "suggestion-item";
@@ -150,7 +158,13 @@ const EvacueePosting = ({ onSubmit }) => {
                         style,
                       })}
                     >
-                      <span>{suggestion.description}</span>
+                      <span
+                        onClick={e =>
+                          setState({ address: e.currentTarget.innerHTML })
+                        }
+                      >
+                        {suggestion.description}
+                      </span>
                     </div>
                   );
                 })}
@@ -158,28 +172,82 @@ const EvacueePosting = ({ onSubmit }) => {
             </div>
           )}
         </PlacesAutocomplete>
+
         <button type="submit">Submit</button>
       </form>
+
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={{ lat: 49.2835, lng: -123.1153 }}
         zoom={5}
       >
         {fireMarkers ? fireMarkers : null}
-        {postCenter.map((item, index) => (
-          <div key={index}>
-            <Marker
-              key={item.lat}
-              position={{ lat: item.lat, lng: item.lng }}
-              icon={{
-                url: "/current_location.svg",
-                scaledSize: new window.google.maps.Size(40, 40),
-                origin: new window.google.maps.Point(0, 0),
-                anchor: new window.google.maps.Point(15, 15),
-              }}
-            />
-          </div>
-        ))}
+
+        {home &&
+          home.map((item, index) => (
+            <div key={index}>
+              <Marker
+                key={item.lat}
+                position={{ lat: item.lat, lng: item.lng }}
+                icon={{
+                  url: "/vector.svg",
+                  scaledSize: new window.google.maps.Size(40, 40),
+                  origin: new window.google.maps.Point(0, 0),
+                  anchor: new window.google.maps.Point(15, 15),
+                }}
+                onClick={() => {
+                  setLocationInfo({
+                    id: item.id,
+                    title: (
+                      <Button variant="outlined" href={`/home/${item.id}`}>
+                        {item.address}
+                      </Button>
+                    ),
+                    lat: item.lat,
+                    lng: item.lng,
+                  });
+                  // onClick={() => {
+                  //   router.push(`/home/${item.id}`);
+                  // }}
+                }}
+              />
+            </div>
+          ))}
+        <div>
+          <Marker
+            position={{ lat: postCenter.lat, lng: postCenter.lng }}
+            icon={{
+              url: "/current_location.svg",
+              scaledSize: new window.google.maps.Size(40, 40),
+              origin: new window.google.maps.Point(0, 0),
+              anchor: new window.google.maps.Point(15, 15),
+            }}
+          />
+        </div>
+        {locationInfo && (
+          <InfoWindow
+            position={{ lat: locationInfo.lat, lng: locationInfo.lng }}
+            onCloseClick={() => {
+              setLocationInfo(null);
+            }}
+          >
+            <div>
+              <h2>{locationInfo.title}</h2>
+            </div>
+          </InfoWindow>
+        )}
+        {selected ? (
+          <Marker
+            key={center.id}
+            position={{ lat: center.lat, lng: center.lng }}
+            icon={{
+              url: "/current_location.svg",
+              scaledSize: new window.google.maps.Size(40, 40),
+              origin: new window.google.maps.Point(0, 0),
+              anchor: new window.google.maps.Point(15, 15),
+            }}
+          />
+        ) : null}
       </GoogleMap>
     </div>
   );
