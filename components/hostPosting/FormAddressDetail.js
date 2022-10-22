@@ -1,30 +1,106 @@
-import React from 'react'
+import React, { useState } from 'react'
 import FormControl from '@mui/material/FormControl';
-import { TextField } from '@mui/material'
-
+import PlacesAutocomplete, {
+  geocodeByAddress,
+  getLatLng,
+} from "react-places-autocomplete";
+import Script from "next/script";
+import { TextField } from '@mui/material';
+import Autocomplete from '../Autocomplete';
 
 
 export default function FormAddressDetail({ formData, setFormData }) {
+  const [state, setState] = useState({ address: "," });
+
+  const addressAry = state.address.split(",")
+
+
+  const handleChange = address => {
+    setState({ address });
+  };
+
+  const handleSelect = address => {
+    geocodeByAddress(address)
+      .then(results => getLatLng(results[0]))
+      .then(latLng => setFormData({ ...formData, lat: latLng.lat, lng: latLng.lng }))
+      .catch(error => console.error("Error", error));
+  };
+
+
   return (
     <div>
+      <Script
+        strategy="beforeInteractive"
+        src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAP_API}&libraries=places`}
+      ></Script>
       <form>
+
         <FormControl>
           <label htmlFor="addressLine1">Address Line 1</label>
-          <TextField
-            type="text"
-            name="addressLine1"
-            id="addressLine1"
-            variant='outlined'
-            value={formData.addressLine1}
-            onChange={(e) =>
-              setFormData({ ...formData, addressLine1: e.target.value })
+
+          <PlacesAutocomplete
+            value={state.address.split(",")[0]}
+            onChange={address => setState({ address })}
+            onSelect={handleSelect}
+          >
+            {({
+              getInputProps,
+              suggestions,
+              getSuggestionItemProps,
+              loading,
+            }) => (
+              <div>
+
+                <TextField
+                  {...getInputProps({
+                  })}
+                  type="text"
+                  name="addressLine1"
+                  id="addressLine1"
+                  variant='outlined'
+                />
+
+                <div className="autocomplete-dropdown-container">
+                  {loading && <div>Loading...</div>}
+                  {suggestions.map(suggestion => {
+                    // console.log(suggestion);
+                    // setHome({ ...home, address: suggestion.description });
+                    const className = suggestion.active
+                      ? "suggestion-item--active"
+                      : "suggestion-item";
+                    const style = suggestion.active
+                      ? { backgroundColor: "#fafafa", cursor: "pointer" }
+                      : { backgroundColor: "#ffffff", cursor: "pointer" };
+                    return (
+                      <div
+                        key={suggestion.description}
+                        {...getSuggestionItemProps(suggestion, {
+                          className,
+                          style,
+                        })}
+                      >
+                        <span
+                          onClick={e => {
+                            setState({ address: e.currentTarget.innerHTML })
+                          }
+                          }
+                        >
+                          {suggestion.description}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )
             }
-          />
+          </PlacesAutocomplete >
+
         </FormControl>
         <FormControl>
           <label htmlFor="addressLine2">Address Line 2</label>
           <TextField
-            type="text" 
+            type="text"
             name="addressLine2"
             id="addressLine2"
             variant='outlined'
@@ -41,11 +117,33 @@ export default function FormAddressDetail({ formData, setFormData }) {
             name="city"
             id="city"
             variant='outlined'
-            value={formData.city}
+            value={addressAry[addressAry.length - 3]}
             onChange={(e) => setFormData({ ...formData, city: e.target.value })}
           />
         </FormControl>
         <FormControl>
+          <label htmlFor="city">Province</label>
+          <TextField
+            type="text"
+            name="province"
+            id="province"
+            variant='outlined'
+            value={addressAry[addressAry.length - 2]}
+            onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+          />
+        </FormControl>
+        <FormControl>
+          <label htmlFor="coutnry">Country</label>
+          <TextField
+            type="text"
+            name="country"
+            id="country"
+            variant='outlined'
+            value={addressAry[addressAry.length - 1]}
+            onChange={(e) => setFormData({ ...formData, coutnry: e.target.value })}
+          />
+        </FormControl>
+        {/* <FormControl>
           <label htmlFor="province">Province</label>
           <select
             name="province"
@@ -71,7 +169,7 @@ export default function FormAddressDetail({ formData, setFormData }) {
             <option value="Nunavut">Nunavut</option>
             <option value="Yukon">Yukon</option>
           </select>
-        </FormControl>
+        </FormControl> */}
         <FormControl>
           <label htmlFor="postalCode">Postal Code</label>
           <TextField
@@ -83,11 +181,19 @@ export default function FormAddressDetail({ formData, setFormData }) {
             onChange={(e) =>
               setFormData({ ...formData, postalCode: e.target.value })
             }
+            onSelect={() => setFormData({
+              ...formData,
+              addressLine1: addressAry[0] ? addressAry[0] : state.address,
+              city: addressAry[addressAry.length - 3] ? addressAry[addressAry.length - 3] : formData.city,
+              province: addressAry[addressAry.length - 2] ? addressAry[addressAry.length - 2] : formData.province,
+              coutnry: addressAry[addressAry.length - 1] ? addressAry[addressAry.length - 1] : formData.coutnry,
+            })}
           />
         </FormControl>
-      </form>
 
-   
-    </div>
+      </form >
+
+
+    </div >
   )
 }

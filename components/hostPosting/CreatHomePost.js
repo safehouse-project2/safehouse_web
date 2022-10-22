@@ -16,6 +16,7 @@ import { useRouter } from 'next/router'
 
 function CreatHomePost() {
 
+
     const [open, setOpen] = useState(false);
     const [alertType, setAlertType] = useState("success");
     const [alertMessage, setAlertMessage] = useState("");
@@ -44,6 +45,7 @@ function CreatHomePost() {
         city: '',
         province: '',
         postalCode: '',
+        country: '',
 
         guests: 0,
         bedrooms: 0,
@@ -92,7 +94,6 @@ function CreatHomePost() {
     };
 
 
-
     function handleNext(e) {
         e.preventDefault();
         if (page === 0) {
@@ -105,6 +106,7 @@ function CreatHomePost() {
             }
         }
         if (page === 1) {
+
             if (formData.addressLine1 === '') {
                 showAlert('warning', 'Please enter an address');
             } else if (formData.city === '') {

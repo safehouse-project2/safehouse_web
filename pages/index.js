@@ -3,8 +3,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import NavBar from '../components/Home/NavBar'
 import { Button } from '@mui/material'
-import{Box} from '@mui/system'
-import Host from '../components/HostPosting/index'
+import { Box } from '@mui/system'
+import Host from '../components/hostPosting/hostPosting'
 
 export default function Home() {
   return (
