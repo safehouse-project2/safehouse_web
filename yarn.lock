@@ -1079,7 +1079,6 @@
   dependencies:
     "regenerator-runtime" "^0.13.4"
 
-<<<<<<< HEAD
 "@babel/runtime@^7.10.4", "@babel/runtime@^7.10.5", "@babel/runtime@^7.3.1", "@babel/runtime@^7.4.4", "@babel/runtime@^7.8.3":
   version "7.19.4"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.19.4.tgz#a42f814502ee467d55b38dd1c256f53a7b885c78"
@@ -1087,8 +1086,6 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-=======
->>>>>>> ac483da0518dd5f3122540caddf23f6978d55c88
 "@babel/runtime@~7.5.4":
   "integrity" "sha512-28QvEGyQyNkB0/m2B4FU7IEZGK2NUrcMtT6BZEFALTguLk+AUT6ofsHtPk5QyjAdUkpMJ+/Em+quwz4HOt30AQ=="
   "resolved" "https://registry.npmjs.org/@babel/runtime/-/runtime-7.5.5.tgz"
