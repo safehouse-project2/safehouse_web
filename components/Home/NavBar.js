@@ -1,4 +1,3 @@
-
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -61,7 +60,7 @@ function ResponsiveAppBar() {
             SafeHouse
           </Typography>
 
-          <Box  sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -92,7 +91,7 @@ function ResponsiveAppBar() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Link style={{textDecoration: 'none'}} href={"/" + page}><Typography textAlign="center">
+                  <Link style={{ textDecoration: 'none' }} href={"/" + page}><Typography textAlign="center">
                     {page}
                   </Typography></Link>
                 </MenuItem>
@@ -118,7 +117,7 @@ function ResponsiveAppBar() {
           >
             SafeHouse
           </Typography>
-          <Box  sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Link href={"/" + page}><Button
                 key={page}
@@ -130,7 +129,7 @@ function ResponsiveAppBar() {
             ))}
           </Box>
 
-          <Box  sx={{ flexGrow: 0 }}>
+          <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
