@@ -3,7 +3,7 @@ import NavBar from '../components/Home/NavBar'
 import CreatePost from '../components/CRUDtesting/TodoList'
 import { Container, Snackbar, Alert } from '@mui/material'
 import TodoForm from '../components/CRUDtesting/TodoForm'
-import { CRUDContext } from './CRUDContext'
+import { CRUDContext } from '../CRUDContext'
 
 
 export default function Dashboard() {
