@@ -24,7 +24,7 @@ const DetailPage = () => {
 
   if (id) {
     const getHome = async id => {
-      const docRef = doc(db, "home", id);
+      const docRef = doc(db, "homes", id);
       const home = await getDoc(docRef);
       setState(home.data());
     };
@@ -33,7 +33,12 @@ const DetailPage = () => {
 
   return (
     <>
-      <div>{state.address}</div>
+      <div>Address: {state.addressLine1 ? state.addressLine1 : null}</div>
+      <div>City: {state.city ? state.city : null}</div>
+      <div>Province: {state.province ? state.province : null}</div>
+
+      <div>Postal Code: {state.postalCode ? state.postalCode : null}</div>
+      <div>Description: {state.description ? state.description : null}</div>
     </>
   );
 };
