@@ -153,7 +153,7 @@ function CreatHomePost() {
                 serverTimestamp()
         })
         showAlert('success', `Home with id ${docRef.id} added successfully`)
-        router.push('/host')
+        router.push('/list')
     }
 
 
