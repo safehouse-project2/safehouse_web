@@ -23,9 +23,9 @@ export default function Home() {
           <div className='flex gap-10 z-99'>
             <div className='flex justify-center items-center flex-col gap-3'>
               <Button
-                href="/host"
+                // href="/host"
                 txt='Host'
-              // onBtnClick={goToHost}
+                onBtnClick={goToHost}
               />
               <AppText
                 txt='Apply to become a host'
