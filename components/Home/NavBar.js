@@ -12,6 +12,8 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from '@mui/material';
+import AppText from '/components/D3Components/AppText/AppText'
+import Image from '/components/D3Components/Image/ImageComp'
 
 
 
@@ -38,27 +40,19 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static" style={{ backgroundColor: "#53A08E" }}>
+    <AppBar position="sticky" style={{ backgroundColor: "#f5f5f5" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          {/* add icon here */}
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            SafeHouse
-          </Typography>
+          <Image
+            src="/logo.png"
+            width="54px"
+            height="63px"
+          />
+
+          <AppText
+            txt="SafeHouse"
+            fontSize="1.5rem"
+          />
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -99,33 +93,16 @@ function ResponsiveAppBar() {
             </Menu>
           </Box>
           {/* add icon here */}
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            SafeHouse
-          </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Link href={"/" + page}><Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button></Link>
+              <Link href={"/" + page}>
+                <Button
+                  key={page}
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: '#272727', display: 'block', textDecoration: 'none' }}
+                >
+                  {page}
+                </Button></Link>
             ))}
           </Box>
 

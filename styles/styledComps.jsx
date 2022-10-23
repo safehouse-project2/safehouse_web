@@ -14,8 +14,9 @@ export const OptionsBtn = styled(Button)`
 
 export const BackgroundContainer = styled.div`
     background-image: url(${props => props.src});
-    width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
+    // height: 100vh;
+    min-width: 100%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -27,4 +28,11 @@ export const MainContainer = styled.div`
     display: flex;
     flex-direction: column;
     padding-top: 40px;
+`
+
+export const CenterContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 `
