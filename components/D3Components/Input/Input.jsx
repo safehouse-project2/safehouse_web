@@ -7,8 +7,8 @@ import { InputAdornment } from '@mui/material';
 
 const TextBox = styled(TextField)`
     border-radius: 8px;
-    padding: ${(props) => props.padding || "0px 0px 0px 0px"};
-    margin: ${(props) => props.margin || "0px 0px 0px 0px"};
+    padding: ${(props) => props.padding || "0px 0px 0px 0px"} !important;
+    margin: ${(props) => props.margin || "0px 0px 0px 0px"} !important;
     background-color: ${(props) => props.backgroundColor || "#ECECEC"};
     max-width: ${(props) => props.maxWidth};
     max-height: ${(props) => props.maxHeight};
@@ -20,17 +20,6 @@ const TextBox = styled(TextField)`
     }
 `
 
-// const options = [
-//     {
-//         value: 'chocolate',
-//         label: 'KitKat',
-//     },
-//     {
-//         value: 'chocolate',
-//         label: 'KitKat',
-//     }
-// ]
-
 const styles = {
     floatingLabelFocusStyle: {
         color: "#B0B0B0",
@@ -39,7 +28,7 @@ const styles = {
 
 export default function Input({
     label = "Default Label",
-    variant = "outlined",
+    variant = "filled",
     size = "small",
     color = "",
     type = "text",
@@ -47,13 +36,11 @@ export default function Input({
     placeholder = "",
     maxWidth = "",
     maxHeight = "",
+    margin = "0px 0px 0px 0px",
+    padding = "0px 0px 0px 0px",
     icon = <SearchIcon />,
     backgroundColor = "#ECECEC",
 }) {
-    // const [options, setOptions] = useState('chocolate');
-    // const handleChange = (event) => {
-    //     setOptions(event.target.value);
-    // }
     return (
         <TextBox
             sx={{
@@ -63,6 +50,8 @@ export default function Input({
             placeholder={placeholder}
             variant={variant}
             size={size}
+            margin={margin}
+            padding={padding}
             color={color}
             type={type}
             backgroundColor={backgroundColor}
@@ -70,19 +59,9 @@ export default function Input({
             maxWidth={maxWidth}
             maxHeight={maxHeight}
             iconI={icon}
-            // icon={InputProps => (
-            //     <InputAdornment position="end">
-            //         {icon}
-            //     </InputAdornment>
-            // )}
             InputLabelProps={{
                 style: styles.floatingLabelFocusStyle,
             }}
-            // InputProps={{
-            //     style: {
-            //         border: null,
-            //     }
-            // }}
             InputProps={{
                 startAdornment: (
                     <InputAdornment position="start">
