@@ -9,6 +9,8 @@ import {
   getDoc,
 } from "firebase/firestore";
 import { db } from "/firebase";
+import Detail from "../../components/Home/Detail";
+import NavBar from "../../components/Home/NavBar";
 
 const DetailPage = () => {
   const [state, setState] = useState({
@@ -32,14 +34,10 @@ const DetailPage = () => {
   }
 
   return (
-    <>
-      <div>Address: {state.addressLine1 ? state.addressLine1 : null}</div>
-      <div>City: {state.city ? state.city : null}</div>
-      <div>Province: {state.province ? state.province : null}</div>
-
-      <div>Postal Code: {state.postalCode ? state.postalCode : null}</div>
-      <div>Description: {state.description ? state.description : null}</div>
-    </>
+    <div>
+      <NavBar />
+      <Detail key={state.id} state={state} />
+    </div>
   );
 };
 export default DetailPage;
