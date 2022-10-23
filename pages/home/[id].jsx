@@ -9,8 +9,8 @@ import {
   getDoc,
 } from "firebase/firestore";
 import { db } from "/firebase";
-import NavBar from "../../components/Home/NavBar";
 import Detail from "../../components/Home/Detail";
+import NavBar from "../../components/Home/NavBar";
 
 const DetailPage = () => {
   const [state, setState] = useState({
@@ -34,10 +34,10 @@ const DetailPage = () => {
   }
 
   return (
-    <>
+    <div>
       <NavBar />
-      <Detail state={state} />
-    </>
+      <Detail key={state.id} state={state} />
+    </div>
   );
 };
 export default DetailPage;

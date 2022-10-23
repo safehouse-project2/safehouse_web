@@ -1,11 +1,11 @@
 const Detail = ({ state }) => {
   return (
-    <>
-      <div>Address: {state.addressLine1 ? state.addressLine1 : null}</div>
-      <div>City: {state.city ? state.city : null}</div>
-      <div>Province: {state.province ? state.province : null}</div>
-      <div>Postal Code: {state.postalCode ? state.postalCode : null}</div>
-      <div>Description: {state.description ? state.description : null}</div>
+    <div key={state.id}>
+      <div>Address: {state.addressLine1}</div>
+      <div>City: {state.city}</div>
+      <div>Province: {state.province}</div>
+      <div>Postal Code: {state.postalCode}</div>
+      <div>Description: {state.description}</div>
       <div>Guests: {state.guests}</div>
       <div>bedrooms: {state.bedrooms}</div>
       <div>beds: {state.beds}</div>
@@ -20,7 +20,7 @@ const Detail = ({ state }) => {
       <div>TV: {state.tv}</div>
       <div>AC: {state.airConditioning}</div>
       <div>Heating: {state.heating}</div>
-    </>
+    </div>
   );
 };
 export default Detail;

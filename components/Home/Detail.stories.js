@@ -4,7 +4,7 @@ export default {
     title: "Detail",
     component: Detail,
     argTypes: {
-        state: { action: 'post host information' },
+        state: { state: 'post host information' },
     }
 }
 
