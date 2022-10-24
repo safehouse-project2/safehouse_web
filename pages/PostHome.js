@@ -1,4 +1,4 @@
-import { BackgroundContainer, MainContainer, CenterContainer } from "../styles/styledComps";
+import { BackgroundContainer, MainContainer, CenterContainer, LeftContainer } from "../styles/styledComps";
 import AppText from "../components/D3Components/AppText/AppText";
 import CreatHomePost from "../components/hostPosting/CreatHomePost";
 import { Container } from '@mui/material'
@@ -11,31 +11,29 @@ export default function PostHome() {
   return (
     <BackgroundContainer src="homeBG.png">
       <MainContainer>
-        <CenterContainer>
-          <div className="flex flex-col gap-4">
+        <LeftContainer>
+          <div className="flex flex-col gap-4 pb-10">
             <AppText
               txt="Tell us something about your place."
               fontSize="34px"
               color="#f5f5f5"
             />
-            <AppText
+            {/* <AppText
               txt="What kind of place will you be hosting ?"
               fontSize="18px"
               color="#f5f5f5"
-            />
-            <Dropdown
+            /> */}
+            {/* <Dropdown
               backgroundColor="#f5f5f5"
-            />
+            /> */}
           </div>
           <Script
             strategy="beforeInteractive"
             src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAP_API}&libraries=places`}
           >
           </Script>
-          <Container>
-            <CreatHomePost />
-          </Container>
-        </CenterContainer>
+          <CreatHomePost />
+        </LeftContainer>
       </MainContainer>
     </BackgroundContainer>
   )

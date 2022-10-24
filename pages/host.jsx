@@ -1,23 +1,41 @@
-
-
 import React from 'react'
 import PostHome from './postHome'
-import { Container, Button } from '@mui/material'
+import { BackgroundContainer, MainContainer, CenterContainer, LeftContainer } from '../styles/styledComps';
+import AppText from '../components/D3Components/AppText/AppText';
+import Button from '../components/D3Components/Button/Button';
 import NavBar from '../components/Home/navBar'
 
 export default function host() {
   return (
-    <>
-      <NavBar />
-      <Container>
-        <p>This is host page, if this host already posted their PostHome
-          then it will be shown here.   </p>
-        <p>
-          Authentication is not done yet, of course, only logged in host
-          can come to this page to make a post.
-        </p>
-        <Button variant="outlined" href="/PostHome">Post my home</Button>
-      </Container>
-    </>
+      <BackgroundContainer src="./homeBG.png">
+      {/* <NavBar /> */}
+      <MainContainer>
+      <LeftContainer>
+        {/* <CenterContainer> */}
+          <AppText 
+            txt="Hello name,"
+            fontSize='34px'
+            color='#f5f5f5'
+            fontWeight='bold'
+          />
+        <AppText
+          txt='Become a host and offer your place to the wildfire evacuees in BC.'
+          fontSize='18px'
+          color='#f5f5f5'
+        />
+        {/* <AppText 
+          txt='Authentication is not done yet, of course, only logged in host
+          can come to this page to make a post.'
+          color='#f5f5f5'
+          fontSize='16px'
+        /> */}
+        <Button 
+          txt='Post my place'
+          href='/PostHome'
+        />
+        {/* </CenterContainer> */}
+      </LeftContainer>
+        </MainContainer>
+      </BackgroundContainer>
   )
 }

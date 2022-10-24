@@ -134,7 +134,7 @@ function CreatHomePost() {
         if (page === 3 || page === 4 || page === 5) {
             setPage(page + 1);
         }
-
+        
         if (page === 6) {
             console.log(formData);
 
@@ -160,10 +160,7 @@ function CreatHomePost() {
 
 
     return (
-        <div>
-            <title>
-                Hey there!
-            </title>
+        <div className=''>
             {conditionalComponent()}
             <Snackbar
                 anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
@@ -173,9 +170,10 @@ function CreatHomePost() {
                 </Alert>
             </Snackbar>
 
-            {page === 0 || page < 6 ? <Button onClick={handleNext}>Next </Button> : <Button onClick={handleSubmit}>sumbit</Button>}
-
-            {page > 0 && page < 7 && <Button onClick={() => setPage(page - 1)}>Back</Button>}
+        <div className='flex justify-center items-center mt-10'>
+            {page > 0 && page < 7 && <Button onClick={() => setPage(page - 1)}>Back</Button>}           
+            {page === 0 || page < 6 ? <Button onClick={handleNext}>Next</Button> : <Button onClick={handleSubmit}>sumbit</Button>}
+        </div>
         </div>
     );
 }

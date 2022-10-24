@@ -5,8 +5,6 @@ import { List, ListItem, ListItemText } from '@material-ui/core/'
 
 
 export default function ConfirmForm({ formData}) {
-  
-  
 
   return (
     <div>

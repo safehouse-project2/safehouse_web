@@ -34,10 +34,8 @@ export default function FormAddressDetail({ formData, setFormData }) {
         src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAP_API}&libraries=places`}
       ></Script>
       <form>
-
         <FormControl>
-          <label htmlFor="addressLine1">Address Line 1</label>
-
+          <label htmlFor="addressLine1" className='text-[#f5f5f5] text-[18px]'>Address Line 1</label>
           <PlacesAutocomplete
             value={state.address.split(",")[0]}
             onChange={address => setState({ address })}
@@ -49,9 +47,14 @@ export default function FormAddressDetail({ formData, setFormData }) {
               getSuggestionItemProps,
               loading,
             }) => (
-              <div>
-
+              <div className='pb-6'>
                 <TextField
+                sx={{
+                  backgroundColor: '#f5f5f5',
+                  borderRadius: '10px',
+                  marginTop: '10px',
+                  minWidth: '100%',
+                }}
                   {...getInputProps({
                   })}
                   type="text"
@@ -95,11 +98,18 @@ export default function FormAddressDetail({ formData, setFormData }) {
             )
             }
           </PlacesAutocomplete >
-
         </FormControl>
+
         <FormControl>
-          <label htmlFor="addressLine2">Address Line 2</label>
+          <label htmlFor="addressLine2" className='text-[#f5f5f5] text-[18px]'>Address Line 2</label>
+          <div className='pb-6'>
           <TextField
+          sx={{
+            backgroundColor: '#f5f5f5',
+            borderRadius: '10px',
+            marginTop: '10px',
+            minWidth: '100%',
+          }}
             type="text"
             name="addressLine2"
             id="addressLine2"
@@ -109,10 +119,19 @@ export default function FormAddressDetail({ formData, setFormData }) {
               setFormData({ ...formData, addressLine2: e.target.value })
             }
           />
+          </div>
         </FormControl>
+
         <FormControl>
-          <label htmlFor="city">City</label>
+          <label htmlFor="city" className='text-[#f5f5f5] text-[18px]'>City</label>
+          <div className='pb-6'>
           <TextField
+          sx={{
+            backgroundColor: '#f5f5f5',
+            borderRadius: '10px',
+            marginTop: '10px',
+            minWidth: '100%',
+          }}
             type="text"
             name="city"
             id="city"
@@ -120,10 +139,18 @@ export default function FormAddressDetail({ formData, setFormData }) {
             value={addressAry[addressAry.length - 3]}
             onChange={(e) => setFormData({ ...formData, city: e.target.value })}
           />
+          </div>
         </FormControl>
         <FormControl>
-          <label htmlFor="city">Province</label>
+          <label htmlFor="city" className='text-[#f5f5f5] text-[18px]'>Province</label>
+          <div className='pb-6'>
           <TextField
+          sx={{
+            backgroundColor: '#f5f5f5',
+            borderRadius: '10px',
+            marginTop: '10px',
+            minWidth: '100%',
+          }}
             type="text"
             name="province"
             id="province"
@@ -131,6 +158,7 @@ export default function FormAddressDetail({ formData, setFormData }) {
             value={addressAry[addressAry.length - 2]}
             onChange={(e) => setFormData({ ...formData, city: e.target.value })}
           />
+          </div>
         </FormControl>
         {/* <FormControl>
           <label htmlFor="province">Province</label>
@@ -160,8 +188,15 @@ export default function FormAddressDetail({ formData, setFormData }) {
           </select>
         </FormControl> */}
         <FormControl>
-          <label htmlFor="postalCode">Postal Code</label>
+          <label htmlFor="postalCode" className='text-[#f5f5f5] text-[18px]'>Postal Code</label>
+          <div className='pb-6'>
           <TextField
+          sx={{
+            backgroundColor: '#f5f5f5',
+            borderRadius: '10px',
+            marginTop: '10px',
+            minWidth: '100%',
+          }}
             type="text"
             name="postalCode"
             id="postalCode"
@@ -177,6 +212,7 @@ export default function FormAddressDetail({ formData, setFormData }) {
               province: addressAry[addressAry.length - 2] ? addressAry[addressAry.length - 2] : formData.province
             })}
           />
+          </div>
         </FormControl>
 
       </form >

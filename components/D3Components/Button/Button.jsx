@@ -25,7 +25,7 @@ export default function AppButton({
   startIcon = null,
   endIcon = null,
   color = "#f5f5f5",
-  padding = "10px 20px 10px 20px",
+  padding = "5px 20px 5px 20px",
   margin = "0px 0px 0px 0px",
   backgroundColor = "#B38A58",
   borderRadius = "41px",
