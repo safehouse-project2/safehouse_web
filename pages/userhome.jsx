@@ -1,20 +1,20 @@
-import AppText from "../components/AppText/AppText"
-import Input from "../components/Input/Input";
-import Slider from "../components/Slider/Slider"
-import { BackgroundContainer, MainContainer } from '../../styles/styledComps';
+import AppText from "../components/D3Components/AppText/AppText";
+import Input from "../components/D3Components/Input/Input";
+import Slider from "../components/D3Components/Slider/Slider";
+import { BackgroundContainer, MainContainer } from '../styles/styledComps';
 import SearchIcon from "@mui/icons-material/Search";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import Image from "../components/Image/ImageComp";
-import Navbar from "../components/Navbar/Navbar";
+import Navbar from "../components/D3Components/Navbar/Navbar";
+import Image from "../components/D3Components/Image/ImageComp";
 
 export default function UserHome() {
     return (
         <div>
-
-            <BackgroundContainer src="bg_gradient.svg">
+            <BackgroundContainer src="">
                 <MainContainer>
                     <Input
                         label="Search here"
+                        variant="outlined"
                         icon={<SearchIcon />}
                         backgroundColor="#fefefe"
                     />

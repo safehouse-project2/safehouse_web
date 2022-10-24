@@ -6,6 +6,7 @@ const P = styled.p`
   color: ${(props) => props.fontColor || "black"};
   padding: ${(props) => props.padding || "0px 0px 0px 0px"};
   font-weight: ${(props) => props.fontWeight || "normal"};
+  line-height: ${(props) => props.lineHeight};
 `;
 
 export default function AppText({
@@ -14,6 +15,7 @@ export default function AppText({
   color = "#272727",
   padding = "0px 0px 0px 0px",
   fontWeight = "normal",
+  lineHeight = "number",
 }) {
   return (
     <P
@@ -21,6 +23,7 @@ export default function AppText({
       fontColor={color}
       padding={padding}
       fontWeight={fontWeight}
+      lineHeight={lineHeight}
     >
       {txt}
     </P>
