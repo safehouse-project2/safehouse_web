@@ -134,7 +134,7 @@ const EvacueePosting = ({ onSubmit, home, setHome }) => {
             getSuggestionItemProps,
             loading,
           }) => (
-            <div className='z-[-999] fixed w-[100%]'>
+            <div>
             {/* trying to get input and buttons over map*/}
               <Input className="z-[-999] fixed w-[100%]"  label="Search" 
                 {...getInputProps({
@@ -176,8 +176,8 @@ const EvacueePosting = ({ onSubmit, home, setHome }) => {
           )}
         </PlacesAutocomplete>
         <div className="m-5 space-x-4 ">
-        <Button className='z-[-999] fixed w-[100%]' fontSize="14px" onMouseDown={findmylocation} txt="Current Location"></Button>
-        <Button  className='z-[-999] fixed w-[100%]' fontSize="14px" txt="Submit"></Button>
+        <Button fontSize="14px" onMouseDown={findmylocation} txt="Current Location"></Button>
+        <Button fontSize="14px" txt="Submit"></Button>
         </div>
       </form>
       </div>

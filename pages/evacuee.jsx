@@ -85,11 +85,13 @@ const Evacuee = () => {
   };
 
   return (
-    <>
+    <div>
       {/* <NavBar /> */}
-      <EvacueePosting onSubmit={submitHandler} home={home} setHome={setHome} />
+      <div className='w-[100%] z-999 mt-[30px]'>
+        <EvacueePosting className='z-[-999] fixed w-[100%]' onSubmit={submitHandler} home={home} setHome={setHome} />
+      </div>
       <Navbar/> 
-    </>
+    </div>
   );
 };
 export default Evacuee;
