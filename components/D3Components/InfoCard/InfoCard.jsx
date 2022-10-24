@@ -34,9 +34,12 @@ export default function InfoCard({
   fontSize2 = "14px",
   color2 = "#F5F5F5",
   fontWeight2 = "normal",
+  onCrdClick = () => { },
 }){
     return <div>
-        <CardStyle>
+    <CardStyle
+        target="_blank"
+        onClick={onCrdClick}>
             <CardText 
             fontSize={fontSize1}
             fontColor={color1}
@@ -50,7 +53,7 @@ export default function InfoCard({
             fontWeight={fontWeight2}
             >{txt2}
         </CardText>
-        </CardStyle>
+    </CardStyle>
         
     </div>
 }
