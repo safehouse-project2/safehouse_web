@@ -9,6 +9,7 @@ export default function FormUploadImage({ formData, setFormData }) {
   const [imageList, setImageList] = useState([])
   const imageListRef = ref(storage, "images/")
   const onFileChange = (e) => {
+    console.log("cliked")
     console.log(e.target.files[0]);
     setFile(e.target.files[0]);
     const {
@@ -52,9 +53,9 @@ export default function FormUploadImage({ formData, setFormData }) {
           <button onClick={onClearAttachment}>Clear</button>
         </div>
         <div>
-          {imageList.map((url) => {
+          {/* {imageList.map((url) => {
             return <img src={url} />
-          })}
+          })} */}
         </div>
       </div>
     </div>
