@@ -204,7 +204,7 @@ const EvacueePosting = ({ onSubmit, home, setHome }) => {
                   setLocationInfo({
                     id: item.id,
                     title: (
-                      <Button variant="outlined" href={`/home/${item.id}`}>
+                      <Button txt="See Details" fontSize="12px" href={`/home/${item.id}`}>
                         {item.addressLine1}
                       </Button>
                     ),
@@ -237,7 +237,7 @@ const EvacueePosting = ({ onSubmit, home, setHome }) => {
             }}
           >
             <div>
-              <h2> To see details: {locationInfo.title}</h2>
+              <h2> Listing: {locationInfo.title}</h2>
             </div>
           </InfoWindow>
         )}
