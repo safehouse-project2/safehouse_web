@@ -12,6 +12,7 @@ import React, { useEffect, useState } from "react";
 import { db } from "../firebase";
 import EvacueePosting from "../components/evacueePosting/evacueePosting";
 import NavBar from "../components/Home/NavBar";
+import Navbar from "../components/D3Components/Navbar/Navbar";
 
 const Evacuee = () => {
   const [home, setHome] = useState([
@@ -85,8 +86,9 @@ const Evacuee = () => {
 
   return (
     <>
-      <NavBar />
+      {/* <NavBar /> */}
       <EvacueePosting onSubmit={submitHandler} home={home} setHome={setHome} />
+      <Navbar/> 
     </>
   );
 };
