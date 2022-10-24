@@ -17,6 +17,7 @@ const PostList = ({ state }) => {
           </h1>
           <h5> Description: {post.description}</h5>
           <h2>Province: {post.province}</h2>
+          <div>{post.image && <img src={post.image} />}</div>
         </div>
       ))}
     </div>

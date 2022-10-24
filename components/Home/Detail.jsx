@@ -20,6 +20,7 @@ const Detail = ({ state }) => {
       <div>TV: {state.tv}</div>
       <div>AC: {state.airConditioning}</div>
       <div>Heating: {state.heating}</div>
+      {state.image && <img src={state.image}/>}
     </div>
   );
 };
