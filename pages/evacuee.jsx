@@ -11,7 +11,7 @@ import {
 import React, { useEffect, useState } from "react";
 import { db } from "../firebase";
 import EvacueePosting from "../components/evacueePosting/evacueePosting";
-import Navbar from "../components/Home/Navbar";
+import NavBar from "../components/Home/NavBar";
 
 const Evacuee = () => {
   const [home, setHome] = useState([
@@ -85,7 +85,7 @@ const Evacuee = () => {
 
   return (
     <>
-      <Navbar />
+      <NavBar />
       <EvacueePosting onSubmit={submitHandler} home={home} setHome={setHome} />
     </>
   );

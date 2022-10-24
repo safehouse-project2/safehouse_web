@@ -1,10 +1,11 @@
-import styled from 'styled-components';
 import HomeIcon from '@mui/icons-material/Home';
-import SearchIcon from '@mui/icons-material/Search';
 
-export default function Icon(){
-    return <div>
-        <HomeIcon/>
-        <SearchIcon/>
-    </div>
+export default function Icon({
+    icon = <HomeIcon />,
+    backgroundColor = "#272727",
+    color = "#272727",
+}) {
+    return <>
+        src={icon}
+    </>
 }

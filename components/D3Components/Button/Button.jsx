@@ -6,35 +6,40 @@ const MyBtn = styled(Button)`
     color: ${(props) => props.fontColor || "#f5f5f5"};
     padding: ${(props) => props.padding || "10px 20px 10px 20px"};
     border-radius: ${(props) => props.borderRadius || "41px"};
+    border: ${(props) => props.border || "none"};
     margin: ${(props) => props.margin || "0px 0px 0px 0px"};
     text-align: center;
-    text-transform: ${(props) => props.textTransform || "capitalize"};
+    text-transform: ${(props) => props.textTransform || "capitalize"} !important;
     font-size: ${(props) => props.fontSize || "18px"};
     :hover {
-        background-color: ${(props) => props.hoverColor || ""} !important;
+        background-color: ${(props) => props.hoverColor || "#936F44"} !important;
+        scale: 0 !important;
+        border: 0 !important;
     }
 `
 
 export default function AppButton({
-  txt = "Default Btn Text",
+  txt = "default Btn Text",
   variant = "contained",
   size = "small",
   startIcon = null,
   endIcon = null,
-  color = "f5f5f5",
-  padding = "0px 0px 0px 0px",
+  color = "#f5f5f5",
+  padding = "10px 20px 10px 20px",
   margin = "0px 0px 0px 0px",
-  backgroundColor = "",
+  backgroundColor = "#B38A58",
   borderRadius = "41px",
-  textTransform = "lowercase",
+  textTransform = "capitalize",
   fontSize = "18px",
-  hoverColor = "",
+  hoverColor = "#936F44",
+  href = null,
   onBtnClick = () => { },
 }) {
   return <MyBtn
     style={{
       AlignItems: 'center',
     }}
+    href={href}
     variant={variant}
     onClick={onBtnClick}
     size={size}
