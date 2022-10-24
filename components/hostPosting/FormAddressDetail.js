@@ -33,7 +33,7 @@ export default function FormAddressDetail({ formData, setFormData }) {
         strategy="beforeInteractive"
         src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAP_API}&libraries=places`}
       ></Script>
-      <form>
+      <form className='flex flex-col justify-center'>
         <FormControl>
           <label htmlFor="addressLine1" className='text-[#f5f5f5] text-[18px]'>Address Line 1</label>
           <PlacesAutocomplete
@@ -49,18 +49,20 @@ export default function FormAddressDetail({ formData, setFormData }) {
             }) => (
               <div className='pb-6'>
                 <TextField
-                sx={{
-                  backgroundColor: '#f5f5f5',
-                  borderRadius: '10px',
-                  marginTop: '10px',
-                  minWidth: '100%',
-                }}
+                  sx={{
+                    backgroundColor: '#f5f5f5',
+                    borderRadius: '10px',
+                    marginTop: '10px',
+                    minWidth: '100%',
+                  }}
                   {...getInputProps({
                   })}
                   type="text"
                   name="addressLine1"
                   id="addressLine1"
                   variant='outlined'
+                  placeholder='Address Line 1'
+                  required
                 />
 
                 <div className="autocomplete-dropdown-container">
@@ -103,61 +105,66 @@ export default function FormAddressDetail({ formData, setFormData }) {
         <FormControl>
           <label htmlFor="addressLine2" className='text-[#f5f5f5] text-[18px]'>Address Line 2</label>
           <div className='pb-6'>
-          <TextField
-          sx={{
-            backgroundColor: '#f5f5f5',
-            borderRadius: '10px',
-            marginTop: '10px',
-            minWidth: '100%',
-          }}
-            type="text"
-            name="addressLine2"
-            id="addressLine2"
-            variant='outlined'
-            value={formData.addressLine2}
-            onChange={(e) =>
-              setFormData({ ...formData, addressLine2: e.target.value })
-            }
-          />
+            <TextField
+              sx={{
+                backgroundColor: '#f5f5f5',
+                borderRadius: '10px',
+                marginTop: '10px',
+                minWidth: '100%',
+              }}
+              type="text"
+              name="addressLine2"
+              id="addressLine2"
+              placeholder='Optional'
+              variant='outlined'
+              value={formData.addressLine2}
+              onChange={(e) =>
+                setFormData({ ...formData, addressLine2: e.target.value })
+              }
+            />
           </div>
         </FormControl>
 
         <FormControl>
           <label htmlFor="city" className='text-[#f5f5f5] text-[18px]'>City</label>
           <div className='pb-6'>
-          <TextField
-          sx={{
-            backgroundColor: '#f5f5f5',
-            borderRadius: '10px',
-            marginTop: '10px',
-            minWidth: '100%',
-          }}
-            type="text"
-            name="city"
-            id="city"
-            variant='outlined'
-            value={addressAry[addressAry.length - 3]}
-            onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-          />
+            <TextField
+              sx={{
+                backgroundColor: '#f5f5f5',
+                borderRadius: '10px',
+                marginTop: '10px',
+                minWidth: '100%',
+              }}
+              type="text"
+              name="city"
+              id="city"
+              variant='outlined'
+              placeholder='City'
+              required
+              value={addressAry[addressAry.length - 3]}
+              onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+            />
           </div>
         </FormControl>
         <FormControl>
           <label htmlFor="city" className='text-[#f5f5f5] text-[18px]'>Province</label>
           <div className='pb-6'>
-          <TextField
-          sx={{
-            backgroundColor: '#f5f5f5',
-            borderRadius: '10px',
-            marginTop: '10px',
-            minWidth: '100%',
-          }}
-            type="text"
-            name="province"
-            id="province"
-            variant='outlined'
-            value={addressAry[addressAry.length - 2]}
-            onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-          />
+            <TextField
+              sx={{
+                backgroundColor: '#f5f5f5',
+                borderRadius: '10px',
+                marginTop: '10px',
+                minWidth: '100%',
+              }}
+              type="text"
+              name="province"
+              id="province"
+              variant='outlined'
+              placeholder='Province'
+              required
+              value={addressAry[addressAry.length - 2]}
+              onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+            />
           </div>
         </FormControl>
         {/* <FormControl>
@@ -190,28 +197,30 @@ export default function FormAddressDetail({ formData, setFormData }) {
         <FormControl>
           <label htmlFor="postalCode" className='text-[#f5f5f5] text-[18px]'>Postal Code</label>
           <div className='pb-6'>
-          <TextField
-          sx={{
-            backgroundColor: '#f5f5f5',
-            borderRadius: '10px',
-            marginTop: '10px',
-            minWidth: '100%',
-          }}
-            type="text"
-            name="postalCode"
-            id="postalCode"
-            variant='outlined'
-            value={formData.postalCode}
-            onChange={(e) =>
-              setFormData({ ...formData, postalCode: e.target.value })
-            }
-            onSelect={() => setFormData({
-              ...formData,
-              addressLine1: addressAry[0] ? addressAry[0] : state.address,
-              city: addressAry[addressAry.length - 3] ? addressAry[addressAry.length - 3] : formData.city,
-              province: addressAry[addressAry.length - 2] ? addressAry[addressAry.length - 2] : formData.province
-            })}
-          />
+            <TextField
+              sx={{
+                backgroundColor: '#f5f5f5',
+                borderRadius: '10px',
+                marginTop: '10px',
+                minWidth: '100%',
+              }}
+              type="text"
+              name="postalCode"
+              id="postalCode"
+              variant='outlined'
+              placeholder='Postal Code'
+              required
+              value={formData.postalCode}
+              onChange={(e) =>
+                setFormData({ ...formData, postalCode: e.target.value })
+              }
+              onSelect={() => setFormData({
+                ...formData,
+                addressLine1: addressAry[0] ? addressAry[0] : state.address,
+                city: addressAry[addressAry.length - 3] ? addressAry[addressAry.length - 3] : formData.city,
+                province: addressAry[addressAry.length - 2] ? addressAry[addressAry.length - 2] : formData.province
+              })}
+            />
           </div>
         </FormControl>
 

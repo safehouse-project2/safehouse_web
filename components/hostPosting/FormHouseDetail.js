@@ -6,7 +6,7 @@ export default function FormHouseDetail({ formData, setFormData }) {
   return (
     <div className=''>
       <form>
-        <div>
+        <div className='flex flex-col justify-start items-start pb-5'>
           <label htmlFor="homeType" className='text-[#f5f5f5] text-[18px]'>What kind of place will you be hosting ?</label>
           <select className='text-[#272727] px-[15px] py-[10px] rounded-md mt-3'
             name="homeType"
@@ -28,12 +28,12 @@ export default function FormHouseDetail({ formData, setFormData }) {
           <label htmlFor="description" className='text-[#f5f5f5] text-[18px]'>Description</label>
           <br />
           <TextField
-          sx={{
-            backgroundColor: '#f5f5f5',
-            borderRadius: '10px',
-            marginTop: '10px',
-            minWidth: '100%',
-          }}
+            sx={{
+              backgroundColor: '#f5f5f5',
+              borderRadius: '10px',
+              marginTop: '10px',
+              minWidth: '100%',
+            }}
             type="text"
             name="description"
             id="description"

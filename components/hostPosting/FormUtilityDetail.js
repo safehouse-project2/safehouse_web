@@ -2,12 +2,12 @@ import React from 'react'
 import { FormControl, FormControlLabel, FormLabel, RadioGroup, Radio } from '@mui/material'
 import AppText from '../D3Components/AppText/AppText'
 
-export default function FormUtilityDetail({formData, setFormData}) {
+export default function FormUtilityDetail({ formData, setFormData }) {
   return (
     <div className='flex flex-col gap-10'>
-      <AppText 
-        txt = 'Utility Details(1/2)'
-        fontSize = '24px'
+      <AppText
+        txt='Utility Details (1/2)'
+        fontSize='24px'
         color='#f5f5f5'
       />
 
@@ -69,7 +69,7 @@ export default function FormUtilityDetail({formData, setFormData}) {
             </RadioGroup>
           </div>
 
-          </FormControl>
+        </FormControl>
       </div>
     </div>
   )

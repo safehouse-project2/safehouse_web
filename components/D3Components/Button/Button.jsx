@@ -13,7 +13,7 @@ const MyBtn = styled(Button)`
     font-size: ${(props) => props.fontSize || "18px"};
     :hover {
         background-color: ${(props) => props.hoverColor || "#936F44"} !important;
-        scale: 0 !important;
+        // scale: 0 !important;
         border: 0 !important;
     }
 `
