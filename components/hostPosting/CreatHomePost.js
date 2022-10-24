@@ -15,6 +15,7 @@ import SubmitForm from './ConfirmForm';
 import { useRouter } from 'next/router'
 
 
+
 function CreatHomePost() {
 
 
@@ -64,6 +65,8 @@ function CreatHomePost() {
         tv: 'yes',
         airConditioning: 'yes',
         heating: 'yes',
+
+        image:"",
 
     });
 
@@ -147,7 +150,6 @@ function CreatHomePost() {
 
 
     async function handleSubmit() {
-        console.log(formData);
         const collectionRef = collection(db, 'homes')
         const docRef = await addDoc(collectionRef, {
             ...formData, timestamp:
