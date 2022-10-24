@@ -1,4 +1,5 @@
-import { Button } from '@mui/material';
+// import { Button } from '../D3Components/Button/Button';
+import { Button } from "@mui/material";
 import FormHouseDetail from './FormHouseDetail';
 import FormAddressDetail from './FormAddressDetail';
 import FormUploadImage from './FormUploadImage';
@@ -12,6 +13,7 @@ import Success from './Success';
 import React, { useState } from 'react'
 import SubmitForm from './ConfirmForm';
 import { useRouter } from 'next/router'
+
 
 
 function CreatHomePost() {
@@ -63,6 +65,8 @@ function CreatHomePost() {
         tv: 'yes',
         airConditioning: 'yes',
         heating: 'yes',
+
+        image:"",
 
     });
 
@@ -146,7 +150,6 @@ function CreatHomePost() {
 
 
     async function handleSubmit() {
-        console.log(formData);
         const collectionRef = collection(db, 'homes')
         const docRef = await addDoc(collectionRef, {
             ...formData, timestamp:
@@ -160,10 +163,7 @@ function CreatHomePost() {
 
 
     return (
-        <div>
-            <title>
-                Hey there!
-            </title>
+        <div className=''>
             {conditionalComponent()}
             <Snackbar
                 anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
@@ -173,9 +173,12 @@ function CreatHomePost() {
                 </Alert>
             </Snackbar>
 
-            {page === 0 || page < 6 ? <Button onClick={handleNext}>Next </Button> : <Button onClick={handleSubmit}>sumbit</Button>}
-
-            {page > 0 && page < 7 && <Button onClick={() => setPage(page - 1)}>Back</Button>}
+            <div className='flex justify-center items-center mt-10'>
+                {page > 0 && page < 7 && <Button onClick={() => setPage(page - 1)}>Back</Button>}
+                {page === 0 || page < 6 ? <Button onClick={handleNext}>Next</Button> : <Button onClick={handleSubmit}>sumbit</Button>}
+                {/* {page > 0 && page < 7 && <Button onBtnClick={() => setPage(page - 1)} txt="Back" />}
+                {page === 0 || page < 6 ? <Button onBtnClick={handleNext} txt="Next" /> : <Button onBtnClick={handleSubmit} txt="Submit" />} */}
+            </div>
         </div>
     );
 }

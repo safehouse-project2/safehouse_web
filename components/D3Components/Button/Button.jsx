@@ -13,7 +13,7 @@ const MyBtn = styled(Button)`
     font-size: ${(props) => props.fontSize || "18px"};
     :hover {
         background-color: ${(props) => props.hoverColor || "#936F44"} !important;
-        scale: 0 !important;
+        // scale: 0 !important;
         border: 0 !important;
     }
 `
@@ -25,7 +25,7 @@ export default function AppButton({
   startIcon = null,
   endIcon = null,
   color = "#f5f5f5",
-  padding = "10px 20px 10px 20px",
+  padding = "5px 20px 5px 20px",
   margin = "0px 0px 0px 0px",
   backgroundColor = "#B38A58",
   borderRadius = "41px",

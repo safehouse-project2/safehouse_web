@@ -37,7 +37,7 @@ export default function Home() {
               <Button
                 href="/evacuee"
                 txt='Evacuee'
-              // onBtnClick={goToEvacuee}
+                // onBtnClick={goToEvacuee}
               />
               <AppText
                 txt='Apply to become a host'

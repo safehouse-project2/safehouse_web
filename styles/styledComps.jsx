@@ -38,3 +38,21 @@ export const CenterContainer = styled.div`
     justify-content: center;
     max-width: 90vw;
 `
+
+export const LeftContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    max-width: 90vw;
+`
+
+export const CounterBtn = styled(Button)`
+    background-color: #f5f5f5 !important;
+    color: #272727 !important;
+`
+
+export const CounterBtnVal = styled(Button)`
+    background-color: rgba(255, 255, 255, 0) !important;
+    color: #f5f5f5 !important;
+`
