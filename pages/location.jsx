@@ -11,7 +11,7 @@ import {
 import Navbar from "../components/Home/Navbar";
 import { useRouter } from "next/router";
 import Button from "../components/D3Components/Button/Button";
-import LocationOnIcon from '@mui/icons-material/LocationOn';
+import LocationOnIcon from "@mui/icons-material/LocationOn";
 import Input from "../components/D3Components/Input/Input";
 
 const Location = () => {
@@ -138,7 +138,6 @@ const Location = () => {
     return null;
   });
 
-  const handleSubmit = () => { };
   const containerStyle = {
     width: "1000px",
     height: "800px",
@@ -154,7 +153,7 @@ const Location = () => {
       <Navbar />
       <form onSubmit={onSubmitHandler}>
         <div>
-          <Autocomplete onSubmit={handleSubmit} />
+          <Autocomplete />
           <div>
             <Button
               txt="Current Location"
@@ -163,10 +162,7 @@ const Location = () => {
               onBtnClick={findmylocation}
             />
           </div>
-          <Input
-            placeholder="Search Places"
-            label=""
-          />
+          <Input placeholder="Search Places" label="" />
           {/* <div>
           <button onClick={findNearMe}>Near me</button>
         </div> */}
@@ -192,29 +188,29 @@ const Location = () => {
         >
           Submit
         </button>
-      </form >
+      </form>
 
       <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={5}>
         {fireMarkers ? fireMarkers : null}
         {isSearched
           ? postCenter.map((item, index) => {
-            return (
-              <div key={index}>
-                <Marker
-                  position={{
-                    lat: item.lat,
-                    lng: item.lng,
-                  }}
-                  icon={{
-                    url: "/current_location.svg",
-                    scaledSize: new window.google.maps.Size(40, 40),
-                    origin: new window.google.maps.Point(0, 0),
-                    anchor: new window.google.maps.Point(15, 15),
-                  }}
-                />
-              </div>
-            );
-          })
+              return (
+                <div key={index}>
+                  <Marker
+                    position={{
+                      lat: item.lat,
+                      lng: item.lng,
+                    }}
+                    icon={{
+                      url: "/current_location.svg",
+                      scaledSize: new window.google.maps.Size(40, 40),
+                      origin: new window.google.maps.Point(0, 0),
+                      anchor: new window.google.maps.Point(15, 15),
+                    }}
+                  />
+                </div>
+              );
+            })
           : null}
 
         {locationInfo && (
@@ -243,7 +239,7 @@ const Location = () => {
           />
         ) : null}
       </GoogleMap>
-    </div >
+    </div>
   );
 };
 

@@ -35,7 +35,6 @@ const DetailPage = () => {
 
   return (
     <div>
-      <NavBar />
       <Detail key={state.id} state={state} />
     </div>
   );
