@@ -11,9 +11,9 @@ const MyBtn = styled(Button)`
     text-align: center;
     text-transform: ${(props) => props.textTransform || "capitalize"} !important;
     font-size: ${(props) => props.fontSize || "18px"};
+    border: ${(props) => props.border || "none"};
     :hover {
         background-color: ${(props) => props.hoverColor || "#936F44"} !important;
-        // scale: 0 !important;
         border: 0 !important;
     }
 `
@@ -31,6 +31,7 @@ export default function AppButton({
   borderRadius = "41px",
   textTransform = "capitalize",
   fontSize = "18px",
+  border = "0px 0px 0px 0px solid #CDCDCD",
   hoverColor = "#936F44",
   href = null,
   onBtnClick = () => { },
@@ -42,6 +43,7 @@ export default function AppButton({
     href={href}
     variant={variant}
     onClick={onBtnClick}
+    border={border}
     size={size}
     fontColor={color}
     padding={padding}

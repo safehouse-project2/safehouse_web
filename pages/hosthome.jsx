@@ -1,12 +1,8 @@
 import AppText from "../components/D3Components/AppText/AppText";
-import Input from "../components/D3Components/Input/Input";
-import Slider from "../components/D3Components/Slider/Slider";
 import { BackgroundContainer, MainContainer, CenterContainer, LeftContainer } from '../styles/styledComps';
-import SearchIcon from "@mui/icons-material/Search";
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Navbar from "../components/D3Components/Navbar/Navbar";
-import Image from "../components/D3Components/Image/ImageComp";
 import ReservationBox from "../components/D3Components/ReservationBox/ReservationBox";
+import ReviewBox from "../components/D3Components/ReviewBox/ReviewBox";
 
 export default function HostHome() {
     return (
@@ -31,6 +27,19 @@ export default function HostHome() {
                             fontSize="20px"
                         />
                         <ReservationBox />
+                        <ReservationBox />
+                    </div>
+
+                    <div className="flex flex-col pt-10 justify-start items-start gap-3">
+                        <AppText
+                            txt="Your reviews 🌟"
+                            fontSize="20px"
+                        />
+                        <div className="flex flex-col gap-5">
+                            <ReviewBox />
+                            <ReviewBox />
+                            <ReviewBox />
+                        </div>
                     </div>
                 </LeftContainer>
             </MainContainer>
