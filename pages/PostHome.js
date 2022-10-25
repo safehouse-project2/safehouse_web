@@ -28,6 +28,7 @@ export default function PostHome() {
             /> */}
           </div>
           <Script
+            id="my-script"
             strategy="beforeInteractive"
             src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAP_API}&libraries=places`}
           >

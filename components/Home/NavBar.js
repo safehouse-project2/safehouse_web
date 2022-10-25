@@ -95,7 +95,7 @@ function ResponsiveAppBar() {
           {/* add icon here */}
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Link href={"/" + page}>
+              <Link key={page} href={"/" + page}>
                 <Button
                   key={page}
                   onClick={handleCloseNavMenu}
