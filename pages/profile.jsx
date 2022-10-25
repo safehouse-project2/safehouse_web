@@ -1,4 +1,3 @@
-import NavBar from '../components/Home/NavBar'
 import { BackgroundContainer, CenterContainer } from '../styles/styledComps'
 import Button from "../components/D3Components/Button/Button";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
