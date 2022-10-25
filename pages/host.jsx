@@ -14,7 +14,7 @@ export default function host() {
         <LeftContainer>
           {/* <CenterContainer> */}
           <AppText
-            txt="Hello name,"
+            txt="Hello, John!"
             fontSize='34px'
             color='#f5f5f5'
             fontWeight='bold'

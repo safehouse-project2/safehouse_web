@@ -16,6 +16,7 @@ import SubmitForm from './ConfirmForm';
 import { useRouter } from 'next/router'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import PublishIcon from '@mui/icons-material/Publish';
 
 
 
@@ -180,7 +181,7 @@ function CreatHomePost() {
                 {/* {page > 0 && page < 7 && <Button onClick={() => setPage(page - 1)}>Back</Button>} */}
                 {/* {page === 0 || page < 6 ? <Button onClick={handleNext}>Next</Button> : <Button onClick={handleSubmit}>sumbit</Button>} */}
                 {page > 0 && page < 7 && <Button onBtnClick={() => setPage(page - 1)} txt="Back" startIcon={<ArrowBackIcon />} />}
-                {page === 0 || page < 6 ? <Button onBtnClick={handleNext} txt="Next" endIcon={<ArrowForwardIcon />} /> : <Button onBtnClick={handleSubmit} txt="Submit" />}
+                {page === 0 || page < 6 ? <Button onBtnClick={handleNext} txt="Next" endIcon={<ArrowForwardIcon />} /> : <Button onBtnClick={handleSubmit} txt="Submit" backgroundColor="#5581AA" endIcon={<PublishIcon />} hoverColor="#44698C" />}
             </div>
         </div>
     );

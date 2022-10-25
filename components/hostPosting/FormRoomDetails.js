@@ -18,24 +18,24 @@ export default function FormRoomDetails({ formData, setFormData }) {
     });
     const theme = createTheme({
         palette: {
-          primary: {
-            main: blue[500],
-            contrastText: yellow[500],
-          },
+            primary: {
+                main: blue[500],
+                contrastText: yellow[500],
+            },
         },
-      });
+    });
 
     return (
-        <div className='flex flex-col text-[#f5f5f5] gap-10 justify-center items-end text-xl'>
+        <div className='flex flex-col text-[#f5f5f5] gap-10 justify-start items-start text-xl'>
             <FormControl>
-                <div className='flex items-center justify-center gap-[100px]'>    
+                <div className='flex items-center justify-center gap-[120px]'>
                     <label htmlFor="guests">Guests Allowed</label>
                     <ButtonGroup size="small" aria-label="small outlined button group">
                         <CounterBtn
                             variant='contained'
                             color='inherit'
                             text='black'
-                            onClick={(e)=> setFormData({...formData, guests: formData.guests>0?formData.guests - 1:0})}
+                            onClick={(e) => setFormData({ ...formData, guests: formData.guests > 0 ? formData.guests - 1 : 0 })}
                         >
                             -
                         </CounterBtn>
@@ -48,7 +48,7 @@ export default function FormRoomDetails({ formData, setFormData }) {
                             variant='contained'
                             color='inherit'
                             text='black'
-                        onClick={(e)=> setFormData({...formData, guests: formData.guests +1})}
+                            onClick={(e) => setFormData({ ...formData, guests: formData.guests + 1 })}
                         >+</CounterBtn>
                     </ButtonGroup>
                 </div>
@@ -56,128 +56,128 @@ export default function FormRoomDetails({ formData, setFormData }) {
 
 
             <FormControl>
-            <div className='flex items-center justify-center gap-[100px]'>    
-                <label htmlFor="bedrooms">Bedrooms</label>
-                <ButtonGroup size="small" aria-label="small outlined button group">
-                    <CounterBtn
-                        variant='contained'
-                        color='inherit'
-                        text='black'
-                        onClick={(e)=> setFormData({...formData, bedrooms: formData.bathrooms>0? formData.bedrooms - 1:0})}
-                    >-</CounterBtn>
-                    <CounterBtnVal
-                        variant='contained'
-                        color='inherit'
-                        text='black' 
-                    >
-                        {formData.bedrooms}
-                    </CounterBtnVal>
-                    <CounterBtn
-                        variant='contained'
-                        color='inherit'
-                        text='black' 
-                        onClick={(e)=> setFormData({...formData, bedrooms: formData.bedrooms + 1})}
-                    >+</CounterBtn>
-                </ButtonGroup>
-            </div>
+                <div className='flex items-center justify-center gap-[168px]'>
+                    <label htmlFor="bedrooms">Bedrooms</label>
+                    <ButtonGroup size="small" aria-label="small outlined button group">
+                        <CounterBtn
+                            variant='contained'
+                            color='inherit'
+                            text='black'
+                            onClick={(e) => setFormData({ ...formData, bedrooms: formData.bathrooms > 0 ? formData.bedrooms - 1 : 0 })}
+                        >-</CounterBtn>
+                        <CounterBtnVal
+                            variant='contained'
+                            color='inherit'
+                            text='black'
+                        >
+                            {formData.bedrooms}
+                        </CounterBtnVal>
+                        <CounterBtn
+                            variant='contained'
+                            color='inherit'
+                            text='black'
+                            onClick={(e) => setFormData({ ...formData, bedrooms: formData.bedrooms + 1 })}
+                        >+</CounterBtn>
+                    </ButtonGroup>
+                </div>
             </FormControl>
 
 
             <FormControl>
-            <div className='flex items-center justify-center gap-[100px]'>    
-                <label htmlFor="beds">Beds</label>
-                <ButtonGroup size="small" aria-label="small outlined button group">
-                    <CounterBtn
-                        variant='contained'
-                        color='inherit'
-                        text='black' 
-                        onClick={(e)=> setFormData({...formData, beds: formData.beds>0? formData.beds - 1:0})}
-                    >-</CounterBtn>
-                    <CounterBtnVal
-                        variant='contained'
-                        color='inherit'
-                        text='black' >{formData.beds}</CounterBtnVal>
-                    <CounterBtn
-                        variant='contained'
-                        color='inherit'
-                        text='black' 
-                        onClick={(e)=> setFormData({...formData, beds: formData.beds + 1})}
-                    >+</CounterBtn>
-                </ButtonGroup>
-            </div>
+                <div className='flex items-center justify-center gap-[220px]'>
+                    <label htmlFor="beds">Beds</label>
+                    <ButtonGroup size="small" aria-label="small outlined button group">
+                        <CounterBtn
+                            variant='contained'
+                            color='inherit'
+                            text='black'
+                            onClick={(e) => setFormData({ ...formData, beds: formData.beds > 0 ? formData.beds - 1 : 0 })}
+                        >-</CounterBtn>
+                        <CounterBtnVal
+                            variant='contained'
+                            color='inherit'
+                            text='black' >{formData.beds}</CounterBtnVal>
+                        <CounterBtn
+                            variant='contained'
+                            color='inherit'
+                            text='black'
+                            onClick={(e) => setFormData({ ...formData, beds: formData.beds + 1 })}
+                        >+</CounterBtn>
+                    </ButtonGroup>
+                </div>
             </FormControl>
 
 
             <FormControl>
-            <div className='flex items-center justify-center gap-[100px]'>    
-                <label htmlFor="bathrooms">Bathrooms</label>
-                <ButtonGroup size="small" aria-label="small outlined button group">
-                    <CounterBtn
-                        variant='contained'
-                        color='inherit'
-                        text='black' 
-                        onClick={(e)=> setFormData({...formData, bathrooms: formData.bathrooms>0? formData.bathrooms - 1:0})}
-                    >-</CounterBtn>
-                    <CounterBtnVal
-                        variant='contained'
-                        color='inherit'
-                        text='black' >{formData.bathrooms}</CounterBtnVal>
-                    <CounterBtn
-                        variant='contained'
-                        color='inherit'
-                        text='black' 
-                        onClick={(e)=> setFormData({...formData, bathrooms: formData.bathrooms + 1})}
-                    >+</CounterBtn>
-                </ButtonGroup>
-            </div>
+                <div className='flex items-center justify-center gap-[157px]'>
+                    <label htmlFor="bathrooms">Bathrooms</label>
+                    <ButtonGroup size="small" aria-label="small outlined button group">
+                        <CounterBtn
+                            variant='contained'
+                            color='inherit'
+                            text='black'
+                            onClick={(e) => setFormData({ ...formData, bathrooms: formData.bathrooms > 0 ? formData.bathrooms - 1 : 0 })}
+                        >-</CounterBtn>
+                        <CounterBtnVal
+                            variant='contained'
+                            color='inherit'
+                            text='black' >{formData.bathrooms}</CounterBtnVal>
+                        <CounterBtn
+                            variant='contained'
+                            color='inherit'
+                            text='black'
+                            onClick={(e) => setFormData({ ...formData, bathrooms: formData.bathrooms + 1 })}
+                        >+</CounterBtn>
+                    </ButtonGroup>
+                </div>
             </FormControl>
 
 
             <FormControl>
-            <div className='flex items-center justify-center gap-[100px]'>    
-                <label htmlFor="kitchen">Kitchen</label>
-                <ButtonGroup size="small" aria-label="small outlined button group">
-                    <CounterBtn
-                        variant='contained'
-                        color='inherit'
-                        text='black' 
-                        onClick={(e)=> setFormData({...formData, kitchen: formData.kitchen>0?formData.kitchen - 1:0})}
-                    >-</CounterBtn>
-                    <CounterBtnVal
-                        variant='contained'
-                        color='inherit'
-                        text='black' >{formData.kitchen}</CounterBtnVal>
-                    <CounterBtn
-                        variant='contained'
-                        color='inherit'
-                        text='black'  
-                        onClick={(e)=> setFormData({...formData, kitchen: formData.kitchen + 1})}>+</CounterBtn>
-                </ButtonGroup>
-            </div>
+                <div className='flex items-center justify-center gap-[190px]'>
+                    <label htmlFor="kitchen">Kitchen</label>
+                    <ButtonGroup size="small" aria-label="small outlined button group">
+                        <CounterBtn
+                            variant='contained'
+                            color='inherit'
+                            text='black'
+                            onClick={(e) => setFormData({ ...formData, kitchen: formData.kitchen > 0 ? formData.kitchen - 1 : 0 })}
+                        >-</CounterBtn>
+                        <CounterBtnVal
+                            variant='contained'
+                            color='inherit'
+                            text='black' >{formData.kitchen}</CounterBtnVal>
+                        <CounterBtn
+                            variant='contained'
+                            color='inherit'
+                            text='black'
+                            onClick={(e) => setFormData({ ...formData, kitchen: formData.kitchen + 1 })}>+</CounterBtn>
+                    </ButtonGroup>
+                </div>
             </FormControl>
 
 
             <FormControl>
-            <div className='flex items-center justify-center gap-[100px]'>    
-                <label htmlFor="parking">Parking</label>
-                <ButtonGroup size="small" aria-label="small outlined button group">
-                    <CounterBtn
-                        variant='contained'
-                        color='inherit'
-                        text='black' 
-                        onClick={(e)=> setFormData({...formData, parking: formData.parking>0?formData.parking - 1:0})}
-                    >-</CounterBtn>
-                    <CounterBtnVal
-                        variant='contained'
-                        color='inherit'
-                        text='black' >{formData.parking}</CounterBtnVal>
-                    <CounterBtn
-                        variant='contained'
-                        color='inherit'
-                        text='black' 
-                        onClick={(e)=> setFormData({...formData, parking: formData.parking + 1})}
-                    >+</CounterBtn>
-                </ButtonGroup>
+                <div className='flex items-center justify-center gap-[190px]'>
+                    <label htmlFor="parking">Parking</label>
+                    <ButtonGroup size="small" aria-label="small outlined button group">
+                        <CounterBtn
+                            variant='contained'
+                            color='inherit'
+                            text='black'
+                            onClick={(e) => setFormData({ ...formData, parking: formData.parking > 0 ? formData.parking - 1 : 0 })}
+                        >-</CounterBtn>
+                        <CounterBtnVal
+                            variant='contained'
+                            color='inherit'
+                            text='black' >{formData.parking}</CounterBtnVal>
+                        <CounterBtn
+                            variant='contained'
+                            color='inherit'
+                            text='black'
+                            onClick={(e) => setFormData({ ...formData, parking: formData.parking + 1 })}
+                        >+</CounterBtn>
+                    </ButtonGroup>
                 </div>
             </FormControl>
 
