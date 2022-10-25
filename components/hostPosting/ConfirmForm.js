@@ -122,6 +122,7 @@ export default function ConfirmForm({ formData }) {
             color='#F5F5F5'
             fontSize='18px'
           />
+          <img src={formData.image} alt="image"></img>
         </div>
       </div>
     </>
