@@ -5,51 +5,50 @@ import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
 import SortIcon from '@mui/icons-material/Sort';
 
 
-export default function Ammenities({
+export default function Iconbtn({
   }){
 
-  return ( <div>
+  return ( 
+        <div className="flex flex-col gap-4">
+            <div className='flex flex-row gap-3'>
+                <PersonIcon sx={{ color:"#CDCDCD"}}/>
+                <AppText
+                    txt='Personal Information'
+                    color='#CDCDCD'
+                    fontSize='16px'
+                    fontWeight='500'
+                />
+            </div>
 
-    <div className='flex mt-3 flex-row gap-3'>
-        <PersonIcon sx={{ color:"#CDCDCD", marginLeft:"15px"}}/>
-        <AppText
-            txt='Personal Information'
-            color='#CDCDCD'
-            fontSize='16px'
-            fontWeight='500'
-        />
-    </div>
+            <div className='flex flex-row gap-3'>
+                <VerifiedUserIcon sx={{ color:"#CDCDCD"}}/>
+                <AppText
+                    txt='Account Security'
+                    color='#CDCDCD'
+                    fontSize='16px'
+                    fontWeight='500'
+                />
+            </div>
 
-    <div className='flex mt-3 flex-row gap-3'>
-        <VerifiedUserIcon sx={{ color:"#CDCDCD", marginLeft:"15px"}}/>
-        <AppText
-            txt='Account Security'
-            color='#CDCDCD'
-            fontSize='16px'
-            fontWeight='500'
-        />
-    </div>
+            <div className='flex flex-row gap-3'>
+                <SortIcon sx={{ color:"#CDCDCD"}}/>
+                <AppText
+                    txt='My Listings'
+                    color='#CDCDCD'
+                    fontSize='16px'
+                    fontWeight='500'
+                />
+            </div>
 
-    <div className='flex mt-3 flex-row gap-3'>
-        <SortIcon sx={{ color:"#CDCDCD", marginLeft:"15px"}}/>
-        <AppText
-            txt='My Listings'
-            color='#CDCDCD'
-            fontSize='16px'
-            fontWeight='500'
-        />
-    </div>
-
-    <div className='flex mt-3 flex-row gap-3'>
-        <FavoriteIcon sx={{ color:"#CDCDCD", marginLeft:"15px"}}/>
-        <AppText
-            txt='My Wishlist'
-            color='#CDCDCD'
-            fontSize='16px'
-            fontWeight='500'
-        />
-    </div>
-    
+            <div className='flex flex-row gap-3'>
+                <FavoriteIcon sx={{ color:"#CDCDCD"}}/>
+                <AppText
+                    txt='My Wishlist'
+                    color='#CDCDCD'
+                    fontSize='16px'
+                    fontWeight='500'
+                />
+            </div>
         </div>
     )
 }

@@ -2,7 +2,7 @@ import AppText from "../AppText/AppText";
 import { MainContainer } from "../../../styles/styledComps";
 
 
-export default function Info({
+export default function Intro({
 }) {
 
     return (
