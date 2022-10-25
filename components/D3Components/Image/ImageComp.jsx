@@ -12,6 +12,6 @@ export default function ImageComp({
   borderRadius = "0px",
 }) {
   return (
-    <img src={src} width={width} height={height} borderRadius={borderRadius} />
+    <Img src={src} width={width} height={height} borderRadius={borderRadius} />
   );
 }
