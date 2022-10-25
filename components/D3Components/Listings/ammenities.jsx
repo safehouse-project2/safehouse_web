@@ -9,66 +9,74 @@ import CheckroomIcon from '@mui/icons-material/Checkroom';
 
 
 export default function Ammenities({
-  }){
+}) {
 
-  return ( <div>
+    return (
+        <div className="flex flex-col gap-4">
+            <div className='flex flex-col pt-5'>
+                <AppText
+                    txt='Ammenities'
+                    fontWeight='500'
+                    fontSize='18px'
+                />
+            </div>
+            <div className="flex flex-col items-end gap-5 pr-10">
+                <div className='flex flex-row justify-between w-[100%]'>
+                    <div className="flex gap-2">
+                        <WifiIcon />
+                        <AppText
+                            txt='Wifi'
+                            fontSize='15px'
+                            fontWeight='500'
+                        />
+                    </div>
+                    <div className="flex gap-2">
+                        <TvIcon />
+                        <AppText
+                            txt='TV'
+                            fontSize='15px'
+                            fontWeight='500'
+                        />
+                    </div>
 
-    <div className='flex mt-5 flex-col gap-4'>
-        
-        <AppText
-            txt='Ammenities'
-            fontWeight='500'
-            color='black'
-            fontSize='16px'
-        />
-    </div>
+                    <div className="flex gap-2">
+                        <AutoStoriesIcon />
+                        <AppText
+                            txt='Books'
+                            fontSize='15px'
+                            fontWeight='500'
+                        />
+                    </div>
+                </div>
+                <div className='flex flex-row justify-between w-[100%]'>
+                    <div className="flex gap-2">
+                        <LocalLaundryServiceIcon />
+                        <AppText
+                            txt='Washer'
+                            fontSize='15px'
+                            fontWeight='500'
+                        />
+                    </div>
 
-    <div className='flex mt-3 flex-row gap-3'>
-        <WifiIcon sx={{ marginLeft:"15px"}}/>
-        <AppText
-            txt='Wifi'
-            color='black'
-            fontSize='15px'
-            fontWeight='500'
-        />
-        <TvIcon sx={{ marginLeft:"47px"}}/>
-        <AppText
-            txt='TV'
-            color='black'
-            fontSize='15px'
-            fontWeight='500'
-        />
-        <AutoStoriesIcon sx={{ marginLeft:"37px"}}/>
-        <AppText
-            txt='Books'
-            color='black'
-            fontSize='15px'
-            fontWeight='500'
-        />
-        </div>
-        <div className='flex mt-3 flex-row gap-3'>
-        <LocalLaundryServiceIcon sx={{ marginLeft:"15px"}}/>
-        <AppText
-            txt='Washer'
-            color='black'
-            fontSize='15px'
-            fontWeight='500'
-        />
-        <DryCleaningIcon sx={{ marginLeft:"20px"}}/>
-        <AppText
-            txt='Dryer'
-            color='black'
-            fontSize='15px'
-            fontWeight='500'
-        />
-        <CheckroomIcon sx={{ marginLeft:"20px"}}/>
-        <AppText
-            txt='Hangers'
-            color='black'
-            fontSize='15px'
-            fontWeight='500'
-        />
-    </div>
+                    <div className="flex gap-2">
+                        <DryCleaningIcon />
+                        <AppText
+                            txt='Dryer'
+                            fontSize='15px'
+                            fontWeight='500'
+                        />
+                    </div>
+
+                    <div className="flex gap-2">
+                        <CheckroomIcon />
+                        <AppText
+                            txt='Hangers'
+                            fontSize='15px'
+                            fontWeight='500'
+                        />
+                    </div>
+                </div>
+            </div>
 
         </div>
     )
