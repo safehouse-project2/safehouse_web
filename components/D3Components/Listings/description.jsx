@@ -1,19 +1,24 @@
 import AppText from "../AppText/AppText";
 
-export default function Description({
-}) {
-
-    return (
-        <div className='flex flex-col gap-2 pt-4'>
-            <AppText
-                txt='Description'
-                fontSize='18px'
-                fontWeight='500'
-            />
-            <AppText
-                txt='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec hendrerit vehicula in. Turpis nam nisl nunc, accumsan ut sit ac. Pretium, venenatis volutpat, semper quis amet, nibh tincidunt integer.'
-                fontSize='14px'
-            />
-        </div>
-    )
+export default function Description({ state }) {
+  const { description } = state;
+  return (
+    <div>
+      <div className="flex mt-5 flex-col gap-4">
+        <AppText
+          txt={description}
+          color="black"
+          fontSize="16px"
+          fontWeight="500"
+        />
+        <AppText
+          txt={description}
+          color="#272727"
+          fontSize="12px"
+          fontWeight="400"
+        />
+      </div>
+    </div>
+  );
 }
+
