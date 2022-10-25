@@ -6,3 +6,4 @@ export default {
 }
 
 export const Default = () => <Button/>
+export const Variation1 = () => <Button txt="Submit" backgroundColor = "#20514B"/>
