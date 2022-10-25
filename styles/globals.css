@@ -27,3 +27,7 @@ body, html, *{
     border-bottom: 1px solid #CDCDCD;
     border-top: 0;
 }
+
+.MuiPaper-rounded MuiPaper-elevation3 css-gy4i07-MuiPaper-root > div{
+    border-radius: 13px 13px 0px 0px;
+}
