@@ -54,7 +54,7 @@ export default function Navbar({
 
     return (
         <Box sx={{
-            borderRadius: "13px 13px 00px 0px",
+            borderRadius: "13px 13px 0px 0px",
         }} ref={ref}>
             <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
                 <BottomNavigation

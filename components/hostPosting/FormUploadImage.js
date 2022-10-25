@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 import { storage } from "../../firebase"
 import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage"
+import AppText from '../D3Components/AppText/AppText';
 
 export default function FormUploadImage({ formData, setFormData }) {
   const [attachment, setAttachment] = useState()
@@ -43,7 +44,9 @@ export default function FormUploadImage({ formData, setFormData }) {
   }
   return (
     <div>
-      <h1>Upload Home Photos</h1>
+      <AppText
+        txt='Let&quot s &quot add some images of your place.'
+      />
       <div>
         <input type="file" name="myImage" onChange={onFileChange} />
         <div>
