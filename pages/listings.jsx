@@ -1,3 +1,4 @@
+
 import NavBar from "../components/Home/NavBar";
 import { CenterContainer } from "../styles/styledComps";
 import Image from "../components/D3Components/Image/ImageComp.jsx";

@@ -7,6 +7,7 @@ import LocalLaundryServiceIcon from "@mui/icons-material/LocalLaundryService";
 import DryCleaningIcon from "@mui/icons-material/DryCleaning";
 import CheckroomIcon from "@mui/icons-material/Checkroom";
 
+
 export default function Ammenities({ state }) {
   const { wifi, tv, washer, dryer } = state;
   return (
@@ -39,3 +40,4 @@ export default function Ammenities({ state }) {
     </div>
   );
 }
+

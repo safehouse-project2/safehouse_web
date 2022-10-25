@@ -9,9 +9,27 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Chat } from '@mui/icons-material';
 import HelpIcon from '@mui/icons-material/Help';
 import Paper from '@mui/material/Paper';
+import { createTheme } from '@mui/material/styles';
+
+
+const theme = createTheme({
+    palette: {
+        primary: {
+            main: '#ECECEC',
+        },
+        secondary: {
+            main: '#ECECEC',
+        },
+    },
+})
+
 
 export default function Navbar({
     onBtnClick = () => { },
+    // homeColor = "red",
+    // chatColor = "red",
+    // helpColor = "red",
+    // profileColor = "red",
 }) {
     const r = useRouter();
     const goToHome = () => {
@@ -21,20 +39,23 @@ export default function Navbar({
         r.push("/chat");
     }
     const goToHelp = () => {
-        r.push("/help");
+        r.push("/resources");
     }
     const goToProfile = () => {
         r.push("/profile");
     }
     const [value, setValue] = React.useState(0);
     const ref = React.useRef(null);
+    const [color, setColor] = useState("#959595");
 
     React.useEffect(() => {
         ref.current.ownerDocument.body.scrollTop = 0;
     }, []);
 
     return (
-        <Box sx={{}} ref={ref}>
+        <Box sx={{
+            borderRadius: "13px 13px 0px 0px",
+        }} ref={ref}>
             <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
                 <BottomNavigation
                     showLabels
@@ -43,10 +64,19 @@ export default function Navbar({
                         setValue(newValue);
                     }}
                 >
-                    <BottomNavigationAction label="Home" icon={<HomeIcon />} onClick={goToHome} />
-                    <BottomNavigationAction label="Chat" icon={<Chat />} onClick={goToChat} />
-                    <BottomNavigationAction label="Help" icon={<HelpIcon />} onClick={goToHelp} />
-                    <BottomNavigationAction label="Profile" icon={<AccountCircleIcon onClick={goToProfile} />} />
+                    <BottomNavigationAction label="Home" icon={<HomeIcon />} onClick={goToHome} sx={{
+                        // color: { homeColor },
+                    }} />
+                    <BottomNavigationAction label="Chat" icon={<Chat />} onClick={goToChat} sx={{
+                        // color: { chatColor },
+                    }} />
+                    <BottomNavigationAction label="Resources" icon={<HelpIcon />} onClick={goToHelp} sx={{
+                        // color: { helpColor },
+                    }} />
+                    <BottomNavigationAction label="Profile" icon={<AccountCircleIcon onClick={goToProfile} sx={{
+                        // color: { profileColor },
+                    }} />}
+                    />
                 </BottomNavigation>
             </Paper>
         </Box>

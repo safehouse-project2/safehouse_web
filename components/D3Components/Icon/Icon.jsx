@@ -6,6 +6,6 @@ export default function Icon({
     color = "#272727",
 }) {
     return <>
-        src={icon}
+        {icon}
     </>
 }

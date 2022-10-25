@@ -1,3 +1,4 @@
+
 import Navbar from "../components/Home/Navbar";
 const Chat = () => {
   return (
@@ -9,3 +10,4 @@ const Chat = () => {
   );
 };
 export default Chat;
+

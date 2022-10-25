@@ -3,6 +3,7 @@ import CircleIcon from "@mui/icons-material/Circle";
 import Face6Icon from "@mui/icons-material/Face6";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 
+
 export default function Info({ state }) {
   const {
     addressLine1,
@@ -71,3 +72,4 @@ export default function Info({ state }) {
     </div>
   );
 }
+
