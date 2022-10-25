@@ -6,12 +6,12 @@ import SortIcon from '@mui/icons-material/Sort';
 
 
 export default function Iconbtn({
-  }){
+}) {
 
-  return ( 
-        <div className="flex flex-col gap-4">
+    return (
+        <div className="flex flex-col gap-6">
             <div className='flex flex-row gap-3'>
-                <PersonIcon sx={{ color:"#CDCDCD"}}/>
+                <PersonIcon sx={{ color: "#CDCDCD" }} />
                 <AppText
                     txt='Personal Information'
                     color='#CDCDCD'
@@ -21,7 +21,7 @@ export default function Iconbtn({
             </div>
 
             <div className='flex flex-row gap-3'>
-                <VerifiedUserIcon sx={{ color:"#CDCDCD"}}/>
+                <VerifiedUserIcon sx={{ color: "#CDCDCD" }} />
                 <AppText
                     txt='Account Security'
                     color='#CDCDCD'
@@ -31,7 +31,7 @@ export default function Iconbtn({
             </div>
 
             <div className='flex flex-row gap-3'>
-                <SortIcon sx={{ color:"#CDCDCD"}}/>
+                <SortIcon sx={{ color: "#CDCDCD" }} />
                 <AppText
                     txt='My Listings'
                     color='#CDCDCD'
@@ -41,7 +41,7 @@ export default function Iconbtn({
             </div>
 
             <div className='flex flex-row gap-3'>
-                <FavoriteIcon sx={{ color:"#CDCDCD"}}/>
+                <FavoriteIcon sx={{ color: "#CDCDCD" }} />
                 <AppText
                     txt='My Wishlist'
                     color='#CDCDCD'

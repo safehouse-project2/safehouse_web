@@ -1,13 +1,12 @@
 
-import Navbar from "../components/Home/Navbar";
+import Navbar from "../components/D3Components/Navbar/Navbar";
 const Chat = () => {
-  return (
-    <div>
-      <Navbar />
-      <h1>Chat</h1>
-      <p>Chat with us!</p>
-    </div>
-  );
+    return (
+        <div>
+            <Navbar />
+            <h1>Chat</h1>
+        </div>
+    );
 };
 export default Chat;
 

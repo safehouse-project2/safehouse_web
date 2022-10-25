@@ -12,29 +12,28 @@ export default function Listings() {
   const r = useRouter()
 
   return (
-      <BackgroundContainer src="./homeBG.png">
-          <div className="flex flex-col p-4">
-            <Intro />
-            <User />
-            <Info />
+    <BackgroundContainer src="./homeBG.png">
+      <div className="flex flex-col p-4">
+        <Intro />
+        <User />
+        <Info />
+        <div className="flex p-7">
+          <Iconbtn />
+        </div>
 
-            <div className="flex p-7">
-              <Iconbtn />
-            </div>
-
-            <CenterContainer>
-              <div className="flex pt-10 pb-20">
-                <Button
-                  txt="Contact Host"
-                  fontSize="16px"
-                  endIcon={<ArrowForwardIcon />}
-                  onBtnClick={() => alert('Contacting Host')}
-                />
-              </div>
-            </CenterContainer>
+        <CenterContainer>
+          <div className="flex pt-10 pb-20">
+            <Button
+              txt="Contact Host"
+              fontSize="16px"
+              endIcon={<ArrowForwardIcon />}
+              onBtnClick={() => alert('Contacting Host')}
+            />
           </div>
+        </CenterContainer>
+      </div>
 
-        <Navbar />
-      </BackgroundContainer>
+      <Navbar />
+    </BackgroundContainer>
   )
 }

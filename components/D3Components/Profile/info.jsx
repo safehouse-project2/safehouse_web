@@ -4,9 +4,8 @@ import AccountBoxIcon from '@mui/icons-material/AccountBox';
 
 
 export default function Info({
-  }){
-
-  return ( 
+}) {
+    return (
         <div className="flex flex-col gap-4 items-center">
             <div className='flex flex-row gap-10'>
                 <div className='flex flex-row gap-1'>
@@ -16,7 +15,7 @@ export default function Info({
                         fontSize='15px'
                         fontWeight='400'
                     />
-                    <PinDropIcon sx={{ color:"#F5F5F5", marginLeft:"15px"}}/>
+                    <PinDropIcon sx={{ color: "#F5F5F5", marginLeft: "15px" }} />
                 </div>
 
                 <div className='flex flex-row gap-1'>
@@ -26,10 +25,10 @@ export default function Info({
                         fontSize='15px'
                         fontWeight='400'
                     />
-                    <AccountBoxIcon sx={{ color:"#F5F5F5", marginLeft:"15px"}}/>
+                    <AccountBoxIcon sx={{ color: "#F5F5F5", marginLeft: "15px" }} />
                 </div>
             </div>
-            
+
             <div className='flex flex-row gap-2'>
                 <AppText
                     txt='Verified with BC Services Card ending in'
@@ -38,12 +37,12 @@ export default function Info({
                     fontWeight='500'
                 />
                 <AppText
-                    txt='2147'
+                    txt='2147.'
                     color='#F5F5F5'
                     fontSize='15px'
                     fontWeight='700'
                 />
-            </div> 
+            </div>
         </div>
     )
 }

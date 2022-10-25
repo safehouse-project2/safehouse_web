@@ -44,24 +44,29 @@ export default function resources() {
                             fontSize="20px"
                             txt="Here are some resources for further assistance:"
                         />
-                        <InfoCard
-                            onCrdClick={() => r.push("https://firesmartbc.ca")}
-                            txt1="FireSmartBC.ca"
-                            txt2="Fire safetey preparedness"
+                        <a href="https://firesmartbc.ca" target="_blank">
+                            <InfoCard
+                                txt1="FireSmartBC.ca"
+                                txt2="Fire safetey preparedness"
+                            />
+                        </a>
+
+                        <a
+                            href='https://www2.gov.bc.ca/assets/gov/public-safety-and-emergency-services/emergency-preparedness-response-recovery/embc/preparedbc/preparedbc-guides/wildfire_preparedness_guide.pdf'
                             target="_blank"
-                        />
-                        <InfoCard
-                            onCrdClick={() => r.push("https://www2.gov.bc.ca/assets/gov/public-safety-and-emergency-services/emergency-preparedness-response-recovery/embc/preparedbc/preparedbc-guides/wildfire_preparedness_guide.pdf")}
-                            txt1="Wildfire Preparedness Guide"
-                            txt2="by The BC Goverment"
-                            target="_blank"
-                        />
-                        <InfoCard
-                            onCrdClick={() => r.push("https://www2.gov.bc.ca/gov/content/safety/wildfire-status")}
-                            txt1="BC Goverment Wildfire Service"
-                            txt2="Wildfire and evacuation statuses with news and updates"
-                            target="_blank"
-                        />
+                        >
+                            <InfoCard
+                                txt1="Wildfire Preparedness Guide"
+                                txt2="by The BC Goverment"
+                            />
+                        </a>
+
+                        <a href="https://www2.gov.bc.ca/gov/content/safety/wildfire-status" target="_blank">
+                            <InfoCard
+                                txt1="BC Goverment Wildfire Service"
+                                txt2="Wildfire and evacuation statuses with news and updates"
+                            />
+                        </a>
                     </div>
 
                     <Navbar />
