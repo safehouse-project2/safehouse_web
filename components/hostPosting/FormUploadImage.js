@@ -3,6 +3,9 @@ import { v4 as uuidv4 } from 'uuid';
 import { storage } from "../../firebase"
 import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage"
 import AppText from '../D3Components/AppText/AppText';
+import Button from '../D3Components/Button/Button';
+import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
+import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
 
 export default function FormUploadImage({ formData, setFormData }) {
   const [attachment, setAttachment] = useState()
@@ -48,11 +51,30 @@ export default function FormUploadImage({ formData, setFormData }) {
         txt='Let&quot s &quot add some images of your place.'
       />
       <div>
-        <input type="file" name="myImage" onChange={onFileChange} />
+        <div className='r-box flex flex-row gap-4 bg-[#f5f5f5] px-4 py-4 justify-start items-center rounded-md'>
+          <input type="file" name="myImage" onChange={onFileChange} />
+        </div>
         <div>
           <img src={attachment} />
-          <button onClick={onUpload}>File upload</button>
-          <button onClick={onClearAttachment}>Clear</button>
+          <Button onBtnClick={onUpload} txt="File Upload" />
+          <Button onBtnClick={onClearAttachment} txt="Clear" />
+        </div>
+
+        <div className='flex flex-col gap-4 mt-4'>
+          <div className='r-box flex flex-row gap-4 bg-[#f5f5f5] px-4 py-4 justify-start items-center rounded-md'>
+            <DriveFolderUploadIcon />
+            <AppText
+              txt="Choose from Device"
+              fontSize='18px'
+            />
+          </div>
+          <div className='r-box flex flex-row gap-4 bg-[#f5f5f5] px-4 py-4 justify-start items-center rounded-md'>
+            <AddAPhotoIcon />
+            <AppText
+              txt="Take photos now"
+              fontSize='18px'
+            />
+          </div>
         </div>
         <div>
           {/* {imageList.map((url) => {
