@@ -15,9 +15,6 @@ export default function Home() {
 
   return (
     <div>
-      <div className='absolute w-full h-auto'>
-        <NavBar />
-      </div>
       <BackgroundContainer src="./homeBG.png">
         <CenterContainer>
           <div className='flex gap-10 z-99'>
@@ -25,7 +22,6 @@ export default function Home() {
               <Button
                 href="/host"
                 txt='Host'
-                // onBtnClick={goToHost}
               />
               <AppText
                 txt='Apply to become a host'
@@ -37,7 +33,6 @@ export default function Home() {
               <Button
                 href="/evacuee"
                 txt='Evacuee'
-                // onBtnClick={goToEvacuee}
               />
               <AppText
                 txt='Apply to become a host'

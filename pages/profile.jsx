@@ -6,6 +6,7 @@ import Intro from '../components/D3Components/Profile/intro';
 import Info from '../components/D3Components/Profile/info';
 import Iconbtn from '../components/D3Components/Profile/iconbtn';
 import AppText from '../components/D3Components/AppText/AppText';
+import Navbar from '../components/D3Components/Navbar/Navbar';
 
 export default function Listings() {
 
@@ -52,6 +53,7 @@ export default function Listings() {
 
           </CenterContainer>
         </div>
+        <Navbar />
       </BackgroundContainer>
     </div>
   )

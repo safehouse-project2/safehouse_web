@@ -6,10 +6,16 @@ import SearchIcon from "@mui/icons-material/Search";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Navbar from "../components/D3Components/Navbar/Navbar";
 import Image from "../components/D3Components/Image/ImageComp";
+import { useState } from "react";
 
 export default function UserHome() {
+
+    const [firemap, setFiremap] = useState(false);
+    const [housemap, setHousemap] = useState(false);
+    const [both, setBoth] = useState(false);
+
     return (
-        <div>
+        <div className="pb-7">
             <BackgroundContainer src="">
                 <MainContainer>
                     <Input
@@ -51,23 +57,20 @@ export default function UserHome() {
                         fontSize="16px"
                         padding="20px 0px 10px 0px"
                     />
-                    <div className="dropd flex bg-[#fff] py-3 text-[#8C8C8C] gap-20 w-[234px] px-3 rounded-md">
-                        <AppText
-                            txt="Please Select"
-                            fontSize="16px"
-                            fontWeight="300"
-                            color="#8C8C8C"
-                        />
-                        <KeyboardArrowDownIcon />
+                    <div className="dropd flex bg-[#fff] text-[#8C8C8C] gap-20 w-[234px] rounded-md justify-start">
+                        <select name="map" id="mapHome" className="py-3 px-3 text-[#8c8c8c] bg-[#fff] ml-3">
+                            <option value="Wildfires">Wildfires</option>
+                            <option value="Safehouses">Safehouses</option>
+                            <option value="Both">Both</option>
+                        </select>
                     </div>
-                    {/* <Dropdown
-                /> */}
                     <div className="w-[310px] h-[310px] pt-6">
                         <Image
-                            src="/map1.png"
+                            src="/fire_map.png"
                             width={500}
                             height={500}
                             borderRadius="10px"
+                            setFiremap={setFiremap}
                         />
                     </div>
                 </MainContainer>
