@@ -37,8 +37,6 @@ const Evacuee = () => {
     });
     return unsubscribe;
   }, []);
-
-  console.log(home);
   const submitHandler = async ({
     country,
     province,
@@ -84,9 +82,9 @@ const Evacuee = () => {
   };
 
   return (
-      <div>
-        <EvacueePosting  onSubmit={submitHandler} home={home} setHome={setHome} />
-        <Navbar/> 
+    <div>
+      <EvacueePosting onSubmit={submitHandler} home={home} setHome={setHome} />
+      <Navbar />
     </div>
   );
 };

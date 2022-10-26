@@ -7,9 +7,7 @@ import LocalLaundryServiceIcon from "@mui/icons-material/LocalLaundryService";
 import DryCleaningIcon from "@mui/icons-material/DryCleaning";
 import CheckroomIcon from "@mui/icons-material/Checkroom";
 
-
 export default function Ammenities({ state }) {
-  const { wifi, tv, washer, dryer } = state;
   return (
     <div>
       <div className="flex mt-5 flex-col gap-4">
@@ -23,21 +21,40 @@ export default function Ammenities({ state }) {
 
       <div className="flex mt-3 flex-row gap-3">
         <WifiIcon sx={{ marginLeft: "15px" }} />
-        <AppText txt={wifi} color="black" fontSize="15px" fontWeight="500" />
+        <AppText
+          txt={state.wifi ? "Wifi Provided" : "No Wifi"}
+          color="black"
+          fontSize="15px"
+          fontWeight="500"
+        />
         <TvIcon sx={{ marginLeft: "47px" }} />
-        <AppText txt={tv} color="black" fontSize="15px" fontWeight="500" />
+        <AppText
+          txt={state.tv ? "TV Provided" : "No TV"}
+          color="black"
+          fontSize="15px"
+          fontWeight="500"
+        />
         <AutoStoriesIcon sx={{ marginLeft: "37px" }} />
         <AppText txt="Books" color="black" fontSize="15px" fontWeight="500" />
       </div>
       <div className="flex mt-3 flex-row gap-3">
         <LocalLaundryServiceIcon sx={{ marginLeft: "15px" }} />
-        <AppText txt={washer} color="black" fontSize="15px" fontWeight="500" />
+        <AppText
+          txt={state.washer ? "Washer Provided" : "No washer"}
+          color="black"
+          fontSize="15px"
+          fontWeight="500"
+        />
         <DryCleaningIcon sx={{ marginLeft: "20px" }} />
-        <AppText txt={dryer} color="black" fontSize="15px" fontWeight="500" />
+        <AppText
+          txt={state.dryer ? "Dryer Provided" : "No Dryer"}
+          color="black"
+          fontSize="15px"
+          fontWeight="500"
+        />
         <CheckroomIcon sx={{ marginLeft: "20px" }} />
         <AppText txt="Hangers" color="black" fontSize="15px" fontWeight="500" />
       </div>
     </div>
   );
 }
-

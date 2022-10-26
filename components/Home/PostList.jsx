@@ -13,10 +13,13 @@ const PostList = ({ state }) => {
             <h1 className="cursor-pointer">{i + 1}</h1>
           </Button>
           <h1 className="fa-solid fa-pencil px-2 duration-300">
-            Address: {post.addressLine1}
+            Address: {post.addressLine1 ? post.addressLine1 : "No Address"}
           </h1>
-          <h5> Description: {post.description}</h5>
-          <h2>Province: {post.province}</h2>
+          <h5>
+            Description:
+            {post.description ? post.description : "No Description"}
+          </h5>
+          <h2>Province: {post.province ? post.province : null}</h2>
           <div>{post.image && <img src={post.image} />}</div>
         </div>
       ))}

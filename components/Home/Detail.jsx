@@ -25,7 +25,11 @@ const Detail = ({ state }) => {
           <NavBar />
         </div>
 
-        <Image src={state.image} width="2000px" height="1300px" />
+        <Image
+          src={state.image && state.image}
+          width="2000px"
+          height="1300px"
+        />
 
         <div className="flex flex-col items-left justify-left ml-5">
           <Info state={state} />
