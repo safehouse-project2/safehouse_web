@@ -26,26 +26,29 @@ export default function Slider({
     title = "Default Location",
     distance = "Default Distance",
     src = "./vercel.svg",
+    onSliderClick = () => { },
 }) {
     return (
-        <BackgroundImageContainer src={src}>
-            <AppText
-                txt={title}
-                color='#f5f5f5'
-                fontSize='24px'
-            />
-            <div className='flex gap-[200px] items-center'>
+        <div onClick={onSliderClick} className="cursor-pointer">
+            <BackgroundImageContainer src={src}>
                 <AppText
-                    txt={distance}
-                    color='#cdcdcd'
-                    fontSize='16px'
+                    txt={title}
+                    color='#f5f5f5'
+                    fontSize='24px'
                 />
-                <AppText
-                    txt="1/7"
-                    color='#cdcdcd'
-                    fontSize='16px'
-                />
-            </div>
-        </BackgroundImageContainer>
+                <div className='flex gap-[200px] items-center'>
+                    <AppText
+                        txt={distance}
+                        color='#cdcdcd'
+                        fontSize='16px'
+                    />
+                    <AppText
+                        txt="1/7"
+                        color='#cdcdcd'
+                        fontSize='16px'
+                    />
+                </div>
+            </BackgroundImageContainer>
+        </div>
     )
 }
