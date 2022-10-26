@@ -52,6 +52,11 @@ export default function Navbar({
         ref.current.ownerDocument.body.scrollTop = 0;
     }, []);
 
+    if (r.pathname== ('/', '/host')){
+        return <div>
+            <Box ref={ref}/>
+        </div>
+    } else{
     return (
         <Box sx={{
             borderRadius: "13px 13px 0px 0px",
@@ -81,6 +86,7 @@ export default function Navbar({
             </Paper>
         </Box>
     )
+    }
 }
 
 // sx={{ borderRadius: '20px' }}

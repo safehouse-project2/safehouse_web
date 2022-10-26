@@ -4,6 +4,7 @@ import Navbar from "../components/D3Components/Navbar/Navbar";
 import ReservationBox from "../components/D3Components/ReservationBox/ReservationBox";
 import ReviewBox from "../components/D3Components/ReviewBox/ReviewBox";
 
+
 export default function HostHome() {
     return (
         <div className="flex flex-col justify-center items-center">
@@ -22,6 +23,7 @@ export default function HostHome() {
                     </div>
 
                     <div className="flex flex-col pt-10 justify-start items-start gap-3">
+
                         <AppText
                             txt="Your reservations"
                             fontSize="20px"
