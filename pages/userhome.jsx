@@ -7,15 +7,13 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Navbar from "../components/D3Components/Navbar/Navbar";
 import Image from "../components/D3Components/Image/ImageComp";
 import { useState } from "react";
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 
 export default function UserHome() {
-
+    const r = useRouter();
     const [firemap, setFiremap] = useState(false);
     const [housemap, setHousemap] = useState(false);
     const [both, setBoth] = useState(false);
-    const r = useRouter()
-
 
     return (
         <div className="pb-7">
@@ -39,6 +37,7 @@ export default function UserHome() {
                                 src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"
                                 title="Burnaby, BC"
                                 distance="5km"
+                                onSliderClick={() => r.push("/listingsnew")}
                             />
                         </div>
 

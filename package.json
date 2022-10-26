@@ -21,6 +21,7 @@
     "@mui/material": "^5.10.9",
     "@mui/styled-engine-sc": "^5.10.6",
     "@react-google-maps/api": "^2.13.1",
+    "@syncfusion/ej2-react-navigations": "^20.3.50",
     "axios": "^0.27.2",
     "firebase": "^9.12.1",
     "moment": "^2.29.4",

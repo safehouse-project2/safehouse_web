@@ -4,25 +4,25 @@ import PlacesAutocomplete, {
 } from "react-places-autocomplete";
 import { useState, useEffect } from "react";
 import Script from "next/script";
-import Carousel from "../Carousel/Carousel";
+import Carousel from "../components/D3Components/Carousel/Carousel";
 
 export default function Test() {
-  const [state, setState] = useState({ address: "" });
-  const [postCenter, setPostCenter] = useState([
-    { lat: 49.2835, lng: -123.1153 },
-  ]);
+  // const [state, setState] = useState({ address: "" });
+  // const [postCenter, setPostCenter] = useState([
+  //   { lat: 49.2835, lng: -123.1153 },
+  // ]);
 
-  const handleChange = address => {
-    setState({ address });
-  };
-  const handleSelect = address => {
-    geocodeByAddress(address)
-      .then(results => getLatLng(results[0]))
-      .then(latLng =>
-        console.log("Success", setPostCenter([latLng, ...postCenter]))
-      )
-      .catch(error => console.error("Error", error));
-  };
+  // const handleChange = address => {
+  //   setState({ address });
+  // };
+  // const handleSelect = address => {
+  //   geocodeByAddress(address)
+  //     .then(results => getLatLng(results[0]))
+  //     .then(latLng =>
+  //       console.log("Success", setPostCenter([latLng, ...postCenter]))
+  //     )
+  //     .catch(error => console.error("Error", error));
+  // };
   return (
     <>
       <Carousel />

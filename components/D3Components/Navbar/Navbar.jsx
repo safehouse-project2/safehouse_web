@@ -44,7 +44,7 @@ export default function Navbar({
     const goToProfile = () => {
         r.push("/profile");
     }
-    const [value, setValue] = React.useState(0);
+    const [value, setValue] = React.useState(null);
     const ref = React.useRef(null);
     const [color, setColor] = useState("#959595");
 
