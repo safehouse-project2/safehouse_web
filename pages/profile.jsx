@@ -6,6 +6,8 @@ import Info from '../components/D3Components/Profile/info';
 import Iconbtn from '../components/D3Components/Profile/iconbtn';
 import User from '../components/D3Components/Profile/user';
 import Navbar from '../components/D3Components/Navbar/Navbar';
+import AppText from "../components/D3Components/AppText/AppText";
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import { useRouter } from 'next/router'
 
 export default function Listings() {
@@ -30,6 +32,14 @@ export default function Listings() {
               onBtnClick={() => alert('Contacting Host')}
             />
           </div>
+        <a className="flex" href='/list'>
+        <AppText
+          color='#F5F5F5'
+          txt=" See All reservations"
+          fontSize="20px" 
+        /> 
+        <KeyboardArrowRightIcon fontSize='large' style={{fill: "#f5f5f5"}}/>
+        </a>
         </CenterContainer>
       </div>
 
