@@ -19,6 +19,7 @@ export default function Listings() {
 
       <div className="flex flex-col items-left justify-left ml-5">
         <Info />
+        {/* test */}
         <Description />
         <Ammenities />
         <Rules />
