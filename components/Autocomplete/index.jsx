@@ -5,12 +5,8 @@ import PlacesAutocomplete, {
 import { useState, useEffect } from "react";
 import Script from "next/script";
 
-const Autocomplete = () => {
+const Autocomplete = ({ postCenter, setPostCenter }) => {
   const [state, setState] = useState({ address: "" });
-  const [postCenter, setPostCenter] = useState([
-    { lat: 49.2835, lng: -123.1153 },
-  ]);
-
   const handleChange = address => {
     setState({ address });
   };
@@ -68,6 +64,11 @@ const Autocomplete = () => {
       </PlacesAutocomplete>
     </div>
   );
+};
+
+Autocomplete.defaultProps = {
+  postCenter: [],
+  setPostCenter: () => {},
 };
 
 export default Autocomplete;
