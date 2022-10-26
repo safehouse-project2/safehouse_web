@@ -18,7 +18,6 @@ export default function AppText({
   fontWeight = "normal",
   lineHeight = "number",
   borderRight = "0px 0px 0px 0px solid #CDCDCD",
-  txt,
 }) {
   return (
     <P
