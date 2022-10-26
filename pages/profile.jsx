@@ -12,8 +12,6 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 
 export default function Listings() {
-  const router = useRouter();
-
   return (
     <BackgroundContainer src="./homeBG.png">
       <div className="flex flex-col p-4">
