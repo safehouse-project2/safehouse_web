@@ -15,7 +15,7 @@ import {
 import { db } from "/firebase";
 import PostList from "../components/Home/PostList";
 
-const DetailPage = () => {
+const List = () => {
   const [state, setState] = useState([
     {
       address: "",
@@ -50,4 +50,4 @@ const DetailPage = () => {
     </>
   );
 };
-export default DetailPage;
+export default List;

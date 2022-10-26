@@ -1,4 +1,5 @@
 import PostList from "./PostList";
+import List from "../../pages/list";
 
 export default {
     title: "PostList",
@@ -8,5 +9,9 @@ export default {
     }
 }
 
-export const Default = (args) => <PostList {...args} />
+
+export const Default = (args) =>
+    <List {...args} >
+        <PostList />
+    </List>
 export const Error = (args) => <PostList {...args} />

@@ -1,5 +1,4 @@
 import CreatHomePost from "./CreatHomePost"
-import Autocomplete from '../Autocomplete';
 
 export default {
     title: "CreatHomePost",
