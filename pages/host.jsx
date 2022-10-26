@@ -1,9 +1,7 @@
 import React from 'react'
-import PostHome from './postHome'
 import { BackgroundContainer, MainContainer, CenterContainer, LeftContainer } from '../styles/styledComps';
 import AppText from '../components/D3Components/AppText/AppText';
 import Button from '../components/D3Components/Button/Button';
-import NavBar from '../components/Home/navBar'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 export default function host() {

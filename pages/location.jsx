@@ -8,7 +8,7 @@ import {
   useLoadScript,
   DistanceMatrixService,
 } from "@react-google-maps/api";
-import Navbar from "../components/Home/Navbar";
+import Navbar from "../components/D3Components/Navbar/Navbar";
 import { useRouter } from "next/router";
 import { Button } from "@mui/material";
 const Location = () => {
@@ -192,23 +192,23 @@ const Location = () => {
         {fireMarkers ? fireMarkers : null}
         {isSearched
           ? postCenter.map((item, index) => {
-              return (
-                <div key={index}>
-                  <Marker
-                    position={{
-                      lat: item.lat,
-                      lng: item.lng,
-                    }}
-                    icon={{
-                      url: "/current_location.svg",
-                      scaledSize: new window.google.maps.Size(40, 40),
-                      origin: new window.google.maps.Point(0, 0),
-                      anchor: new window.google.maps.Point(15, 15),
-                    }}
-                  />
-                </div>
-              );
-            })
+            return (
+              <div key={index}>
+                <Marker
+                  position={{
+                    lat: item.lat,
+                    lng: item.lng,
+                  }}
+                  icon={{
+                    url: "/current_location.svg",
+                    scaledSize: new window.google.maps.Size(40, 40),
+                    origin: new window.google.maps.Point(0, 0),
+                    anchor: new window.google.maps.Point(15, 15),
+                  }}
+                />
+              </div>
+            );
+          })
           : null}
 
         {locationInfo && (
