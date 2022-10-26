@@ -3,7 +3,20 @@ import CircleIcon from "@mui/icons-material/Circle";
 import Face6Icon from "@mui/icons-material/Face6";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 
-export default function Info({ state }) {
+export default function Info({
+  state = {
+    address: "",
+    lat: "",
+    lng: "",
+    country: "",
+    province: "",
+    city: "",
+    guests: "",
+    bedrooms: "",
+    beds: "",
+    baths: "",
+  },
+}) {
   return (
     <div>
       <div className="flex mt-3 gap-14">

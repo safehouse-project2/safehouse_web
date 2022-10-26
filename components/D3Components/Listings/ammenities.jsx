@@ -7,7 +7,26 @@ import LocalLaundryServiceIcon from "@mui/icons-material/LocalLaundryService";
 import DryCleaningIcon from "@mui/icons-material/DryCleaning";
 import CheckroomIcon from "@mui/icons-material/Checkroom";
 
-export default function Ammenities({ state }) {
+export default function Ammenities({
+  state = {
+    address: "",
+    lat: "",
+    lng: "",
+    country: "",
+    province: "",
+    city: "",
+    guests: "",
+    bedrooms: "",
+    beds: "",
+    baths: "",
+    wifi: "",
+    tv: "",
+    kitchen: "",
+    laundry: "",
+    parking: "",
+    cleaning: "",
+  },
+}) {
   return (
     <div>
       <div className="flex mt-5 flex-col gap-4">

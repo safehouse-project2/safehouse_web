@@ -1,6 +1,19 @@
 import AppText from "../AppText/AppText";
 
-export default function Rules({ state }) {
+export default function Rules({
+  state = {
+    address: "",
+    lat: "",
+    lng: "",
+    country: "",
+    province: "",
+    city: "",
+    guests: "",
+    bedrooms: "",
+    beds: "",
+    baths: "",
+  },
+}) {
   return (
     <div>
       <div className="flex mt-5 flex-col gap-4">
