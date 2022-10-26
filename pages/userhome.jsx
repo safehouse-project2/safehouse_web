@@ -7,12 +7,15 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Navbar from "../components/D3Components/Navbar/Navbar";
 import Image from "../components/D3Components/Image/ImageComp";
 import { useState } from "react";
+import { useRouter } from 'next/router'
 
 export default function UserHome() {
 
     const [firemap, setFiremap] = useState(false);
     const [housemap, setHousemap] = useState(false);
     const [both, setBoth] = useState(false);
+    const r = useRouter()
+
 
     return (
         <div className="pb-7">
@@ -65,13 +68,14 @@ export default function UserHome() {
                         </select>
                     </div>
                     <div className="w-[310px] h-[310px] pt-6">
-                        <Image
+                            <Image 
+                            onImgClick={() => r.push('/evacuee')}
                             src="/fire_map.png"
                             width={500}
                             height={500}
                             borderRadius="10px"
                             setFiremap={setFiremap}
-                        />
+                            />
                     </div>
                 </MainContainer>
             </BackgroundContainer>
