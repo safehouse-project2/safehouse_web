@@ -24,6 +24,10 @@ const List = () => {
       country: "",
       province: "",
       city: "",
+      guests: "",
+      bedrooms: "",
+      beds: "",
+      baths: "",
     },
   ]);
   const router = useRouter();

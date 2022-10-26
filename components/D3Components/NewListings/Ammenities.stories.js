@@ -1,4 +1,4 @@
-import Ammenities from "./Ammenities";
+import Ammenities from "../NewListings/Ammenities";
 
 export default {
     title: "Ammenities",

@@ -8,12 +8,9 @@ import {
   useLoadScript,
   DistanceMatrixService,
 } from "@react-google-maps/api";
-import Navbar from "../components/Home/Navbar";
+import Navbar from "../components/D3Components/Navbar/Navbar";
 import { useRouter } from "next/router";
-import Button from "../components/D3Components/Button/Button";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-import Input from "../components/D3Components/Input/Input";
-
+import { Button } from "@mui/material";
 const Location = () => {
   const [data, setData] = useState([]);
   const [locationInfo, setLocationInfo] = useState(null);
@@ -21,7 +18,6 @@ const Location = () => {
   const [state, setState] = useState({ address: "" });
   const [center, setCenter] = useState({ lat: 49.2835, lng: -123.1153 });
   const [selected, setSelected] = useState(false);
-
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAP_API,
     libraries: ["places"],
@@ -153,16 +149,18 @@ const Location = () => {
       <Navbar />
       <form onSubmit={onSubmitHandler}>
         <div>
-          <Autocomplete />
+          <Autocomplete postCenter={postCenter} setPostCenter={setPostCenter} />
           <div>
-            <Button
+            {/* <Button
               txt="Current Location"
               fontSize="16px"
               endIcon={<LocationOnIcon />}
               onBtnClick={findmylocation}
-            />
+            /> */}
+            {/* button class is border black */}
+            <button onClick={findmylocation}>Current Location</button>
           </div>
-          <Input placeholder="Search Places" label="" />
+          {/* <Input placeholder="Search Places" label="" /> */}
           {/* <div>
           <button onClick={findNearMe}>Near me</button>
         </div> */}
@@ -180,37 +178,37 @@ const Location = () => {
             }}
           />
         </div>
-        <button
+        {/* <button
           onClick={() => {
             router.push("/Dashboard");
           }}
           type="submit"
         >
           Submit
-        </button>
+        </button> */}
       </form>
 
       <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={5}>
         {fireMarkers ? fireMarkers : null}
         {isSearched
           ? postCenter.map((item, index) => {
-              return (
-                <div key={index}>
-                  <Marker
-                    position={{
-                      lat: item.lat,
-                      lng: item.lng,
-                    }}
-                    icon={{
-                      url: "/current_location.svg",
-                      scaledSize: new window.google.maps.Size(40, 40),
-                      origin: new window.google.maps.Point(0, 0),
-                      anchor: new window.google.maps.Point(15, 15),
-                    }}
-                  />
-                </div>
-              );
-            })
+            return (
+              <div key={index}>
+                <Marker
+                  position={{
+                    lat: item.lat,
+                    lng: item.lng,
+                  }}
+                  icon={{
+                    url: "/current_location.svg",
+                    scaledSize: new window.google.maps.Size(40, 40),
+                    origin: new window.google.maps.Point(0, 0),
+                    anchor: new window.google.maps.Point(15, 15),
+                  }}
+                />
+              </div>
+            );
+          })
           : null}
 
         {locationInfo && (

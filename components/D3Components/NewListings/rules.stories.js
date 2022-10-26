@@ -1,4 +1,4 @@
-import Rules from "./rules";
+import Rules from "./Rules";
 
 export default {
     title: "Rules",

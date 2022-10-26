@@ -7,13 +7,15 @@ import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Navbar from '../components/D3Components/Navbar/Navbar';
 import PrimarySearchAppBar from '../components/D3Components/SearchBar/searchbar';
+import { BackgroundContainer, MainContainer, CenterContainer } from '../styles/styledComps'
 import { Box } from '@mui/system';
+import AppText from '../components/D3Components/AppText/AppText';
 
 export default function ChatPage() {
   return (
     <Box>
     <PrimarySearchAppBar />
-    <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+    <List sx={{ width: '100vw', bgcolor: 'background.paper' }}>
       <ListItem alignItems="flex-start">
         <ListItemAvatar>
             <AvatarIcon />
@@ -56,7 +58,7 @@ export default function ChatPage() {
             </React.Fragment>
           }
         />
-    
+
       </ListItem>
       <Divider variant="inset" component="li" />
       <ListItem alignItems="flex-start">
@@ -72,7 +74,14 @@ export default function ChatPage() {
           }
         />
       </ListItem>
+      <Divider variant="inset" component="li" />
     </List>
+
+      <CenterContainer>
+      <AppText padding="20px" color="#CDCDCD" txt="end of messages"/>
+      </CenterContainer>
+
+      <Navbar/>
     </Box>
   );
 }

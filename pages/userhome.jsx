@@ -17,7 +17,7 @@ export default function UserHome() {
     const [both, setBoth] = useState(false);
 
     return (
-        <div className="pb-7">
+        <div className="overflow-auto">
             <BackgroundContainer src="">
                 <MainContainer>
                     <Input
@@ -75,7 +75,7 @@ export default function UserHome() {
                             width={500}
                             height={500}
                             borderRadius="10px"
-                            setFiremap={setFiremap}
+                        // setFiremap={setFiremap}
                         />
                     </div>
                 </MainContainer>

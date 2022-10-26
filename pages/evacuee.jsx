@@ -11,10 +11,7 @@ import {
 import React, { useEffect, useState } from "react";
 import { db } from "../firebase";
 import EvacueePosting from "../components/evacueePosting/evacueePosting";
-import NavBar from "../components/Home/NavBar";
 import Navbar from "../components/D3Components/Navbar/Navbar";
-import InfoCard from "../components/D3Components/InfoCard/InfoCard";
-import { BackgroundContainer, MainContainer, CenterContainer } from '../styles/styledComps'
 
 const Evacuee = () => {
   const [home, setHome] = useState([
@@ -40,8 +37,6 @@ const Evacuee = () => {
     });
     return unsubscribe;
   }, []);
-
-  console.log(home);
   const submitHandler = async ({
     country,
     province,
@@ -87,11 +82,10 @@ const Evacuee = () => {
   };
 
   return (
-    <MainContainer>
-      {/* <NavBar /> */}
-        <EvacueePosting className='z-[-10]' onSubmit={submitHandler} home={home} setHome={setHome} />
-      <Navbar/> 
-    </MainContainer>
+    <div>
+      <EvacueePosting onSubmit={submitHandler} home={home} setHome={setHome} />
+      <Navbar />
+    </div>
   );
 };
 export default Evacuee;

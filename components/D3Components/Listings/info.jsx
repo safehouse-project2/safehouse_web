@@ -3,20 +3,20 @@ import CircleIcon from "@mui/icons-material/Circle";
 import Face6Icon from "@mui/icons-material/Face6";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 
-
-export default function Info({ state }) {
-  const {
-    addressLine1,
-    city,
-    province,
-    postalCode,
-    guests,
-    bedrooms,
-    beds,
-    bathrooms,
-    kitchen,
-    parking,
-  } = state;
+export default function Info({
+  state = {
+    address: "",
+    lat: "",
+    lng: "",
+    country: "",
+    province: "",
+    city: "",
+    guests: "",
+    bedrooms: "",
+    beds: "",
+    baths: "",
+  },
+}) {
   return (
     <div>
       <div className="flex mt-3 gap-14">
@@ -30,23 +30,28 @@ export default function Info({ state }) {
       </div>
       <div className="flex mt-3 flex-row">
         <AppText
-          txt={guests}
+          txt={state?.guests ? state.guests : "No guests"}
           color="#272727"
           fontSize="14px"
           fontWeight="400"
         />
         <CircleIcon sx={{ fontSize: 10, color: "#B38A58", margin: "5px" }} />
         <AppText
-          txt={bedrooms}
+          txt={state?.bedrooms ? state.bedrooms : "No bedrooms"}
           color="#272727"
           fontSize="14px"
           fontWeight="400"
         />
         <CircleIcon sx={{ fontSize: 10, color: "#B38A58", margin: "5px" }} />
-        <AppText txt={beds} color="#272727" fontSize="14px" fontWeight="400" />
+        <AppText
+          txt={state?.beds ? state.bed : "No bed"}
+          color="#272727"
+          fontSize="14px"
+          fontWeight="400"
+        />
         <CircleIcon sx={{ fontSize: 10, color: "#B38A58", margin: "5px" }} />
         <AppText
-          txt={bathrooms}
+          txt={state?.bathrooms ? state.bathrooms : "No bathrooms"}
           color="#272727"
           fontSize="14px"
           fontWeight="400"
@@ -54,7 +59,15 @@ export default function Info({ state }) {
       </div>
       <div className="flex mt-3 flex-col gap-3">
         <AppText
-          txt={city + ", " + province + ", " + postalCode}
+          txt={
+            state?.city
+              ? state.city
+              : "No city Provided" + ", " + state.province
+              ? state?.province
+              : "No province Provided" + ", " + state.postalCode
+              ? state?.postalCode
+              : "No postal code Provided"
+          }
           color="#8C8C8C"
           fontSize="14px"
           fontWeight="400"
@@ -72,4 +85,3 @@ export default function Info({ state }) {
     </div>
   );
 }
-
