@@ -120,7 +120,8 @@ const EvacueePosting = ({ onSubmit, home, setHome }) => {
   if (!isLoaded) return <div>Loading Maps</div>;
   return (
     <div>
-    <div  className='w-[100%] z-999 mt-[-20px]'>
+      {/* Non functional */}
+    {/* <div  className='w-[100%] z-999 mt-[-20px]'>
       <form
       onSubmit={submitHandler}>
         <PlacesAutocomplete
@@ -135,8 +136,7 @@ const EvacueePosting = ({ onSubmit, home, setHome }) => {
             loading,
           }) => (
             <div>
-            {/* trying to get input and buttons over map*/}
-              <Input className="z-[-999] fixed w-[100%]"  label="Search" 
+              <Input  label="Search" 
                 {...getInputProps({
                   placeholder: "Insert Address",
                   className: "location-search-input",
@@ -180,7 +180,7 @@ const EvacueePosting = ({ onSubmit, home, setHome }) => {
         <Button fontSize="14px" txt="Submit"></Button>
         </div>
       </form>
-      </div>
+      </div> */}
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={{ lat: 49.2835, lng: -123.1153 }}

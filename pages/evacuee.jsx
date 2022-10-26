@@ -84,7 +84,7 @@ const Evacuee = () => {
   };
 
   return (
-      <div className='mt-[30px]'>
+      <div>
         <EvacueePosting  onSubmit={submitHandler} home={home} setHome={setHome} />
         <Navbar/> 
     </div>
