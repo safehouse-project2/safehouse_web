@@ -4,7 +4,7 @@ import PlacesAutocomplete, {
 } from "react-places-autocomplete";
 import { useState, useEffect } from "react";
 import Script from "next/script";
-import Carousel from "../components/D3Components/Carousel/Carousel";
+// import Carousel from "../components/D3Components/Carousel/Carousel";
 
 export default function Test() {
   // const [state, setState] = useState({ address: "" });
@@ -25,7 +25,7 @@ export default function Test() {
   // };
   return (
     <>
-      <Carousel />
+      {/* <Carousel /> */}
     </>
     // <div>
     //   <Script
