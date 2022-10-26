@@ -122,6 +122,16 @@ export default function ConfirmForm({ formData }) {
             color='#F5F5F5'
             fontSize='18px'
           />
+
+        </div>
+
+        <div className='flex max-w-[200px] mt-5 gap-[17rem] pt-10'>
+          <AppText
+            txt="Images"
+            fontSize='20px'
+            color='#F5F5F5'
+          />
+          <img src={formData.image} alt="No image uploaded" className='text-[#f5f5f5]' />
         </div>
       </div>
     </>

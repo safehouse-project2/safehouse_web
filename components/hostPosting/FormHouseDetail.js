@@ -8,18 +8,20 @@ export default function FormHouseDetail({ formData, setFormData }) {
       <form>
         <div className='flex flex-col justify-start items-start pb-5'>
           <label htmlFor="homeType" className='text-[#f5f5f5] text-[18px]'>What kind of place will you be hosting ?</label>
-          <select className='text-[#272727] px-[15px] py-[10px] rounded-md mt-3'
-            name="homeType"
-            id="homeType"
-            value={formData.homeType}
-            onChange={(e) => setFormData({ ...formData, homeType: e.target.value })}
-          >
-            <option value="House">House</option>
-            <option value="Apartment">Apartment</option>
-            <option value="Condo">Condo</option>
-            <option value="Townhouse">Townhouse</option>
-            <option value="Other">Other</option>
-          </select>
+          <div className='bg-[#E9E9ED] py-3 px-3 mt-3 rounded-md'>
+            <select className='text-[#272727]'
+              name="homeType"
+              id="homeType"
+              value={formData.homeType}
+              onChange={(e) => setFormData({ ...formData, homeType: e.target.value })}
+            >
+              <option value="House">House</option>
+              <option value="Apartment">Apartment</option>
+              <option value="Condo">Condo</option>
+              <option value="Townhouse">Townhouse</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
         </div>
 
         <br />

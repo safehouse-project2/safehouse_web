@@ -12,6 +12,7 @@ import React, { useEffect, useState } from "react";
 import { db } from "../firebase";
 import EvacueePosting from "../components/evacueePosting/evacueePosting";
 import NavBar from "../components/Home/NavBar";
+import Navbar from "../components/D3Components/Navbar/Navbar";
 
 const Evacuee = () => {
   const [home, setHome] = useState([
@@ -84,10 +85,13 @@ const Evacuee = () => {
   };
 
   return (
-    <>
-      <NavBar />
-      <EvacueePosting onSubmit={submitHandler} home={home} setHome={setHome} />
-    </>
+    <div>
+      {/* <NavBar /> */}
+      <div className='w-[100%] z-999 mt-[30px]'>
+        <EvacueePosting className='z-[-999] fixed w-[100%]' onSubmit={submitHandler} home={home} setHome={setHome} />
+      </div>
+      <Navbar/> 
+    </div>
   );
 };
 export default Evacuee;
