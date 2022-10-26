@@ -46,7 +46,15 @@ export default function Info({ state }) {
       </div>
       <div className="flex mt-3 flex-col gap-3">
         <AppText
-          txt={city + ", " + province + ", " + postalCode}
+          txt={
+            state.city
+              ? state.city
+              : "No city Provided" + ", " + state.province
+              ? state.province
+              : "No province Provided" + ", " + state.postalCode
+              ? state.postalCode
+              : "No postal code Provided"
+          }
           color="#8C8C8C"
           fontSize="14px"
           fontWeight="400"
