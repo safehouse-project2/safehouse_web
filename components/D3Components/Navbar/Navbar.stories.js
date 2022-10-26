@@ -6,4 +6,3 @@ export default {
 }
 
 export const Default = () => <Navbar/>
-export const Variation1 = () => <Navbar/>
