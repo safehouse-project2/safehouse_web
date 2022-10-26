@@ -44,7 +44,7 @@ export default function resources() {
                             fontSize="20px"
                             txt="Here are some resources for further assistance:"
                         />
-                        <a href="https://firesmartbc.ca" target="_blank">
+                        <a href="https://firesmartbc.ca" target="_blank" rel="noreferrer">
                             <InfoCard
                                 txt1="FireSmartBC.ca"
                                 txt2="Fire safetey preparedness"
@@ -54,6 +54,7 @@ export default function resources() {
                         <a
                             href='https://www2.gov.bc.ca/assets/gov/public-safety-and-emergency-services/emergency-preparedness-response-recovery/embc/preparedbc/preparedbc-guides/wildfire_preparedness_guide.pdf'
                             target="_blank"
+                            rel="noreferrer"
                         >
                             <InfoCard
                                 txt1="Wildfire Preparedness Guide"
@@ -61,7 +62,7 @@ export default function resources() {
                             />
                         </a>
 
-                        <a href="https://www2.gov.bc.ca/gov/content/safety/wildfire-status" target="_blank">
+                        <a href="https://www2.gov.bc.ca/gov/content/safety/wildfire-status" target="_blank" rel="noreferrer">
                             <InfoCard
                                 txt1="BC Goverment Wildfire Service"
                                 txt2="Wildfire and evacuation statuses with news and updates"
