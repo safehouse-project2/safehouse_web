@@ -17,7 +17,7 @@ export default function Info({ state }) {
       </div>
       <div className="flex mt-3 flex-row">
         <AppText
-          txt="No Guest"
+          txt={state.guests ? state.guests : "No guests"}
           color="#272727"
           fontSize="14px"
           fontWeight="400"
