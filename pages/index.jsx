@@ -31,7 +31,7 @@ export default function Home() {
             </div>
             <div className='flex justify-center items-center flex-col gap-3'>
               <Button
-                href="/evacuee"
+                href="/userhome"
                 txt='Evacuee'
               />
               <AppText

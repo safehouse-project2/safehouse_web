@@ -67,13 +67,14 @@ export default function UserHome() {
                         </select>
                     </div>
                     <div className="w-[310px] h-[310px] pt-6">
-                        <Image
+                            <Image 
+                            onImgClick={() => r.push('/evacuee')}
                             src="/fire_map.png"
                             width={500}
                             height={500}
                             borderRadius="10px"
                             setFiremap={setFiremap}
-                        />
+                            />
                     </div>
                 </MainContainer>
             </BackgroundContainer>
