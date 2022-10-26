@@ -8,6 +8,7 @@ import Navbar from "../components/D3Components/Navbar/Navbar";
 import Image from "../components/D3Components/Image/ImageComp";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import SliderFull from "../components/D3Components/Slider/SliderFull";
 
 export default function UserHome() {
     const r = useRouter();
@@ -25,6 +26,7 @@ export default function UserHome() {
                         icon={<SearchIcon />}
                         backgroundColor="#fefefe"
                     />
+                    {/* <SliderFull /> */}
                     <div className="flex flex-col gap-2 pt-10">
                         <AppText
                             txt='Recent Listings'
@@ -67,17 +69,18 @@ export default function UserHome() {
                         </select>
                     </div>
                     <div className="w-[310px] h-[310px] pt-6">
-                            <Image 
+                        <Image
                             onImgClick={() => r.push('/evacuee')}
                             src="/fire_map.png"
                             width={500}
                             height={500}
                             borderRadius="10px"
                             setFiremap={setFiremap}
-                            />
+                        />
                     </div>
                 </MainContainer>
             </BackgroundContainer>
+
             <Navbar />
         </div>
     )
