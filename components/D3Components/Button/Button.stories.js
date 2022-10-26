@@ -6,4 +6,4 @@ export default {
 }
 
 export const Default = () => <Button/>
-export const Variation1 = () => <Button txt="Submit" backgroundColor = "#20514B"/>
+export const Submit = () => <Button onBtnClick={handleSubmit} txt="Submit" backgroundColor="#5581AA" endIcon={<PublishIcon />} hoverColor="#44698C" />
