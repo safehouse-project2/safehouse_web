@@ -13,8 +13,9 @@ import PlacesAutocomplete, {
   getLatLng,
 } from "react-places-autocomplete";
 // import { Button } from "@mui/material";
-import Button from '../D3Components/Button/Button'
+import Button from '../D3Components/Button/Button';
 import Input from "../D3Components/Input/Input";
+import { CenterContainer } from "../../styles/styledComps";
 
 const EvacueePosting = ({ onSubmit, home, setHome }) => {
   const [data, setData] = useState([]);
@@ -119,7 +120,7 @@ const EvacueePosting = ({ onSubmit, home, setHome }) => {
   }
   if (!isLoaded) return <div>Loading Maps</div>;
   return (
-    <div>
+    <CenterContainer>
     <div  className='w-[100%] z-999 mt-[-20px]'>
       <form
       onSubmit={submitHandler}>
@@ -204,7 +205,8 @@ const EvacueePosting = ({ onSubmit, home, setHome }) => {
                   setLocationInfo({
                     id: item.id,
                     title: (
-                      <Button txt="See Details" fontSize="12px" href={`/home/${item.id}`}>
+                      <Button txt="See Details" fontSize="12px" href={`/listingsnew`}>
+                      {/* Button to old listing: <Button txt="See Details" fontSize="12px" href={`/home/${item.id}`}> */}
                         {item.addressLine1}
                       </Button>
                     ),
@@ -237,7 +239,7 @@ const EvacueePosting = ({ onSubmit, home, setHome }) => {
             }}
           >
             <div>
-              <h2> Listing: {locationInfo.title}</h2>
+              <h2> Info: {locationInfo.title}</h2>
             </div>
           </InfoWindow>
         )}
@@ -254,7 +256,7 @@ const EvacueePosting = ({ onSubmit, home, setHome }) => {
           />
         ) : null}
       </GoogleMap>
-    </div>
+    </CenterContainer>
   );
 };
 export default EvacueePosting;

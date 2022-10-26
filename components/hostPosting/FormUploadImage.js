@@ -15,17 +15,17 @@ export default function FormUploadImage({ formData, setFormData }) {
   const imageListRef = ref(storage, "images/")
   const onFileChange = (e) => {
     console.log(e.target.files[0]);
-    setFile(e.target.files[0]);
-    const {
-      target: { files },
-    } = e;
-    const theFile = files[0];
-    const reader = new FileReader();
-    reader.onloadend = (finishedEvent) => {
-      const { currentTarget: { result } } = finishedEvent
-      setAttachment(result);
-    }
-    reader.readAsDataURL(theFile)
+    // setFile(e.target.files[0]);
+    // const {
+    //   target: { files },
+    // } = e;
+    // const theFile = files[0];
+    // const reader = new FileReader();
+    // reader.onloadend = (finishedEvent) => {
+    //   const { currentTarget: { result } } = finishedEvent
+    //   setAttachment(result);
+    // }
+    // reader.readAsDataURL(theFile)
   }
 
   useEffect(() => {
@@ -51,7 +51,7 @@ export default function FormUploadImage({ formData, setFormData }) {
       <p className='text-xl text-[#f5f5f5] pb-4'>Let's add some photos of your place.</p>
       <div>
         <div className='r-box flex flex-row gap-4 bg-[#f5f5f5] px-4 py-4 justify-start items-center rounded-md'>
-          <input type="file" name="myImage" onChange={onFileChange} />
+          <input type="file" name="myImage" onClick={onFileChange} />
           <img src={attachment} />
         </div>
         <div className='flex flex- row mt-4 gap-5'>

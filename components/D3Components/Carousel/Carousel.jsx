@@ -1,36 +1,28 @@
-import React, { Component } from 'react';
-import styles from 'react-responsive-carousel/lib/styles/carousel.min.css';
-import ReactDOM from 'react-dom';
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
+// import { CarouselComponent, CarouselItemsDirective, CarouselItemDirective } from "@syncfusion/ej2-react-navigations";
+// import * as React from "react";
 
-class DemoCarousel extends Component {
-    render() {
-        return (
-            <Carousel>
-                <div>
-                    <img src="assets/1.jpeg" />
-                    <p className="legend">Legend 1</p>
-                </div>
-                <div>
-                    <img src="assets/2.jpeg" />
-                    <p className="legend">Legend 2</p>
-                </div>
-                <div>
-                    <img src="assets/3.jpeg" />
-                    <p className="legend">Legend 3</p>
-                </div>
-            </Carousel>
-        );
-    }
-};
-
-ReactDOM.render(<DemoCarousel />, document.querySelector('.demo-carousel'));
-
-// Don't forget to include the css in your page
-
-// Using webpack or parcel with a style loader
-// import styles from 'react-responsive-carousel/lib/styles/carousel.min.css';
-
-// Using html tag:
-// <link rel="stylesheet" href="<NODE_MODULES_FOLDER>/react-responsive-carousel/lib/styles/carousel.min.css"/>
+// export default function Carousel() {
+//     const slide1Template = () => {
+//         <figure>
+//             <img src="http://placekitten.com/400" />
+//             <figcaption className="img-caption">Test caption</figcaption>
+//         </figure>
+//     }
+//     return (
+//         <div className='control-pane'>
+//             <div className='control-section default-carousel-section'>
+//                 <div className='control carousel-sample'>
+//                     {/* Render the Carousel Component */}
+//                     <CarouselComponent cssClass="default-carousel">
+//                         <CarouselItemsDirective>
+//                             <CarouselItemDirective template={this.itemTemplate1.bind(this)} />
+//                             <CarouselItemDirective template={this.itemTemplate2.bind(this)} />
+//                             <CarouselItemDirective template={this.itemTemplate3.bind(this)} />
+//                             <CarouselItemDirective template={this.itemTemplate4.bind(this)} />
+//                             <CarouselItemDirective template={this.itemTemplate5.bind(this)} />
+//                         </CarouselItemsDirective>
+//                     </CarouselComponent>
+//                 </div></div>
+//         </div>
+//     );
+// }

@@ -10,8 +10,9 @@ export default function ImageComp({
   width = 100,
   height = 100,
   borderRadius = "0px",
+  onImgClick= ()=> {},
 }) {
   return (
-    <Img src={src} width={width} height={height} borderRadius={borderRadius} />
+    <Img onClick={onImgClick} src={src} width={width} height={height} borderRadius={borderRadius} />
   );
 }

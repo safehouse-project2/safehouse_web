@@ -13,6 +13,8 @@ import { db } from "../firebase";
 import EvacueePosting from "../components/evacueePosting/evacueePosting";
 import NavBar from "../components/Home/NavBar";
 import Navbar from "../components/D3Components/Navbar/Navbar";
+import InfoCard from "../components/D3Components/InfoCard/InfoCard";
+import { BackgroundContainer, MainContainer, CenterContainer } from '../styles/styledComps'
 
 const Evacuee = () => {
   const [home, setHome] = useState([
@@ -85,13 +87,11 @@ const Evacuee = () => {
   };
 
   return (
-    <div>
+    <MainContainer>
       {/* <NavBar /> */}
-      <div className='w-[100%] z-999 mt-[30px]'>
-        <EvacueePosting className='z-[-999] fixed w-[100%]' onSubmit={submitHandler} home={home} setHome={setHome} />
-      </div>
+        <EvacueePosting className='z-[-10]' onSubmit={submitHandler} home={home} setHome={setHome} />
       <Navbar/> 
-    </div>
+    </MainContainer>
   );
 };
 export default Evacuee;

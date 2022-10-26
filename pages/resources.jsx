@@ -10,7 +10,7 @@ import { useRouter } from 'next/router'
 //have links open in a new tab
 
 export default function resources() {
-    const r = useRouter()
+    // const r = useRouter()
     return (
         <BackgroundContainer src="blobBG.svg">
             {/* <div className='w-[100%] z-999 mt-[-20px]'>
