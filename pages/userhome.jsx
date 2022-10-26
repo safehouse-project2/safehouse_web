@@ -1,23 +1,32 @@
-import AppText from "../components/AppText/AppText"
-import Input from "../components/Input/Input";
-import Slider from "../components/Slider/Slider"
-import { BackgroundContainer, MainContainer } from '../../styles/styledComps';
+import AppText from "../components/D3Components/AppText/AppText";
+import Input from "../components/D3Components/Input/Input";
+import Slider from "../components/D3Components/Slider/Slider";
+import { BackgroundContainer, MainContainer } from '../styles/styledComps';
 import SearchIcon from "@mui/icons-material/Search";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import Image from "../components/Image/ImageComp";
-import Navbar from "../components/Navbar/Navbar";
+import Navbar from "../components/D3Components/Navbar/Navbar";
+import Image from "../components/D3Components/Image/ImageComp";
+import { useState } from "react";
+import { useRouter } from "next/router";
+import SliderFull from "../components/D3Components/Slider/SliderFull";
 
 export default function UserHome() {
-    return (
-        <div>
+    const r = useRouter();
+    const [firemap, setFiremap] = useState(false);
+    const [housemap, setHousemap] = useState(false);
+    const [both, setBoth] = useState(false);
 
-            <BackgroundContainer src="bg_gradient.svg">
+    return (
+        <div className="pb-7">
+            <BackgroundContainer src="">
                 <MainContainer>
                     <Input
                         label="Search here"
+                        variant="outlined"
                         icon={<SearchIcon />}
                         backgroundColor="#fefefe"
                     />
+                    {/* <SliderFull /> */}
                     <div className="flex flex-col gap-2 pt-10">
                         <AppText
                             txt='Recent Listings'
@@ -30,6 +39,7 @@ export default function UserHome() {
                                 src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"
                                 title="Burnaby, BC"
                                 distance="5km"
+                                onSliderClick={() => r.push("/listingsnew")}
                             />
                         </div>
 
@@ -51,27 +61,26 @@ export default function UserHome() {
                         fontSize="16px"
                         padding="20px 0px 10px 0px"
                     />
-                    <div className="dropd flex bg-[#fff] py-3 text-[#8C8C8C] gap-20 w-[234px] px-3 rounded-md">
-                        <AppText
-                            txt="Please Select"
-                            fontSize="16px"
-                            fontWeight="300"
-                            color="#8C8C8C"
-                        />
-                        <KeyboardArrowDownIcon />
+                    <div className="dropd flex bg-[#fff] text-[#8C8C8C] gap-20 w-[234px] rounded-md justify-start">
+                        <select name="map" id="mapHome" className="py-3 px-3 text-[#8c8c8c] bg-[#fff] ml-3">
+                            <option value="Wildfires">Wildfires</option>
+                            <option value="Safehouses">Safehouses</option>
+                            <option value="Both">Both</option>
+                        </select>
                     </div>
-                    {/* <Dropdown
-                /> */}
                     <div className="w-[310px] h-[310px] pt-6">
                         <Image
-                            src="/map1.png"
+                            onImgClick={() => r.push('/evacuee')}
+                            src="/fire_map.png"
                             width={500}
                             height={500}
                             borderRadius="10px"
+                            setFiremap={setFiremap}
                         />
                     </div>
                 </MainContainer>
             </BackgroundContainer>
+
             <Navbar />
         </div>
     )

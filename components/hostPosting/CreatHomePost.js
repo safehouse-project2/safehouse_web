@@ -1,4 +1,6 @@
-import { Button } from '@mui/material';
+// import { Button } from '../D3Components/Button/Button';
+// import { Button } from "@mui/material";
+import Button from "../D3Components/Button/Button";
 import FormHouseDetail from './FormHouseDetail';
 import FormAddressDetail from './FormAddressDetail';
 import FormUploadImage from './FormUploadImage';
@@ -12,6 +14,9 @@ import Success from './Success';
 import React, { useState } from 'react'
 import SubmitForm from './ConfirmForm';
 import { useRouter } from 'next/router'
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import PublishIcon from '@mui/icons-material/Publish';
 
 
 
@@ -65,7 +70,7 @@ function CreatHomePost() {
         airConditioning: 'yes',
         heating: 'yes',
 
-        image:"",
+        image: "",
 
     });
 
@@ -98,53 +103,53 @@ function CreatHomePost() {
 
     function handleNext(e) {
         e.preventDefault();
-        if (page === 0) {
-            if (formData.homeType === '') {
-                showAlert('warning', 'Please select a home type');
-            } else if (formData.description === '') {
-                showAlert('warning', 'Please enter a description');
-            } else {
-                setPage(page + 1);
-            }
-        }
-        if (page === 1) {
+        // if (page === 0) {
+        //     if (formData.homeType === '') {
+        //         showAlert('warning', 'Please select a home type');
+        //     } else if (formData.description === '') {
+        //         showAlert('warning', 'Please enter a description');
+        //     } else {
+        //         setPage(page + 1);
+        //     }
+        // }
+        // if (page === 1) {
 
-            if (formData.addressLine1 === '') {
-                showAlert('warning', 'Please enter an address');
-            } else if (formData.city === '') {
-                showAlert('warning', 'Please enter a city');
-            } else if (formData.postalCode === '') {
-                showAlert('warning', 'Please enter a postal code');
-            } else {
-                setPage(page + 1);
-            }
+        //     if (formData.addressLine1 === '') {
+        //         showAlert('warning', 'Please enter an address');
+        //     } else if (formData.city === '') {
+        //         showAlert('warning', 'Please enter a city');
+        //     } else if (formData.postalCode === '') {
+        //         showAlert('warning', 'Please enter a postal code');
+        //     } else {
+        //         setPage(page + 1);
+        //     }
 
-        }
-        if (page === 2) {
-            if (formData.guests === 0) {
-                showAlert('warning', 'Please enter the number of guests allowed');
-            } else if (formData.bedrooms === 0) {
-                showAlert('warning', 'Please enter the number of bedrooms');
-            } else if (formData.beds === 0) {
-                showAlert('warning', 'Please enter the number of beds');
-            } else if (formData.bathrooms === 0) {
-                showAlert('warning', 'Please enter the number of bathrooms');
-            } else {
-                setPage(page + 1);
-            }
+        // }
+        // if (page === 2) {
+        //     if (formData.guests === 0) {
+        //         showAlert('warning', 'Please enter the number of guests allowed');
+        //     } else if (formData.bedrooms === 0) {
+        //         showAlert('warning', 'Please enter the number of bedrooms');
+        //     } else if (formData.beds === 0) {
+        //         showAlert('warning', 'Please enter the number of beds');
+        //     } else if (formData.bathrooms === 0) {
+        //         showAlert('warning', 'Please enter the number of bathrooms');
+        //     } else {
+        //         setPage(page + 1);
+        //     }
 
-        }
-        if (page === 3 || page === 4 || page === 5) {
-            setPage(page + 1);
-        }
+        // }
+        // if (page === 3 || page === 4 || page === 5) {
+        //     setPage(page + 1);
+        // }
 
-        if (page === 6) {
-            console.log(formData);
+        // if (page === 6) {
+        //     console.log(formData);
 
-        }
+        // }
 
 
-        // setPage(page + 1);
+        setPage(page + 1);
     }
 
 
@@ -155,17 +160,14 @@ function CreatHomePost() {
                 serverTimestamp()
         })
         showAlert('success', `Home with id ${docRef.id} added successfully`)
-        router.push('/list')
+        router.push('/hosthome')
     }
 
 
 
 
     return (
-        <div>
-            <title>
-                Hey there!
-            </title>
+        <div className=''>
             {conditionalComponent()}
             <Snackbar
                 anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
@@ -175,9 +177,12 @@ function CreatHomePost() {
                 </Alert>
             </Snackbar>
 
-            {page === 0 || page < 6 ? <Button onClick={handleNext}>Next </Button> : <Button onClick={handleSubmit}>sumbit</Button>}
-
-            {page > 0 && page < 7 && <Button onClick={() => setPage(page - 1)}>Back</Button>}
+            <div className='flex justify-start items-center mt-10 gap-10 pb-10'>
+                {/* {page > 0 && page < 7 && <Button onClick={() => setPage(page - 1)}>Back</Button>} */}
+                {/* {page === 0 || page < 6 ? <Button onClick={handleNext}>Next</Button> : <Button onClick={handleSubmit}>sumbit</Button>} */}
+                {page > 0 && page < 7 && <Button onBtnClick={() => setPage(page - 1)} txt="Back" startIcon={<ArrowBackIcon />} />}
+                {page === 0 || page < 6 ? <Button onBtnClick={handleNext} txt="Next" endIcon={<ArrowForwardIcon />} /> : <Button onBtnClick={handleSubmit} txt="Submit" backgroundColor="#5581AA" endIcon={<PublishIcon />} hoverColor="#44698C" />}
+            </div>
         </div>
     );
 }

@@ -12,7 +12,9 @@ import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from "react-places-autocomplete";
-import { Button } from "@mui/material";
+// import { Button } from "@mui/material";
+import Button from '../D3Components/Button/Button'
+import Input from "../D3Components/Input/Input";
 
 const EvacueePosting = ({ onSubmit, home, setHome }) => {
   const [data, setData] = useState([]);
@@ -54,8 +56,8 @@ const EvacueePosting = ({ onSubmit, home, setHome }) => {
               lng: item.geometry[0].coordinates[0],
             }}
             icon={{
-              url: "/fire_icon.png",
-              scaledSize: new window.google.maps.Size(40, 40),
+              url: "/fire.svg",
+              scaledSize: new window.google.maps.Size(30, 40),
               origin: new window.google.maps.Point(0, 0),
               anchor: new window.google.maps.Point(15, 15),
             }}
@@ -108,8 +110,8 @@ const EvacueePosting = ({ onSubmit, home, setHome }) => {
   };
 
   const containerStyle = {
-    width: "1000px",
-    height: "800px",
+    width: "100vw",
+    height: "100vh",
   };
 
   if (loadError) {
@@ -118,10 +120,9 @@ const EvacueePosting = ({ onSubmit, home, setHome }) => {
   if (!isLoaded) return <div>Loading Maps</div>;
   return (
     <div>
-      <div>
-        <button onMouseDown={findmylocation}>Current Location</button>
-      </div>
-      <form onSubmit={submitHandler}>
+    <div  className='w-[100%] z-999 mt-[-20px]'>
+      <form
+      onSubmit={submitHandler}>
         <PlacesAutocomplete
           value={state.address}
           onChange={address => setState({ address })}
@@ -134,9 +135,10 @@ const EvacueePosting = ({ onSubmit, home, setHome }) => {
             loading,
           }) => (
             <div>
-              <input
+            {/* trying to get input and buttons over map*/}
+              <Input className="z-[-999] fixed w-[100%]"  label="Search" 
                 {...getInputProps({
-                  placeholder: "Search Places",
+                  placeholder: "Insert Address",
                   className: "location-search-input",
                 })}
               />
@@ -149,16 +151,16 @@ const EvacueePosting = ({ onSubmit, home, setHome }) => {
                     ? "suggestion-item--active"
                     : "suggestion-item";
                   const style = suggestion.active
-                    ? { backgroundColor: "#fafafa", cursor: "pointer" }
-                    : { backgroundColor: "#ffffff", cursor: "pointer" };
+                  ? { backgroundColor: "#fafafa", cursor: "pointer" }
+                  : { backgroundColor: "#ffffff", cursor: "pointer" };
                   return (
                     <div
-                      key={suggestion.description}
+                    key={suggestion.description}
                       {...getSuggestionItemProps(suggestion, {
                         className,
                         style,
                       })}
-                    >
+                      >
                       <span
                         onClick={e =>
                           setState({ address: e.currentTarget.innerHTML })
@@ -173,10 +175,12 @@ const EvacueePosting = ({ onSubmit, home, setHome }) => {
             </div>
           )}
         </PlacesAutocomplete>
-
-        <button type="submit">Submit</button>
+        <div className="m-5 space-x-4 ">
+        <Button fontSize="14px" onMouseDown={findmylocation} txt="Current Location"></Button>
+        <Button fontSize="14px" txt="Submit"></Button>
+        </div>
       </form>
-
+      </div>
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={{ lat: 49.2835, lng: -123.1153 }}
@@ -200,7 +204,7 @@ const EvacueePosting = ({ onSubmit, home, setHome }) => {
                   setLocationInfo({
                     id: item.id,
                     title: (
-                      <Button variant="outlined" href={`/home/${item.id}`}>
+                      <Button txt="See Details" fontSize="12px" href={`/home/${item.id}`}>
                         {item.addressLine1}
                       </Button>
                     ),
@@ -233,7 +237,7 @@ const EvacueePosting = ({ onSubmit, home, setHome }) => {
             }}
           >
             <div>
-              <h2> To see details: {locationInfo.title}</h2>
+              <h2> Listing: {locationInfo.title}</h2>
             </div>
           </InfoWindow>
         )}

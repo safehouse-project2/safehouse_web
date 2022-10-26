@@ -1,5 +1,8 @@
 import NavBar from '../components/Home/NavBar'
 import Button from '../components/D3Components/Button/Button'
+import Icon from '../components/D3Components/Icon/Icon'
+import HomeIcon from '@mui/icons-material/Home';
+import LuggageIcon from '@mui/icons-material/Luggage';
 import { BackgroundContainer, MainContainer, CenterContainer } from '../styles/styledComps'
 import AppText from '../components/D3Components/AppText/AppText'
 import { useRouter } from 'next/router'
@@ -15,17 +18,14 @@ export default function Home() {
 
   return (
     <div>
-      <div className='absolute w-full h-auto'>
-        <NavBar />
-      </div>
       <BackgroundContainer src="./homeBG.png">
         <CenterContainer>
           <div className='flex gap-10 z-99'>
             <div className='flex justify-center items-center flex-col gap-3'>
+              <HomeIcon style={{fill: "#f5f5f5"}}  sx={{ fontSize: 150 }}/>
               <Button
-                // href="/host"
+                href="/host"
                 txt='Host'
-                onBtnClick={goToHost}
               />
               <AppText
                 txt='Apply to become a host'
@@ -34,10 +34,10 @@ export default function Home() {
               />
             </div>
             <div className='flex justify-center items-center flex-col gap-3'>
+              <LuggageIcon style={{fill: "#f5f5f5"}} sx={{ fontSize: 150 }}/>
               <Button
-                href="/evacuee"
+                href="/userhome"
                 txt='Evacuee'
-              // onBtnClick={goToEvacuee}
               />
               <AppText
                 txt='Apply to become a host'
