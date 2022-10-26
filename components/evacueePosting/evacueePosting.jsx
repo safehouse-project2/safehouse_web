@@ -204,13 +204,15 @@ const EvacueePosting = ({ onSubmit, home, setHome }) => {
                   setLocationInfo({
                     id: item.id,
                     title: (
-                      <Button txt="See Details" fontSize="12px" href={`/home/${item.id}`}>
+                      // <Button txt="See Details" fontSize="12px" href={`/home/${item.id}`}>
+                      <Button txt="See Details" fontSize="12px" href={`/listingsnew`}>
                         {item.addressLine1}
                       </Button>
                     ),
                     lat: item.lat,
                     lng: item.lng,
                   });
+                  
                   // onClick={() => {
                   //   router.push(`/home/${item.id}`);
                   // }}
