@@ -1,4 +1,4 @@
-import Description from "./description";
+import Description from "../NewListings/Description";
 
 export default {
     title: "Description",
