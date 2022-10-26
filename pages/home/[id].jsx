@@ -20,6 +20,10 @@ const DetailPage = () => {
     country: "",
     province: "",
     city: "",
+    guests: "",
+    bedrooms: "",
+    beds: "",
+    baths: "",
   });
   const router = useRouter();
   const id = router.query.id;
