@@ -12,6 +12,7 @@ const BackgroundImageContainer = styled.div`
     background-color: #272727;
     border-radius: 10px;
     display: flex;
+    flex:none;
     flex-direction: column;
     justify-content: flex-start;
     padding: 120px 20px 20px 20px;
@@ -28,9 +29,24 @@ export default function Slider({
     src = "./vercel.svg",
     onSliderClick = () => { },
 }) {
+
+    const items = new Array(20).fill(0);
     return (
-        <div onClick={onSliderClick} className="cursor-pointer">
-            <BackgroundImageContainer src={src}>
+        <div
+            style={{
+                display: "flex",
+                gap: "20px",
+                alignItems: "flex-start",
+                overflowX: "auto",
+                width: "100vw",
+                maxWidth: "80vw",
+                msOverflowStyle: "none",
+                scrollbarWidth: "none",
+                backgroundColor: "#fff",
+            }}
+            onClick={onSliderClick}
+            className="cursor-pointer">
+            {items.map(o => <BackgroundImageContainer src={src}>
                 <AppText
                     txt={title}
                     color='#f5f5f5'
@@ -49,6 +65,8 @@ export default function Slider({
                     />
                 </div>
             </BackgroundImageContainer>
+
+            )}
         </div>
     )
 }
