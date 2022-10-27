@@ -17,15 +17,27 @@ import { useRouter } from 'next/router'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import PublishIcon from '@mui/icons-material/Publish';
-
+import AppText from '../D3Components/AppText/AppText';
 
 
 function CreatHomePost() {
 
-
     const [open, setOpen] = useState(false);
     const [alertType, setAlertType] = useState("success");
     const [alertMessage, setAlertMessage] = useState("");
+
+
+    const titles =[
+        "Tell us somethingn about your place",
+        "What's your address?",
+        "How many people will you be hosting?",
+        "Let's more details of your home",
+        "Let's more details of your home",
+        "Upload some photos of your place",
+        "Review and Confirm"
+    ]
+      
+
 
     const showAlert = (type, message) => {
         setAlertType(type);
@@ -74,13 +86,12 @@ function CreatHomePost() {
 
     });
 
-
-
     const [page, setPage] = useState(0);
+
     const conditionalComponent = () => {
         switch (page) {
             case 0:
-                return <FormHouseDetail formData={formData} setFormData={setFormData} />;
+                return <FormHouseDetail formData={formData} setFormData={setFormData} title="aaa" />;
             case 1:
                 return <FormAddressDetail formData={formData} setFormData={setFormData} />;
             case 2:
@@ -168,6 +179,21 @@ function CreatHomePost() {
 
     return (
         <div className=''>
+             <div className="flex flex-col gap-4 pb-10">
+            <AppText
+              txt={titles[page]}
+              fontSize="34px"
+              color="#f5f5f5"
+            />
+            {/* <AppText
+              txt="What kind of place will you be hosting ?"
+              fontSize="18px"
+              color="#f5f5f5"
+            /> */}
+            {/* <Dropdown
+              backgroundColor="#f5f5f5"
+            /> */}
+          </div>
             {conditionalComponent()}
             <Snackbar
                 anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
