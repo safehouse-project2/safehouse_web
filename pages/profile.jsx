@@ -9,19 +9,20 @@ import Navbar from "../components/D3Components/Navbar/Navbar";
 import AppText from "../components/D3Components/AppText/AppText";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import { useRouter } from "next/router";
-import Link from "next/link";
 
 export default function Listings() {
+  const r = useRouter();
   return (
-    <div>
+    <div className="pb-10">
+      <Navbar />
       <BackgroundContainer src="./homeBG.png">
         <div className="flex flex-col p-4">
           <Intro />
-          {/* <User /> */}
-          {/* <Info /> */}
-          <div className="flex p-7">{/* <Iconbtn /> */}</div>
+          <User />
+          <Info />
+          <div className="flex p-7"><Iconbtn /></div>
 
-          {/* <CenterContainer>
+          <CenterContainer>
             <div className="flex pt-10 pb-20">
               <Button
                 txt="Contact Host"
@@ -30,8 +31,7 @@ export default function Listings() {
                 onBtnClick={() => alert("Contacting Host")}
               />
             </div>
-
-            <Link href="/list">
+            <div className="flex items-center gap-2 cursor-pointer" onClick={() => { r.push('/list') }}>
               <AppText
                 color="#F5F5F5"
                 txt=" See All reservations"
@@ -41,11 +41,11 @@ export default function Listings() {
                 fontSize="large"
                 style={{ fill: "#f5f5f5" }}
               />
-            </Link>
-          </CenterContainer> */}
+            </div>
+          </CenterContainer>
         </div>
 
-        <Navbar />
+
       </BackgroundContainer>
     </div>
   );

@@ -18,7 +18,7 @@ export default class MyDocument extends Document {
 						rel="stylesheet"
 						href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
 					/>
-{/* Inject MUI styles first to match with the prepend: true configuration. */}
+					{/* Inject MUI styles first to match with the prepend: true configuration. */}
 					{this.props.emotionStyleTags}
 				</Head>
 				<body>
@@ -33,14 +33,14 @@ export default class MyDocument extends Document {
 // `getInitialProps` belongs to `_document` (instead of `_app`),
 // it's compatible with static-site generation (SSG).
 MyDocument.getInitialProps = async (ctx) => {
-	
+
 	const originalRenderPage = ctx.renderPage;
 
 	// You can consider sharing the same emotion cache between
 	// all the SSR requests to speed up performance.
 	// However, be aware that it can have global side effects.
-	
-const cache = createEmotionCache();
+
+	const cache = createEmotionCache();
 	const { extractCriticalToChunks } = createEmotionServer(cache);
 
 	ctx.renderPage = () =>
@@ -55,8 +55,8 @@ const cache = createEmotionCache();
 
 	// This is important. It prevents emotion to render invalid HTML.
 	// See
-// https://github.com/mui-org/material-ui/issues/26561#issuecomment-855286153
-	
+	// https://github.com/mui-org/material-ui/issues/26561#issuecomment-855286153
+
 	const emotionStyles = extractCriticalToChunks(initialProps.html);
 	const emotionStyleTags = emotionStyles.styles.map((style) => (
 		<style

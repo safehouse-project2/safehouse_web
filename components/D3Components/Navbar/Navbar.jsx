@@ -46,46 +46,39 @@ export default function Navbar({
     }
     const [value, setValue] = React.useState(null);
     const ref = React.useRef(null);
-    const [color, setColor] = useState("#959595");
 
     React.useEffect(() => {
         ref.current.ownerDocument.body.scrollTop = 0;
     }, []);
 
-    if (r.pathname== ('/', '/host')){
+
+
+    if (r.pathname == ('/', '/host')) {
         return <div>
-            <Box ref={ref}/>
+            <Box ref={ref} />
         </div>
-    } else{
-    return (
-        <Box sx={{
-            borderRadius: "13px 13px 0px 0px",
-        }} ref={ref}>
-            <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
-                <BottomNavigation
-                    showLabels
-                    value={value}
-                    onChange={(event, newValue) => {
-                        setValue(newValue);
-                    }}
-                >
-                    <BottomNavigationAction label="Home" icon={<HomeIcon />} onClick={goToHome} sx={{
-                        // color: { homeColor },
-                    }} />
-                    <BottomNavigationAction label="Chat" icon={<Chat />} onClick={goToChat} sx={{
-                        // color: { chatColor },
-                    }} />
-                    <BottomNavigationAction label="Resources" icon={<HelpIcon />} onClick={goToHelp} sx={{
-                        // color: { helpColor },
-                    }} />
-                    <BottomNavigationAction label="Profile" icon={<AccountCircleIcon onClick={goToProfile} sx={{
-                        // color: { profileColor },
-                    }} />}
-                    />
-                </BottomNavigation>
-            </Paper>
-        </Box>
-    )
+    } else {
+        return (
+            <Box sx={{
+                borderRadius: "13px 13px 0px 0px",
+            }} ref={ref}>
+                <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
+                    <BottomNavigation
+                        showLabels
+                        value={r.pathname}
+                        onChange={(event, newValue) => {
+                            console.log(newValue);
+                            setValue(newValue);
+                        }}
+                    >
+                        <BottomNavigationAction label="Home" value={"/userhome"} icon={<HomeIcon />} onClick={goToHome} />
+                        <BottomNavigationAction label="Chat" icon={<Chat />} value={"/chat"} onClick={goToChat} />
+                        <BottomNavigationAction label="Resources" icon={<HelpIcon />} value={"/resources"} onClick={goToHelp} />
+                        <BottomNavigationAction label="Profile" icon={<AccountCircleIcon />} value={"/profile"} onClick={goToProfile} />
+                    </BottomNavigation>
+                </Paper>
+            </Box>
+        )
     }
 }
 

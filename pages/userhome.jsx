@@ -3,12 +3,12 @@ import Input from "../components/D3Components/Input/Input";
 import Slider from "../components/D3Components/Slider/Slider";
 import { BackgroundContainer, MainContainer } from '../styles/styledComps';
 import SearchIcon from "@mui/icons-material/Search";
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+// import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Navbar from "../components/D3Components/Navbar/Navbar";
 import Image from "../components/D3Components/Image/ImageComp";
 import { useState } from "react";
 import { useRouter } from "next/router";
-import SliderFull from "../components/D3Components/Slider/SliderFull";
+// import SliderFull from "../components/D3Components/Slider/SliderFull";
 
 export default function UserHome() {
     const r = useRouter();
@@ -17,7 +17,7 @@ export default function UserHome() {
     const [both, setBoth] = useState(false);
 
     return (
-        <div className="overflow-auto">
+        <div>
             <BackgroundContainer src="">
                 <MainContainer>
                     <Input
@@ -43,11 +43,11 @@ export default function UserHome() {
                             />
                         </div>
 
-                        <AppText
+                        {/* <AppText
                             txt='1 Bedroom available'
                             fontSize="18px"
                             padding="10px 0px 0px 0px"
-                        />
+                        /> */}
                     </div>
 
                     <AppText
