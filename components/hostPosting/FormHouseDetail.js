@@ -3,7 +3,7 @@ import { TextField } from '@mui/material'
 import { LeftContainer } from '../../styles/styledComps'
 
 export default function FormHouseDetail({ formData, setFormData }) {
- 
+
   return (
     <div className=''>
       <form>

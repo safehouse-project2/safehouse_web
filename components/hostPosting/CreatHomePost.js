@@ -27,7 +27,7 @@ function CreatHomePost() {
     const [alertMessage, setAlertMessage] = useState("");
 
 
-    const titles =[
+    const titles = [
         "Tell us somethingn about your place",
         "What's your address?",
         "How many people will you be hosting?",
@@ -36,7 +36,7 @@ function CreatHomePost() {
         "Upload some photos of your place",
         "Review and Confirm"
     ]
-      
+
 
 
     const showAlert = (type, message) => {
@@ -53,9 +53,10 @@ function CreatHomePost() {
     }
 
     const router = useRouter()
+    const [state, setState] = useState({ address: "," });
     const [formData, setFormData] = useState({
 
-        homeType: '',
+        homeType: 'House',
         description: '',
 
         addressLine1: '',
@@ -93,7 +94,7 @@ function CreatHomePost() {
             case 0:
                 return <FormHouseDetail formData={formData} setFormData={setFormData} title="aaa" />;
             case 1:
-                return <FormAddressDetail formData={formData} setFormData={setFormData} />;
+                return <FormAddressDetail formData={formData} setFormData={setFormData} state={state} setState={setState} />;
             case 2:
                 return <FormRoomDetails formData={formData} setFormData={setFormData} />;
             case 3:
@@ -123,19 +124,21 @@ function CreatHomePost() {
         //         setPage(page + 1);
         //     }
         // }
-        // if (page === 1) {
+        if (page === 1) {
 
-        //     if (formData.addressLine1 === '') {
-        //         showAlert('warning', 'Please enter an address');
-        //     } else if (formData.city === '') {
-        //         showAlert('warning', 'Please enter a city');
-        //     } else if (formData.postalCode === '') {
-        //         showAlert('warning', 'Please enter a postal code');
-        //     } else {
-        //         setPage(page + 1);
-        //     }
+            setFormData({ ...formData, addressLine1: state.address.split(',')[0] })
 
-        // }
+            // if (formData.addressLine1 === '') {
+            //     showAlert('warning', 'Please enter an address');
+            // } else if (formData.city === '') {
+            //     showAlert('warning', 'Please enter a city');
+            // } else if (formData.postalCode === '') {
+            //     showAlert('warning', 'Please enter a postal code');
+            // } else {
+            //     setPage(page + 1);
+            // }
+
+        }
         // if (page === 2) {
         //     if (formData.guests === 0) {
         //         showAlert('warning', 'Please enter the number of guests allowed');
@@ -166,12 +169,13 @@ function CreatHomePost() {
 
     async function handleSubmit() {
         const collectionRef = collection(db, 'homes')
+        console.log("formData", formData);
         const docRef = await addDoc(collectionRef, {
             ...formData, timestamp:
                 serverTimestamp()
         })
         showAlert('success', `Home with id ${docRef.id} added successfully`)
-        router.push('/hosthome')
+        router.push('/userhome')
     }
 
 
@@ -179,21 +183,21 @@ function CreatHomePost() {
 
     return (
         <div className=''>
-             <div className="flex flex-col gap-4 pb-10">
-            <AppText
-              txt={titles[page]}
-              fontSize="34px"
-              color="#f5f5f5"
-            />
-            {/* <AppText
+            <div className="flex flex-col gap-4 pb-10">
+                <AppText
+                    txt={titles[page]}
+                    fontSize="34px"
+                    color="#f5f5f5"
+                />
+                {/* <AppText
               txt="What kind of place will you be hosting ?"
               fontSize="18px"
               color="#f5f5f5"
             /> */}
-            {/* <Dropdown
+                {/* <Dropdown
               backgroundColor="#f5f5f5"
             /> */}
-          </div>
+            </div>
             {conditionalComponent()}
             <Snackbar
                 anchorOrigin={{ vertical: 'top', horizontal: 'center' }}

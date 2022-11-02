@@ -39,7 +39,9 @@ const DetailPage = () => {
 
   return (
     <div>
-      <Detail key={state.id} state={state} />
+      <Detail key={state?.id} state={state}>
+        {!state && <div>loading...</div>}
+      </Detail>
     </div>
   );
 };

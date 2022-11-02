@@ -5,10 +5,6 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 
 export default function Info({
   state = {
-    address: "",
-    lat: "",
-    lng: "",
-    country: "",
     province: "",
     city: "",
     guests: "",
@@ -21,37 +17,43 @@ export default function Info({
     <div>
       <div className="flex mt-3 gap-14">
         <AppText
-          txt="One Bedroom suite available for wildfire evacuees"
+          txt={
+            state?.bedrooms
+              ? `${state.bedrooms}Bedroom suite available for wildfire evacuees`
+              : "Sorry we don't have any suites available for wildfire evacuees at this time"
+          }
           color="black"
           fontSize="16px"
           fontWeight="500"
         />
         <FavoriteIcon sx={{ color: "#FF5F5F", marginLeft: "20px" }} />
       </div>
-      <div className="flex mt-3 flex-row">
+      <div className="flex mt-3 flex-row gap-3">
         <AppText
-          txt={state?.guests ? state.guests : "No guests"}
+          txt={state?.guests ? `${state.guests} guests` : "No guests"}
           color="#272727"
           fontSize="14px"
           fontWeight="400"
         />
         <CircleIcon sx={{ fontSize: 10, color: "#B38A58", margin: "5px" }} />
         <AppText
-          txt={state?.bedrooms ? state.bedrooms : "No bedrooms"}
+          txt={state?.bedrooms ? `${state.bedrooms} bedrooms` : "No bedrooms"}
           color="#272727"
           fontSize="14px"
           fontWeight="400"
         />
         <CircleIcon sx={{ fontSize: 10, color: "#B38A58", margin: "5px" }} />
         <AppText
-          txt={state?.beds ? state.bed : "No bed"}
+          txt={state?.beds ? `${state.beds} beds` : "No bed"}
           color="#272727"
           fontSize="14px"
           fontWeight="400"
         />
         <CircleIcon sx={{ fontSize: 10, color: "#B38A58", margin: "5px" }} />
         <AppText
-          txt={state?.bathrooms ? state.bathrooms : "No bathrooms"}
+          txt={
+            state?.bathrooms ? `${state.bathrooms} bathrooms` : "No bathrooms"
+          }
           color="#272727"
           fontSize="14px"
           fontWeight="400"
@@ -59,15 +61,7 @@ export default function Info({
       </div>
       <div className="flex mt-3 flex-col gap-3">
         <AppText
-          txt={
-            state?.city
-              ? state.city
-              : "No city Provided" + ", " + state.province
-              ? state?.province
-              : "No province Provided" + ", " + state.postalCode
-              ? state?.postalCode
-              : "No postal code Provided"
-          }
+          txt={state?.city ? `${state.city} , ${state.province}` : "No city"}
           color="#8C8C8C"
           fontSize="14px"
           fontWeight="400"
