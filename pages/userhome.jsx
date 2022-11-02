@@ -80,7 +80,6 @@ export default function UserHome() {
                     </div>
                 </MainContainer>
             </BackgroundContainer>
-
             <Navbar />
         </div>
     )
