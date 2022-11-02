@@ -67,6 +67,33 @@ export default function UserHome() {
                             <option value="Safehouses">Safehouses</option>
                             <option value="Both">Both</option>
                         </select>
+                        {/* if option value is wildfires, show fire_map.png */}
+                        {/* if option value is safehouses, show house_map.png */}
+                        {/* if option value is both, show both maps */}
+                        {
+                            firemap ?
+                                <Image
+                                    src="/fire_map.png"
+                                    width="100%"
+                                    height="100%"
+                                    alt="fire map"
+                                />
+                                : housemap ?
+                                    <Image
+                                        src="/house_map.png"
+                                        width="100%"
+                                        height="100%"
+                                        alt="house map"
+                                    />
+                                    : both ?
+                                        <Image
+                                            src="/both_maps.png"
+                                            width="100%"
+                                            height="100%"
+                                            alt="both maps"
+                                        />
+                                        : null
+                        }
                     </div>
                     <div className="w-[310px] h-[310px] pt-6 cursor-pointer">
                         <Image
