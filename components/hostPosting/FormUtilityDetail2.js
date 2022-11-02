@@ -31,7 +31,7 @@ export default function FormUtilityDetail2({ formData, setFormData }) {
             <FormLabel id="demo-radio-buttons-group-label">Does your place offer Television ?</FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
-              value={formData.TV || "yes"}
+              value={formData.tv || "yes"}
               name="radio-buttons-group"
               onChange={(e) => setFormData({ ...formData, tv: e.target.value })}
             >
