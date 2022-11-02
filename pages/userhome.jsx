@@ -68,7 +68,7 @@ export default function UserHome() {
                             <option value="Both">Both</option>
                         </select>
                     </div>
-                    <div className="w-[310px] h-[310px] pt-6">
+                    <div className="w-[310px] h-[310px] pt-6 cursor-pointer">
                         <Image
                             onImgClick={() => r.push('/evacuee')}
                             src="/fire_map.png"
