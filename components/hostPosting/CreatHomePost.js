@@ -185,14 +185,6 @@ function CreatHomePost() {
               fontSize="34px"
               color="#f5f5f5"
             />
-            {/* <AppText
-              txt="What kind of place will you be hosting ?"
-              fontSize="18px"
-              color="#f5f5f5"
-            /> */}
-            {/* <Dropdown
-              backgroundColor="#f5f5f5"
-            /> */}
           </div>
             {conditionalComponent()}
             <Snackbar
