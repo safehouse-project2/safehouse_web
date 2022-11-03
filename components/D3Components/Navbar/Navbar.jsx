@@ -44,6 +44,7 @@ export default function Navbar({
     const goToProfile = () => {
         r.push("/profile");
     }
+
     const [value, setValue] = React.useState(null);
     const ref = React.useRef(null);
 

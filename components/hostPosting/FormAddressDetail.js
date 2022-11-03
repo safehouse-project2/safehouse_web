@@ -9,8 +9,8 @@ import { TextField } from '@mui/material';
 import Autocomplete from '../Autocomplete';
 
 
-export default function FormAddressDetail({ formData, setFormData }) {
-  const [state, setState] = useState({ address: "," });
+export default function FormAddressDetail({ formData, setFormData, state, setState }) {
+
 
   const addressAry = state.address.split(",")
 
@@ -26,6 +26,7 @@ export default function FormAddressDetail({ formData, setFormData }) {
       .catch(error => console.error("Error", error));
   };
 
+  console.log(formData)
 
   return (
     <div>
@@ -38,7 +39,10 @@ export default function FormAddressDetail({ formData, setFormData }) {
           <label htmlFor="addressLine1" className='text-[#f5f5f5] text-[18px]'>Address Line 1</label>
           <PlacesAutocomplete
             value={state.address.split(",")[0]}
-            onChange={address => setState({ address })}
+            onChange={address => {
+              setFormData({ ...formData, addressLine1: state.address.split(",")[0] })
+              setState({ address })
+            }}
             onSelect={handleSelect}
           >
             {({
@@ -141,8 +145,11 @@ export default function FormAddressDetail({ formData, setFormData }) {
               variant='outlined'
               placeholder='City'
               required
-              value={addressAry[addressAry.length - 3]}
-              onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+              value={addressAry[addressAry.length - 3] ? addressAry[addressAry.length - 3] : formData.city}
+              onChange={(e) => {
+                console.log(e.target.value)
+                setFormData({ ...formData, city: e.target.value })
+              }}
             />
           </div>
         </FormControl>
@@ -162,8 +169,11 @@ export default function FormAddressDetail({ formData, setFormData }) {
               variant='outlined'
               placeholder='Province'
               required
-              value={addressAry[addressAry.length - 2]}
-              onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+              value={addressAry[addressAry.length - 2] ? addressAry[addressAry.length - 2].split(" ")[0] : formData.province}
+              onChange={(e) => {
+                console.log(e.target.value)
+                setFormData({ ...formData, province: e.target.value })
+              }}
             />
           </div>
         </FormControl>

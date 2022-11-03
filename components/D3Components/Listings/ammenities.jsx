@@ -9,22 +9,11 @@ import CheckroomIcon from "@mui/icons-material/Checkroom";
 
 export default function Ammenities({
   state = {
-    address: "",
-    lat: "",
-    lng: "",
-    country: "",
-    province: "",
-    city: "",
-    guests: "",
-    bedrooms: "",
-    beds: "",
-    baths: "",
     wifi: "",
     tv: "",
-    kitchen: "",
     laundry: "",
-    parking: "",
-    cleaning: "",
+    washer: "",
+    dryer: "",
   },
 }) {
   return (
@@ -41,14 +30,14 @@ export default function Ammenities({
       <div className="flex mt-3 flex-row gap-3">
         <WifiIcon sx={{ marginLeft: "15px" }} />
         <AppText
-          txt={state.wifi ? "Wifi Provided" : "No Wifi"}
+          txt={state?.wifi ? "Wifi" : "No Wifi"}
           color="black"
           fontSize="15px"
           fontWeight="500"
         />
         <TvIcon sx={{ marginLeft: "47px" }} />
         <AppText
-          txt={state.tv ? "TV Provided" : "No TV"}
+          txt={state?.tv ? "TV" : "No TV"}
           color="black"
           fontSize="15px"
           fontWeight="500"
@@ -59,14 +48,14 @@ export default function Ammenities({
       <div className="flex mt-3 flex-row gap-3">
         <LocalLaundryServiceIcon sx={{ marginLeft: "15px" }} />
         <AppText
-          txt={state.washer ? "Washer Provided" : "No washer"}
+          txt={state?.washer ? "Washer" : "No washer"}
           color="black"
           fontSize="15px"
           fontWeight="500"
         />
         <DryCleaningIcon sx={{ marginLeft: "20px" }} />
         <AppText
-          txt={state.dryer ? "Dryer Provided" : "No Dryer"}
+          txt={state?.dryer ? "Dryer" : "No Dryer"}
           color="black"
           fontSize="15px"
           fontWeight="500"

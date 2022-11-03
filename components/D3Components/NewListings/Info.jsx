@@ -1,10 +1,12 @@
 import AppText from "../AppText/AppText";
 import CircleIcon from "@mui/icons-material/Circle";
-import Face6Icon from "@mui/icons-material/Face6";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import { useState } from "react";
+import { CurtainsSharp } from "@mui/icons-material";
 
 export default function Info() {
+    const [Favorite, setFavorite] = useState(true);
     return (
         <div className="flex flex-col gap-2">
             <div className='flex gap-14 pr-5'>
@@ -13,7 +15,25 @@ export default function Info() {
                     fontSize='18px'
                     fontWeight='500'
                 />
-                <FavoriteIcon sx={{ color: "#FF5F5F" }} />
+                {
+                    Favorite ?
+                        <FavoriteBorderIcon
+                            sx={{
+                                color: 'grey',
+                                cursor: 'pointer',
+                            }}
+                            onClick={() => setFavorite(!Favorite)}
+                        />
+                        :
+                        <FavoriteIcon
+                            sx={{
+                                color: 'red',
+                                cursor: 'pointer',
+                            }}
+                            onClick={
+                                () => setFavorite(!Favorite)}
+                        />
+                }
             </div>
             <div className='flex flex-row gap-3'>
                 <AppText

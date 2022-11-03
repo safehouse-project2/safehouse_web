@@ -39,7 +39,9 @@ export default function Listings() {
                     />
                 </div>
             </CenterContainer>
-            <Navbar />
+            <Navbar
+                value="/listingsnew"
+            />
         </div>
     );
 }
