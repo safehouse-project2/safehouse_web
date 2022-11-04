@@ -9,23 +9,16 @@ import { getAuth } from "firebase/auth"
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-// const firebaseConfig = {
-//   apiKey: process.env.NEXT_PUBLIC_APIKEY,
-//   authDomain: process.env.NEXT_PUBLIC_AUTHDOMAIN,
-//   projectId: process.env.NEXT_PUBLIC_PROJECTID,
-//   storageBucket: process.env.NEXT_PUBLIC_STORAGEBUCKET,
-//   messagingSenderId: process.env.NEXT_PUBLIC_MESSAGINGSENDERID,
-//   appId: process.env.NEXT_PUBLIC_APPID,
-// };
-
 const firebaseConfig = {
-  apiKey: "AIzaSyB7aj-WlIc_CVecLh5AC_q5y8tO5xhnKhs",
-  authDomain: "auth-development-f5502.firebaseapp.com",
-  projectId: "auth-development-f5502",
-  storageBucket: "auth-development-f5502.appspot.com",
-  messagingSenderId: "133599977737",
-  appId: "1:133599977737:web:b6353fd1fe41f28b82f3d8"
-}
+  apiKey: process.env.NEXT_PUBLIC_APIKEY,
+  authDomain: process.env.NEXT_PUBLIC_AUTHDOMAIN,
+  projectId: process.env.NEXT_PUBLIC_PROJECTID,
+  storageBucket: process.env.NEXT_PUBLIC_STORAGEBUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_MESSAGINGSENDERID,
+  appId: process.env.NEXT_PUBLIC_APPID,
+};
+
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
