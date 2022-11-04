@@ -1,33 +1,108 @@
-import NavBar from "../components/Home/NavBar";
+
 import Button from "../components/D3Components/Button/Button";
-import Icon from "../components/D3Components/Icon/Icon";
 import HomeIcon from "@mui/icons-material/Home";
 import LuggageIcon from "@mui/icons-material/Luggage";
 import {
   BackgroundContainer,
-  MainContainer,
   CenterContainer,
 } from "../styles/styledComps";
 import AppText from "../components/D3Components/AppText/AppText";
-import { useRouter } from "next/router";
+import LoginOrLogout from "../components/Authentication/LoginOrLogout";
+import { AuthProvider } from "../AuthContext/AuthContext";
+import {useState, useEffect, useRef} from "react";
+import { auth } from "../firebase";
+import Popup from "../components/Authentication/Popup";
 
 export default function Home() {
-  const r = useRouter();
-  const goToHost = () => {
-    r.push("/host");
-  };
-  const goToEvacuee = () => {
-    r.push("/evacuee");
-  };
+  const inputAreaRef = useRef();
+  const [popup, setPopup] = useState(false);
+
+  const[user, setUser] = useState(null)
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(user => {
+        setUser(user)
+    })
+    return unsubscribe
+}, [])
+
+function togglePopup() {
+  setPopup(!popup);
+}
+
+function handleHostUser(){
+  console.log("host user")
+  if(user){
+    return(
+      <Button
+      txt="Host"
+      icon={<HomeIcon />}
+      href="/host"
+      />
+    )
+  } else {
+    return(
+      <Button
+      onBtnClick={togglePopup}
+      txt="Host"
+      icon={<HomeIcon />}
+      />
+    )
+  }
+}
+
+function handleEvacueUsesr(){
+  console.log("evacuee user")
+  if(user){
+    return(
+      <Button
+      txt="Evacuee"
+      icon={<LuggageIcon />}
+      href="/evacuee"
+      />
+    )
+  } else {
+    return(
+      <Button
+      txt="Evacuee"
+      icon={<LuggageIcon />}
+      onBtnClick={togglePopup}
+      />
+    )
+  }
+}
+
+
+
+useEffect(() => {
+  const checkIfClickedOutside = (e) => {
+      if (!inputAreaRef.current.contains(e.target)) {
+          console.log('Outside ')
+          setPopup(false)
+        } else {
+          console.log('Inside')
+      }
+  }
+  document.addEventListener("mousedown", checkIfClickedOutside)
+  return () => {
+   document.removeEventListener("mousedown", checkIfClickedOutside)
+  }
+},[])
 
   return (
-    <div>
+    <div >
+    <AuthProvider >    
+    <LoginOrLogout />
       <BackgroundContainer src="./homeBG.png">
         <CenterContainer>
+          <div ref={inputAreaRef}>
+              {popup && <Popup/>}
+              </div>
           <div className="flex gap-10 z-99">
             <div className="flex justify-center items-center flex-col gap-3">
               <HomeIcon style={{ fill: "#f5f5f5" }} sx={{ fontSize: 150 }} />
-              <Button href="/host" txt="Host" />
+              {/* <Button onClick={handleHostUser} txt="Host" /> */}
+              {handleHostUser()}
               <AppText
                 txt="Apply to become a host"
                 color="#f5f5f5"
@@ -36,7 +111,7 @@ export default function Home() {
             </div>
             <div className="flex justify-center items-center flex-col gap-3">
               <LuggageIcon style={{ fill: "#f5f5f5" }} sx={{ fontSize: 150 }} />
-              <Button href="/userhome" txt="Evacuee" />
+              {handleEvacueUsesr()}
               <AppText
                 txt="Apply to become a host"
                 color="#f5f5f5"
@@ -46,6 +121,8 @@ export default function Home() {
           </div>
         </CenterContainer>
       </BackgroundContainer>
+    </AuthProvider>
     </div>
   );
 }
+

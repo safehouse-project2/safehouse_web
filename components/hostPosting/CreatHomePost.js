@@ -183,31 +183,13 @@ function CreatHomePost() {
 
     return (
         <div className=''>
-<<<<<<< HEAD
-             <div className="flex flex-col gap-4 pb-10">
-            <AppText
-              txt={titles[page]}
-              fontSize="34px"
-              color="#f5f5f5"
-            />
-          </div>
-=======
             <div className="flex flex-col gap-4 pb-10">
                 <AppText
                     txt={titles[page]}
                     fontSize="34px"
                     color="#f5f5f5"
                 />
-                {/* <AppText
-              txt="What kind of place will you be hosting ?"
-              fontSize="18px"
-              color="#f5f5f5"
-            /> */}
-                {/* <Dropdown
-              backgroundColor="#f5f5f5"
-            /> */}
             </div>
->>>>>>> d04f740e0a5ed35a1b0f9d82403b6211be56efe9
             {conditionalComponent()}
             <Snackbar
                 anchorOrigin={{ vertical: 'top', horizontal: 'center' }}

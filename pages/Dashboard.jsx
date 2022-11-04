@@ -29,7 +29,6 @@ export default function Dashboard() {
   return (
     <CRUDContext.Provider value={{showAlert, todo, setTodo}}>
     <Container maxWidth="sm">
-      <NavBar />
       <TodoForm/>
       <Snackbar 
       anchorOrigin={{vertical: 'top', horizontal: 'center'}}
