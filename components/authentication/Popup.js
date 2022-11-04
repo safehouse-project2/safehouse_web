@@ -11,6 +11,7 @@ export default function Popup() {
                 color="#f5f5f5"
             />
             <Button href='/auth/login'>login</Button>
+            
         </div>
     )
 }

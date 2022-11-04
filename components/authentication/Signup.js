@@ -1,12 +1,12 @@
 import React, { useRef, useState } from 'react'
 import { useAuth } from '../../AuthContext/AuthContext'
 import { Alert,Button } from '@mui/material'
-
-
+import { useRouter } from 'next/router'
 
 
 export default function Signup() {
 
+  const router = useRouter()
   const emailRef = useRef()
   const passwordRef = useRef()
   const passwordConfirmRef = useRef()
@@ -14,7 +14,7 @@ export default function Signup() {
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
-  const { signup , currentUser} = useAuth()
+  const { signup , googleLogin, currentUser} = useAuth()
 
   async function handleSumbmit(e) {
     e.preventDefault()
@@ -31,6 +31,19 @@ export default function Signup() {
       setError("Failed to create an account")
     }
   }
+
+  async function loginWithGoogole() {
+    try {
+      setError("")
+      setLoading(true)
+      await googleLogin()
+      router.push('/')
+    } catch (error) {
+      console.log(error)
+      setError("Failed to login with Google")
+    }
+  }
+
 
   return (
     <div className='flex flex-col justify-start items-center mt-10 gap-10 pb-10'>
@@ -52,6 +65,9 @@ export default function Signup() {
         <button  disabled={loading} type="submit">Sign Up</button>
 
       </form>
+
+      <Button  onClick={loginWithGoogole} disabled={loading} type="submit"> continue with Google </Button>
+    
       <div>Already have an account ?
        
          <Button href="/auth/login"> Log in</Button>

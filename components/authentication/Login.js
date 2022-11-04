@@ -11,7 +11,7 @@ export default function Login() {
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
-  const { login } = useAuth()
+  const { login , googleLogin} = useAuth()
 
   async function handleSumbmit(e) {
     e.preventDefault()
@@ -24,6 +24,18 @@ export default function Login() {
     } catch (error) {
       console.log(error)
       setError("Failed to login")
+    }
+  }
+
+  async function loginWithGoogole() {
+    try {
+      setError("")
+      setLoading(true)
+      await googleLogin()
+      router.push('/')
+    } catch (error) {
+      console.log(error)
+      setError("Failed to login with Google")
     }
   }
 
@@ -44,6 +56,8 @@ export default function Login() {
         <button  disabled={loading} type="submit">Login</button>
 
       </form>
+
+      <Button  onClick={loginWithGoogole} disabled={loading} type="submit"> continue with Google </Button>
       <div>Need an account ?
         <Button href="/auth/signup">Singup</Button>
           </div>
