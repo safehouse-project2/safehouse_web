@@ -18,7 +18,6 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import PublishIcon from '@mui/icons-material/Publish';
 import AppText from '../D3Components/AppText/AppText';
-import { useAuth } from '../../AuthContext/AuthContext'
 
 function CreatHomePost() {
 
@@ -36,9 +35,6 @@ function CreatHomePost() {
         "Upload some photos of your place",
         "Review and Confirm"
     ]
-    const { currentUser } = useAuth()
-    console.log(currentUser)
-
 
     const showAlert = (type, message) => {
         setAlertType(type);
@@ -173,7 +169,7 @@ function CreatHomePost() {
         console.log("formData", formData);
         const docRef = await addDoc(collectionRef, {
             ...formData, timestamp:
-                serverTimestamp(),
+                serverTimestamp()
         })
         showAlert('success', `Home with id ${docRef.id} added successfully`)
         router.push('/userhome')
