@@ -39,10 +39,7 @@ export default function FormAddressDetail({ formData, setFormData, state, setSta
           <label htmlFor="addressLine1" className='text-[#f5f5f5] text-[18px]'>Address Line 1</label>
           <PlacesAutocomplete
             value={state.address.split(",")[0]}
-            onChange={address => {
-              setFormData({ ...formData, addressLine1: state.address.split(",")[0] })
-              setState({ address })
-            }}
+            onChange={address => setState({ address })}
             onSelect={handleSelect}
           >
             {({
