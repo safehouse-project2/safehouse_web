@@ -24,7 +24,7 @@ export default function Home() {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
       setUser(user)
-      if (user === null ||user.displayName === null) {
+      if (user === null || user.displayName === null) {
         return
       } else {
 
