@@ -81,7 +81,6 @@ export default function Home() {
   }
 
 
-
   useEffect(() => {
     const checkIfClickedOutside = (e) => {
       if (!inputAreaRef.current.contains(e.target)) {
