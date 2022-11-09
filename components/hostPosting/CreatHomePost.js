@@ -18,8 +18,11 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import PublishIcon from '@mui/icons-material/Publish';
 import AppText from '../D3Components/AppText/AppText';
+import { useAuth } from '../../AuthContext/AuthContext'
 
 function CreatHomePost() {
+    const { currentUser } = useAuth()
+    console.log("currentUser", currentUser);
 
     const [open, setOpen] = useState(false);
     const [alertType, setAlertType] = useState("success");
@@ -81,6 +84,10 @@ function CreatHomePost() {
         heating: 'yes',
 
         image: "",
+
+        userName: "",
+        userEmail: "",
+        userId: "",
 
     });
 
@@ -168,7 +175,11 @@ function CreatHomePost() {
         const collectionRef = collection(db, 'homes')
         console.log("formData", formData);
         const docRef = await addDoc(collectionRef, {
-            ...formData, timestamp:
+            ...formData,
+            userId: currentUser.uid,
+            userName: currentUser.displayName,
+            userEmail: currentUser.email,
+            timestamp:
                 serverTimestamp()
         })
         showAlert('success', `Home with id ${docRef.id} added successfully`)

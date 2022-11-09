@@ -5,6 +5,7 @@ import { Container } from '@mui/material'
 import Script from "next/script";
 import Dropdown from "../components/D3Components/Dropdown/Dropdown";
 import React from 'react'
+import { AuthProvider } from "../AuthContext/AuthContext";
 
 export default function PostHome() {
   return (
@@ -17,10 +18,12 @@ export default function PostHome() {
             src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAP_API}&libraries=places`}
           >
           </Script>
-          <CreatHomePost />
+          <AuthProvider>
+            <CreatHomePost />
+          </AuthProvider>
         </LeftContainer>
       </MainContainer>
-    </BackgroundContainer>
+    </BackgroundContainer >
   )
 }
 
