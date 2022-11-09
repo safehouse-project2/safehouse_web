@@ -1,8 +1,12 @@
 import ReservationBox from "../D3Components/ReservationBox/ReservationBox";
-import ReviewBox from "../D3Components/ReviewBox/ReviewBox";
 import AppText from "../D3Components/AppText/AppText";
 import { useAuth } from "../../AuthContext/AuthContext";
 import { useState, useEffect, useRef } from "react";
+import CreatHomePost from "../hostPosting/CreatHomePost";
+import Script from "next/script";
+import { AuthProvider } from "../../AuthContext/AuthContext";
+import { BackgroundContainer } from "../../styles/styledComps";
+
 export default function HostDetail({
   state = [{ userId: "" }, { userId: "" }],
 }) {
@@ -19,7 +23,6 @@ export default function HostDetail({
     }
     return;
   };
-
   return (
     <>
       <div className="flex flex-col gap-3">
@@ -45,6 +48,7 @@ export default function HostDetail({
             <>
               <ReservationBox key={item.id} data={data} post={item} />
               <AppText
+                key={item.userId}
                 txt={
                   data?.length
                     ? findCurrentPage(item.id) + 1 + "/" + data.length

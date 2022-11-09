@@ -14,7 +14,6 @@ export default function FormUploadImage({ formData, setFormData }) {
   const [imageList, setImageList] = useState([])
   const imageListRef = ref(storage, "images/")
   const onFileChange = (e) => {
-    console.log(e.target.files[0]);
     setFile(e.target.files[0]);
     const {
       target: { files },

@@ -26,8 +26,6 @@ export default function FormAddressDetail({ formData, setFormData, state, setSta
       .catch(error => console.error("Error", error));
   };
 
-  console.log(formData)
-
   return (
     <div>
       <Script
@@ -144,7 +142,6 @@ export default function FormAddressDetail({ formData, setFormData, state, setSta
               required
               value={addressAry[addressAry.length - 3] ? addressAry[addressAry.length - 3] : formData.city}
               onChange={(e) => {
-                console.log(e.target.value)
                 setFormData({ ...formData, city: e.target.value })
               }}
             />
@@ -168,7 +165,6 @@ export default function FormAddressDetail({ formData, setFormData, state, setSta
               required
               value={addressAry[addressAry.length - 2] ? addressAry[addressAry.length - 2].split(" ")[0] : formData.province}
               onChange={(e) => {
-                console.log(e.target.value)
                 setFormData({ ...formData, province: e.target.value })
               }}
             />
