@@ -11,6 +11,7 @@ export default function Info({
     bedrooms: "",
     beds: "",
     baths: "",
+    isEdit: false,
   },
 }) {
   return (

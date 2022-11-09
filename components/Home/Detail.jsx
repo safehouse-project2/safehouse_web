@@ -9,18 +9,26 @@ import Description from "../D3Components/Listings/description";
 import Rules from "../D3Components/Listings/rules";
 import Chat from "../../pages/chat";
 import { useRouter } from "next/router";
+import { useState, useEffect } from "react";
 
 const Detail = ({ state }) => {
   const router = useRouter();
-  const buttonHandler = () => {
-    router.push("/chat");
+  const [isEdit, setIsEdit] = useState(false);
+  const id = router.query.id;
+  //edit post with user id
+
+  const editHandler = () => {
+    setIsEdit(true);
+    router.push("/edit/" + id);
+    return;
   };
+
+  const buttonHandler = () => {};
+
   return (
     <>
       <div>
-        <div className="absolute w-full h-auto">
-          <NavBar />
-        </div>
+        <div className="absolute w-full h-auto">{/* <NavBar /> */}</div>
         {state?.image ? (
           <Image
             src={state?.image ? state.image : ""}
@@ -30,6 +38,13 @@ const Detail = ({ state }) => {
         ) : (
           " No image"
         )}
+
+        <div>
+          <button onClick={editHandler}>edit</button>
+        </div>
+        <div>
+          <button onClick={buttonHandler}>delete</button>
+        </div>
 
         <div className="flex flex-col items-left justify-left ml-5">
           <Info state={state} />
