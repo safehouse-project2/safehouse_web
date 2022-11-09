@@ -39,7 +39,7 @@ export default function Home() {
   }
 
   function handleHostUser() {
-    console.log("host user")
+    // console.log("host user")
     if (user) {
       return (
         <Button
@@ -60,7 +60,7 @@ export default function Home() {
   }
 
   function handleEvacueUsesr() {
-    console.log("evacuee user")
+    // console.log("evacuee user")
     if (user) {
       return (
         <Button

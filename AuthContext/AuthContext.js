@@ -11,7 +11,7 @@ import {
 } from 'firebase/auth'
 
 const AuthContext = React.createContext()
-// empty comment , so i can push
+
 export function useAuth() {
     return useContext(AuthContext)
 }
