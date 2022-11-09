@@ -22,7 +22,6 @@ import {
 } from "firebase/firestore";
 import { db } from "/firebase";
 import GetGoogleMap from "../components/locations/GetGoogleMap";
-import { useAuth } from "../AuthContext/AuthContext";
 // import SliderFull from "../components/D3Components/Slider/SliderFull";
 
 export default function UserHome({ data }) {
@@ -59,8 +58,6 @@ export default function UserHome({ data }) {
       image: "",
     },
   ]);
-  const { currentUser } = useAuth();
-  console.log("currentUser", currentUser);
 
   useEffect(() => {
     const homeRef = collection(db, "homes");
