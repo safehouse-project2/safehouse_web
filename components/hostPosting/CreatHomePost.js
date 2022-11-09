@@ -171,7 +171,6 @@ function CreatHomePost() {
 
     async function handleSubmit() {
         const collectionRef = collection(db, 'homes')
-        console.log("formData", formData);
         const docRef = await addDoc(collectionRef, {
             ...formData,
             userId: currentUser.uid ? currentUser.uid : "",
@@ -181,7 +180,7 @@ function CreatHomePost() {
                 serverTimestamp()
         })
         showAlert('success', `Home with id ${docRef.id} added successfully`)
-        router.push('/userhome')
+        router.push(`/hosthome`)
         return
     }
 
