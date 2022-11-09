@@ -26,8 +26,6 @@ export default function FormAddressDetail({ formData, setFormData, state, setSta
       .catch(error => console.error("Error", error));
   };
 
-  console.log(formData)
-
   return (
     <div>
       <Script
@@ -39,10 +37,7 @@ export default function FormAddressDetail({ formData, setFormData, state, setSta
           <label htmlFor="addressLine1" className='text-[#f5f5f5] text-[18px]'>Address Line 1</label>
           <PlacesAutocomplete
             value={state.address.split(",")[0]}
-            onChange={address => {
-              setFormData({ ...formData, addressLine1: state.address.split(",")[0] })
-              setState({ address })
-            }}
+            onChange={address => setState({ address })}
             onSelect={handleSelect}
           >
             {({
@@ -147,7 +142,6 @@ export default function FormAddressDetail({ formData, setFormData, state, setSta
               required
               value={addressAry[addressAry.length - 3] ? addressAry[addressAry.length - 3] : formData.city}
               onChange={(e) => {
-                console.log(e.target.value)
                 setFormData({ ...formData, city: e.target.value })
               }}
             />
@@ -171,7 +165,6 @@ export default function FormAddressDetail({ formData, setFormData, state, setSta
               required
               value={addressAry[addressAry.length - 2] ? addressAry[addressAry.length - 2].split(" ")[0] : formData.province}
               onChange={(e) => {
-                console.log(e.target.value)
                 setFormData({ ...formData, province: e.target.value })
               }}
             />

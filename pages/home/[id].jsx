@@ -29,7 +29,7 @@ const DetailPage = () => {
   const id = router.query.id;
 
   if (id) {
-    const getHome = async id => {
+    const getHome = async (id) => {
       const docRef = doc(db, "homes", id);
       const home = await getDoc(docRef);
       setState(home.data());
@@ -39,9 +39,9 @@ const DetailPage = () => {
 
   return (
     <div>
-      <Detail key={state?.id} state={state}>
-        {!state && <div>loading...</div>}
-      </Detail>
+        <Detail key={state?.id} state={state}>
+          {!state && <div>loading...</div>}
+        </Detail>
     </div>
   );
 };
