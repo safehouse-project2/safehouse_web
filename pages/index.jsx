@@ -43,7 +43,7 @@ export default function Home() {
   function handleEvacueUsesr() {
     console.log("evacuee user");
     if (user) {
-      return <Button txt="Evacuee" icon={<LuggageIcon />} href="/evacuee" />;
+      return <Button txt="Evacuee" icon={<LuggageIcon />} href="/userhome" />;
     } else {
       return (
         <Button txt="Evacuee" icon={<LuggageIcon />} onBtnClick={togglePopup} />

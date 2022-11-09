@@ -1,10 +1,9 @@
-import { DataF } from "@react-google-maps/api";
 import AppText from "../AppText/AppText";
-import Button from "../Button/Button";
 import { useRouter } from "next/router";
 
-export default function ReservationBox({ data, post }) {
+export default function ReservationBox({ post }) {
   const router = useRouter();
+
   return (
     <div className="r-box flex flex-col justify-start items-start gap-5 min-w-[340px] bg-[#fff] rounded-lg">
       <div className="w-[100%] px-5 pt-3">
@@ -45,12 +44,12 @@ export default function ReservationBox({ data, post }) {
         >
           <AppText txt="See details" fontSize="16px" />
         </div>
-        <div className="cursor-pointer" onClick={() => alert("Calling Emma")}>
+        {/* <div className="cursor-pointer" onClick={() => router.push(`/edit`)}>
           <AppText txt="Edit" fontSize="16px" />
         </div>
         <div className="cursor-pointer" onClick={() => alert("Calling Emma")}>
           <AppText txt="Delete" fontSize="16px" />
-        </div>
+        </div> */}
       </div>
     </div>
   );

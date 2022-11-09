@@ -7,11 +7,11 @@ import FormUploadImage from './FormUploadImage';
 import FormUtilityDetail from './FormUtilityDetail';
 import FormRoomDetails from './FormRoomDetails';
 import FormUtilityDetail2 from './FormUtilityDetail2';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore'
+import { collection, addDoc, serverTimestamp, updateDoc, doc } from 'firebase/firestore'
 import { db } from '../../firebase'
 import { Snackbar, Alert } from '@mui/material'
 import Success from './Success';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import SubmitForm from './ConfirmForm';
 import { useRouter } from 'next/router'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
@@ -20,7 +20,7 @@ import PublishIcon from '@mui/icons-material/Publish';
 import AppText from '../D3Components/AppText/AppText';
 import { useAuth } from '../../AuthContext/AuthContext'
 
-function CreatHomePost() {
+function CreatHomePost({ editState, isEdit = false, docId = "" }) {
     const { currentUser } = useAuth()
 
     const [open, setOpen] = useState(false);
@@ -89,6 +89,11 @@ function CreatHomePost() {
         userId: "",
 
     });
+    useEffect(() => {
+        if (editState) {
+            setFormData(editState)
+        }
+    }, [])
 
     const [page, setPage] = useState(0);
 
@@ -170,18 +175,28 @@ function CreatHomePost() {
     }
 
     async function handleSubmit() {
-        const collectionRef = collection(db, 'homes')
-        const docRef = await addDoc(collectionRef, {
-            ...formData,
-            userId: currentUser.uid ? currentUser.uid : "",
-            userName: currentUser.displayName ? currentUser.displayName : "",
-            userEmail: currentUser.email ? currentUser.email : "",
-            timestamp:
-                serverTimestamp()
-        })
-        showAlert('success', `Home with id ${docRef.id} added successfully`)
-        router.push(`/hosthome`)
-        return
+        if (isEdit) {
+            const collectionRef2 = doc(db, 'homes', docId)
+            await updateDoc(collectionRef2, {
+                ...formData,
+                updatedAt: serverTimestamp()
+            })
+            router.push(`/home/${docId}`)
+            return
+        } else {
+            const collectionRef = collection(db, 'homes')
+            const docRef = await addDoc(collectionRef, {
+                ...formData,
+                userId: currentUser.uid ? currentUser.uid : "",
+                userName: currentUser.displayName ? currentUser.displayName : "",
+                userEmail: currentUser.email ? currentUser.email : "",
+                timestamp:
+                    serverTimestamp()
+            })
+            showAlert('success', `Home with id ${docRef.id} added successfully`)
+            router.push(`/hosthome`)
+            return
+        }
     }
 
 
