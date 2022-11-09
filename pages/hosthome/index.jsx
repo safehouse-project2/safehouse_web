@@ -1,13 +1,13 @@
-import AppText from "../components/D3Components/AppText/AppText";
+import AppText from "../../components/D3Components/AppText/AppText";
 import {
   BackgroundContainer,
   MainContainer,
   CenterContainer,
   LeftContainer,
-} from "../styles/styledComps";
-import Navbar from "../components/D3Components/Navbar/Navbar";
-import ReservationBox from "../components/D3Components/ReservationBox/ReservationBox";
-import ReviewBox from "../components/D3Components/ReviewBox/ReviewBox";
+} from "../../styles/styledComps";
+import Navbar from "../../components/D3Components/Navbar/Navbar";
+import ReservationBox from "../../components/D3Components/ReservationBox/ReservationBox";
+import ReviewBox from "../../components/D3Components/ReviewBox/ReviewBox";
 
 export default function HostHome() {
   return (

@@ -169,20 +169,20 @@ function CreatHomePost() {
         setPage(page + 1);
     }
 
-
     async function handleSubmit() {
         const collectionRef = collection(db, 'homes')
         console.log("formData", formData);
         const docRef = await addDoc(collectionRef, {
             ...formData,
-            userId: currentUser.uid,
-            userName: currentUser.displayName,
-            userEmail: currentUser.email,
+            userId: currentUser.uid ? currentUser.uid : "",
+            userName: currentUser.displayName ? currentUser.displayName : "",
+            userEmail: currentUser.email ? currentUser.email : "",
             timestamp:
                 serverTimestamp()
         })
         showAlert('success', `Home with id ${docRef.id} added successfully`)
         router.push('/userhome')
+        return
     }
 
 
