@@ -22,7 +22,6 @@ import { useAuth } from '../../AuthContext/AuthContext'
 
 function CreatHomePost() {
     const { currentUser } = useAuth()
-    console.log("currentUser", currentUser);
 
     const [open, setOpen] = useState(false);
     const [alertType, setAlertType] = useState("success");

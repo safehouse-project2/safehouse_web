@@ -6,7 +6,7 @@ export default function HostName() {
     return (
         <div>
             <AppText
-                txt={currentUser.displayName.slice(0, 1).toUpperCase() + currentUser.displayName.slice(1)}
+                txt={currentUser?.displayName ? "Hello " + currentUser.displayName.slice(0, 1).toUpperCase() + currentUser.displayName.slice(1) : ""}
                 fontSize="34px"
                 color="#f5f5f5"
                 fontWeight="bold"
