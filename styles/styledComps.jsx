@@ -23,6 +23,7 @@ export const BackgroundContainer = styled.div`
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
+    backdrop-filter: ${(props) => props.backdropFilter || "none"};
 `
 
 export const MainContainer = styled.div`
