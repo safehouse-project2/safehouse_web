@@ -33,7 +33,7 @@ export default function Intro() {
             <Button
                 txt='Get Started'
                 endIcon={<ArrowForwardIcon />}
-                onBtnClick={() => r.push("/")}
+                onBtnClick={() => r.push("/gettingStarted")}
             />
         </div>
     )

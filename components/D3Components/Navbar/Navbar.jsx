@@ -9,20 +9,6 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Chat } from '@mui/icons-material';
 import HelpIcon from '@mui/icons-material/Help';
 import Paper from '@mui/material/Paper';
-import { createTheme } from '@mui/material/styles';
-
-
-const theme = createTheme({
-    palette: {
-        primary: {
-            main: '#ECECEC',
-        },
-        secondary: {
-            main: '#ECECEC',
-        },
-    },
-})
-
 
 export default function Navbar({
     onBtnClick = () => { },
