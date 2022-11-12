@@ -10,7 +10,8 @@ export default function ImageComp({
   width = 100,
   height = 100,
   borderRadius = "0px",
-  onImgClick = () => {},
+  altText = "Image not found",
+  onImgClick = () => { },
 }) {
   return (
     <Img
@@ -19,6 +20,7 @@ export default function ImageComp({
       width={width}
       height={height}
       borderRadius={borderRadius}
+      alt={altText}
     />
   );
 }
