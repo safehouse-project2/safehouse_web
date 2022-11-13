@@ -30,6 +30,7 @@ export const MainContainer = styled.div`
     display: flex;
     flex-direction: column;
     padding-top: 40px;
+    margin: ${(props) => props.margin || "0px 0px 0px 0px"};
 `
 
 export const CenterContainer = styled.div`
