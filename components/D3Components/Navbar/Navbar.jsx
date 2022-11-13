@@ -9,6 +9,15 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Chat } from '@mui/icons-material';
 import HelpIcon from '@mui/icons-material/Help';
 import Paper from '@mui/material/Paper';
+import MapIcon from '@mui/icons-material/Map';
+import { styled } from '@mui/material/styles';
+
+const MyBottomNavigationAction = styled(BottomNavigationAction)(`
+  color: #666666;
+  &.Mui-selected {
+    color: #5581AA;
+  }
+`);
 
 export default function Navbar({
     onBtnClick = () => { },
@@ -21,8 +30,8 @@ export default function Navbar({
     const goToHome = () => {
         r.push("/userhome");
     }
-    const goToChat = () => {
-        r.push("/chat");
+    const goToMap = () => {
+        r.push("/location");
     }
     const goToHelp = () => {
         r.push("/resources");
@@ -58,10 +67,10 @@ export default function Navbar({
                             setValue(newValue);
                         }}
                     >
-                        <BottomNavigationAction label="Home" value={"/userhome"} icon={<HomeIcon />} onClick={goToHome} />
-                        <BottomNavigationAction label="Chat" icon={<Chat />} value={"/chat"} onClick={goToChat} />
-                        <BottomNavigationAction label="Resources" icon={<HelpIcon />} value={"/resources"} onClick={goToHelp} />
-                        <BottomNavigationAction label="Profile" icon={<AccountCircleIcon />} value={"/profile"} onClick={goToProfile} />
+                        <MyBottomNavigationAction label="Home" value={"/userhome"} icon={<HomeIcon />} onClick={goToHome} />
+                        <MyBottomNavigationAction label="Map" icon={<MapIcon />} value={"/location"} onClick={goToMap} />
+                        <MyBottomNavigationAction label="Resources" icon={<HelpIcon />} value={"/resources"} onClick={goToHelp} />
+                        <MyBottomNavigationAction label="Profile" icon={<AccountCircleIcon />} value={"/profile"} onClick={goToProfile} />
                     </BottomNavigation>
                 </Paper>
             </Box>
@@ -69,4 +78,11 @@ export default function Navbar({
     }
 }
 
-// sx={{ borderRadius: '20px' }}
+const navStyles = {
+    inActive: {
+        color: "grey"
+    },
+    active: {
+        color: "red"
+    }
+};

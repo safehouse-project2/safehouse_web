@@ -10,9 +10,18 @@ import {
 } from "@react-google-maps/api";
 import Navbar from "../D3Components/Navbar/Navbar";
 import { useRouter } from "next/router";
-import { Button } from "@mui/material";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import GetHostHome from "./GetHostHome";
+import Button from "../D3Components/Button/Button";
+import styled from "styled-components";
+
+const GoogleMapStyled = styled(GoogleMap)`
+  max-width: 310px;
+  max-height: 310px;
+  border-radius: 20px;
+  padding: 10px;
+`
+
 const GetGoogleMap = ({
   hostInfo = {
     lat: "",
@@ -134,8 +143,10 @@ const GetGoogleMap = ({
     .filter(item => item !== null);
 
   const containerStyle = {
-    width: "700",
-    height: "500px",
+    width: 350,
+    height: 350,
+    borderRadius: "15px",
+    padding: 20,
   };
 
   if (loadError) {
@@ -144,25 +155,22 @@ const GetGoogleMap = ({
   if (!isLoaded) return <div>Loading Maps</div>;
 
   return (
-    <div>
+    <div className="mb-[80px]">
       <Navbar />
       <form onSubmit={onSubmitHandler}>
         {/* <div> */}
         {/* <Autocomplete postCenter={postCenter} setPostCenter={setPostCenter} /> */}
-        <div>
-          {/* <Button
-            txt="Current Location"
-            fontSize="16px"
-            endIcon={<LocationOnIcon />}
+        <div className="rounded-lg">
+          <Button
+            txt="Get my current location"
             onBtnClick={findmylocation}
-          /> */}
-          {/* button class is border black */}
-          <button
-            className="dropd flex bg-[#fff] text-[#8C8C8C] gap-20 w-[234px] rounded-md justify-start"
-            onClick={findmylocation}
-          >
-            Current Location
-          </button>
+            backgroundColor="#5581AA"
+            borderRadius="10px"
+            fontSize="14px"
+            margin="15px 0px"
+            endIcon={<LocationOnIcon />}
+            hoverColor="#466c8f"
+          />
           {/* </div> */}
           {/* <Input placeholder="Search Places" label="" /> */}
           {/* <div>
@@ -196,23 +204,23 @@ const GetGoogleMap = ({
         {fireMarkers ? fireMarkers : null}
         {isSearched
           ? postCenter.map((item, index) => {
-              return (
-                <div key={index}>
-                  <Marker
-                    position={{
-                      lat: parseInt(item.lat),
-                      lng: parseInt(item.lng),
-                    }}
-                    icon={{
-                      url: "/current_location.svg",
-                      scaledSize: new window.google.maps.Size(40, 40),
-                      origin: new window.google.maps.Point(0, 0),
-                      anchor: new window.google.maps.Point(15, 15),
-                    }}
-                  />
-                </div>
-              );
-            })
+            return (
+              <div key={index}>
+                <Marker
+                  position={{
+                    lat: parseInt(item.lat),
+                    lng: parseInt(item.lng),
+                  }}
+                  icon={{
+                    url: "/current_location.svg",
+                    scaledSize: new window.google.maps.Size(40, 40),
+                    origin: new window.google.maps.Point(0, 0),
+                    anchor: new window.google.maps.Point(15, 15),
+                  }}
+                />
+              </div>
+            );
+          })
           : null}
         <GetHostHome
           hostInfo={hostInfo}
@@ -240,10 +248,14 @@ const GetGoogleMap = ({
             icon={{
               url: (
                 <Button
-                  txt="Current Location"
-                  fontSize="16px"
-                  endIcon={<LocationOnIcon />}
+                  txt="Get my current location"
                   onBtnClick={findmylocation}
+                  backgroundColor="#5581AA"
+                  borderRadius="10px"
+                  fontSize="14px"
+                  margin="15px 0px"
+                  endIcon={<LocationOnIcon />}
+                  hoverColor="#466c8f"
                 />
               ),
               scaledSize: new window.google.maps.Size(40, 40),

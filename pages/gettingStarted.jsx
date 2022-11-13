@@ -9,7 +9,6 @@ import { useState, useEffect, useRef } from "react";
 import { auth } from "../firebase";
 import Popup from "../components/Authentication/Popup";
 import { useRouter } from "next/router";
-import { motion } from "framer-motion";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
