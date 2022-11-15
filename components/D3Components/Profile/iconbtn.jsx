@@ -3,10 +3,11 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import PersonIcon from '@mui/icons-material/Person';
 import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
 import SortIcon from '@mui/icons-material/Sort';
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import { useRouter } from "next/router";
 
-
-export default function Iconbtn({
-}) {
+export default function Iconbtn() {
+  const r = useRouter();
 
     return (
         <div className="flex flex-col gap-6">
@@ -30,13 +31,17 @@ export default function Iconbtn({
                 />
             </div>
 
-            <div className='flex flex-row gap-3'>
+            <div className='flex flex-row gap-3' onClick={() => { r.push('/list') }}>
                 <SortIcon sx={{ color: "#CDCDCD" }} />
                 <AppText
-                    txt='My Listings'
+                    txt='View My Listings'
                     color='#CDCDCD'
                     fontSize='16px'
                     fontWeight='500'
+                />
+                <KeyboardArrowRightIcon
+                    fontSize="medium"
+                    style={{ fill: "#f5f5f5" }}
                 />
             </div>
 
