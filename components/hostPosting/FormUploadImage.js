@@ -51,7 +51,7 @@ export default function FormUploadImage({ formData, setFormData }) {
 
 
   return (
-    <div>
+    <div className='overflow-x-auto'>
       <p className='text-xl text-[#f5f5f5] pb-4'>Let's add some photos of your place.</p>
       <div>
         <div className='r-box flex flex-row gap-4 bg-[#f5f5f5] px-4 py-4 justify-start items-center rounded-md'>
@@ -80,9 +80,11 @@ export default function FormUploadImage({ formData, setFormData }) {
             />
           </div>
         </div>
-        <div>
+        <div className='grid gap-2 grid-cols-3 drop-shadow-sm bg-[#212121] mt-4 rounded-lg imageUploadDiv place-items-center'>
           {imgsSrc?.map((link) => (
-            <img key={link} src={link} />
+            <div className='px-3 py-5'>
+              <img key={link} src={link} className='max-w-[200px] uploadImageImg rounded-md' />
+            </div>
           ))}
         </div>
       </div>

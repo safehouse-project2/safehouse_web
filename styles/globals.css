@@ -35,6 +35,23 @@ body, html, *{
     border-top: 0;
 }
 
+.swiper-wrapper{
+    padding-inline-start: 0;
+}
+
+.swiper-button-next, .swiper-button-prev{
+    color: #646464 !important;
+}
+.swiper-button-next:after, .swiper-button-prev:after{
+    font-size: 35px !important;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: rgb(17, 144, 255) !important;
+}
+
+
+
 .MuiPaper-rounded MuiPaper-elevation3 css-gy4i07-MuiPaper-root > div{
     border-radius: 13px 13px 0px 0px;
 }
@@ -47,5 +64,20 @@ body, html, *{
     .userhomeMock, .mapMock{
         margin-top: 3rem;
         flex-direction: row;
+    }
+}
+
+@media (max-width: 630px){
+    .imageUploadDiv{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+@media (max-width: 460px){
+    .imageUploadDiv{
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+       place-items: center;
+    }
+    .uploadImageImg{
+        max-width: 250px !important;
     }
 }

@@ -12,8 +12,9 @@ import { useState, useEffect } from "react";
 import Navbar from "../../components/D3Components/Navbar/Navbar";
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import{doc, getDoc, deleteDoc} from "firebase/firestore";
+import { doc, getDoc, deleteDoc } from "firebase/firestore";
 import { db } from '../../firebase'
+import Swiper from '../D3COmponents/Swiper/Swiper'
 
 const Detail = ({ state }) => {
   const router = useRouter();
@@ -26,13 +27,13 @@ const Detail = ({ state }) => {
     return;
   };
 
-  const buttonHandler = () => {};
+  const buttonHandler = () => { };
 
   //delete post with user id
   const deleteHandler = () => {
     const docRef = doc(db, "homes", id);
-     deleteDoc(docRef);
-     window.confirm("Are you sure you want to delete this post?");
+    deleteDoc(docRef);
+    window.confirm("Are you sure you want to delete this post?");
     router.push("/userhome");
   };
 
@@ -42,8 +43,11 @@ const Detail = ({ state }) => {
         <div className="absolute w-full h-auto">{/* <NavBar /> */}</div>
         {state?.image
           ? state.image.map(it => (
-              <Image src={it ? it : ""} width="2000px" height="1300px" />
-            ))
+            <Swiper
+              imgSrc={it ? it : ""}
+            />
+            // <Image src={it ? it : ""} width="2000px" height="1300px" />
+          ))
           : " No image"}
 
         <div className="flex justify-around border-y-2 border-[#888] py-4 mb-4">

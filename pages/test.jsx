@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import Script from "next/script";
 // import Carousel from "../components/D3Components/Carousel/Carousel";
 import Popup from "../components/D3Components/PopupTest/Popup";
+import Swiper from "../components/D3Components/Swiper/Swiper";
 
 export default function Test() {
   // const [state, setState] = useState({ address: "" });
@@ -26,7 +27,7 @@ export default function Test() {
   // };
   return (
     <>
-      <Popup />
+      <Swiper />
     </>
 
 

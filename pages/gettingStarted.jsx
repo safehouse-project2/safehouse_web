@@ -102,11 +102,9 @@ export default function Home() {
         <BackgroundContainer src="./homeBG.png">
           <CenterContainer>
             {userName && (
-              <AppText
-                fontSize="24px"
-                color="#f5f5f5"
-                txt={`Hello ${userName}`}
-              />
+              <div className="py-5">
+                <p className="text-3xl text-[#f5f5f5] text-center">Hello,<br /> <span className="text-[#B38A58] font-semibold text-4xl">{userName}</span> 🙋🏻‍♂️</p>
+              </div>
             )}
             <div ref={inputAreaRef}>{popup && <Popup />}</div>
             {/* <motion.div
