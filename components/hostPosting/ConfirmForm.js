@@ -131,10 +131,13 @@ export default function ConfirmForm({ formData }) {
             fontSize='20px'
             color='#F5F5F5'
           />
-          {formData.image.map((link, idx) => (
-            <img key={idx} src={link} alt="No image uploaded" className='text-[#f5f5f5]' />
-          ))}
         </div>
+        {formData.image.map((link, idx) => (
+          <div key={idx}>
+            < img src={link} alt="No image uploaded" className='text-[#f5f5f5]' />
+          </div>
+        ))}
+
       </div>
     </>
   )
