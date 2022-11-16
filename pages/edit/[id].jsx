@@ -27,17 +27,18 @@ export default function EditPostById() {
       baths: "",
     },
   ]);
-  const [isEdit, setIsEdit] = useState(true);
   const router = useRouter();
   const id = router.query.id;
-  if (id) {
-    const getHome = async id => {
-      const docRef = doc(db, "homes", id);
-      const home = await getDoc(docRef);
-      setState(home.data());
-    };
-    getHome(id);
-  }
+  useEffect(() => {
+    if (id) {
+      const getHome = async (id) => {
+        const docRef = doc(db, "homes", id);
+        const home = await getDoc(docRef);
+        setState(home.data());
+      };
+      getHome(id);
+    }
+  }, [id]);
 
   if (state) {
     return (
@@ -48,7 +49,7 @@ export default function EditPostById() {
           src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAP_API}&libraries=places`}
         ></Script>
         <AuthProvider>
-          <CreatHomePost editState={state} isEdit={isEdit} docId={id} />
+          <CreatHomePost editState={state} isEdit={true} docId={id} />
         </AuthProvider>
       </BackgroundContainer>
     );

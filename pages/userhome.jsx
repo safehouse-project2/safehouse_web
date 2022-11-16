@@ -92,7 +92,7 @@ export default function UserHome({ data }) {
   return (
     <div>
       <BackgroundContainer src="">
-        <MainContainer>
+        <MainContainer margin="0px 0px 30px 0px">
           <Input
             label="Search here"
             variant="outlined"
@@ -142,7 +142,7 @@ export default function UserHome({ data }) {
               <option value="Both">Both</option>
             </select>
           </div>
-          <div className="w-[310px] h-[310px] pt-6">
+          <div className="max-w-[400px] max-h-[300px]">
             {/* <Image
               onImgClick={() => r.push("/evacuee")}
               src="/fire_map.png"

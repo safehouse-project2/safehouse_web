@@ -5,6 +5,7 @@ import PlacesAutocomplete, {
 import { useState, useEffect } from "react";
 import Script from "next/script";
 // import Carousel from "../components/D3Components/Carousel/Carousel";
+import Popup from "../components/D3Components/PopupTest/Popup";
 
 export default function Test() {
   // const [state, setState] = useState({ address: "" });
@@ -25,8 +26,55 @@ export default function Test() {
   // };
   return (
     <>
-      {/* <Carousel /> */}
+      <Popup />
     </>
+
+
+
+
+  );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // <div>
     //   <Script
     //     strategy="beforeInteractive"
@@ -71,8 +119,7 @@ export default function Test() {
     //     )}
     //   </PlacesAutocomplete>
     // </div>
-  );
-}
+
 
 // import { useState, useEffect } from "react";
 // import PlacesAutocomplete, {
@@ -318,3 +365,5 @@ export default function Test() {
 //     </div>
 //   );
 // }
+
+

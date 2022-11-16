@@ -24,6 +24,7 @@ export default function FormRoomDetails({ formData, setFormData }) {
             },
         },
     });
+    console.log("formData", formData);
 
     return (
         <div className='flex flex-col text-[#f5f5f5] gap-10 justify-start items-start text-xl'>
@@ -35,7 +36,7 @@ export default function FormRoomDetails({ formData, setFormData }) {
                             variant='contained'
                             color='inherit'
                             text='black'
-                            onClick={(e) => setFormData({ ...formData, guests: formData.guests > 0 ? formData.guests - 1 : 0 })}
+                            onClick={(e) => setFormData({ ...formData, guests: Number(formData.guests) > 0 ? Number(formData.guests) - 1 : 0 })}
                         >
                             -
                         </CounterBtn>
@@ -48,7 +49,7 @@ export default function FormRoomDetails({ formData, setFormData }) {
                             variant='contained'
                             color='inherit'
                             text='black'
-                            onClick={(e) => setFormData({ ...formData, guests: formData.guests + 1 })}
+                            onClick={(e) => setFormData({ ...formData, guests: Number(formData.guests) + 1 })}
                         >+</CounterBtn>
                     </ButtonGroup>
                 </div>
@@ -63,7 +64,7 @@ export default function FormRoomDetails({ formData, setFormData }) {
                             variant='contained'
                             color='inherit'
                             text='black'
-                            onClick={(e) => setFormData({ ...formData, bedrooms: formData.bathrooms > 0 ? formData.bedrooms - 1 : 0 })}
+                            onClick={(e) => setFormData({ ...formData, bedrooms: Number(formData.bedrooms) > 0 ? Number(formData.bedrooms) - 1 : 0 })}
                         >-</CounterBtn>
                         <CounterBtnVal
                             variant='contained'
@@ -76,7 +77,7 @@ export default function FormRoomDetails({ formData, setFormData }) {
                             variant='contained'
                             color='inherit'
                             text='black'
-                            onClick={(e) => setFormData({ ...formData, bedrooms: formData.bedrooms + 1 })}
+                            onClick={(e) => setFormData({ ...formData, bedrooms: Number(formData.bedrooms) + 1 })}
                         >+</CounterBtn>
                     </ButtonGroup>
                 </div>
@@ -91,7 +92,7 @@ export default function FormRoomDetails({ formData, setFormData }) {
                             variant='contained'
                             color='inherit'
                             text='black'
-                            onClick={(e) => setFormData({ ...formData, beds: formData.beds > 0 ? formData.beds - 1 : 0 })}
+                            onClick={(e) => setFormData({ ...formData, beds: Number(formData.beds) > 0 ? Number(formData.beds) - 1 : 0 })}
                         >-</CounterBtn>
                         <CounterBtnVal
                             variant='contained'
@@ -101,7 +102,7 @@ export default function FormRoomDetails({ formData, setFormData }) {
                             variant='contained'
                             color='inherit'
                             text='black'
-                            onClick={(e) => setFormData({ ...formData, beds: formData.beds + 1 })}
+                            onClick={(e) => setFormData({ ...formData, beds: Number(formData.beds) + 1 })}
                         >+</CounterBtn>
                     </ButtonGroup>
                 </div>
@@ -116,7 +117,7 @@ export default function FormRoomDetails({ formData, setFormData }) {
                             variant='contained'
                             color='inherit'
                             text='black'
-                            onClick={(e) => setFormData({ ...formData, bathrooms: formData.bathrooms > 0 ? formData.bathrooms - 1 : 0 })}
+                            onClick={(e) => setFormData({ ...formData, bathrooms: Number(formData.bathrooms) > 0 ? Number(formData.bathrooms) - 1 : 0 })}
                         >-</CounterBtn>
                         <CounterBtnVal
                             variant='contained'
@@ -126,7 +127,7 @@ export default function FormRoomDetails({ formData, setFormData }) {
                             variant='contained'
                             color='inherit'
                             text='black'
-                            onClick={(e) => setFormData({ ...formData, bathrooms: formData.bathrooms + 1 })}
+                            onClick={(e) => setFormData({ ...formData, bathrooms: Number(formData.bathrooms) + 1 })}
                         >+</CounterBtn>
                     </ButtonGroup>
                 </div>
@@ -141,7 +142,7 @@ export default function FormRoomDetails({ formData, setFormData }) {
                             variant='contained'
                             color='inherit'
                             text='black'
-                            onClick={(e) => setFormData({ ...formData, kitchen: formData.kitchen > 0 ? formData.kitchen - 1 : 0 })}
+                            onClick={(e) => setFormData({ ...formData, kitchen: Number(formData.kitchen) > 0 ? Number(formData.kitchen) - 1 : 0 })}
                         >-</CounterBtn>
                         <CounterBtnVal
                             variant='contained'
@@ -151,7 +152,7 @@ export default function FormRoomDetails({ formData, setFormData }) {
                             variant='contained'
                             color='inherit'
                             text='black'
-                            onClick={(e) => setFormData({ ...formData, kitchen: formData.kitchen + 1 })}>+</CounterBtn>
+                            onClick={(e) => setFormData({ ...formData, kitchen: Number(formData.kitchen) + 1 })}>+</CounterBtn>
                     </ButtonGroup>
                 </div>
             </FormControl>
@@ -165,7 +166,7 @@ export default function FormRoomDetails({ formData, setFormData }) {
                             variant='contained'
                             color='inherit'
                             text='black'
-                            onClick={(e) => setFormData({ ...formData, parking: formData.parking > 0 ? formData.parking - 1 : 0 })}
+                            onClick={(e) => setFormData({ ...formData, parking: Number(formData.parking) > 0 ? Number(formData.parking) - 1 : 0 })}
                         >-</CounterBtn>
                         <CounterBtnVal
                             variant='contained'
@@ -175,7 +176,7 @@ export default function FormRoomDetails({ formData, setFormData }) {
                             variant='contained'
                             color='inherit'
                             text='black'
-                            onClick={(e) => setFormData({ ...formData, parking: formData.parking + 1 })}
+                            onClick={(e) => setFormData({ ...formData, parking: Number(formData.parking) + 1 })}
                         >+</CounterBtn>
                     </ButtonGroup>
                 </div>

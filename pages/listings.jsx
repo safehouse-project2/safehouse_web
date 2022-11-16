@@ -7,16 +7,12 @@ import Ammenities from "../components/D3Components/Listings/ammenities";
 import Info from "../components/D3Components/Listings/info";
 import Description from "../components/D3Components/Listings/description";
 import Rules from "../components/D3Components/Listings/rules";
+import Navbar from "../components/D3Components/Navbar/Navbar";
 
 export default function Listings() {
   return (
     <div>
-      <div className="absolute w-full h-auto">
-        <NavBar />
-      </div>
-
-      <Image src="/home.jpg" width="2000px" height="1300px" />
-
+      <Image src="/home.jpg" width="2000px" height="1300px" altText="No Images uploaded by the host" />
       <div className="flex flex-col items-left justify-left ml-5">
         <Info />
         {/* test */}
@@ -35,6 +31,9 @@ export default function Listings() {
           />
         </div>
       </CenterContainer>
+      <Navbar
+        value="/userhome"
+      />
     </div>
   );
 }
