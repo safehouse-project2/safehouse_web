@@ -10,9 +10,6 @@ import Rules from "../D3Components/Listings/rules";
 import Chat from "../../pages/chat";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
-import Navbar from "../../components/D3Components/Navbar/Navbar";
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
 
 const Detail = ({ state }) => {
   const router = useRouter();
@@ -26,7 +23,7 @@ const Detail = ({ state }) => {
     return;
   };
 
-  const buttonHandler = () => { };
+  const buttonHandler = () => {};
 
   return (
     <>
@@ -34,20 +31,15 @@ const Detail = ({ state }) => {
         <div className="absolute w-full h-auto">{/* <NavBar /> */}</div>
         {state?.image
           ? state.image.map(it => (
-              <Image src={it ? it : ""} width="2000px" height="1300px"  altText="No Images uploaded" />
+              <Image src={it ? it : ""} width="2000px" height="1300px" />
             ))
           : " No image"}
 
-
-        <div className="flex justify-around border-y-2 border-[#888] py-4 mb-4">
-          <div>
-            <EditIcon sx={{ color: "#4A4A4A" }} />
-            <button className="text-[#808080]" onClick={editHandler}>Edit Listing</button>
-          </div>
-          <div>
-            <DeleteIcon sx={{ color: "#4A4A4A" }} />
-            <button className="text-[#808080]" onClick={buttonHandler}>Delete Listing</button>
-          </div>
+        <div>
+          <button onClick={editHandler}>edit</button>
+        </div>
+        <div>
+          <button onClick={buttonHandler}>delete</button>
         </div>
 
         <div className="flex flex-col items-left justify-left ml-5">
@@ -67,9 +59,6 @@ const Detail = ({ state }) => {
             />
           </div>
         </CenterContainer>
-        <Navbar
-          value="/userhome"
-        />
       </div>
     </>
   );

@@ -62,7 +62,7 @@ export default function Slider({
     >
       {state.map(post => (
         <BackgroundImageContainer
-          src={post.image}
+          src={post.image[0]}
           onClick={() => router.push(`/home/${post.id}`)}
         >
           <AppText
