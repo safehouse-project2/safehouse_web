@@ -15,7 +15,7 @@ import "aos/dist/aos.css";
 
 export default function Home() {
   useEffect(() => {
-    AOS.init()
+    AOS.init({ duration: 1000 });
   }, [])
   const r = useRouter();
   const inputAreaRef = useRef();

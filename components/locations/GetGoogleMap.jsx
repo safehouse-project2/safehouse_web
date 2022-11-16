@@ -15,13 +15,6 @@ import GetHostHome from "./GetHostHome";
 import Button from "../D3Components/Button/Button";
 import styled from "styled-components";
 
-const GoogleMapStyled = styled(GoogleMap)`
-  max-width: 310px;
-  max-height: 310px;
-  border-radius: 20px;
-  padding: 10px;
-`
-
 const GetGoogleMap = ({
   hostInfo = {
     lat: "",
@@ -143,8 +136,11 @@ const GetGoogleMap = ({
     .filter(item => item !== null);
 
   const containerStyle = {
-    width: 350,
-    height: 350,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+    height: "60vh",
     borderRadius: "15px",
     padding: 20,
   };
@@ -160,7 +156,7 @@ const GetGoogleMap = ({
       <form onSubmit={onSubmitHandler}>
         {/* <div> */}
         {/* <Autocomplete postCenter={postCenter} setPostCenter={setPostCenter} /> */}
-        <div className="rounded-lg">
+        <div className="rounded-lg w-[90vw]">
           <Button
             txt="Get my current location"
             onBtnClick={findmylocation}

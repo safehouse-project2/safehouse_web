@@ -31,7 +31,7 @@ export default function Navbar({
         r.push("/userhome");
     }
     const goToMap = () => {
-        r.push("/location");
+        r.push("/map");
     }
     const goToHelp = () => {
         r.push("/resources");
@@ -68,7 +68,7 @@ export default function Navbar({
                         }}
                     >
                         <MyBottomNavigationAction label="Home" value={"/userhome"} icon={<HomeIcon />} onClick={goToHome} />
-                        <MyBottomNavigationAction label="Map" icon={<MapIcon />} value={"/location"} onClick={goToMap} />
+                        <MyBottomNavigationAction label="Map" icon={<MapIcon />} value={"/map"} onClick={goToMap} />
                         <MyBottomNavigationAction label="Resources" icon={<HelpIcon />} value={"/resources"} onClick={goToHelp} />
                         <MyBottomNavigationAction label="Profile" icon={<AccountCircleIcon />} value={"/profile"} onClick={goToProfile} />
                     </BottomNavigation>
