@@ -29,15 +29,11 @@ const Detail = ({ state }) => {
     <>
       <div>
         <div className="absolute w-full h-auto">{/* <NavBar /> */}</div>
-        {state?.image ? (
-          <Image
-            src={state?.image ? state.image : ""}
-            width="2000px"
-            height="1300px"
-          />
-        ) : (
-          " No image"
-        )}
+        {state?.image
+          ? state.image.map(it => (
+              <Image src={it ? it : ""} width="2000px" height="1300px" />
+            ))
+          : " No image"}
 
         <div>
           <button onClick={editHandler}>edit</button>
