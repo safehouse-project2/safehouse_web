@@ -9,21 +9,23 @@ import { AuthProvider } from "../AuthContext/AuthContext";
 
 export default function PostHome() {
   return (
-    <BackgroundContainer src="homeBG.png">
-      <MainContainer>
-        <LeftContainer>
-          <Script
-            id="my-script"
-            strategy="beforeInteractive"
-            src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAP_API}&libraries=places`}
-          >
-          </Script>
-          <AuthProvider>
-            <CreatHomePost />
-          </AuthProvider>
-        </LeftContainer>
-      </MainContainer>
-    </BackgroundContainer >
+    <div className="overflow-x-auto">
+      <BackgroundContainer src="homeBG.png">
+        <MainContainer>
+          <LeftContainer>
+            <Script
+              id="my-script"
+              strategy="beforeInteractive"
+              src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAP_API}&libraries=places`}
+            >
+            </Script>
+            <AuthProvider>
+              <CreatHomePost />
+            </AuthProvider>
+          </LeftContainer>
+        </MainContainer>
+      </BackgroundContainer >
+    </div>
   )
 }
 
