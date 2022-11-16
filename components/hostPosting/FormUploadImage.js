@@ -12,21 +12,7 @@ import image from '../../pages/image';
 export default function FormUploadImage({ formData, setFormData }) {
   const [attachment, setAttachment] = useState()
   const [file, setFile] = useState("")
-  const imageListRef = ref(storage, "images/")
 
-  // const onFileChange = (e) => {
-  //   setFile(e.target.files[0]);
-  //   const {
-  //     target: { files },
-  //   } = e;
-  //   const theFile = files[0];
-  //   const reader = new FileReader();
-  //   reader.onloadend = (finishedEvent) => {
-  //     const { currentTarget: { result } } = finishedEvent
-  //     setAttachment(result);
-  //   }
-  //   reader.readAsDataURL(theFile)
-  // }
   const [imgsSrc, setImgsSrc] = useState([]);
   const onFileChange = (e) => {
     setFile(e.target.files[0]);
@@ -71,18 +57,9 @@ export default function FormUploadImage({ formData, setFormData }) {
       <div>
         <div className='r-box flex flex-row gap-4 bg-[#f5f5f5] px-4 py-4 justify-start items-center rounded-md'>
           <input type="file" name="myImage" onChange={onFileChange} />
-          {/* <img src={attachment} /> */}
         </div>
         <div className='flex flex- row mt-4 gap-5'>
-          {/* <Button
-            onBtnClick={onUpload}
-            txt="File Upload"
-            backgroundColor='grey'
-            borderRadius='5px'
-            boxShadow='0'
-            hoverColor=''
-            endIcon={<DriveFolderUploadIcon />}
-          /> */}
+
           <Button
             onBtnClick={onClearAttachment}
             txt="Clear"
@@ -95,13 +72,7 @@ export default function FormUploadImage({ formData, setFormData }) {
         </div>
 
         <div className='flex flex-col gap-4 mt-4'>
-          {/* <div className='r-box flex flex-row gap-4 bg-[#f5f5f5] px-4 py-4 justify-start items-center rounded-md'>
-            <DriveFolderUploadIcon />
-            <AppText
-              txt="Choose from Device"
-              fontSize='18px'
-            />
-          </div> */}
+
           <div className='r-box flex flex-row gap-4 bg-[#f5f5f5] px-4 py-4 justify-start items-center rounded-md'>
             <AddAPhotoIcon />
             <AppText
