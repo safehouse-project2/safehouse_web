@@ -11,7 +11,7 @@ import { useRouter } from "next/router";
 export default function Listings() {
   const r = useRouter();
   return (
-    <div className="pb-10">
+    <div className="pb-10 overflow-x-auto">
       <Navbar />
       <BackgroundContainer src="./homeBG.png">
         <div className="flex flex-col p-4">

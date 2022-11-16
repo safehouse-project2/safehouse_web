@@ -90,7 +90,7 @@ export default function UserHome({ data }) {
   };
 
   return (
-    <div>
+    <div className="overflow-x-auto">
       <BackgroundContainer src="">
         <MainContainer margin="0px 0px 30px 0px">
           <Input
@@ -142,7 +142,7 @@ export default function UserHome({ data }) {
               <option value="Both">Both</option>
             </select>
           </div>
-          <div className="max-w-[400px] max-h-[300px]">
+          <div className="flex w-[90vw]">
             {/* <Image
               onImgClick={() => r.push("/evacuee")}
               src="/fire_map.png"

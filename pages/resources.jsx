@@ -8,14 +8,16 @@ import Cards from "../components/D3Components/Resources/Cards";
 
 export default function resources() {
   return (
-    <BackgroundContainer src="blobBG.svg">
-      <MainContainer>
-        <div className="flex flex-col pb-20 px-4">
-          <UpperHalf />
-          <Cards />
-          <Navbar />
-        </div>
-      </MainContainer>
-    </BackgroundContainer>
+    <div className="overflow-x-auto">
+      <BackgroundContainer src="blobBG.svg">
+        <MainContainer>
+          <div className="flex flex-col pb-20 px-4">
+            <UpperHalf />
+            <Cards />
+            <Navbar />
+          </div>
+        </MainContainer>
+      </BackgroundContainer>
+    </div>
   );
 }
