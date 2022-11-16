@@ -1,4 +1,3 @@
-import NavBar from "../Home/NavBar";
 import { CenterContainer } from "../../styles/styledComps";
 import Image from "../D3Components/Image/ImageComp.jsx";
 import Button from "../D3Components/Button/Button";
@@ -10,13 +9,17 @@ import Rules from "../D3Components/Listings/rules";
 import Chat from "../../pages/chat";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
+import Navbar from "../../components/D3Components/Navbar/Navbar";
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
+import{doc, getDoc, deleteDoc} from "firebase/firestore";
+import { db } from '../../firebase'
 
 const Detail = ({ state }) => {
   const router = useRouter();
   const [isEdit, setIsEdit] = useState(false);
   const id = router.query.id;
   //edit post with user id
-
   const editHandler = () => {
     setIsEdit(true);
     router.push("/edit/" + id);
@@ -24,6 +27,14 @@ const Detail = ({ state }) => {
   };
 
   const buttonHandler = () => {};
+
+  //delete post with user id
+  const deleteHandler = () => {
+    const docRef = doc(db, "homes", id);
+     deleteDoc(docRef);
+     window.confirm("Are you sure you want to delete this post?");
+    router.push("/userhome");
+  };
 
   return (
     <>
@@ -35,11 +46,15 @@ const Detail = ({ state }) => {
             ))
           : " No image"}
 
-        <div>
-          <button onClick={editHandler}>edit</button>
-        </div>
-        <div>
-          <button onClick={buttonHandler}>delete</button>
+        <div className="flex justify-around border-y-2 border-[#888] py-4 mb-4">
+          <div>
+            <EditIcon sx={{ color: "#4A4A4A" }} />
+            <button className="text-[#808080]" onClick={editHandler}>Edit Listing</button>
+          </div>
+          <div>
+            <DeleteIcon sx={{ color: "#4A4A4A" }} />
+            <button className="text-[#808080]" onClick={deleteHandler}>Delete Listing</button>
+          </div>
         </div>
 
         <div className="flex flex-col items-left justify-left ml-5">
