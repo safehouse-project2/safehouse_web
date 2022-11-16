@@ -7,7 +7,6 @@ import Button from '../D3Components/Button/Button';
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
 import ClearAllIcon from '@mui/icons-material/ClearAll';
-import image from '../../pages/image';
 
 export default function FormUploadImage({ formData, setFormData }) {
   const [attachment, setAttachment] = useState()
