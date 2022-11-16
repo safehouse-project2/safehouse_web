@@ -29,7 +29,7 @@ export default function ReservationBox({ post }) {
         </div>
         <div>
           <img
-            src={post?.image ? post.image : "http://placekitten.com/40"}
+            src={post?.image ? post.image[0] : "http://placekitten.com/40"}
             alt=""
             className="rounded-full"
           />

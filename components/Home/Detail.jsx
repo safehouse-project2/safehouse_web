@@ -1,4 +1,3 @@
-import NavBar from "../Home/NavBar";
 import { CenterContainer } from "../../styles/styledComps";
 import Image from "../D3Components/Image/ImageComp.jsx";
 import Button from "../D3Components/Button/Button";
@@ -27,7 +26,7 @@ const Detail = ({ state }) => {
     return;
   };
 
-  const buttonHandler = () => { };
+  const buttonHandler = () => {};
 
   //delete post with user id
   const deleteHandler = () => {
@@ -43,10 +42,9 @@ const Detail = ({ state }) => {
         <div className="absolute w-full h-auto">{/* <NavBar /> */}</div>
         {state?.image
           ? state.image.map(it => (
-              <Image src={it ? it : ""} width="2000px" height="1300px"  altText="No Images uploaded" />
+              <Image src={it ? it : ""} width="2000px" height="1300px" />
             ))
           : " No image"}
-
 
         <div className="flex justify-around border-y-2 border-[#888] py-4 mb-4">
           <div>
@@ -76,9 +74,6 @@ const Detail = ({ state }) => {
             />
           </div>
         </CenterContainer>
-        <Navbar
-          value="/userhome"
-        />
       </div>
     </>
   );
