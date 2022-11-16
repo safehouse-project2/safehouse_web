@@ -30,18 +30,14 @@ const Detail = ({ state }) => {
 
   return (
     <>
-      <div className="pb-10">
-        {/* {state?.image ? ( */}
-        <Image
-          src={state?.image ? state.image : ""}
-          width="2000px"
-          height="1300px"
-          altText="No Images uploaded"
-        />
-        {/* )
-          : (
-            " No image"
-          )} */}
+      <div>
+        <div className="absolute w-full h-auto">{/* <NavBar /> */}</div>
+        {state?.image
+          ? state.image.map(it => (
+              <Image src={it ? it : ""} width="2000px" height="1300px"  altText="No Images uploaded" />
+            ))
+          : " No image"}
+
 
         <div className="flex justify-around border-y-2 border-[#888] py-4 mb-4">
           <div>

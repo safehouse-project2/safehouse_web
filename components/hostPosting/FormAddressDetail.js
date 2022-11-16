@@ -6,7 +6,6 @@ import PlacesAutocomplete, {
 } from "react-places-autocomplete";
 import Script from "next/script";
 import { TextField } from '@mui/material';
-import Autocomplete from '../Autocomplete';
 
 
 export default function FormAddressDetail({ formData, setFormData, state, setState }) {
