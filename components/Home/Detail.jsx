@@ -14,7 +14,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { doc, getDoc, deleteDoc } from "firebase/firestore";
 import { db } from '../../firebase'
-import Swiper from '../D3COmponents/Swiper/Swiper'
+import Swiper from '../D3Components/Swiper/Swiper'
 
 const Detail = ({ state }) => {
   const router = useRouter();
