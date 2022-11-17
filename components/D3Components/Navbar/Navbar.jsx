@@ -37,7 +37,7 @@ export default function Navbar({
         r.push("/resources");
     }
     const goToProfile = () => {
-        r.push("/profile");
+        r.push("/hosthome");
     }
 
     const [value, setValue] = React.useState(null);

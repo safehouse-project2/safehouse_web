@@ -7,6 +7,7 @@ import Button from '../D3Components/Button/Button'
 import GoogleIcon from '@mui/icons-material/Google';
 
 export default function Login() {
+  
   const router = useRouter()
   const emailRef = useRef()
   const passwordRef = useRef()
@@ -14,7 +15,7 @@ export default function Login() {
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
-  const { login, googleLogin } = useAuth()
+  const { login, googleLogin, currentUser} = useAuth()
 
   async function handleSumbmit(e) {
     e.preventDefault()
@@ -23,7 +24,7 @@ export default function Login() {
       setError("")
       setLoading(true)
       await login(emailRef.current.value, passwordRef.current.value)
-      router.push('/')
+      router.push('/gettingStarted')
     } catch (error) {
       console.log(error)
       setError("Failed to login")
@@ -35,7 +36,7 @@ export default function Login() {
       setError("")
       setLoading(true)
       await googleLogin()
-      router.push('/')
+      router.push('/gettingStarted')
     } catch (error) {
       console.log(error)
       setError("Failed to login with Google")

@@ -86,7 +86,7 @@ function CreatHomePost({ editState = [], isEdit = false, docId = "" }) {
 
         userName: "",
         userEmail: "",
-        userId: "",
+        userId: currentUser.uid,
 
     });
 

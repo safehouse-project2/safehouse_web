@@ -2,14 +2,14 @@ import Image from "next/image";
 import styled from "styled-components";
 
 const Img = styled(Image)`
-  border-radius: ${props => props.borderRadius || "0px"};
+  border-radius: ${props => props.borderradius || "0px"};
 `;
 
 export default function ImageComp({
   src = "/vercel.svg",
   width = 100,
   height = 100,
-  borderRadius = "0px",
+  borderradius = "0px",
   altText = "Image not found",
   onImgClick = () => { },
 }) {
@@ -19,7 +19,7 @@ export default function ImageComp({
       src={src}
       width={width}
       height={height}
-      borderRadius={borderRadius}
+      borderradius={borderradius}
       alt={altText}
     />
   );

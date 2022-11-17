@@ -13,6 +13,7 @@ export default function FormUploadImage({ formData, setFormData }) {
   const [file, setFile] = useState("")
 
   const [imgsSrc, setImgsSrc] = useState([]);
+
   const onFileChange = (e) => {
     setFile(e.target.files[0]);
     const {
@@ -82,8 +83,8 @@ export default function FormUploadImage({ formData, setFormData }) {
         </div>
         <div className='grid gap-2 grid-cols-3 drop-shadow-sm bg-[#212121] mt-4 rounded-lg imageUploadDiv place-items-center'>
           {imgsSrc?.map((link) => (
-            <div className='px-3 py-5'>
-              <img key={link} src={link} className='max-w-[200px] uploadImageImg rounded-md' />
+            <div key={self.crypto.randomUUID()} className='px-3 py-5'>
+              <img  src={link} className='max-w-[200px] uploadImageImg rounded-md' />
             </div>
           ))}
         </div>

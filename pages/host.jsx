@@ -18,7 +18,7 @@ export default function host() {
         {/* <NavBar /> */}
         <MainContainer>
           <LeftContainer>
-            {/* <CenterContainer> */}
+
             <HostName />
             <AppText
               txt="Become a host and offer your place to the wildfire evacuees in BC."
@@ -27,18 +27,17 @@ export default function host() {
               lineHeight="2.0"
               padding="0px 0px 30px 0px"
             />
-            {/* <AppText 
-          txt='Authentication is not done yet, of course, only logged in host
-          can come to this page to make a post.'
-          color='#f5f5f5'
-          fontSize='16px'
-        /> */}
+
+            <Button
+              txt="Take me to my Dashboard"
+              href="/userhome"
+              endIcon={<ArrowForwardIcon />} />
             <Button
               txt="Post my place"
               href="/PostHome"
-              endIcon={<ArrowForwardIcon />}
-            />
-            {/* </CenterContainer> */}
+              margin="20px 0px 0px 0px"
+              endIcon={<ArrowForwardIcon />}/>
+         
           </LeftContainer>
         </MainContainer>
       </BackgroundContainer>

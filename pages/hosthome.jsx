@@ -11,6 +11,8 @@ export default function HostHome() {
   const [state, setState] = useState({
     addressLine1: "",
   });
+  
+  
   useEffect(() => {
     const homeRef = collection(db, "homes");
     const q = query(homeRef, orderBy("timestamp", "desc"));
@@ -30,7 +32,7 @@ export default function HostHome() {
       <div className="flex flex-col justify-center items-center">
         <MainContainer>
           <LeftContainer>
-            <HostDetail state={state} />
+            <HostDetail  state={state} />
           </LeftContainer>
         </MainContainer>
         <Navbar />

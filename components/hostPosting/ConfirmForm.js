@@ -132,7 +132,8 @@ export default function ConfirmForm({ formData }) {
             fontSize='18px'
           />
         </div>
-        {formData.image.map((link, idx) => (
+        
+        {formData.image&&formData.image.map((link, idx) => (
           <div key={idx}>
             < img src={link} alt="No image uploaded" className='text-[#f5f5f5]' />
           </div>

@@ -4,9 +4,6 @@ import Intro from "../components/D3Components/Welcome/Intro";
 
 
 export default function Welcome() {
-
-
-
     return (
         <>
             <BackgroundContainer src='./bg_overlay.png' className="">

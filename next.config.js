@@ -8,7 +8,7 @@ const nextConfig = {
     styledComponents: true
   },
   images: {
-    domains: ['firebasestorage.googleapis.com'],
+    domains: ['firebasestorage.googleapis.com' ,  'lh3.googleusercontent.com'],
   },
   eslint: {
     // Warning: This allows production builds to successfully complete even if

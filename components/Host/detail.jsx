@@ -2,16 +2,16 @@ import ReservationBox from "../D3Components/ReservationBox/ReservationBox";
 import AppText from "../D3Components/AppText/AppText";
 import { useAuth } from "../../AuthContext/AuthContext";
 import { useState, useEffect, useRef } from "react";
-import CreatHomePost from "../hostPosting/CreatHomePost";
-import Script from "next/script";
-import { AuthProvider } from "../../AuthContext/AuthContext";
-import { BackgroundContainer } from "../../styles/styledComps";
+import { useRouter } from 'next/router'
+
+
 
 export default function HostDetail({
+  
   state = [{ userId: "" }, { userId: "" }],
 }) {
   const [data, setData] = useState(state);
-  const { currentUser } = useAuth();
+  const { currentUser, logout } = useAuth();
   useEffect(() => {
     if (state.length > 0) {
       setData(state.filter(item => item.userId === currentUser.uid));
@@ -23,8 +23,31 @@ export default function HostDetail({
     }
     return;
   };
+  const router = useRouter()
+  async function handleLogout(){
+    try{
+      router.push('/auth/login')
+        await logout()
+    } catch {
+        setError('Failed to log out')  
+    }
+}
+
+async function handleUpdate(){
+  console.log(currentUser)
+}
   return (
     <>
+     <div>
+        <button onClick={handleUpdate}>update account</button>
+        <button onClick={handleLogout}>logout</button>
+       <p>Hi {currentUser && currentUser.displayName?.split(" ")[0]}</p> 
+       <p>Hoe you are having a great day!</p>
+       <img  src={currentUser.photoURL}/>
+       <p>{currentUser.displayName}</p>
+
+
+    </div>
       <div className="flex flex-col gap-3">
         <AppText
           txt={
@@ -34,14 +57,14 @@ export default function HostDetail({
           }
           fontSize="34px"
         />
-        <AppText
+        {/* <AppText
           txt="What do you want to do ?"
           fontSize="16px"
           color="#8c8c8c"
-        />
+        /> */}
       </div>
 
-      <div className="flex flex-col pt-10 justify-start items-start gap-3">
+      <div key={self.crypto.randomUUID()} className="flex flex-col pt-10 justify-start items-start gap-3">
         <AppText txt="Your postings" fontSize="20px" />
         {data.length > 0 ? (
           data.map(item => (
