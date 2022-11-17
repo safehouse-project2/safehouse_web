@@ -1,5 +1,6 @@
 // import React from 'react'
 
+
 import AppText from '../D3Components/AppText/AppText'
 import * as React from 'react';
 import Stack from '@mui/material/Stack';
@@ -26,6 +27,7 @@ export default function Popup() {
         }
         setOpen(false);
     };
+    const initialFocusRef = React.useRef()
     return (
         <div>
             {/* <AppText
@@ -35,9 +37,6 @@ export default function Popup() {
             /> b
             <Button href='/auth/login'>login</Button> */}
             <Stack spacing={2} sx={{ width: '100%' }}>
-                {/* <Button variant="outlined" onClick={handleClick}>
-                    Open success snackbar
-                </Button> */}
                 <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
                     <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
                         You are not logged in! Please log in to continue.

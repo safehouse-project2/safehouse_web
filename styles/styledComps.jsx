@@ -23,12 +23,14 @@ export const BackgroundContainer = styled.div`
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
+    backdrop-filter: ${(props) => props.backdropFilter || "none"};
 `
 
 export const MainContainer = styled.div`
     display: flex;
     flex-direction: column;
     padding-top: 40px;
+    margin: ${(props) => props.margin || "0px 0px 0px 0px"};
 `
 
 export const CenterContainer = styled.div`

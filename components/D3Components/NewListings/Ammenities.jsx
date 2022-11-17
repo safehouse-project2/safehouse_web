@@ -16,6 +16,8 @@ export default function Ammenities() {
                     fontSize='18px'
                 />
             </div>
+
+
             <div className="flex flex-col items-end gap-5 pr-10">
                 <div className='flex flex-row justify-between w-[100%]'>
                     <div className="flex gap-2">
@@ -71,7 +73,6 @@ export default function Ammenities() {
                     </div>
                 </div>
             </div>
-
         </div>
     )
 }

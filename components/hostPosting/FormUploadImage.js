@@ -11,58 +11,54 @@ import ClearAllIcon from '@mui/icons-material/ClearAll';
 export default function FormUploadImage({ formData, setFormData }) {
   const [attachment, setAttachment] = useState()
   const [file, setFile] = useState("")
-  const [imageList, setImageList] = useState([])
-  const imageListRef = ref(storage, "images/")
+
+  const [imgsSrc, setImgsSrc] = useState([]);
   const onFileChange = (e) => {
     setFile(e.target.files[0]);
     const {
       target: { files },
     } = e;
-    const theFile = files[0];
-    const reader = new FileReader();
-    reader.onloadend = (finishedEvent) => {
-      const { currentTarget: { result } } = finishedEvent
-      setAttachment(result);
-    }
-    reader.readAsDataURL(theFile)
-  }
-
-  useEffect(() => {
-    listAll(imageListRef).then((response) => {
-      response.items.forEach((item) => {
-        getDownloadURL(item).then((url) => {
-          setImageList((prev) => [...prev, url])
+    for (const file of e.target.files) {
+      const reader = new FileReader();
+      reader.onload = (finishedEvent) => {
+        setImgsSrc((imgs) => [...imgs, reader.result]);
+        const { currentTarget: { result } } = finishedEvent
+        setAttachment(result);
+      };
+      reader.readAsDataURL(file)
+      const imageRef = ref(storage, `images/${file.name + uuidv4()}`)
+      uploadBytes(imageRef, file).then((snapshot) => {
+        getDownloadURL(snapshot.ref).then((url) => {
+          if (formData.image[0] === "") {
+            setFormData({ ...formData, image: [url] })
+            return
+          } else if (formData.image[0] !== "") {
+            setFormData({ ...formData, image: [...formData.image, url] })
+            return
+          }
         })
       })
-    })
-  }, [])
-  const onClearAttachment = () => setAttachment(null)
-  const onUpload = () => {
-    const imageRef = ref(storage, `images/${file.name + uuidv4()}`)
-    uploadBytes(imageRef, file).then((snapshot) => {
-      getDownloadURL(snapshot.ref).then((url) => {
-        setFormData({ ...formData, image: url })
-      })
-    })
+      reader.onerror = () => {
+        console.log(reader.error);
+      };
+    }
+  };
+
+  const onClearAttachment = () => {
+    setImgsSrc([])
+    return setFormData({ ...formData, image: [] })
   }
+
+
   return (
-    <div>
+    <div className='overflow-x-auto'>
       <p className='text-xl text-[#f5f5f5] pb-4'>Let's add some photos of your place.</p>
       <div>
         <div className='r-box flex flex-row gap-4 bg-[#f5f5f5] px-4 py-4 justify-start items-center rounded-md'>
           <input type="file" name="myImage" onChange={onFileChange} />
-          <img src={attachment} />
         </div>
         <div className='flex flex- row mt-4 gap-5'>
-          <Button
-            onBtnClick={onUpload}
-            txt="File Upload"
-            backgroundColor='grey'
-            borderRadius='5px'
-            boxShadow='0'
-            hoverColor=''
-            endIcon={<DriveFolderUploadIcon />}
-          />
+
           <Button
             onBtnClick={onClearAttachment}
             txt="Clear"
@@ -75,13 +71,7 @@ export default function FormUploadImage({ formData, setFormData }) {
         </div>
 
         <div className='flex flex-col gap-4 mt-4'>
-          {/* <div className='r-box flex flex-row gap-4 bg-[#f5f5f5] px-4 py-4 justify-start items-center rounded-md'>
-            <DriveFolderUploadIcon />
-            <AppText
-              txt="Choose from Device"
-              fontSize='18px'
-            />
-          </div> */}
+
           <div className='r-box flex flex-row gap-4 bg-[#f5f5f5] px-4 py-4 justify-start items-center rounded-md'>
             <AddAPhotoIcon />
             <AppText
@@ -90,10 +80,12 @@ export default function FormUploadImage({ formData, setFormData }) {
             />
           </div>
         </div>
-        <div>
-          {/* {imageList.map((url) => {
-            return <img src={url} />
-          })} */}
+        <div className='grid gap-2 grid-cols-3 drop-shadow-sm bg-[#212121] mt-4 rounded-lg imageUploadDiv place-items-center'>
+          {imgsSrc?.map((link) => (
+            <div className='px-3 py-5'>
+              <img key={link} src={link} className='max-w-[200px] uploadImageImg rounded-md' />
+            </div>
+          ))}
         </div>
       </div>
     </div>

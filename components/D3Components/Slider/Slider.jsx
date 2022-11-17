@@ -13,8 +13,8 @@ const BackgroundImageContainer = styled.div`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  max-width: 310px;
-  max-height: 218px;
+  min-width: 250px;
+  min-height: 200px;
   background-color: #272727;
   border-radius: 10px;
   display: flex;
@@ -62,7 +62,7 @@ export default function Slider({
     >
       {state.map(post => (
         <BackgroundImageContainer
-          src={post.image}
+          src={post.image[0]}
           onClick={() => router.push(`/home/${post.id}`)}
         >
           <AppText

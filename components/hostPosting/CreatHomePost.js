@@ -20,7 +20,7 @@ import PublishIcon from '@mui/icons-material/Publish';
 import AppText from '../D3Components/AppText/AppText';
 import { useAuth } from '../../AuthContext/AuthContext'
 
-function CreatHomePost({ editState, isEdit = false, docId = "" }) {
+function CreatHomePost({ editState = [], isEdit = false, docId = "" }) {
     const { currentUser } = useAuth()
 
     const [open, setOpen] = useState(false);
@@ -29,12 +29,12 @@ function CreatHomePost({ editState, isEdit = false, docId = "" }) {
 
 
     const titles = [
-        "Tell us somethingn about your place",
+        "Tell us something about your place",
         "What's your address?",
         "How many people will you be hosting?",
-        "Let's more details of your home",
-        "Let's more details of your home",
-        "Upload some photos of your place",
+        "Let's add some more details of your home",
+        "Let's add some more details of your home",
+        "Let's upload some photos of your place",
         "Review and Confirm"
     ]
 
@@ -89,11 +89,13 @@ function CreatHomePost({ editState, isEdit = false, docId = "" }) {
         userId: "",
 
     });
+
     useEffect(() => {
-        if (editState) {
+        if (isEdit) {
             setFormData(editState)
         }
-    }, [])
+    }, [isEdit, editState])
+
 
     const [page, setPage] = useState(0);
 
