@@ -27,15 +27,16 @@ const DetailPage = () => {
   });
   const router = useRouter();
   const id = router.query.id;
-
-  if (id) {
-    const getHome = async id => {
-      const docRef = doc(db, "homes", id);
-      const home = await getDoc(docRef);
-      setState(home.data());
-    };
-    getHome(id);
-  }
+  useEffect(() => {
+    if (id) {
+      const getHome = async id => {
+        const docRef = doc(db, "homes", id);
+        const home = await getDoc(docRef);
+        setState(home.data());
+      };
+      getHome(id);
+    }
+  }, [id]);
 
   return (
     <div>

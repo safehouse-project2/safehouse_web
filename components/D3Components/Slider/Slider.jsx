@@ -62,7 +62,7 @@ export default function Slider({
     >
       {state.map(post => (
         <BackgroundImageContainer
-          src={post.image[0]}
+          src={post.image && post.length > 0 ? post.image[0] : "./vercel.svg"}
           onClick={() => router.push(`/home/${post.id}`)}
         >
           <AppText
