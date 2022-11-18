@@ -6,12 +6,15 @@ import AppText from '../D3Components/AppText/AppText'
 import Button from '../D3Components/Button/Button'
 import GoogleIcon from '@mui/icons-material/Google';
 
+
 export default function Signup() {
 
   const router = useRouter()
   const emailRef = useRef()
   const passwordRef = useRef()
   const passwordConfirmRef = useRef()
+  const firstNameRef = useRef()
+  const lastNameRef = useRef()
 
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
@@ -20,6 +23,11 @@ export default function Signup() {
 
   async function handleSumbmit(e) {
     e.preventDefault()
+    console.log(firstNameRef.current.value)
+    console.log(lastNameRef.current.value)
+    console.log(emailRef.current.value)
+    console.log(firstNameRef.current.value + " " + lastNameRef.current.value)
+
     if (passwordRef.current.value !== passwordConfirmRef.current.value) {
       return alert("Passwords do not match")
     }
@@ -27,7 +35,9 @@ export default function Signup() {
     try {
       setError("")
       setLoading(true)
-      await signup(emailRef.current.value, passwordRef.current.value)
+      await signup(firstNameRef.current.value + " " + lastNameRef.current.value, emailRef.current.value, passwordRef.current.value)
+      router.push('/auth/login')
+
     } catch (error) {
       console.log(error)
       setError("Failed to create an account")
@@ -59,6 +69,12 @@ export default function Signup() {
       {currentUser && currentUser.email}
       {error && <Alert variant="danger">{error}</Alert>}
       <form onSubmit={handleSumbmit} className='flex flex-col justify-start items-start gap-2'>
+
+        <label htmlFor="firstName">First Name</label>
+        <input type="firstName" placeholder="Enter your firstName" ref={firstNameRef} required className="px-4 py-2 bg-[#f3f3f3] rounded-md mb-3" />
+
+        <label htmlFor="lastName">Last Name</label>
+        <input type="lastName" placeholder="Enter your lastName" ref={lastNameRef} required className="px-4 py-2 bg-[#f3f3f3] rounded-md mb-3" />
 
         <label htmlFor="email">Email</label>
         <input type="email" placeholder="Enter your email" ref={emailRef} required className="px-4 py-2 bg-[#f3f3f3] rounded-md mb-3" />

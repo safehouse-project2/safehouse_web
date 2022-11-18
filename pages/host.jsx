@@ -30,7 +30,7 @@ export default function host() {
 
             <Button
               txt="Take me to my Dashboard"
-              href="/userhome"
+              href="/hosthome"
               endIcon={<ArrowForwardIcon />} />
             <Button
               txt="Post my place"

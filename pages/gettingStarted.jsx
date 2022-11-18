@@ -34,7 +34,7 @@ export default function Home() {
     });
     return unsubscribe;
   }, []);
-
+console.log(user)
   function togglePopup() {
     setPopup(!popup);
   }
@@ -132,6 +132,8 @@ export default function Home() {
                   sx={{ fontSize: 150 }}
                 /> */}
                 {handleEvacueUsesr()}
+                {!userName && (
+                  <>
                 <p
                   className="text-[#383838]">
                   Already have an account?{" "}
@@ -154,6 +156,8 @@ export default function Home() {
                   </button>
                   {" "}here.
                 </p>
+                </>
+              )}
               </div>
             </div>
             {/* </motion.div> */}
