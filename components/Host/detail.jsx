@@ -12,7 +12,7 @@ export default function HostDetail({
   state = [{ userId: "" }, { userId: "" }],
 }) {
 
-  const [data, setData] = useState(state);  
+  const [data, setData] = useState(state);
   const { currentUser, logout } = useAuth();
   console.log(currentUser)
   // console.log(currentUser.providerData[0].providerId);
@@ -86,18 +86,18 @@ export default function HostDetail({
       photoURL: createObjectURL
     })
     setOpen(false)
-  
+
     setCreateObjectURL(null)
   };
 
   function handleImage() {
-    if(createObjectURL === null){
+    if (createObjectURL === null) {
       return currentUser.photoURL
-    }else{
+    } else {
       return createObjectURL
     }
   }
-  
+
   console.log("image", image)
   console.log("createObjectURL", createObjectURL)
   return (
@@ -115,7 +115,6 @@ export default function HostDetail({
           borderRadius="8px"
           margin="20px 0 0 0"
         />
-
 
         <p>Hope you are having a great day!</p>
 

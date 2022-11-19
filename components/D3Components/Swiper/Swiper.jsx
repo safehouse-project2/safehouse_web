@@ -29,11 +29,11 @@ export default function SwiperComp({
         pagination
         spaceBetween={0}
         slidesPerView={1}
-        onInit={swiper => console.log("Swiper initialized!", swiper)}
-        onSlideChange={swiper =>
-          console.log("Slide index change to: ", swiper.activeIndex)
-        }
-        onReachEnd={() => console.log("Swiper end reached")}
+      // onInit={swiper => console.log("Swiper initialized!", swiper)}
+      // onSlideChange={swiper =>
+      //   console.log("Slide index change to: ", swiper.activeIndex)
+      // }
+      // onReachEnd={() => console.log("Swiper end reached")}
       >
         {slides}
       </Swiper>
