@@ -23,7 +23,6 @@ export default function HostDetail({
 
   const router = useRouter()
   const [data, setData] = useState(state);
-
   const [open, setOpen] = useState(false);
   const [url, setUrl] = useState(currentUser?.photoURL);
   const [uploadOpen, setUploadOpen] = useState(false);
@@ -186,15 +185,10 @@ export default function HostDetail({
           }
           fontSize="34px"
         />
-        {/* <AppText
-          txt="What do you want to do ?"
-          fontSize="16px"
-          color="#8c8c8c"
-        /> */}
       </div>
 
       <div key={self.crypto.randomUUID()} className="flex flex-col pt-10 justify-start items-start gap-3">
-        <AppText txt="Your postings" fontSize="20px" />
+        <AppText key={self.crypto.randomUUID()}  txt="Your postings" fontSize="20px" />
         {data.length > 0 ? (
           data.map(item => (
             <>

@@ -122,7 +122,6 @@ export default function ConfirmForm({ formData }) {
             color='#F5F5F5'
             fontSize='18px'
           />
-
         </div>
 
         <div className='flex max-w-[200px] mt-5 gap-[17rem] pt-10'>
@@ -132,6 +131,34 @@ export default function ConfirmForm({ formData }) {
             fontSize='18px'
           />
         </div>
+
+        <div className='flex gap-[15.1rem] pt-10'>
+          <AppText
+            txt="Phone number"
+            color='#F0E6D9'
+            fontSize='18px'
+          />
+          <AppText
+            txt={formData.phoneNumber}
+            color='#F5F5F5'
+            fontSize='18px'
+          />
+        </div>
+
+        <div className='flex gap-[15.1rem] pt-10'>
+          <AppText
+            txt="Email"
+            color='#F0E6D9'
+            fontSize='18px'
+          />
+          <AppText
+            txt={formData.email}
+            color='#F5F5F5'
+            fontSize='18px'
+          />
+        </div>
+
+        
         
         {formData.image&&formData.image.map((link, idx) => (
           <div key={idx}>
