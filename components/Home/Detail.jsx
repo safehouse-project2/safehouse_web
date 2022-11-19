@@ -15,6 +15,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { doc, getDoc, deleteDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 import Swiper from "../D3Components/Swiper/Swiper";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const Detail = ({ state }) => {
   const router = useRouter();
@@ -26,7 +27,7 @@ const Detail = ({ state }) => {
     return;
   };
 
-  const buttonHandler = () => {};
+  const buttonHandler = () => { };
 
   const deleteHandler = () => {
     const docRef = doc(db, "homes", id);
@@ -38,7 +39,12 @@ const Detail = ({ state }) => {
   return (
     <>
       <div>
-        <div className="absolute w-full h-auto"></div>
+        <div className="absolute z-[99] top-[10px] left-[10px] bg-[#333] rounded-full p-[2px] cursor-pointer">
+          <ArrowBackIcon
+            sx={{ color: 'white' }}
+            onClick={() => router.push("/userhome")}
+          />
+        </div>
         <Swiper imgSrc={state.image ? state.image : ""} />
         <div className="flex justify-around border-y-2 border-[#888] py-4 mb-4">
           <div>
