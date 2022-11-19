@@ -8,17 +8,14 @@ import { auth, storage } from '../../firebase'
 import { ref, uploadBytes, listAll, getDownloadURL, deleteObject } from 'firebase/storage'
 import { updateProfile } from "firebase/auth";
 import { v4 } from 'uuid'
+import EditIcon from '@mui/icons-material/Edit';
 
 export default function HostDetail({
   state = [{ userId: "" }, { userId: "" }],
 }) {
 
-<<<<<<< HEAD
-  const [data, setData] = useState(state);
-=======
->>>>>>> 2d175507dc11077c89bc59e08eae12dfa70caf41
   const { currentUser, logout } = useAuth();
- 
+
   useEffect(() => {
     if (currentUser === null) {
       router.push('/auth/login')
@@ -27,15 +24,15 @@ export default function HostDetail({
 
   const router = useRouter()
   const [data, setData] = useState(state);
-
   const [open, setOpen] = useState(false);
+
   const [url, setUrl] = useState(currentUser?.photoURL);
   const [uploadOpen, setUploadOpen] = useState(false);
 
   const inputAreaRef = useRef();
 
 
-   async function handleLogout() {
+  async function handleLogout() {
     await logout()
     router.push('/auth/login')
   }
@@ -52,9 +49,8 @@ export default function HostDetail({
     return;
   };
 
-  async function clikeImage() {
-    console.log("click")
-    setOpen(true)
+  function clickImage() {
+    setUploadOpen(true)
   }
 
   useEffect(() => {
@@ -70,58 +66,30 @@ export default function HostDetail({
     };
   }, []);
 
-  const [isHovering, setIsHovering] = useState(false);
-
-  const handleMouseOver = () => {
-    setIsHovering(true);
-  };
-
-  const handleMouseOut = () => {
-    setIsHovering(false);
-  };
-
-
   const imageListRef = ref(storage, `PImages/${currentUser?.uid}`)
-  
+
 
 
   useEffect(() => {
-    if(imageListRef !== null && imageListRef !== undefined){
-    listAll(imageListRef).then((res) => {
-      if (res.items.length > 0) {
-        getDownloadURL(res.items[0]).then((url) => {
-          setUrl(url)
-          updateProfile(auth.currentUser, {
-            photoURL: url
+    if (imageListRef !== null && imageListRef !== undefined) {
+      listAll(imageListRef).then((res) => {
+        if (res.items.length > 0) {
+          getDownloadURL(res.items[0]).then((url) => {
+            setUrl(url)
+            updateProfile(auth.currentUser, {
+              photoURL: url
+            })
           })
-        })
-      }
-    })
-<<<<<<< HEAD
-    setOpen(false)
-
-    setCreateObjectURL(null)
-  };
-
-  function handleImage() {
-    if (createObjectURL === null) {
-      return currentUser.photoURL
-    } else {
-      return createObjectURL
+        }
+      })
     }
-  }
-
-  console.log("image", image)
-  console.log("createObjectURL", createObjectURL)
-=======
-  }
-  },[])
+  }, [])
 
 
-  function uploadToClient(e){
+  function uploadToClient(e) {
     e.preventDefault()
     if (e.target.files && e.target.files[0]) {
-      setImageUpload(e.target.files[0]) 
+      setImageUpload(e.target.files[0])
       const i = e.target.files[0];
       setUrl(URL.createObjectURL(i));
       setOpen(false)
@@ -138,7 +106,7 @@ export default function HostDetail({
       return
     }
     const storageRef = ref(storage, `PImages/${currentUser?.uid}/${imageUpload.name + v4()}`)
-    listAll(listImageRef).then((res) => { 
+    listAll(listImageRef).then((res) => {
       if (res.items.length === 0) {
         uploadBytes(storageRef, imageUpload).then((snapshot) => {
           console.log('Uploaded a blob or file!');
@@ -150,14 +118,14 @@ export default function HostDetail({
               uploadBytes(storageRef, imageUpload).then((snapshot) => {
                 console.log('Uploaded a blob or file!');
               })
-            .catch((error) => {
-              console.log(error, "failed to upload")
-            }).catch((error) => {
-              console.log(error, "failed to delete")
-            }).catch((error) => {
-              console.log(error, "failed to get")
+                .catch((error) => {
+                  console.log(error, "failed to upload")
+                }).catch((error) => {
+                  console.log(error, "failed to delete")
+                }).catch((error) => {
+                  console.log(error, "failed to get")
+                })
             })
-          })
         })
       }
     })
@@ -166,48 +134,50 @@ export default function HostDetail({
 
 
 
->>>>>>> 2d175507dc11077c89bc59e08eae12dfa70caf41
   return (
-    <>
-      <div>
-        <Button
-          txt="logout"
-          onBtnClick={handleLogout}
-          borderRadius="8px"
-          margin="20px 0 0 0"
-        />
-
-        <p>Hope you are having a great day!</p>
-
-        <div ref={inputAreaRef}  >
+    <div className="flex flex-col justify-center items-center gap-3">
+      <div className="flex w-[100%]">
+        <div ref={inputAreaRef} className="w-full flex">
+          <div className="absolute z-99 bg-blue-300 p-2 bottom-[100] right-[0] mt-2 mr-2 rounded-lg drop-shadow-lg">
+            <EditIcon
+              onClick={() => setOpen(true)}
+            />
+          </div>
           <div
-            onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}
-            onClick={clikeImage} style={{ borderRadius:"50%", overflow:"hidden", width: '200px', height: '200px' }}>
-            <img width="100%" height="100%"  src={url} />
+            className="w-full"
+          // onClick={clickImage}
+          >
+            <img className="w-full h-full" src={url} />
           </div>
 
-          {uploadOpen && <Button
-            txt="Upload image"
-            onBtnClick={uploadImagetoFirebase}
-            borderRadius="8px"
-            margin="20px 0 0 0"
-          />}
-          {isHovering && !uploadOpen && <h2>Click image to update profile</h2>}
-
-          {open && <div className='r-box flex flex-row gap-4 bg-[#f5f5f5] px-4 py-4 justify-start items-center rounded-md'>
-            <input type="file" name="myImage" onChange={uploadToClient} />
-          </div>}
+          {uploadOpen &&
+            // <Button
+            //   txt="Upload image"
+            //   onBtnClick={uploadImagetoFirebase}
+            //   borderRadius="8px"
+            //   margin="20px 0 0 0"
+            // />
+            alert("Image Uploaded", uploadImagetoFirebase())
+          }
+          {open &&
+            <div className='r-box flex flex-row gap-4 bg-[#f5f5f5] px-4 py-4 justify-start items-center rounded-md'>
+              <input type="file" name="myImage" onChange={uploadToClient} />
+            </div>
+          }
         </div>
       </div>
-      <div className="flex flex-col gap-3">
+
+      <div className="flex flex-col justify-center items-center mb-5">
         <AppText
           txt={
             currentUser?.displayName
-              ? `Hello ${currentUser.displayName?.split(" ")[0]} 👋`
+              ? `Hello, ${currentUser.displayName?.split(" ")[0]} 👋`
               : "Hello 👋"
           }
           fontSize="34px"
         />
+        <p className="text-lg">Hope you are having a great day!</p>
+        <p>Not {currentUser?.displayName?.split(" ")[0] || "Hello"} ?<span className="text-blue-600" onClick={handleLogout}> Sign Out</span> </p>
         {/* <AppText
           txt="What do you want to do ?"
           fontSize="16px"
@@ -215,8 +185,8 @@ export default function HostDetail({
         /> */}
       </div>
 
-      <div key={self.crypto.randomUUID()} className="flex flex-col pt-10 justify-start items-start gap-3">
-        <AppText txt="Your postings" fontSize="20px" />
+      <div key={self.crypto.randomUUID()} className="flex flex-col justify-center items-start gap-2 px-5 pb-[50px]">
+        <AppText txt="Your postings" fontSize="18px" fontWeight="500" />
         {data.length > 0 ? (
           data.map(item => (
             <>
@@ -246,7 +216,7 @@ export default function HostDetail({
           <ReviewBox />
         </div>
       </div> */}
-    </>
+    </div >
   );
-    
+
 }

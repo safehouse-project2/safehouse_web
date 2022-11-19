@@ -14,8 +14,8 @@ export default function ReservationBox({ post }) {
           color="#5581AA"
         />
       </div>
-      <div className="w-[100%] border flex flex-row gap-[100px] items-center px-5 pb-3">
-        <div className="flex flex-col ga-3">
+      <div className="w-[100%] border flex flex-row gap-[100px] items-center px-5 pb-3 border-x-0">
+        <div className="flex flex-col gap-3">
           <AppText
             txt={post?.city ? post.city : "City"}
             fontSize="16px"
@@ -27,15 +27,15 @@ export default function ReservationBox({ post }) {
             fontWeight="400"
           />
         </div>
-        <div>
+        <div className="flex">
           <img
             src={post?.image ? post.image[0] : "http://placekitten.com/40"}
             alt=""
-            className="rounded-full"
+            className="rounded-lg"
           />
         </div>
       </div>
-      <div className="flex justify-around items-center pb-5 w-[100%]">
+      <div className="flex justify-around items-center pb-5 w-[100%] border-x-0">
         <div
           className="cursor-pointer ml-[-15px]"
           onClick={() => {
