@@ -96,8 +96,8 @@ console.log(user)
 
   return (
     <div>
-      <AuthProvider>
-        <LoginOrLogout />
+      <>
+       
 
         <BackgroundContainer src="./homeBG.png">
           <CenterContainer>
@@ -163,7 +163,7 @@ console.log(user)
             {/* </motion.div> */}
           </CenterContainer>
         </BackgroundContainer>
-      </AuthProvider>
+      </>
     </div >
   );
 }

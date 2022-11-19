@@ -7,6 +7,7 @@ import HostDetail from "../components/Host/detail";
 import { db } from "../firebase";
 import { collection, query, orderBy, onSnapshot } from "firebase/firestore";
 
+
 export default function HostHome() {
   const [state, setState] = useState({
     addressLine1: "",
@@ -27,6 +28,7 @@ export default function HostHome() {
     return unsubscribe;
   }, []);
   return (
+    <>
     <AuthProvider>
       <div className="flex flex-col justify-center items-center">
         <MainContainer>
@@ -37,5 +39,6 @@ export default function HostHome() {
         <Navbar />
       </div>
     </AuthProvider>
+    </>
   );
 }

@@ -8,6 +8,7 @@ import Navbar from "../components/D3Components/Navbar/Navbar";
 import Image from "../components/D3Components/Image/ImageComp";
 import { useState, useEffect, useReducer } from "react";
 import { useRouter } from "next/router";
+
 import {
   collection,
   addDoc,
@@ -22,6 +23,8 @@ import {
 } from "firebase/firestore";
 import { db } from "/firebase";
 import GetGoogleMap from "../components/locations/GetGoogleMap";
+import { AuthProvider } from "../AuthContext/AuthContext";
+
 // import SliderFull from "../components/D3Components/Slider/SliderFull";
 
 export default function UserHome({ data }) {
@@ -89,6 +92,7 @@ export default function UserHome({ data }) {
   };
 
   return (
+    <AuthProvider>
     <div className="overflow-x-auto">
       <BackgroundContainer src="">
         <MainContainer margin="0px 0px 30px 0px">
@@ -161,5 +165,6 @@ export default function UserHome({ data }) {
 
       <Navbar />
     </div>
+    </AuthProvider>
   );
 }
