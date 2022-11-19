@@ -1,13 +1,14 @@
 import React, { useRef, useState } from 'react'
 import { useAuth } from '../../AuthContext/AuthContext'
-import { Alert } from '@mui/material'
+import Alert from '@mui/material/Alert';
 import { useRouter } from 'next/router'
 import AppText from '../D3Components/AppText/AppText'
 import Button from '../D3Components/Button/Button'
 import GoogleIcon from '@mui/icons-material/Google';
+import Stack from '@mui/material/Stack';
 
 export default function Login() {
-  
+
   const router = useRouter()
   const emailRef = useRef()
   const passwordRef = useRef()
@@ -15,7 +16,7 @@ export default function Login() {
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
-  const { login, googleLogin, currentUser} = useAuth()
+  const { login, googleLogin, currentUser } = useAuth()
 
   async function handleSumbmit(e) {
     e.preventDefault()
@@ -27,7 +28,7 @@ export default function Login() {
       router.push('/gettingStarted')
     } catch (error) {
       console.log(error)
-      setError("Failed to login")
+      setError("Failed to login. Please check your email and password.")
     }
   }
 
@@ -53,7 +54,11 @@ export default function Login() {
             padding='20px 0px 0px 0px'
           />
         </div>
-        {error && <Alert variant="danger">{error}</Alert>}
+        {error &&
+          <Stack sx={{ width: '100%' }} spacing={2}>
+            <Alert severity="error">{error}</Alert>
+          </Stack>
+        }
         <form onSubmit={handleSumbmit} className='flex flex-col justify-start items-start gap-2'>
 
           <label htmlFor="email">Email</label>

@@ -65,7 +65,6 @@ export default function UserHome({ data }) {
   useEffect(() => {
     const homeRef = collection(db, "homes");
     const q = query(homeRef, orderBy("timestamp", "desc"));
-
     const unsubscribe = onSnapshot(q, querySnapshot => {
       setState(
         querySnapshot.docs.map(doc => ({
