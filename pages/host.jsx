@@ -10,6 +10,7 @@ import Button from "../components/D3Components/Button/Button";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { AuthProvider } from "../AuthContext/AuthContext";
 import HostName from "../components/hostPosting/HostName";
+const AuthContext = React.createContext()
 
 export default function host() {
   return (

@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { auth , db} from '../firebase'
+import { useRouter } from 'next/router'
 import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
@@ -9,6 +10,7 @@ import {
     signInWithPopup,
     updateProfile,
     signInWithRedirect,
+    onAuthStateChanged
 } from 'firebase/auth'
 import { collection, addDoc, serverTimestamp, updateDoc, doc } from 'firebase/firestore'
 const AuthContext = React.createContext()
@@ -95,7 +97,20 @@ export function AuthProvider({ children }) {
         updatePassword,
         googleLogin,
     }
-    return (
+
+
+    const router = useRouter()
+
+
+    // useEffect(() => {
+    //     if (auth) {
+    //         router.push('/auth/login')
+    //     } else {
+    //         // stay in the same page
+    //         console.log(auth)
+    //     }
+    // },[auth])
+     return (
         <AuthContext.Provider value={value}>
             {!loading && children}
         </AuthContext.Provider>
