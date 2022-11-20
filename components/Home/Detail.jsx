@@ -19,13 +19,12 @@ const Detail = ({ state }) => {
   const router = useRouter();
   const [isEdit, setIsEdit] = useState(false);
   const id = router.query.id;
-  const { currentUser, logout } = useAuth();
+  const { currentUser } = useAuth();
   const [isAuth, setIsAuth] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
   useEffect(() => {
-    if (currentUser) {
-      if (currentUser.uid === state?.userId) {
-        setIsAuth(true);
-      }
+    if (currentUser?.uid === state?.userId) {
+      setIsAuth(true);
     }
   }, [useAuth(), currentUser]);
 
@@ -35,7 +34,9 @@ const Detail = ({ state }) => {
     return;
   };
 
-  const buttonHandler = () => {};
+  const buttonHandler = () => {
+    setIsClicked(true);
+  };
 
   const deleteHandler = () => {
     const docRef = doc(db, "homes", id);
@@ -86,6 +87,13 @@ const Detail = ({ state }) => {
             />
           </div>
         </CenterContainer>
+        {isClicked && (
+          <div className="h-[100px]">
+            contact {state?.userName ? state.userName : "Owner"} at
+            {state?.phoneNumber ? state.phoneNumber : ""} or email at
+            {state?.email ? state.email : ""}
+          </div>
+        )}
       </div>
     </>
   );
