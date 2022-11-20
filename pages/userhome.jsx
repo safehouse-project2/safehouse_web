@@ -3,29 +3,12 @@ import Input from "../components/D3Components/Input/Input";
 import Slider from "../components/D3Components/Slider/Slider";
 import { BackgroundContainer, MainContainer } from "../styles/styledComps";
 import SearchIcon from "@mui/icons-material/Search";
-// import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Navbar from "../components/D3Components/Navbar/Navbar";
-import Image from "../components/D3Components/Image/ImageComp";
-import { useState, useEffect, useReducer } from "react";
-import { useRouter } from "next/router";
-
-import {
-  collection,
-  addDoc,
-  serverTimestamp,
-  updateDoc,
-  doc,
-  getDoc,
-  getDocs,
-  query,
-  orderBy,
-  onSnapshot,
-} from "firebase/firestore";
+import { useState, useEffect } from "react";
+import { collection, query, orderBy, onSnapshot } from "firebase/firestore";
 import { db } from "/firebase";
 import GetGoogleMap from "../components/locations/GetGoogleMap";
 import { AuthProvider } from "../AuthContext/AuthContext";
-
-// import SliderFull from "../components/D3Components/Slider/SliderFull";
 
 export default function UserHome({ data }) {
   const [isClicked, setIsClicked] = useState(false);

@@ -26,7 +26,7 @@ const GetHostHome = ({
           <div key={index}>
             <Marker
               key={item.lat}
-              position={{ lat: parseInt(item.lat), lng: parseInt(item.lng) }}
+              position={{ lat: Number(item.lat), lng: Number(item.lng) }}
               icon={{
                 url: "/vector.svg",
                 scaledSize: new window.google.maps.Size(40, 40),
@@ -46,7 +46,6 @@ const GetHostHome = ({
                   ),
                   address: item.addressLine1,
                   description: item.description,
-
                   lat: item.lat,
                   lng: item.lng,
                 });

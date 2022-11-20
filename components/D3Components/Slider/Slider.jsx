@@ -67,7 +67,13 @@ export default function Slider({
           onClick={() => router.push(`/home/${post.id}`)}
         >
           <AppText
-            txt={(post.city, post.province)}
+            txt={
+              post.addressLine1
+                ? post.addressLine1
+                : "" + ", " + post.city
+                ? post.city
+                : ""
+            }
             color="#f5f5f5"
             fontSize="24px"
           />
