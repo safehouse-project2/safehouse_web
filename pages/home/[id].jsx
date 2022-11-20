@@ -25,6 +25,7 @@ const DetailPage = () => {
     beds: "",
     baths: "",
   });
+  console.log(state)
   const router = useRouter();
   const id = router.query.id;
   useEffect(() => {

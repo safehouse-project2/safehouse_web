@@ -84,7 +84,7 @@ function CreatHomePost({ editState = [], isEdit = false, docId = "" }) {
         airConditioning: 'yes',
         heating: 'yes',
 
-        image: "",
+        image: [],
 
         userName: "",
         userEmail: "",

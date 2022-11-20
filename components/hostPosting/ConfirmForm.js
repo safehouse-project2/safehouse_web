@@ -6,6 +6,7 @@ import AppText from '../D3Components/AppText/AppText'
 
 
 export default function ConfirmForm({ formData }) {
+  console.log(formData)
   return (
     <>
       <div className='flex flex-col justify-center items-start'>

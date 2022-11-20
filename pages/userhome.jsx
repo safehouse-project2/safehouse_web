@@ -62,6 +62,8 @@ export default function UserHome({ data }) {
     },
   ]);
 
+
+
   useEffect(() => {
     const homeRef = collection(db, "homes");
     const q = query(homeRef, orderBy("timestamp", "desc"));
@@ -76,6 +78,10 @@ export default function UserHome({ data }) {
     });
     return unsubscribe;
   }, []);
+
+
+  
+
   const selectHandler = e => {
     switch (e.target.value) {
       case "Wildfires":
