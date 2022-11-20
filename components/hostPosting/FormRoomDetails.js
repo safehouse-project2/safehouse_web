@@ -28,8 +28,8 @@ export default function FormRoomDetails({ formData, setFormData }) {
 
     return (
         <div className='flex flex-col text-[#f5f5f5] gap-10 justify-start items-start text-xl'>
-            <FormControl>
-                <div className='flex items-center justify-center gap-[120px]'>
+            <FormControl className='countersPostHome'>
+                <div className='flex items-between justify-between'>
                     <label htmlFor="guests">Guests Allowed</label>
                     <ButtonGroup size="small" aria-label="small outlined button group">
                         <CounterBtn
@@ -56,8 +56,8 @@ export default function FormRoomDetails({ formData, setFormData }) {
             </FormControl>
 
 
-            <FormControl>
-                <div className='flex items-center justify-center gap-[168px]'>
+            <FormControl className='countersPostHome'>
+                <div className='flex items-between justify-between'>
                     <label htmlFor="bedrooms">Bedrooms</label>
                     <ButtonGroup size="small" aria-label="small outlined button group">
                         <CounterBtn
@@ -84,8 +84,8 @@ export default function FormRoomDetails({ formData, setFormData }) {
             </FormControl>
 
 
-            <FormControl>
-                <div className='flex items-center justify-center gap-[220px]'>
+            <FormControl className='countersPostHome'>
+                <div className='flex items-between justify-between '>
                     <label htmlFor="beds">Beds</label>
                     <ButtonGroup size="small" aria-label="small outlined button group">
                         <CounterBtn
@@ -109,8 +109,8 @@ export default function FormRoomDetails({ formData, setFormData }) {
             </FormControl>
 
 
-            <FormControl>
-                <div className='flex items-center justify-center gap-[157px]'>
+            <FormControl className='countersPostHome'>
+                <div className='flex items-between justify-between '>
                     <label htmlFor="bathrooms">Bathrooms</label>
                     <ButtonGroup size="small" aria-label="small outlined button group">
                         <CounterBtn
@@ -134,8 +134,8 @@ export default function FormRoomDetails({ formData, setFormData }) {
             </FormControl>
 
 
-            <FormControl>
-                <div className='flex items-center justify-center gap-[190px]'>
+            <FormControl className='countersPostHome'>
+                <div className='flex items-between justify-between '>
                     <label htmlFor="kitchen">Kitchen</label>
                     <ButtonGroup size="small" aria-label="small outlined button group">
                         <CounterBtn
@@ -158,8 +158,8 @@ export default function FormRoomDetails({ formData, setFormData }) {
             </FormControl>
 
 
-            <FormControl>
-                <div className='flex items-center justify-center gap-[190px]'>
+            <FormControl className='countersPostHome'>
+                <div className='flex items-between justify-between'>
                     <label htmlFor="parking">Parking</label>
                     <ButtonGroup size="small" aria-label="small outlined button group">
                         <CounterBtn

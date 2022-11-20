@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import { MainContainer, LeftContainer, CenterContainer } from "../styles/styledComps";
 import Navbar from "../components/D3Components/Navbar/Navbar";
 import { AuthProvider } from "../AuthContext/AuthContext";
 import HostDetail from "../components/Host/detail";
