@@ -45,6 +45,8 @@ export default function FormUploadImage({ formData, setFormData }) {
     }
   };
 
+
+
   const onClearAttachment = () => {
     setImgsSrc([])
     return setFormData({ ...formData, image: [] })

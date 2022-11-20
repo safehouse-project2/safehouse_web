@@ -7,6 +7,7 @@ import FormUploadImage from './FormUploadImage';
 import FormUtilityDetail from './FormUtilityDetail';
 import FormRoomDetails from './FormRoomDetails';
 import FormUtilityDetail2 from './FormUtilityDetail2';
+import FormContact from './FormContact';
 import { collection, addDoc, serverTimestamp, updateDoc, doc } from 'firebase/firestore'
 import { db } from '../../firebase'
 import { Snackbar, Alert } from '@mui/material'
@@ -35,6 +36,7 @@ function CreatHomePost({ editState = [], isEdit = false, docId = "" }) {
         "Let's add some more details of your home",
         "Let's add some more details of your home",
         "Let's upload some photos of your place",
+        "How would you like to be contacted?",
         "Review and Confirm"
     ]
 
@@ -82,11 +84,14 @@ function CreatHomePost({ editState = [], isEdit = false, docId = "" }) {
         airConditioning: 'yes',
         heating: 'yes',
 
-        image: "",
+        image: [],
 
         userName: "",
         userEmail: "",
         userId: currentUser.uid,
+
+        phoneNumber: "",
+        email: "",
 
     });
 
@@ -114,8 +119,10 @@ function CreatHomePost({ editState = [], isEdit = false, docId = "" }) {
             case 5:
                 return <FormUploadImage formData={formData} setFormData={setFormData} />;
             case 6:
-                return <SubmitForm formData={formData} setFormData={setFormData} />;
+                return <FormContact formData={formData} setFormData={setFormData} />
             case 7:
+                return <SubmitForm formData={formData} setFormData={setFormData} />;
+            case 8:
                 return <Success />;
             default:
                 return <FormHouseDetail formData={formData} setFormData={setFormData} />;
@@ -224,8 +231,8 @@ function CreatHomePost({ editState = [], isEdit = false, docId = "" }) {
             <div className='flex justify-start items-center mt-10 gap-10 pb-10'>
                 {/* {page > 0 && page < 7 && <Button onClick={() => setPage(page - 1)}>Back</Button>} */}
                 {/* {page === 0 || page < 6 ? <Button onClick={handleNext}>Next</Button> : <Button onClick={handleSubmit}>sumbit</Button>} */}
-                {page > 0 && page < 7 && <Button onBtnClick={() => setPage(page - 1)} txt="Back" startIcon={<ArrowBackIcon />} />}
-                {page === 0 || page < 6 ? <Button onBtnClick={handleNext} txt="Next" endIcon={<ArrowForwardIcon />} /> : <Button onBtnClick={handleSubmit} txt="Submit" backgroundColor="#5581AA" endIcon={<PublishIcon />} hoverColor="#44698C" />}
+                {page > 0 && page < 8 && <Button onBtnClick={() => setPage(page - 1)} txt="Back" startIcon={<ArrowBackIcon />} />}
+                {page === 0 || page < 7 ? <Button onBtnClick={handleNext} txt="Next" endIcon={<ArrowForwardIcon />} /> : <Button onBtnClick={handleSubmit} txt="Submit" backgroundColor="#5581AA" endIcon={<PublishIcon />} hoverColor="#44698C" />}
             </div>
         </div>
     );

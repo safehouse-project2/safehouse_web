@@ -1,16 +1,9 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import {
-  collection,
-  addDoc,
-  serverTimestamp,
-  updateDoc,
-  doc,
-  getDoc,
-} from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import { db } from "/firebase";
 import Detail from "../../components/Home/Detail";
-import NavBar from "../../components/Home/NavBar";
+import { AuthProvider } from "../../AuthContext/AuthContext";
 
 const DetailPage = () => {
   const [state, setState] = useState({
@@ -25,6 +18,7 @@ const DetailPage = () => {
     beds: "",
     baths: "",
   });
+  console.log(state);
   const router = useRouter();
   const id = router.query.id;
   useEffect(() => {
@@ -40,9 +34,11 @@ const DetailPage = () => {
 
   return (
     <div>
-      <Detail key={state?.id} state={state}>
-        {!state && <div>loading...</div>}
-      </Detail>
+      <AuthProvider>
+        <Detail key={state?.id} state={state}>
+          {!state && <div>loading...</div>}
+        </Detail>
+      </AuthProvider>
     </div>
   );
 };
