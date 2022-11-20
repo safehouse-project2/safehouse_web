@@ -50,6 +50,9 @@ body, html, *{
     background-color: rgb(17, 144, 255) !important;
 }
 
+.countersPostHome{
+    width: 100% !important;
+}
 
 
 .MuiPaper-rounded MuiPaper-elevation3 css-gy4i07-MuiPaper-root > div{
@@ -79,5 +82,11 @@ body, html, *{
     }
     .uploadImageImg{
         max-width: 250px !important;
+    }
+}
+@media (max-width: 466px){
+    .imageConfirmDiv{
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+       place-items: center;
     }
 }
