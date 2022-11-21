@@ -59,6 +59,10 @@ body, html, *{
     border-radius: 13px 13px 0px 0px;
 }
 
+.utilityDetails input[type="radio"]:checked::after{
+    background-color: #ff1111;
+}
+
 @media (max-width: 992px) {
     .parentWelcome{
         flex-direction: column;

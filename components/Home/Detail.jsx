@@ -14,6 +14,7 @@ import { db } from "../../firebase";
 import Swiper from "../D3Components/Swiper/Swiper";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useAuth } from "../../AuthContext/AuthContext";
+import ContactModal from "../D3Components/ContactModal/ContactModal";
 
 const Detail = ({ state }) => {
   const router = useRouter();
@@ -21,7 +22,8 @@ const Detail = ({ state }) => {
   const id = router.query.id;
   const { currentUser } = useAuth();
   const [isAuth, setIsAuth] = useState(false);
-  const [isClicked, setIsClicked] = useState(false);
+
+
   useEffect(() => {
     if (currentUser?.uid === state?.userId) {
       setIsAuth(true);
@@ -54,7 +56,9 @@ const Detail = ({ state }) => {
             onClick={() => router.push("/userhome")}
           />
         </div>
-        <Swiper imgSrc={state.image ? state.image : ""} />
+        <div className="flex justify-center items-center max-w-[600px] m-auto">
+          <Swiper imgSrc={state.image ? state.image : ""} />
+        </div>
         {isAuth && (
           <div className="flex justify-around border-y-2 border-[#888] py-4 mb-4">
             <div>
@@ -77,23 +81,13 @@ const Detail = ({ state }) => {
           <Ammenities state={state} />
           <Rules state={state} />
         </div>
-        <CenterContainer>
-          <div className="m-10">
-            <Button
-              txt="Contact Host"
-              fontSize="16px"
-              endIcon={<ArrowForwardIcon />}
-              onBtnClick={buttonHandler}
-            />
-          </div>
-        </CenterContainer>
-        {isClicked && (
-          <div className="h-[100px]">
-            contact {state?.userName ? state.userName : "Owner"} at
-            {state?.phoneNumber ? state.phoneNumber : ""} or email at
-            {state?.email ? state.email : ""}
-          </div>
-        )}
+        <div className="flex mx-auto justify-center items-center my-10">
+          <ContactModal
+            ownerTxt={state?.userName || "Host"}
+            phNum={state?.phoneNumber}
+            emailTxt={state?.email}
+          />
+        </div>
       </div>
     </>
   );

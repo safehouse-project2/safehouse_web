@@ -70,7 +70,7 @@ export default function Navbar({
                         <MyBottomNavigationAction label="Home" value={"/userhome"} icon={<HomeIcon />} onClick={goToHome} />
                         <MyBottomNavigationAction label="Map" icon={<MapIcon />} value={"/map"} onClick={goToMap} />
                         <MyBottomNavigationAction label="Resources" icon={<HelpIcon />} value={"/resources"} onClick={goToHelp} />
-                        <MyBottomNavigationAction label="Profile" icon={<AccountCircleIcon />} value={"/profile"} onClick={goToProfile} />
+                        <MyBottomNavigationAction label="Profile" icon={<AccountCircleIcon />} value={"/hosthome"} onClick={goToProfile} />
                     </BottomNavigation>
                 </Paper>
             </Box>

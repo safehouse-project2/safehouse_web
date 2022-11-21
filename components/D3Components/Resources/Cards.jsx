@@ -1,6 +1,7 @@
 import AppText from "../AppText/AppText"
 import InfoCard from "./InfoCard"
 import { useEffect, useRef } from "react";
+import { motion } from "framer-motion"
 
 export default function Cards() {
     // routes
@@ -33,31 +34,49 @@ export default function Cards() {
     return (
         <>
             <div className="flex justify-center items-center flex-col gap-5 text-center cardsContainer">
-                <AppText
-                    fontSize="20px"
-                    txt="Here are some resources for further assistance:"
-                />
+                <motion.div
+                    initial={{ opacity: 0, y: 100 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.3 }}
+                >
+                    <AppText
+                        fontSize="20px"
+                        txt="Here are some resources for further assistance:"
+                    />
+                </motion.div>
 
-                <div ref={card1Ref}>
+                <motion.div ref={card1Ref}
+                    initial={{ opacity: 0, y: 100 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.4 }}
+                >
                     <InfoCard
                         txt1="FireSmartBC.ca"
                         txt2="Fire safety preparedness"
                     />
-                </div>
+                </motion.div>
 
-                <div ref={card2Ref}>
+                <motion.div ref={card2Ref}
+                    initial={{ opacity: 0, y: 100 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.5 }}
+                >
                     <InfoCard
                         txt1="Wildfire Preparedness Guide"
                         txt2="by The BC Goverment"
                     />
-                </div>
+                </motion.div>
 
-                <div ref={card3Ref}>
+                <motion.div ref={card3Ref}
+                    initial={{ opacity: 0, y: 100 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.6 }}
+                >
                     <InfoCard
                         txt1="BC Goverment Wildfire Service"
                         txt2="Wildfire and evacuation statuses with news and updates"
                     />
-                </div>
+                </motion.div>
             </div>
         </>
     )
