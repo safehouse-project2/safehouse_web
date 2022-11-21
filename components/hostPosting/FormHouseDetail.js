@@ -1,13 +1,18 @@
 import React from 'react'
 import { TextField } from '@mui/material'
 import { LeftContainer } from '../../styles/styledComps'
+import { motion } from 'framer-motion'
 
 export default function FormHouseDetail({ formData, setFormData }) {
 
   return (
     <div className=''>
       <form>
-        <div className='flex flex-col justify-start items-start pb-5'>
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className='flex flex-col justify-start items-start pb-5'>
           <label htmlFor="homeType" className='text-[#f5f5f5] text-[18px]'>What kind of place will you be hosting ?</label>
           <div className='bg-[#E9E9ED] py-3 px-3 mt-3 rounded-md'>
             <select className='text-[#272727]'
@@ -23,11 +28,15 @@ export default function FormHouseDetail({ formData, setFormData }) {
               <option value="Other">Other</option>
             </select>
           </div>
-        </div>
+        </motion.div>
 
         <br />
 
-        <div>
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
           <label htmlFor="description" className='text-[#f5f5f5] text-[18px]'>Description</label>
           <br />
           <TextField
@@ -46,7 +55,7 @@ export default function FormHouseDetail({ formData, setFormData }) {
               setFormData({ ...formData, description: e.target.value })
             }
           />
-        </div>
+        </motion.div>
       </form>
     </div>
   )

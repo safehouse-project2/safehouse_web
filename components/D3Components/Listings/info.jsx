@@ -14,16 +14,17 @@ export default function Info({
     beds: "",
     baths: "",
     isEdit: false,
+    userName: "",
   },
 }) {
   const [Favorite, setFavorite] = useState(true);
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 pt-3">
       <div className="flex pr-5 gap-14">
         <AppText
           txt={
             state?.bedrooms
-              ? `${state.bedrooms}Bedroom suite available for wildfire evacuees`
+              ? `${state.bedrooms} Bedroom suite available for wildfire evacuees`
               : "Sorry we don't have any suites available for wildfire evacuees at this time"
           }
           fontSize="18px"

@@ -9,6 +9,7 @@ import { collection, query, orderBy, onSnapshot } from "firebase/firestore";
 import { db } from "/firebase";
 import GetGoogleMap from "../components/locations/GetGoogleMap";
 import { AuthProvider } from "../AuthContext/AuthContext";
+import { motion } from 'framer-motion'
 
 export default function UserHome({ data }) {
   const [isClicked, setIsClicked] = useState(false);
@@ -80,44 +81,72 @@ export default function UserHome({ data }) {
       <div className="overflow-x-auto">
         <BackgroundContainer src="">
           <MainContainer margin="0px 0px 30px 0px">
-            <Input
-              label="Search here"
-              variant="outlined"
-              icon={<SearchIcon />}
-              backgroundColor="#fefefe"
-            />
+            <motion.div
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0 }}
+            >
+              <Input
+                label="Search here"
+                variant="outlined"
+                icon={<SearchIcon />}
+                backgroundColor="#fefefe"
+                width="100%"
+              />
+            </motion.div>
             {/* <SliderFull /> */}
             <div className="flex flex-col gap-2 pt-10">
-              <AppText
-                txt="Recent Listings"
-                fontSize="18px"
-                fontWeight="500"
-                padding="0px 0px 15px 0px"
-              />
+              <motion.div
+                initial={{ opacity: 0, y: 100 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.1 }}
+              >
+                <AppText
+                  txt="Recent Listings"
+                  fontSize="18px"
+                  fontWeight="500"
+                  padding="0px 0px 15px 0px"
+                />
+              </motion.div>
 
-              <div className="flex flex-row gap-7 w-full h-full">
+              <motion.div className="flex flex-row gap-7 w-full h-full"
+                initial={{ opacity: 0, y: 100 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
                 <Slider state={state} />
-              </div>
-
-              {/* <AppText
-                            txt='1 Bedroom available'
-                            fontSize="18px"
-                            padding="10px 0px 0px 0px"
-                        /> */}
+              </motion.div>
             </div>
 
-            <AppText
-              txt="Latest data on wildfires and safehouses"
-              fontSize="18px"
-              padding="50px 0px 0px 0px"
-              fontWeight="500"
-            />
-            <AppText
-              txt="Filter by:"
-              fontSize="16px"
-              padding="20px 0px 10px 0px"
-            />
-            <div className="dropd flex bg-[#fff] text-[#8C8C8C] gap-20 w-[234px] rounded-md justify-start">
+            <motion.div
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              <AppText
+                txt="Latest data on wildfires and safehouses"
+                fontSize="18px"
+                padding="50px 0px 0px 0px"
+                fontWeight="500"
+              />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <AppText
+                txt="Filter by:"
+                fontSize="16px"
+                padding="20px 0px 10px 0px"
+              />
+            </motion.div>
+            <motion.div className="dropd flex bg-[#fff] text-[#8C8C8C] gap-20 w-[234px] rounded-md justify-start"
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+            >
               <select
                 name="map"
                 id="mapHome"
@@ -128,8 +157,12 @@ export default function UserHome({ data }) {
                 <option value="Safehouses">Safehouses</option>
                 <option value="Both">Both</option>
               </select>
-            </div>
-            <div className="flex w-[90vw]">
+            </motion.div>
+            <motion.div className="flex w-[90vw]"
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
               {/* <Image
               onImgClick={() => r.push("/evacuee")}
               src="/fire_map.png"
@@ -143,7 +176,7 @@ export default function UserHome({ data }) {
                 isClicked={isClicked}
                 isBothClicked={isBothClicked}
               />
-            </div>
+            </motion.div>
           </MainContainer>
         </BackgroundContainer>
 

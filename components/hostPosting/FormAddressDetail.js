@@ -6,6 +6,7 @@ import PlacesAutocomplete, {
 } from "react-places-autocomplete";
 import Script from "next/script";
 import { TextField } from '@mui/material';
+import { motion } from 'framer-motion'
 
 
 export default function FormAddressDetail({ formData, setFormData, state, setState }) {
@@ -33,141 +34,166 @@ export default function FormAddressDetail({ formData, setFormData, state, setSta
       ></Script>
       <form className='flex flex-col justify-center'>
         <FormControl>
-          <label htmlFor="addressLine1" className='text-[#f5f5f5] text-[18px]'>Address Line 1</label>
-          <PlacesAutocomplete
-            value={state.address.split(",")[0]}
-            onChange={address => setState({ address })}
-            onSelect={handleSelect}
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0 }}
           >
-            {({
-              getInputProps,
-              suggestions,
-              getSuggestionItemProps,
-              loading,
-            }) => (
-              <div className='pb-6'>
-                <TextField
-                  sx={{
-                    backgroundColor: '#f5f5f5',
-                    borderRadius: '10px',
-                    marginTop: '10px',
-                    minWidth: '100%',
-                  }}
-                  {...getInputProps({
-                  })}
-                  type="text"
-                  name="addressLine1"
-                  id="addressLine1"
-                  variant='outlined'
-                  placeholder='Address Line 1'
-                  required
-                />
+            <label htmlFor="addressLine1" className='text-[#f5f5f5] text-[18px]'>Address Line 1</label>
+            <PlacesAutocomplete
+              value={state.address.split(",")[0]}
+              onChange={address => setState({ address })}
+              onSelect={handleSelect}
+            >
+              {({
+                getInputProps,
+                suggestions,
+                getSuggestionItemProps,
+                loading,
+              }) => (
+                <div className='pb-6'>
+                  <TextField
+                    sx={{
+                      backgroundColor: '#f5f5f5',
+                      borderRadius: '10px',
+                      marginTop: '10px',
+                      minWidth: '100%',
+                    }}
+                    {...getInputProps({
+                    })}
+                    type="text"
+                    name="addressLine1"
+                    id="addressLine1"
+                    variant='outlined'
+                    placeholder='Address Line 1'
+                    required
+                  />
 
-                <div className="autocomplete-dropdown-container">
-                  {loading && <div>Loading...</div>}
-                  {suggestions.map(suggestion => {
-                    // console.log(suggestion);
-                    // setHome({ ...home, address: suggestion.description });
-                    const className = suggestion.active
-                      ? "suggestion-item--active"
-                      : "suggestion-item";
-                    const style = suggestion.active
-                      ? { backgroundColor: "#fafafa", cursor: "pointer" }
-                      : { backgroundColor: "#ffffff", cursor: "pointer" };
-                    return (
-                      <div
-                        key={suggestion.description}
-                        {...getSuggestionItemProps(suggestion, {
-                          className,
-                          style,
-                        })}
-                      >
-                        <span
-                          onClick={e => {
-                            setState({ address: e.currentTarget.innerHTML })
-                          }
-                          }
+                  <div className="autocomplete-dropdown-container">
+                    {loading && <div>Loading...</div>}
+                    {suggestions.map(suggestion => {
+                      // console.log(suggestion);
+                      // setHome({ ...home, address: suggestion.description });
+                      const className = suggestion.active
+                        ? "suggestion-item--active"
+                        : "suggestion-item";
+                      const style = suggestion.active
+                        ? { backgroundColor: "#fafafa", cursor: "pointer" }
+                        : { backgroundColor: "#ffffff", cursor: "pointer" };
+                      return (
+                        <div
+                          key={suggestion.description}
+                          {...getSuggestionItemProps(suggestion, {
+                            className,
+                            style,
+                          })}
                         >
-                          {suggestion.description}
-                        </span>
-                      </div>
-                    );
-                  })}
+                          <span
+                            onClick={e => {
+                              setState({ address: e.currentTarget.innerHTML })
+                            }
+                            }
+                          >
+                            {suggestion.description}
+                          </span>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
-              </div>
-            )
-            }
-          </PlacesAutocomplete >
+              )
+              }
+            </PlacesAutocomplete >
+          </motion.div>
         </FormControl>
 
         <FormControl>
-          <label htmlFor="addressLine2" className='text-[#f5f5f5] text-[18px]'>Address Line 2</label>
-          <div className='pb-6'>
-            <TextField
-              sx={{
-                backgroundColor: '#f5f5f5',
-                borderRadius: '10px',
-                marginTop: '10px',
-                minWidth: '100%',
-              }}
-              type="text"
-              name="addressLine2"
-              id="addressLine2"
-              placeholder='Optional'
-              variant='outlined'
-              value={formData.addressLine2}
-              onChange={(e) =>
-                setFormData({ ...formData, addressLine2: e.target.value })
-              }
-            />
-          </div>
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+          >
+            <label htmlFor="addressLine2" className='text-[#f5f5f5] text-[18px]'>Address Line 2</label>
+            <div className='pb-6'>
+              <TextField
+                sx={{
+                  backgroundColor: '#f5f5f5',
+                  borderRadius: '10px',
+                  marginTop: '10px',
+                  minWidth: '100%',
+                }}
+                type="text"
+                name="addressLine2"
+                id="addressLine2"
+                placeholder='Optional'
+                variant='outlined'
+                value={formData.addressLine2}
+                onChange={(e) =>
+                  setFormData({ ...formData, addressLine2: e.target.value })
+                }
+              />
+            </div>
+          </motion.div>
         </FormControl>
 
         <FormControl>
-          <label htmlFor="city" className='text-[#f5f5f5] text-[18px]'>City</label>
-          <div className='pb-6'>
-            <TextField
-              sx={{
-                backgroundColor: '#f5f5f5',
-                borderRadius: '10px',
-                marginTop: '10px',
-                minWidth: '100%',
-              }}
-              type="text"
-              name="city"
-              id="city"
-              variant='outlined'
-              placeholder='City'
-              required
-              value={addressAry[addressAry.length - 3] ? addressAry[addressAry.length - 3] : formData.city}
-              onChange={(e) => {
-                setFormData({ ...formData, city: e.target.value })
-              }}
-            />
-          </div>
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <label htmlFor="city" className='text-[#f5f5f5] text-[18px]'>City</label>
+            <div className='pb-6'>
+              <TextField
+                sx={{
+                  backgroundColor: '#f5f5f5',
+                  borderRadius: '10px',
+                  marginTop: '10px',
+                  minWidth: '100%',
+                }}
+                type="text"
+                name="city"
+                id="city"
+                variant='outlined'
+                placeholder='City'
+                required
+                value={addressAry[addressAry.length - 3] ? addressAry[addressAry.length - 3] : formData.city}
+                onChange={(e) => {
+                  setFormData({ ...formData, city: e.target.value })
+                }}
+              />
+            </div>
+          </motion.div>
         </FormControl>
+
         <FormControl>
-          <label htmlFor="city" className='text-[#f5f5f5] text-[18px]'>Province</label>
-          <div className='pb-6'>
-            <TextField
-              sx={{
-                backgroundColor: '#f5f5f5',
-                borderRadius: '10px',
-                marginTop: '10px',
-                minWidth: '100%',
-              }}
-              type="text"
-              name="province"
-              id="province"
-              variant='outlined'
-              placeholder='Province'
-              required
-              value={addressAry[addressAry.length - 2]?.split(" ")[0] ? addressAry[addressAry.length - 2].split(" ")[0] : formData.province}
-              onChange={(e) =>
-                setFormData({ ...formData, province: e.target.value })
-              }
-            />
-          </div>
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            <label htmlFor="city" className='text-[#f5f5f5] text-[18px]'>Province</label>
+            <div className='pb-6'>
+              <TextField
+                sx={{
+                  backgroundColor: '#f5f5f5',
+                  borderRadius: '10px',
+                  marginTop: '10px',
+                  minWidth: '100%',
+                }}
+                type="text"
+                name="province"
+                id="province"
+                variant='outlined'
+                placeholder='Province'
+                required
+                value={addressAry[addressAry.length - 2]?.split(" ")[0] ? addressAry[addressAry.length - 2].split(" ")[0] : formData.province}
+                onChange={(e) =>
+                  setFormData({ ...formData, province: e.target.value })
+                }
+              />
+            </div>
+          </motion.div>
         </FormControl>
         {/* <FormControl>
           <label htmlFor="province">Province</label>
@@ -197,33 +223,39 @@ export default function FormAddressDetail({ formData, setFormData, state, setSta
           </select>
         </FormControl> */}
         <FormControl>
-          <label htmlFor="postalCode" className='text-[#f5f5f5] text-[18px]'>Postal Code</label>
-          <div className='pb-6'>
-            <TextField
-              sx={{
-                backgroundColor: '#f5f5f5',
-                borderRadius: '10px',
-                marginTop: '10px',
-                minWidth: '100%',
-              }}
-              type="text"
-              name="postalCode"
-              id="postalCode"
-              variant='outlined'
-              placeholder='Postal Code'
-              required
-              value={formData.postalCode}
-              onChange={(e) =>
-                setFormData({ ...formData, postalCode: e.target.value })
-              }
-              onSelect={() => setFormData({
-                ...formData,
-                addressLine1: addressAry[0] ? addressAry[0] : state.address,
-                city: addressAry[addressAry.length - 3] ? addressAry[addressAry.length - 3] : formData.city,
-                province: addressAry[addressAry.length - 2] ? addressAry[addressAry.length - 2] : formData.province
-              })}
-            />
-          </div>
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <label htmlFor="postalCode" className='text-[#f5f5f5] text-[18px]'>Postal Code</label>
+            <div className='pb-6'>
+              <TextField
+                sx={{
+                  backgroundColor: '#f5f5f5',
+                  borderRadius: '10px',
+                  marginTop: '10px',
+                  minWidth: '100%',
+                }}
+                type="text"
+                name="postalCode"
+                id="postalCode"
+                variant='outlined'
+                placeholder='Postal Code'
+                required
+                value={formData.postalCode}
+                onChange={(e) =>
+                  setFormData({ ...formData, postalCode: e.target.value })
+                }
+                onSelect={() => setFormData({
+                  ...formData,
+                  addressLine1: addressAry[0] ? addressAry[0] : state.address,
+                  city: addressAry[addressAry.length - 3] ? addressAry[addressAry.length - 3] : formData.city,
+                  province: addressAry[addressAry.length - 2] ? addressAry[addressAry.length - 2] : formData.province
+                })}
+              />
+            </div>
+          </motion.div>
         </FormControl>
 
 

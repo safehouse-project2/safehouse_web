@@ -8,8 +8,9 @@ import { auth, storage } from '../../firebase'
 import { ref, uploadBytes, listAll, getDownloadURL, deleteObject } from 'firebase/storage'
 import { updateProfile } from "firebase/auth";
 import { v4 } from 'uuid'
-import EditIcon from '@mui/icons-material/Edit';
 import AddBoxIcon from '@mui/icons-material/AddBox';
+import UploadImagePopover from "../D3Components/UploadImagePopover/UploadImagePopover";
+import { motion } from 'framer-motion'
 
 export default function HostDetail({
   state = [{ userId: "" }, { userId: "" }],
@@ -64,8 +65,6 @@ export default function HostDetail({
   }, []);
 
   const imageListRef = ref(storage, `PImages/${currentUser?.uid}`)
-
-
 
   useEffect(() => {
     if (imageListRef !== null && imageListRef !== undefined) {
@@ -133,87 +132,116 @@ export default function HostDetail({
     <div className="flex flex-col justify-center items-center gap-3">
       <div className="flex w-[100%]">
         <div ref={inputAreaRef} className="w-full flex">
-          <div className="absolute z-99 bg-blue-300 p-2 bottom-[100] right-[0] mt-2 mr-2 rounded-lg drop-shadow-lg">
-            <EditIcon
-              onClick={() => setOpen(true)}
-            />
-          </div>
-          <div
-            className="w-full"
-          // onClick={clickImage}
-          >
-            <img className="w-full h-full" src={url} />
+          <div className="flex justify-center mt-6 w-full">
+            {/* <div className="absolute z-99 bg-blue-300 p-2 bottom-[100] right-[0] mt-2 mr-2 rounded-lg drop-shadow-lg">
+              <EditIcon
+                onClick={() => setOpen(true)}
+              />
+            </div> */}
+            <div className="flex flex-col justify-center items-center">
+              <motion.div
+                initial={{ opacity: 0, y: 100 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0 }}
+              >
+                <img className="w-[200px] h-[200px] rounded-full" src={url} alt="profile picture" />
+              </motion.div>
+              <motion.div className="mt-[-20px] cursor-pointer"
+                initial={{ opacity: 0, y: 100 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.1 }}
+              >
+                <UploadImagePopover
+                  onImageChange={uploadToClient}
+                />
+              </motion.div>
+            </div>
           </div>
 
           {uploadOpen &&
-            // <Button
-            //   txt="Upload image"
-            //   onBtnClick={uploadImagetoFirebase}
-            //   borderRadius="8px"
-            //   margin="20px 0 0 0"
-            // />
             alert("Image Uploaded", uploadImagetoFirebase())
           }
-          {open &&
-            <div className='r-box flex flex-row gap-4 bg-[#f5f5f5] px-4 py-4 justify-start items-center rounded-md'>
-              <input type="file" name="myImage" onChange={uploadToClient} />
-            </div>
-          }
+
         </div>
       </div>
 
       <div className="flex flex-col justify-center items-center mb-5">
-        <AppText
-          txt={
-            currentUser?.displayName
-              ? `Hello, ${currentUser.displayName?.split(" ")[0]} 👋`
-              : "Hello 👋"
-          }
-          fontSize="34px"
-        />
-        <p className="text-lg">Hope you are having a great day!</p>
-        <p className="text-gray-500">Not {currentUser?.displayName?.split(" ")[0] || "Hello"} ?<span className="text-blue-600" onClick={handleLogout}> Sign Out</span> </p>
-        {/* <AppText
-          txt="What do you want to do ?"
-          fontSize="16px"
-          color="#8c8c8c"
-        /> */}
+        <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <AppText
+            txt={
+              currentUser?.displayName
+                ? `Hello, ${currentUser.displayName?.split(" ")[0]} 👋`
+                : "Hello 👋"
+            }
+            fontSize="34px"
+          />
+        </motion.div>
+        <motion.p className="text-lg"
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >Hope you are having a great day!
+        </motion.p>
+        <motion.p className="text-gray-500"
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >Not {currentUser?.displayName?.split(" ")[0] || "Hello"} ?<span className="text-blue-500 cursor-pointer" onClick={handleLogout}> Sign Out</span> </motion.p>
       </div>
 
       <div key={self.crypto.randomUUID()} className="flex flex-col justify-center items-start gap-2 px-5 pb-[50px]">
-        <div className="flex flex-row items-center w-full justify-between">
-          <AppText txt="Your postings" fontSize="18px" fontWeight="500" />
-          <Button txt="Add new" fontSize="16px" borderRadius="4px" endIcon={<AddBoxIcon />} onBtnClick={() => router.push('/PostHome')} />
+        <div className="flex flex-row items-center w-full justify-between pb-3">
+          <motion.div
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+          >
+            <AppText txt="Your postings" fontSize="18px" fontWeight="500" />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            <Button txt="Add new" fontSize="16px" borderRadius="4px" endIcon={<AddBoxIcon />} onBtnClick={() => router.push('/PostHome')} />
+          </motion.div>
         </div>
         {data.length > 0 ? (
           data.map(item => (
-            <>
-              <ReservationBox key={item.id} data={data} post={item} />
-              <AppText
-                key={item.userId}
-                txt={
-                  data?.length
-                    ? findCurrentPage(item.id) + 1 + "/" + data.length
-                    : "1/7"
-                }
-                color="#cdcdcd"
-                fontSize="12px"
-              />
-            </>
+            <div className="flex flex-col max-w-[400px] pb-4">
+              <motion.div
+                initial={{ opacity: 0, y: 100 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.7 }}
+              >
+                <ReservationBox key={item.id} data={data} post={item} />
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 100 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.8 }}
+              >
+                <AppText
+                  key={item.userId}
+                  txt={
+                    data?.length
+                      ? findCurrentPage(item.id) + 1 + "/" + data.length
+                      : "1/7"
+                  }
+                  color="#cdcdcd"
+                  fontSize="12px"
+                />
+              </motion.div>
+            </div>
           ))
         ) : (
           <AppText txt="You have no postings" fontSize="16px" />
         )}
       </div>
-
-      {/* <div className="flex flex-col pt-10 justify-start items-start gap-3">
-        <AppText txt="Your reviews 🌟" fontSize="20px" />
-        <div className="flex flex-col gap-5">
-          <ReviewBox />
-          <ReviewBox />
-          <ReviewBox />
-        </div>
-      </div> */}
     </div >
   );
 

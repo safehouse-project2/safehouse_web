@@ -7,6 +7,7 @@ import Button from '../D3Components/Button/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
 import ClearAllIcon from '@mui/icons-material/ClearAll';
+import { motion } from 'framer-motion'
 
 export default function FormUploadImage({ formData, setFormData }) {
   const [attachment, setAttachment] = useState()
@@ -55,13 +56,25 @@ export default function FormUploadImage({ formData, setFormData }) {
 
   return (
     <div className='overflow-x-auto max-w-[350px]'>
-      <p className='text-xl text-[#f5f5f5] pb-4'>Let's add some photos of your place.</p>
+      <motion.p
+        initial={{ opacity: 0, x: -100 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 0 }}
+        className='text-xl text-[#f5f5f5] pb-4'>Let's add some photos of your place.</motion.p>
       <div className='overflow-x-auto'>
-        <div className='r-box flex flex-row gap-4 bg-[#f5f5f5] px-4 py-4 justify-start items-center rounded-md'>
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className='r-box flex flex-row gap-4 bg-[#f5f5f5] px-4 py-4 justify-start items-center rounded-md'>
           <input type="file" name="myImage" onChange={onFileChange} />
           <DeleteIcon onClick={onClearAttachment} sx={{ color: '#272727' }} />
-        </div>
-        <div className='flex row mt-4 gap-5'>
+        </motion.div>
+        <motion.div className='flex row mt-4 gap-5'
+          initial={{ opacity: 0, x: -100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
           <Button
             onBtnClick={onClearAttachment}
             txt="Clear"
@@ -71,10 +84,13 @@ export default function FormUploadImage({ formData, setFormData }) {
             hoverColor=''
             endIcon={<ClearAllIcon />}
           />
-        </div>
+        </motion.div>
 
-        <div className='flex flex-col gap-4 mt-4'>
-
+        <motion.div className='flex flex-col gap-4 mt-4'
+          initial={{ opacity: 0, x: -100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
           <div className='r-box flex flex-row gap-4 bg-[#f5f5f5] px-4 py-4 justify-start items-center rounded-md'>
             <AddAPhotoIcon />
             <AppText
@@ -82,7 +98,7 @@ export default function FormUploadImage({ formData, setFormData }) {
               fontSize='18px'
             />
           </div>
-        </div>
+        </motion.div>
         <div className='grid gap-2 grid-cols-3 drop-shadow-sm bg-[#212121] mt-4 rounded-lg imageUploadDiv place-items-center'>
           {imgsSrc?.map((link) => (
             <div key={self.crypto.randomUUID()} className='px-3 py-5'>

@@ -20,6 +20,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import PublishIcon from '@mui/icons-material/Publish';
 import AppText from '../D3Components/AppText/AppText';
 import { useAuth } from '../../AuthContext/AuthContext'
+import { motion } from 'framer-motion'
 
 function CreatHomePost({ editState = [], isEdit = false, docId = "" }) {
     const { currentUser } = useAuth()
@@ -212,13 +213,17 @@ function CreatHomePost({ editState = [], isEdit = false, docId = "" }) {
 
     return (
         <div className=''>
-            <div className="flex flex-col gap-4 pb-10">
+            <motion.div className="flex flex-col gap-4 pb-10"
+                initial={{ opacity: 0, x: -100 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0 }}
+            >
                 <AppText
                     txt={titles[page]}
                     fontSize="34px"
                     color="#f5f5f5"
                 />
-            </div>
+            </motion.div>
             {conditionalComponent()}
             <Snackbar
                 anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
@@ -228,12 +233,16 @@ function CreatHomePost({ editState = [], isEdit = false, docId = "" }) {
                 </Alert>
             </Snackbar>
 
-            <div className='flex justify-start items-center mt-10 gap-10 pb-10'>
+            <motion.div
+                initial={{ opacity: 0, x: -100 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className='flex justify-start items-center mt-10 gap-10 pb-10'>
                 {/* {page > 0 && page < 7 && <Button onClick={() => setPage(page - 1)}>Back</Button>} */}
                 {/* {page === 0 || page < 6 ? <Button onClick={handleNext}>Next</Button> : <Button onClick={handleSubmit}>sumbit</Button>} */}
                 {page > 0 && page < 8 && <Button onBtnClick={() => setPage(page - 1)} txt="Back" startIcon={<ArrowBackIcon />} />}
                 {page === 0 || page < 7 ? <Button onBtnClick={handleNext} txt="Next" endIcon={<ArrowForwardIcon />} /> : <Button onBtnClick={handleSubmit} txt="Submit" backgroundColor="#5581AA" endIcon={<PublishIcon />} hoverColor="#44698C" />}
-            </div>
+            </motion.div>
         </div>
     );
 }
