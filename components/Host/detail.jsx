@@ -9,6 +9,7 @@ import { ref, uploadBytes, listAll, getDownloadURL, deleteObject } from 'firebas
 import { updateProfile } from "firebase/auth";
 import { v4 } from 'uuid'
 import EditIcon from '@mui/icons-material/Edit';
+import AddBoxIcon from '@mui/icons-material/AddBox';
 
 export default function HostDetail({
   state = [{ userId: "" }, { userId: "" }],
@@ -48,10 +49,6 @@ export default function HostDetail({
     }
     return;
   };
-
-  function clickImage() {
-    setUploadOpen(true)
-  }
 
   useEffect(() => {
     const checkIfClickedOutside = e => {
@@ -132,8 +129,6 @@ export default function HostDetail({
     setUploadOpen(false)
   }
 
-
-
   return (
     <div className="flex flex-col justify-center items-center gap-3">
       <div className="flex w-[100%]">
@@ -177,7 +172,7 @@ export default function HostDetail({
           fontSize="34px"
         />
         <p className="text-lg">Hope you are having a great day!</p>
-        <p>Not {currentUser?.displayName?.split(" ")[0] || "Hello"} ?<span className="text-blue-600" onClick={handleLogout}> Sign Out</span> </p>
+        <p className="text-gray-500">Not {currentUser?.displayName?.split(" ")[0] || "Hello"} ?<span className="text-blue-600" onClick={handleLogout}> Sign Out</span> </p>
         {/* <AppText
           txt="What do you want to do ?"
           fontSize="16px"
@@ -186,7 +181,10 @@ export default function HostDetail({
       </div>
 
       <div key={self.crypto.randomUUID()} className="flex flex-col justify-center items-start gap-2 px-5 pb-[50px]">
-        <AppText txt="Your postings" fontSize="18px" fontWeight="500" />
+        <div className="flex flex-row items-center w-full justify-between">
+          <AppText txt="Your postings" fontSize="18px" fontWeight="500" />
+          <Button txt="Add new" fontSize="16px" borderRadius="4px" endIcon={<AddBoxIcon />} onBtnClick={() => router.push('/PostHome')} />
+        </div>
         {data.length > 0 ? (
           data.map(item => (
             <>

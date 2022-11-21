@@ -45,7 +45,6 @@ export default function Slider({
     }
     return;
   };
-
   return (
     <div
       style={{
@@ -63,12 +62,18 @@ export default function Slider({
     >
       {state.map(post => (
         <BackgroundImageContainer
-        //   src={post.image && post.length > 0 ? post.image[0] : "./vercel.svg"}
-        src={post.image}
+          //   src={post.image && post.length > 0 ? post.image[0] : "./vercel.svg"}
+          src={post.image}
           onClick={() => router.push(`/home/${post.id}`)}
         >
           <AppText
-            txt={(post.city, post.province)}
+            txt={
+              post.addressLine1
+                ? post.addressLine1
+                : "" + ", " + post.city
+                ? post.city
+                : ""
+            }
             color="#f5f5f5"
             fontSize="24px"
           />

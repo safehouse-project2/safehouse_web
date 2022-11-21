@@ -162,10 +162,10 @@ export default function FormAddressDetail({ formData, setFormData, state, setSta
               variant='outlined'
               placeholder='Province'
               required
-              value={addressAry[addressAry.length - 2] ? addressAry[addressAry.length - 2].split(" ")[0] : formData.province}
-              onChange={(e) => {
+              value={addressAry[addressAry.length - 2]?.split(" ")[0] ? addressAry[addressAry.length - 2].split(" ")[0] : formData.province}
+              onChange={(e) =>
                 setFormData({ ...formData, province: e.target.value })
-              }}
+              }
             />
           </div>
         </FormControl>
