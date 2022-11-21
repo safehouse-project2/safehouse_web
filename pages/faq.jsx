@@ -1,7 +1,4 @@
-import {
-    BackgroundContainer,
-    MainContainer,
-  } from "../styles/styledComps";
+import { BackgroundContainer, MainContainer } from "../styles/styledComps";
   import Navbar from "../components/D3Components/Navbar/Navbar";
   import FAQS from "../components/D3Components/Resources/FAQInput";
   
