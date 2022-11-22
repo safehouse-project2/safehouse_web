@@ -1,7 +1,7 @@
 import AppText from "../AppText/AppText";
 import CircleIcon from "@mui/icons-material/Circle";
 import Face6Icon from "@mui/icons-material/Face6";
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { useState } from "react";
 
@@ -18,6 +18,7 @@ export default function Info({
   },
 }) {
   const [Favorite, setFavorite] = useState(true);
+
   return (
     <div className="flex flex-col gap-2 pt-3">
       <div className="flex pr-5 gap-14">
@@ -30,25 +31,23 @@ export default function Info({
           fontSize="18px"
           fontWeight="500"
         />
-        {
-          Favorite ?
-            <FavoriteBorderIcon
-              sx={{
-                color: 'grey',
-                cursor: 'pointer',
-              }}
-              onClick={() => setFavorite(!Favorite)}
-            />
-            :
-            <FavoriteIcon
-              sx={{
-                color: 'red',
-                cursor: 'pointer',
-              }}
-              onClick={
-                () => setFavorite(!Favorite)}
-            />
-        }
+        {Favorite ? (
+          <FavoriteBorderIcon
+            sx={{
+              color: "grey",
+              cursor: "pointer",
+            }}
+            onClick={() => setFavorite(!Favorite)}
+          />
+        ) : (
+          <FavoriteIcon
+            sx={{
+              color: "red",
+              cursor: "pointer",
+            }}
+            onClick={() => setFavorite(!Favorite)}
+          />
+        )}
       </div>
       <div className="flex flex-row gap-3">
         <AppText
@@ -70,7 +69,9 @@ export default function Info({
         />
         <CircleIcon sx={{ fontSize: 10, color: "#B38A58", margin: "5px" }} />
         <AppText
-          txt={state?.bathrooms ? `${state.bathrooms} bathrooms` : "No bathrooms"}
+          txt={
+            state?.bathrooms ? `${state.bathrooms} bathrooms` : "No bathrooms"
+          }
           fontSize="14px"
           fontWeight="400"
         />
@@ -86,7 +87,7 @@ export default function Info({
       <div className="flex mt-4 flex-row gap-3 items-center">
         <Face6Icon sx={{}} />
         <AppText
-          txt={"Hosted by " + "John"}
+          txt={`Hosted by ${state?.userName ? state.userName : ""}`}
           fontSize="16px"
           fontWeight="600"
         />
