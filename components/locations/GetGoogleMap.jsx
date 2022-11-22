@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Autocomplete from "../Autocomplete";
 import {
   GoogleMap,
   Marker,
@@ -9,11 +8,9 @@ import {
   DistanceMatrixService,
 } from "@react-google-maps/api";
 import Navbar from "../D3Components/Navbar/Navbar";
-import { useRouter } from "next/router";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import GetHostHome from "./GetHostHome";
 import Button from "../D3Components/Button/Button";
-import styled from "styled-components";
 
 const GetGoogleMap = ({
   hostInfo = {
@@ -140,7 +137,7 @@ const GetGoogleMap = ({
     justifyContent: "center",
     alignItems: "center",
     width: "100%",
-    height: "60vh",
+    height: "100vh",
     borderRadius: "15px",
     padding: 20,
   };
@@ -200,23 +197,23 @@ const GetGoogleMap = ({
         {fireMarkers ? fireMarkers : null}
         {isSearched
           ? postCenter.map((item, index) => {
-            return (
-              <div key={index}>
-                <Marker
-                  position={{
-                    lat: parseInt(item.lat),
-                    lng: parseInt(item.lng),
-                  }}
-                  icon={{
-                    url: "/current_location.svg",
-                    scaledSize: new window.google.maps.Size(40, 40),
-                    origin: new window.google.maps.Point(0, 0),
-                    anchor: new window.google.maps.Point(15, 15),
-                  }}
-                />
-              </div>
-            );
-          })
+              return (
+                <div key={index}>
+                  <Marker
+                    position={{
+                      lat: parseInt(item.lat),
+                      lng: parseInt(item.lng),
+                    }}
+                    icon={{
+                      url: "/current_location.svg",
+                      scaledSize: new window.google.maps.Size(40, 40),
+                      origin: new window.google.maps.Point(0, 0),
+                      anchor: new window.google.maps.Point(15, 15),
+                    }}
+                  />
+                </div>
+              );
+            })
           : null}
         <GetHostHome
           hostInfo={hostInfo}
