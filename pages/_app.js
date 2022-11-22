@@ -1,12 +1,10 @@
 import '../styles/globals.css';
-import Navbar from '../components/D3Components/Navbar/Navbar';
-
+import '../styles/blobz.css';
 function MyApp({ Component, pageProps }) {
   return (
-  <>
-  <Component {...pageProps} />
-  <Navbar />
-  </>
+    <>
+      <Component {...pageProps} />
+    </>
   )
 }
 

@@ -5,6 +5,7 @@ import ButtonGroup from "@material-ui/core/ButtonGroup";
 import { CounterBtn, CounterBtnVal } from '../../styles/styledComps';
 import { blue, yellow } from '@mui/material/colors';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { motion } from 'framer-motion'
 
 export default function FormRoomDetails({ formData, setFormData }) {
     const [counter, setCounter] = useState(0);
@@ -24,18 +25,23 @@ export default function FormRoomDetails({ formData, setFormData }) {
             },
         },
     });
+    console.log("formData", formData);
 
     return (
         <div className='flex flex-col text-[#f5f5f5] gap-10 justify-start items-start text-xl'>
-            <FormControl>
-                <div className='flex items-center justify-center gap-[120px]'>
+            <FormControl className='countersPostHome'>
+                <motion.div
+                    initial={{ opacity: 0, x: -100 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8, delay: 0 }}
+                    className='flex items-between justify-between'>
                     <label htmlFor="guests">Guests Allowed</label>
                     <ButtonGroup size="small" aria-label="small outlined button group">
                         <CounterBtn
                             variant='contained'
                             color='inherit'
                             text='black'
-                            onClick={(e) => setFormData({ ...formData, guests: formData.guests > 0 ? formData.guests - 1 : 0 })}
+                            onClick={(e) => setFormData({ ...formData, guests: Number(formData.guests) > 0 ? Number(formData.guests) - 1 : 0 })}
                         >
                             -
                         </CounterBtn>
@@ -48,22 +54,26 @@ export default function FormRoomDetails({ formData, setFormData }) {
                             variant='contained'
                             color='inherit'
                             text='black'
-                            onClick={(e) => setFormData({ ...formData, guests: formData.guests + 1 })}
+                            onClick={(e) => setFormData({ ...formData, guests: Number(formData.guests) + 1 })}
                         >+</CounterBtn>
                     </ButtonGroup>
-                </div>
+                </motion.div>
             </FormControl>
 
 
-            <FormControl>
-                <div className='flex items-center justify-center gap-[168px]'>
+            <FormControl className='countersPostHome'>
+                <motion.div
+                    initial={{ opacity: 0, x: -100 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8, delay: 0.1 }}
+                    className='flex items-between justify-between'>
                     <label htmlFor="bedrooms">Bedrooms</label>
                     <ButtonGroup size="small" aria-label="small outlined button group">
                         <CounterBtn
                             variant='contained'
                             color='inherit'
                             text='black'
-                            onClick={(e) => setFormData({ ...formData, bedrooms: formData.bathrooms > 0 ? formData.bedrooms - 1 : 0 })}
+                            onClick={(e) => setFormData({ ...formData, bedrooms: Number(formData.bedrooms) > 0 ? Number(formData.bedrooms) - 1 : 0 })}
                         >-</CounterBtn>
                         <CounterBtnVal
                             variant='contained'
@@ -76,22 +86,26 @@ export default function FormRoomDetails({ formData, setFormData }) {
                             variant='contained'
                             color='inherit'
                             text='black'
-                            onClick={(e) => setFormData({ ...formData, bedrooms: formData.bedrooms + 1 })}
+                            onClick={(e) => setFormData({ ...formData, bedrooms: Number(formData.bedrooms) + 1 })}
                         >+</CounterBtn>
                     </ButtonGroup>
-                </div>
+                </motion.div>
             </FormControl>
 
 
-            <FormControl>
-                <div className='flex items-center justify-center gap-[220px]'>
+            <FormControl className='countersPostHome'>
+                <motion.div
+                    initial={{ opacity: 0, x: -100 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    className='flex items-between justify-between '>
                     <label htmlFor="beds">Beds</label>
                     <ButtonGroup size="small" aria-label="small outlined button group">
                         <CounterBtn
                             variant='contained'
                             color='inherit'
                             text='black'
-                            onClick={(e) => setFormData({ ...formData, beds: formData.beds > 0 ? formData.beds - 1 : 0 })}
+                            onClick={(e) => setFormData({ ...formData, beds: Number(formData.beds) > 0 ? Number(formData.beds) - 1 : 0 })}
                         >-</CounterBtn>
                         <CounterBtnVal
                             variant='contained'
@@ -101,22 +115,26 @@ export default function FormRoomDetails({ formData, setFormData }) {
                             variant='contained'
                             color='inherit'
                             text='black'
-                            onClick={(e) => setFormData({ ...formData, beds: formData.beds + 1 })}
+                            onClick={(e) => setFormData({ ...formData, beds: Number(formData.beds) + 1 })}
                         >+</CounterBtn>
                     </ButtonGroup>
-                </div>
+                </motion.div>
             </FormControl>
 
 
-            <FormControl>
-                <div className='flex items-center justify-center gap-[157px]'>
+            <FormControl className='countersPostHome'>
+                <motion.div
+                    initial={{ opacity: 0, x: -100 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8, delay: 0.3 }}
+                    className='flex items-between justify-between '>
                     <label htmlFor="bathrooms">Bathrooms</label>
                     <ButtonGroup size="small" aria-label="small outlined button group">
                         <CounterBtn
                             variant='contained'
                             color='inherit'
                             text='black'
-                            onClick={(e) => setFormData({ ...formData, bathrooms: formData.bathrooms > 0 ? formData.bathrooms - 1 : 0 })}
+                            onClick={(e) => setFormData({ ...formData, bathrooms: Number(formData.bathrooms) > 0 ? Number(formData.bathrooms) - 1 : 0 })}
                         >-</CounterBtn>
                         <CounterBtnVal
                             variant='contained'
@@ -126,22 +144,26 @@ export default function FormRoomDetails({ formData, setFormData }) {
                             variant='contained'
                             color='inherit'
                             text='black'
-                            onClick={(e) => setFormData({ ...formData, bathrooms: formData.bathrooms + 1 })}
+                            onClick={(e) => setFormData({ ...formData, bathrooms: Number(formData.bathrooms) + 1 })}
                         >+</CounterBtn>
                     </ButtonGroup>
-                </div>
+                </motion.div>
             </FormControl>
 
 
-            <FormControl>
-                <div className='flex items-center justify-center gap-[190px]'>
+            <FormControl className='countersPostHome'>
+                <motion.div
+                    initial={{ opacity: 0, x: -100 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8, delay: 0.4 }}
+                    className='flex items-between justify-between '>
                     <label htmlFor="kitchen">Kitchen</label>
                     <ButtonGroup size="small" aria-label="small outlined button group">
                         <CounterBtn
                             variant='contained'
                             color='inherit'
                             text='black'
-                            onClick={(e) => setFormData({ ...formData, kitchen: formData.kitchen > 0 ? formData.kitchen - 1 : 0 })}
+                            onClick={(e) => setFormData({ ...formData, kitchen: Number(formData.kitchen) > 0 ? Number(formData.kitchen) - 1 : 0 })}
                         >-</CounterBtn>
                         <CounterBtnVal
                             variant='contained'
@@ -151,21 +173,25 @@ export default function FormRoomDetails({ formData, setFormData }) {
                             variant='contained'
                             color='inherit'
                             text='black'
-                            onClick={(e) => setFormData({ ...formData, kitchen: formData.kitchen + 1 })}>+</CounterBtn>
+                            onClick={(e) => setFormData({ ...formData, kitchen: Number(formData.kitchen) + 1 })}>+</CounterBtn>
                     </ButtonGroup>
-                </div>
+                </motion.div>
             </FormControl>
 
 
-            <FormControl>
-                <div className='flex items-center justify-center gap-[190px]'>
+            <FormControl className='countersPostHome'>
+                <motion.div
+                    initial={{ opacity: 0, x: -100 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8, delay: 0.5 }}
+                    className='flex items-between justify-between'>
                     <label htmlFor="parking">Parking</label>
                     <ButtonGroup size="small" aria-label="small outlined button group">
                         <CounterBtn
                             variant='contained'
                             color='inherit'
                             text='black'
-                            onClick={(e) => setFormData({ ...formData, parking: formData.parking > 0 ? formData.parking - 1 : 0 })}
+                            onClick={(e) => setFormData({ ...formData, parking: Number(formData.parking) > 0 ? Number(formData.parking) - 1 : 0 })}
                         >-</CounterBtn>
                         <CounterBtnVal
                             variant='contained'
@@ -175,10 +201,10 @@ export default function FormRoomDetails({ formData, setFormData }) {
                             variant='contained'
                             color='inherit'
                             text='black'
-                            onClick={(e) => setFormData({ ...formData, parking: formData.parking + 1 })}
+                            onClick={(e) => setFormData({ ...formData, parking: Number(formData.parking) + 1 })}
                         >+</CounterBtn>
                     </ButtonGroup>
-                </div>
+                </motion.div>
             </FormControl>
 
 

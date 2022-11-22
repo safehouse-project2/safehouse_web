@@ -10,6 +10,7 @@ const TextBox = styled(TextField)`
     padding: ${(props) => props.padding || "0px 0px 0px 0px"} !important;
     margin: ${(props) => props.margin || "0px 0px 0px 0px"} !important;
     background-color: ${(props) => props.backgroundColor || "#ECECEC"};
+    width: ${(props) => props.width || ""};
     max-width: ${(props) => props.maxWidth};
     max-height: ${(props) => props.maxHeight};
     font-family: 'Poppins', sans-serif;
@@ -36,6 +37,7 @@ export default function Input({
     placeholder = "",
     maxWidth = "",
     maxHeight = "",
+    width = "",
     margin = "0px 0px 0px 0px",
     padding = "0px 0px 0px 0px",
     icon = <SearchIcon />,
@@ -54,6 +56,7 @@ export default function Input({
             padding={padding}
             color={color}
             type={type}
+            width={width}
             backgroundColor={backgroundColor}
             defaultValue={defaultValue}
             maxWidth={maxWidth}

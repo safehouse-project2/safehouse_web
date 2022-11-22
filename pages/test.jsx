@@ -1,10 +1,5 @@
-import PlacesAutocomplete, {
-  geocodeByAddress,
-  getLatLng,
-} from "react-places-autocomplete";
-import { useState, useEffect } from "react";
-import Script from "next/script";
-// import Carousel from "../components/D3Components/Carousel/Carousel";
+import UploadImagePopover from "../components/D3Components/UploadImagePopover/UploadImagePopover";
+
 
 export default function Test() {
   // const [state, setState] = useState({ address: "" });
@@ -25,8 +20,55 @@ export default function Test() {
   // };
   return (
     <>
-      {/* <Carousel /> */}
+      <UploadImagePopover />
     </>
+
+
+
+
+  );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // <div>
     //   <Script
     //     strategy="beforeInteractive"
@@ -71,8 +113,7 @@ export default function Test() {
     //     )}
     //   </PlacesAutocomplete>
     // </div>
-  );
-}
+
 
 // import { useState, useEffect } from "react";
 // import PlacesAutocomplete, {
@@ -318,3 +359,5 @@ export default function Test() {
 //     </div>
 //   );
 // }
+
+

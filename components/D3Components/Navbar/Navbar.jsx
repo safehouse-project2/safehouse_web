@@ -9,20 +9,15 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Chat } from '@mui/icons-material';
 import HelpIcon from '@mui/icons-material/Help';
 import Paper from '@mui/material/Paper';
-import { createTheme } from '@mui/material/styles';
+import MapIcon from '@mui/icons-material/Map';
+import { styled } from '@mui/material/styles';
 
-
-const theme = createTheme({
-    palette: {
-        primary: {
-            main: '#ECECEC',
-        },
-        secondary: {
-            main: '#ECECEC',
-        },
-    },
-})
-
+const MyBottomNavigationAction = styled(BottomNavigationAction)(`
+  color: #666666;
+  &.Mui-selected {
+    color: #5581AA;
+  }
+`);
 
 export default function Navbar({
     onBtnClick = () => { },
@@ -35,58 +30,59 @@ export default function Navbar({
     const goToHome = () => {
         r.push("/userhome");
     }
-    const goToChat = () => {
-        r.push("/chat");
+    const goToMap = () => {
+        r.push("/map");
     }
     const goToHelp = () => {
         r.push("/resources");
     }
     const goToProfile = () => {
-        r.push("/profile");
+        r.push("/hosthome");
     }
+
     const [value, setValue] = React.useState(null);
     const ref = React.useRef(null);
-    const [color, setColor] = useState("#959595");
 
     React.useEffect(() => {
         ref.current.ownerDocument.body.scrollTop = 0;
     }, []);
 
-    if (r.pathname== ('/', '/host')){
+
+
+    if (r.pathname == ('/', '/host')) {
         return <div>
-            <Box ref={ref}/>
+            <Box ref={ref} />
         </div>
-    } else{
-    return (
-        <Box sx={{
-            borderRadius: "13px 13px 0px 0px",
-        }} ref={ref}>
-            <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
-                <BottomNavigation
-                    showLabels
-                    value={value}
-                    onChange={(event, newValue) => {
-                        setValue(newValue);
-                    }}
-                >
-                    <BottomNavigationAction label="Home" icon={<HomeIcon />} onClick={goToHome} sx={{
-                        // color: { homeColor },
-                    }} />
-                    <BottomNavigationAction label="Chat" icon={<Chat />} onClick={goToChat} sx={{
-                        // color: { chatColor },
-                    }} />
-                    <BottomNavigationAction label="Resources" icon={<HelpIcon />} onClick={goToHelp} sx={{
-                        // color: { helpColor },
-                    }} />
-                    <BottomNavigationAction label="Profile" icon={<AccountCircleIcon onClick={goToProfile} sx={{
-                        // color: { profileColor },
-                    }} />}
-                    />
-                </BottomNavigation>
-            </Paper>
-        </Box>
-    )
+    } else {
+        return (
+            <Box sx={{
+                borderRadius: "13px 13px 0px 0px",
+            }} ref={ref}>
+                <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
+                    <BottomNavigation
+                        showLabels
+                        value={r.pathname}
+                        onChange={(event, newValue) => {
+                            console.log(newValue);
+                            setValue(newValue);
+                        }}
+                    >
+                        <MyBottomNavigationAction label="Home" value={"/userhome"} icon={<HomeIcon />} onClick={goToHome} />
+                        <MyBottomNavigationAction label="Map" icon={<MapIcon />} value={"/map"} onClick={goToMap} />
+                        <MyBottomNavigationAction label="Resources" icon={<HelpIcon />} value={"/resources"} onClick={goToHelp} />
+                        <MyBottomNavigationAction label="Profile" icon={<AccountCircleIcon />} value={"/hosthome"} onClick={goToProfile} />
+                    </BottomNavigation>
+                </Paper>
+            </Box>
+        )
     }
 }
 
-// sx={{ borderRadius: '20px' }}
+const navStyles = {
+    inActive: {
+        color: "grey"
+    },
+    active: {
+        color: "red"
+    }
+};

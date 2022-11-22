@@ -1,22 +1,33 @@
 import React from 'react'
 import { FormControl, FormControlLabel, FormLabel, RadioGroup, Radio } from '@mui/material'
 import AppText from '../D3Components/AppText/AppText'
+import { motion } from 'framer-motion'
 
 export default function FormUtilityDetail({ formData, setFormData }) {
   return (
     <div className='flex flex-col gap-10'>
-      <AppText
-        txt='Utility Details (1/2)'
-        fontSize='24px'
-        color='#f5f5f5'
-      />
+      <motion.div
+        initial={{ opacity: 0, x: -100 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 0 }}
+      >
+        <AppText
+          txt='Utility Details (1/2)'
+          fontSize='24px'
+          color='#f5f5f5'
+        />
+      </motion.div>
 
       <div className='text-[#f5f5f5] utilityForm flex flex-col'>
-        <FormControl>
-
-          <div className='flex flex-col gap-2 mb-6'>
+        <FormControl className='utilityDetails'>
+          <motion.div className='flex flex-col gap-2 mb-6'
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+          >
             <FormLabel id="demo-radio-buttons-group-label">Do you provide with a Washer?</FormLabel>
             <RadioGroup
+              className='utilityDetails'
               aria-labelledby="demo-radio-buttons-group-label"
               value={formData.washer || "yes"}
               name="radio-buttons-group"
@@ -25,10 +36,14 @@ export default function FormUtilityDetail({ formData, setFormData }) {
               <FormControlLabel value="yes" control={<Radio />} label="Yes " />
               <FormControlLabel value="no" control={<Radio />} label="No" />
             </RadioGroup>
-          </div>
+          </motion.div>
 
 
-          <div className='flex flex-col gap-2 mb-6'>
+          <motion.div className='flex flex-col gap-2 mb-6'
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
             <FormLabel id="demo-radio-buttons-group-label">Do you provide with a Dryer ?</FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
@@ -39,10 +54,14 @@ export default function FormUtilityDetail({ formData, setFormData }) {
               <FormControlLabel value="yes" control={<Radio />} label="Yes " />
               <FormControlLabel value="no" control={<Radio />} label="No" />
             </RadioGroup>
-          </div>
+          </motion.div>
 
 
-          <div className='flex flex-col gap-2 mb-6'>
+          <motion.div className='flex flex-col gap-2 mb-6'
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
             <FormLabel id="demo-radio-buttons-group-label">Are pets allowed?</FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
@@ -53,10 +72,14 @@ export default function FormUtilityDetail({ formData, setFormData }) {
               <FormControlLabel value="yes" control={<Radio />} label="Yes " />
               <FormControlLabel value="no" control={<Radio />} label="No" />
             </RadioGroup>
-          </div>
+          </motion.div>
 
 
-          <div className='flex flex-col gap-2 mb-6'>
+          <motion.div className='flex flex-col gap-2 mb-6'
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
             <FormLabel id="demo-radio-buttons-group-label">Is smoking allowed ?</FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
@@ -67,7 +90,7 @@ export default function FormUtilityDetail({ formData, setFormData }) {
               <FormControlLabel value="yes" control={<Radio />} label="Yes " />
               <FormControlLabel value="no" control={<Radio />} label="No" />
             </RadioGroup>
-          </div>
+          </motion.div>
 
         </FormControl>
       </div>

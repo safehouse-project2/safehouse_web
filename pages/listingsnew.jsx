@@ -1,10 +1,10 @@
-/* DON'T FUCK WITH THIS PAGE PLEASE */
-/* DON'T FUCK WITH THIS PAGE PLEASE */
-/* DON'T FUCK WITH THIS PAGE PLEASE */
-/* DON'T FUCK WITH THIS PAGE PLEASE */
-/* DON'T FUCK WITH THIS PAGE PLEASE */
-/* DON'T FUCK WITH THIS PAGE PLEASE */
-/* DON'T FUCK WITH THIS PAGE PLEASE */
+/* DON'T MESS UP WITH THIS PAGE PLEASE */
+/* DON'T MESS UP WITH THIS PAGE PLEASE */
+/* DON'T MESS UP WITH THIS PAGE PLEASE */
+/* DON'T MESS UP WITH THIS PAGE PLEASE */
+/* DON'T MESS UP WITH THIS PAGE PLEASE */
+/* DON'T MESS UP WITH THIS PAGE PLEASE */
+/* DON'T MESS UP WITH THIS PAGE PLEASE */
 
 import Navbar from "../components/D3Components/Navbar/Navbar";
 import { CenterContainer } from "../styles/styledComps";
@@ -39,15 +39,17 @@ export default function Listings() {
                     />
                 </div>
             </CenterContainer>
-            <Navbar />
+            <Navbar
+                value="/listingsnew"
+            />
         </div>
     );
 }
 
-/* DON'T FUCK WITH THIS PAGE PLEASE */
-/* DON'T FUCK WITH THIS PAGE PLEASE */
-/* DON'T FUCK WITH THIS PAGE PLEASE */
-/* DON'T FUCK WITH THIS PAGE PLEASE */
-/* DON'T FUCK WITH THIS PAGE PLEASE */
-/* DON'T FUCK WITH THIS PAGE PLEASE */
-/* DON'T FUCK WITH THIS PAGE PLEASE */
+/* DON'T MESS UP WITH THIS PAGE PLEASE */
+/* DON'T MESS UP WITH THIS PAGE PLEASE */
+/* DON'T MESS UP WITH THIS PAGE PLEASE */
+/* DON'T MESS UP WITH THIS PAGE PLEASE */
+/* DON'T MESS UP WITH THIS PAGE PLEASE */
+/* DON'T MESS UP WITH THIS PAGE PLEASE */
+/* DON'T MESS UP WITH THIS PAGE PLEASE */

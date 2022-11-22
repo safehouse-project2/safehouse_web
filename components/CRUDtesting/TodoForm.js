@@ -3,8 +3,11 @@ import React, { useContext, useEffect, useRef } from 'react'
 import { collection, addDoc, serverTimestamp, updateDoc, doc} from 'firebase/firestore'
 import { db } from '../../firebase'
 import { CRUDContext } from '../../CRUDContext'
+import {useAuth} from '../../AuthContext/AuthContext'
 
 export default function TodoForm() {
+    const user = useAuth()
+    
     const inputAreaRef = useRef();
     // const [todo, setTodo] =useState({title:'', detail:''})
 

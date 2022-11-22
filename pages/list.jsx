@@ -1,3 +1,4 @@
+import { BackgroundContainer} from "../styles/styledComps";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import {
@@ -24,6 +25,10 @@ const List = () => {
       country: "",
       province: "",
       city: "",
+      guests: "",
+      bedrooms: "",
+      beds: "",
+      baths: "",
     },
   ]);
   const router = useRouter();
@@ -45,9 +50,11 @@ const List = () => {
   console.log(state);
 
   return (
+    <BackgroundContainer src="./homeBG.png">
     <>
       <PostList state={state} />
     </>
+    </BackgroundContainer>
   );
 };
 export default List;
