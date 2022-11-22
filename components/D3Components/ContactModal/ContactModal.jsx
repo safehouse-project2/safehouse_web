@@ -50,7 +50,7 @@ export default function ContactModal({
                     }}
                 >
                     <Fade in={open}>
-                        <Box sx={style}>
+                        <Box sx={style} className="mx-4">
                             <Typography id="transition-modal-title" variant="h6" component="h2">
                                 Contact <span>{ownerTxt}</span>
                             </Typography>

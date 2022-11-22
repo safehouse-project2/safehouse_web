@@ -143,8 +143,15 @@ export default function HostDetail({
                 initial={{ opacity: 0, y: 100 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0 }}
+                style={{
+                  backgroundImage: `url(${url})`,
+                  backgroundSize: "cover",
+                  borderRadius: "50%",
+                  width: "200px",
+                  height: "200px",
+                }}
               >
-                <img className="w-[200px] h-[200px] rounded-full" src={url} alt="profile picture" />
+                {/* <img className="w-[200px] h-[200px] rounded-full" src={url} alt="profile picture" /> */}
               </motion.div>
               <motion.div className="mt-[-20px] cursor-pointer"
                 initial={{ opacity: 0, y: 100 }}
