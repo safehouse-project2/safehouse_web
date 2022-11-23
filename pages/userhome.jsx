@@ -14,8 +14,7 @@ import { motion } from 'framer-motion'
 export default function UserHome({ data }) {
   const [isClicked, setIsClicked] = useState(false);
   const [isBothClicked, setIsBothClicked] = useState(false);
-  const [state, setState] = useState([
-  ]);
+  const [state, setState] = useState([]);
 
   useEffect(() => {
     const homeRef = collection(db, "homes");
