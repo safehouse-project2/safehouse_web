@@ -18,9 +18,13 @@ export default function quickLinks() {
                         subtitle="Quick links to our resources"
                         img="./resources3D.png"
                     />
-                    <div className="flex justify-center items-center">
+                    <motion.div className="flex justify-center items-center"
+                        initial={{ opacity: 0, y: 100 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.4 }}
+                    >
                         <QuickLinks />
-                    </div>
+                    </motion.div>
                     {/* <AccordionComp /> */}
                     <motion.div className="flex justify-center items-center pt-6"
                         initial={{ opacity: 0, y: 100 }}

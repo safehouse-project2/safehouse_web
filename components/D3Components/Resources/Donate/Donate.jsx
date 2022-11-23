@@ -7,8 +7,25 @@ import { motion } from 'framer-motion'
 import AppText from "../../AppText/AppText";
 import Navbar from "../../Navbar/Navbar";
 import InfoCard from "../InfoCard";
+import { useRef, useEffect } from "react";
 
 export default function Donate() {
+    const Link1 = useRef(null)
+    const Link2 = useRef(null)
+
+    useEffect(() => {
+        const Link1Cont = Link1.current
+        const Link2Cont = Link2.current
+
+        Link1Cont.addEventListener('click', () => {
+            window.open('https://uwbc.ca/campaign/wildfires/', '_blank')
+        })
+        Link2Cont.addEventListener('click', () => {
+            window.open('https://cofoodbank.com/', '_blank')
+        })
+    })
+
+
     const router = useRouter()
     return (
         <div className="overflow-x-auto bg-[#F0E6D9] h-[100vh] ">
@@ -21,28 +38,29 @@ export default function Donate() {
                             img="./support.png"
                         />
                     </div>
-                        <motion.div className="flex items-center gap-7 justify-center flex-row"
-                            initial={{ opacity: 0, y: 100 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.4 }}
-                        >
-                            <div className="flex justify-center items-center flex-col gap-5 text-center cardsContainer">
-                            <a href="https://uwbc.ca/campaign/wildfires/" target="_blank">
-                            <InfoCard 
-                            txt1="BC Wildfire Recovery Fund"
-                            txt2="uwbc.ca"
-                            />
-                            </a>
-
-                            <a href="https://cofoodbank.com/" target="_blank">
-                            <InfoCard 
-                            txt1="Central Okanagan Food Bank"
-                            txt2="Volunteer or donate food"
-                            />
-                            </a>
-                            
+                    <motion.div className="flex items-center gap-7 justify-center flex-row"
+                        initial={{ opacity: 0, y: 100 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.4 }}
+                    >
+                        <div className="flex justify-center items-center flex-col gap-5 text-center cardsContainer">
+                            <div ref={Link1}>
+                                <InfoCard
+                                    txt1="BC Wildfire Recovery Fund"
+                                    txt2="uwbc.ca"
+                                />
                             </div>
-                        </motion.div>
+
+                            <div ref={Link2}>
+                                <InfoCard
+                                    txt1="Central Okanagan Food Bank"
+                                    txt2="Volunteer or donate food"
+                                />
+                            </div>
+
+
+                        </div>
+                    </motion.div>
                     {/* <AccordionComp /> */}
                     <motion.div className="flex justify-center items-center pt-6"
                         initial={{ opacity: 0, y: 100 }}
