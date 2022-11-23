@@ -41,7 +41,7 @@ export default function Map() {
         },
     ]);
     return (
-        <div className="flex w-[90vw] m-auto">
+        <div className="flex w-[100vw] m-auto">
             {/* <Image
               onImgClick={() => r.push("/evacuee")}
               src="/fire_map.png"
@@ -50,7 +50,8 @@ export default function Map() {
               borderRadius="10px"
               // setFiremap={setFiremap}
             /> */}
-            <StyledGoogleMap
+            <p className="absolute">Hello</p>
+            <GetGoogleMap
                 hostInfo={state}
                 isClicked={isClicked}
                 isBothClicked={isBothClicked}

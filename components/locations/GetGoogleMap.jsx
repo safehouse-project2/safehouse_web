@@ -11,7 +11,12 @@ import Navbar from "../D3Components/Navbar/Navbar";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import GetHostHome from "./GetHostHome";
 import Button from "../D3Components/Button/Button";
+import styled from "styled-components";
 
+const GoogleMapStyle = styled(GoogleMap)`
+  width: ${props => props.width || "100vw"};
+  height: ${props => props.height || "100vh"};
+`
 const GetGoogleMap = ({
   hostInfo = {
     lat: "",
@@ -19,6 +24,9 @@ const GetGoogleMap = ({
   },
   isClicked = false,
   isBothClicked = false,
+  btnState = false,
+  width = "100vw",
+  height = "100vh",
 }) => {
   const [locationInfo, setLocationInfo] = useState(null);
   const nasaApiKey = process.env.NEXT_PUBLIC_NASA_API;
@@ -136,8 +144,8 @@ const GetGoogleMap = ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    width: "100%",
-    height: "100vh",
+    width: `${width}`,
+    height: `${height}`,
     borderRadius: "15px",
     padding: 20,
   };
@@ -147,23 +155,28 @@ const GetGoogleMap = ({
   }
   if (!isLoaded) return <div>Loading Maps</div>;
 
-  return (
-    <div className="mb-[80px]">
+  return (<>
+    <div className="z-[999]">
       <Navbar />
+    </div>
+    <div className="w-[100vw]" >
       <form onSubmit={onSubmitHandler}>
         {/* <div> */}
         {/* <Autocomplete postCenter={postCenter} setPostCenter={setPostCenter} /> */}
         <div className="rounded-lg w-[90vw]">
-          <Button
-            txt="Get my current location"
-            onBtnClick={findmylocation}
-            backgroundColor="#5581AA"
-            borderRadius="10px"
-            fontSize="14px"
-            margin="15px 0px"
-            endIcon={<LocationOnIcon />}
-            hoverColor="#466c8f"
-          />
+          {
+            btnState ?
+              <Button
+                txt="Get my current location"
+                onBtnClick={findmylocation}
+                backgroundColor="#5581AA"
+                borderRadius="10px"
+                fontSize="14px"
+                margin="15px 0px"
+                endIcon={<LocationOnIcon />}
+                hoverColor="#466c8f"
+              /> : null
+          }
           {/* </div> */}
           {/* <Input placeholder="Search Places" label="" /> */}
           {/* <div>
@@ -193,27 +206,27 @@ const GetGoogleMap = ({
         </button> */}
       </form>
 
-      <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={5}>
+      <GoogleMapStyle mapContainerStyle={containerStyle} center={center} zoom={5} width={width} height={height}>
         {fireMarkers ? fireMarkers : null}
         {isSearched
           ? postCenter.map((item, index) => {
-              return (
-                <div key={index}>
-                  <Marker
-                    position={{
-                      lat: parseInt(item.lat),
-                      lng: parseInt(item.lng),
-                    }}
-                    icon={{
-                      url: "/current_location.svg",
-                      scaledSize: new window.google.maps.Size(40, 40),
-                      origin: new window.google.maps.Point(0, 0),
-                      anchor: new window.google.maps.Point(15, 15),
-                    }}
-                  />
-                </div>
-              );
-            })
+            return (
+              <div key={index}>
+                <Marker
+                  position={{
+                    lat: parseInt(item.lat),
+                    lng: parseInt(item.lng),
+                  }}
+                  icon={{
+                    url: "/current_location.svg",
+                    scaledSize: new window.google.maps.Size(40, 40),
+                    origin: new window.google.maps.Point(0, 0),
+                    anchor: new window.google.maps.Point(15, 15),
+                  }}
+                />
+              </div>
+            );
+          })
           : null}
         <GetHostHome
           hostInfo={hostInfo}
@@ -257,8 +270,9 @@ const GetGoogleMap = ({
             }}
           />
         ) : null}
-      </GoogleMap>
+      </GoogleMapStyle>
     </div>
+  </>
   );
 };
 export default GetGoogleMap;

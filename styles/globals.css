@@ -63,6 +63,7 @@ body, html, *{
     background-color: #ff1111;
 }
 
+
 @media (max-width: 992px) {
     .parentWelcome{
         flex-direction: column;
@@ -97,3 +98,8 @@ body, html, *{
        place-items: center;
     }
 }
+/* @media (max-width: 600px){
+    .googleMapCont{
+        width: 70%;
+    }
+} */

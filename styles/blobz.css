@@ -25,11 +25,11 @@
 }
 
 .blob-1{
-  fill: var(--fill, #fffa6b);
+  fill: var(--fill, #B38A58);
 }
 
 .blob-2{
-  fill: var(--fill, #ff6b6b);
+  fill: var(--fill, #F0E6D9);
 }
 
 @keyframes blob-turn {
