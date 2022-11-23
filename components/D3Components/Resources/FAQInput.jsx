@@ -18,29 +18,33 @@ export default function FAQS() {
         <div className="flex flex-col pb-20 px-4 gap-3">
             <FAQCard
                 txt1="What is SafeHouse?"
-                txt2="SafeHouse is an idea that originated from the increase of  Wildfires across interior BC. With this problem causing more damage each year, 
-                we wanted to find a digital solution to help those in need.The application will provide a map in which icons will appear in locations where 
-                accommodations are available. Those willing to offer a space can register their home as a “Safe House”.  Information such as space, whereabouts, 
-                and contact will be provided to create an efficient process to get others to a secure place in disaster situations."
+                txt2="SafeHouse is a solution to help evacuees connect with hosts who provide accommodations during an evacuation order. 
+                Those willing to offer a space can register their space as a “Safe House”. Listings appear on a map with information 
+                such as amount of space, whereabouts, and contact to create an efficient process to get others to a secure place in disaster situations"
             />
             <FAQCard 
                 txt1="What is SafeHouse's Mission?"
-                txt2="SafeHouse’s mission is to streamline the evacuation process for evacuees to find safe places to stay during an evacuation order."
+                txt2="SafeHouse's mission is to streamline the evacuation process for evacuees to find safe places to stay during an evacuation order."
             />
             <FAQCard 
-                txt1="The Problem"
-                txt2="Over the last few years, the heat in Canada has increased to intense temperatures over the summer months. Districts like the Thompson-Nicola 
-                Valley have very dry environments which are at the highest risk. In 2018, the worst year for wildfires, more than 1.3 million hectares of BC Forests 
-                were lost. Last year the number hit 870,000 go hectares burned. Wildfires not only affect our forestry and environment but have caused disasters across 
-                many communities and homes. 21,000 properties were under an evacuation alert last year with 181 evacuation orders implemented."
+                txt1="What problem does SafeHouse help solve?"
+                txt2="Last year 21,000 properties were under an evacuation alert last year with 181 evacuation orders implemented. 
+                When evacuation orders are in place, many need to find a place to stay and others in surrounding communities want 
+                to reach out and help. Currently there is no process to connect evacuees to those who can offer help.
+                SafeHouse bridges this gap between host and evacuee."
+            />
+            <FAQCard
+                txt1="How can I help evacuees?"
+                txt2="Offering space to evacuees doesn't have to be much. This can range from anyting to a couch or even backyard space."
+            />
+            <FAQCard
+                txt1="What are the safty measures for SafeHouse?"
+                txt2="Hosts must verify their identity using a driver's license or equivalent ID and be a British Columbia citizen. 
+                Evacuees must be registered as an evacuee using their BC services card before accessing SafeHouse."
             />
             <FAQCard
                 txt1="What do I Need to Become a Host?"
                 txt2="Your Full Name, Contact Information, Address, Home Details and Images, and you BC Services Card and ID."
-            />
-            <FAQCard
-                txt1="What are SafeHouse's Main Features"
-                txt2="Interactive map with wildfires and SafeHouse data. Home listings made by host. Help section with resources, info, and FAQs"
             />
           </div>
     </div>
