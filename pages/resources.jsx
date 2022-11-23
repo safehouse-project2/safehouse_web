@@ -7,6 +7,8 @@ import UpperHalf from "../components/D3Components/Resources/UpperHalf";
 import Cards from "../components/D3Components/Resources/Cards";
 
 export default function resources() {
+
+
   return (
     <div className="overflow-x-auto">
       <BackgroundContainer src="blobBG.svg">
