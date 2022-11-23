@@ -22,6 +22,7 @@ export const BackgroundContainer = styled.div`
     background-position: center;
     background-repeat: no-repeat;
     display: flex;
+    position: ${(props) => props.position || ""};
     justify-content: center;
     backdrop-filter: ${(props) => props.backdropFilter || "none"};
 `
