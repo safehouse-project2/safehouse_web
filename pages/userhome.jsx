@@ -15,35 +15,6 @@ export default function UserHome({ data }) {
   const [isClicked, setIsClicked] = useState(false);
   const [isBothClicked, setIsBothClicked] = useState(false);
   const [state, setState] = useState([
-    {
-      homeType: "",
-      description: "",
-
-      addressLine1: "",
-      addressLine2: "",
-      city: "",
-      province: "",
-      postalCode: "",
-
-      guests: 0,
-      bedrooms: 0,
-      beds: 0,
-      bathrooms: 0,
-      kitchen: 0,
-      parking: 0,
-
-      washer: "yes",
-      dryer: "yes",
-      petsAllowed: "yes",
-      smokingAllowed: "yes",
-
-      wifi: "yes",
-      tv: "yes",
-      airConditioning: "yes",
-      heating: "yes",
-
-      image: "",
-    },
   ]);
 
   useEffect(() => {
