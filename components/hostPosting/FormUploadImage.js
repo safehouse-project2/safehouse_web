@@ -9,11 +9,15 @@ import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
 import ClearAllIcon from '@mui/icons-material/ClearAll';
 import { motion } from 'framer-motion'
 
-export default function FormUploadImage({ formData, setFormData }) {
+export default function FormUploadImage({ formData, setFormData, imgsSrc, setImgsSrc }) {
   const [attachment, setAttachment] = useState()
   const [file, setFile] = useState("")
-
-  const [imgsSrc, setImgsSrc] = useState([]);
+ 
+  useEffect(() => {
+    if (formData.images) {
+      setImgsSrc(formData.images)
+    }
+  }, [])
 
   const onFileChange = (e) => {
     setFile(e.target.files[0]);
