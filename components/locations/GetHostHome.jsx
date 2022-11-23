@@ -1,10 +1,4 @@
-import {
-  GoogleMap,
-  Marker,
-  InfoWindow,
-  useLoadScript,
-  DistanceMatrixService,
-} from "@react-google-maps/api";
+import { Marker, InfoWindow } from "@react-google-maps/api";
 import Button from "../D3Components/Button/Button";
 import { useState } from "react";
 
