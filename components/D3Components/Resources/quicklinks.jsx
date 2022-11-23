@@ -1,38 +1,56 @@
-import AppText from "../AppText/AppText"
-import { useEffect, useRef } from "react"
+import AppText from "../AppText/AppText";
+import { useEffect, useRef } from "react";
+import Card from '../Cards/Card';
+
 
 export default function QuickLinks() {
 
-    const Loc1 = () => {
-        window.open("https://www2.gov.bc.ca/gov/content/safety/emergency-management", "_blank")
-    }
+    // const Loc1 = () => {
+    //     window.open("https://www2.gov.bc.ca/gov/content/safety/emergency-management", "_blank")
+    // }
 
-    const Loc2 = () => {
-        window.open("https://www2.gov.bc.ca/gov/content/safety/wildfire-status", "_blank")
-    }
+    // const Loc2 = () => {
+    //     window.open("https://www2.gov.bc.ca/gov/content/safety/wildfire-status", "_blank")
+    // }
 
-    const Loc3 = () => {
-        window.open("https://ess.gov.bc.ca/", "_blank")
-    }
+    // const Loc3 = () => {
+    //     window.open("https://ess.gov.bc.ca/", "_blank")
+    // }
 
-    const EmMgmntRef = useRef(null);
-    const BcWildFireService = useRef(null);
-    const ERA = useRef(null);
+    // const Loc4 = () => {
+    //     window.open("https://www2.gov.bc.ca/assets/gov/public-safety-and-emergency-services/emergency-preparedness-response-recovery/embc/preparedbc/preparedbc-guides/wildfire_preparedness_guide.pdf", "_blank")
+    // }
 
-    useEffect(() => {
-        const FirstLinkCont = EmMgmntRef.current;
-        const SecondLinkCont = BcWildFireService.current;
-        const ThirdLinkCont = ERA.current;
+    // const EmMgmntRef = useRef(null);
+    // const BcWildFireService = useRef(null);
+    // const ERA = useRef(null);
+    // const PrepareGuide = useRef(null);
 
-        FirstLinkCont.addEventListener('click', Loc1);
-        SecondLinkCont.addEventListener('click', Loc2)
-        ThirdLinkCont.addEventListener('click', Loc3)
-    })
+    // useEffect(() => {
+    //     const FirstLinkCont = EmMgmntRef.current;
+    //     const SecondLinkCont = BcWildFireService.current;
+    //     const ThirdLinkCont = ERA.current;
+    //     const FourthLinkCont = PrepareGuide.current;
+
+    //     FirstLinkCont.addEventListener('click', Loc1);
+    //     SecondLinkCont.addEventListener('click', Loc2);
+    //     ThirdLinkCont.addEventListener('click', Loc3);
+    //     FourthLinkCont.addEventListener('click', Loc4);
+    // })
 
     return (
         <div className="flex flex-col justify-start items-start gap-[30px]">
             <div className="flex flex-col">
-                <AppText
+            <div>
+            <Card
+              src="assistance.jpg"
+              title='Wildfire Assistance'
+              description='Resources for more information to help keep yourself safe'
+              btnText1='BC Wildfire Service'
+              btnText2='Emergency Management BC'
+              />   
+            </div>
+                {/* <AppText
                     fontSize="20px"
                     fontWeight="bold"
                     color="#20514B"
@@ -47,22 +65,41 @@ export default function QuickLinks() {
                 </div>
                 <div ref={ERA}>
                     <AppText txt="Evacuee Registration & Assistance (ERA)" textDecoration="underline" />
-                </div>
+                </div> */}
 
 
             </div>
 
             <div className="flex flex-col">
-                <AppText
+                {/* <AppText
                     fontSize="20px"
                     fontWeight="bold"
                     color="#20514B"
                     txt="Wildfire Preparedness:"
                 />
-                <AppText txt="Wildfire Preparedness Guide.pdf" />
-                <AppText txt="FireSmartBC.ca" />
-                <AppText txt="Provinical Health Services Authority.ca" />
-                <AppText txt="FireSmart Homeowner's Manual.pdf" />
+                <div ref={PrepareGuide}>
+                    <AppText txt="Wildfire Preparedness Guide.pdf" textDecoration="underline" />
+                </div>
+                <div>
+                <AppText txt="FireSmartBC.ca" textDecoration="underline"/>
+                </div>
+                <div>
+                <AppText txt="Provinical Health Services Authority.ca" textDecoration="underline"/>
+                </div>
+                <div>
+                <AppText txt="FireSmart Homeowner's Manual.pdf" textDecoration="underline" />
+                </div> */}
+
+                <Card
+                src="backpack.jpg"
+                title='Wildfire Preparedness'
+                description='dditonal resources to help prepare yourself in an event of an evacuation'
+                btnText1='FireSmartBC.ca'
+                btnText2='PreparedBC'
+                btnText3='Wildfire Preparedness Guide'
+                //btnText4='Provinical Health Services Authority'
+                />   
+          
             </div>
 
             <div className="flex flex-col">
@@ -76,6 +113,7 @@ export default function QuickLinks() {
                 <AppText txt="Emergency Operations Centre (EOC): 250-490-4225" />
                 <AppText txt="Emergency Support Services (ESS) for Evacuees: 250-486-1890" />
             </div>
+            
         </div>
     )
 }
