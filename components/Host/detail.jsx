@@ -90,8 +90,8 @@ export default function HostDetail({
       setImageUpload(e.target.files[0])
       const i = e.target.files[0];
       setUrl(URL.createObjectURL(i));
-      setOpen(false)
-      setUploadOpen(true)
+      setOpen(false);
+      setUploadOpen(false)
     }
   }
 
@@ -127,6 +127,7 @@ export default function HostDetail({
         })
       }
     })
+    setOpen(false);
     setUploadOpen(false)
   }
 
@@ -194,6 +195,7 @@ export default function HostDetail({
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >Hope you are having a great day!
+
         </motion.p>
         <motion.p className="text-gray-500"
           initial={{ opacity: 0, y: 100 }}
