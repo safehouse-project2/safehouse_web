@@ -1,16 +1,23 @@
 import AppText from "../AppText/AppText"
 import QuickLinks from "./quicklinks";
 import InfoCard from "./InfoCard"
-import { useEffect, useRef,} from "react";
+import { useEffect, useRef, } from "react";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ModeStandbyOutlined } from "@mui/icons-material";
+import FAQ from "./FAQ/FAQ";
+import { useRouter } from "next/router";
 
 export default function Cards() {
+    const r = useRouter()
+
+    const [faq, setFaq] = useState(false);
+    const [mainResources, setMainResources] = useState(true);
+
     // routes
-    const card1Route = () => {
-        window.open('/faq',);
-    }
+    // const card1Route = () => {
+    //     window.open('/faq',);
+    // }
 
     const card2Route = () => {
         setLinks(true);
@@ -26,26 +33,29 @@ export default function Cards() {
     const card3Ref = useRef(null);
 
     useEffect(() => {
-        const card1Element = card1Ref.current;
-        const card2Element = card2Ref.current;
-        const card3Element = card3Ref.current;
+        // const card1Element = card1Ref.current;
+        // const card2Element = card2Ref.current;
+        // const card3Element = card3Ref.current;
 
-        card1Element.addEventListener('click', card1Route);
-        card2Element.addEventListener('click', card2Route);
-        card3Element.addEventListener('click', card3Route);
+        // card1Element.addEventListener('click', card1Route);
+        // card2Element.addEventListener('click', card2Route);
+        // card3Element.addEventListener('click', card3Route);
     })
 
     const [links, setLinks] = useState(false);
     const [support, setSupport] = useState(false);
     // const [cards, setCards] = useState(true);
 
-    useState()
-    // useState()
+    const showFaq = () => {
+        setFaq(true);
+        setMainResources(false);
+    }
 
     return (
         <>
+
             <div className="flex justify-center items-center flex-col gap-5 text-center cardsContainer">
-            {/* {cards ? <> */}
+                {/* {cards ? <> */}
                 {/* resource "menu" */}
                 <motion.div
                     initial={{ opacity: 0, y: 100 }}
@@ -58,10 +68,11 @@ export default function Cards() {
                     />
                 </motion.div>
 
-                <motion.div ref={card1Ref}
+                <motion.div
                     initial={{ opacity: 0, y: 100 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
+                    onClick={() => r.push('/faq')}
                 >
                     <InfoCard
                         txt1="FAQ"
@@ -69,10 +80,11 @@ export default function Cards() {
                     />
                 </motion.div>
 
-                <motion.div ref={card2Ref}
+                <motion.div
                     initial={{ opacity: 0, y: 100 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.5 }}
+                    onClick={() => r.push('/quickLinks')}
                 >
                     <InfoCard
                         txt1="Resources"
@@ -80,43 +92,19 @@ export default function Cards() {
                     />
                 </motion.div>
 
-                <motion.div ref={card3Ref}
+                <motion.div
                     initial={{ opacity: 0, y: 100 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.6 }}
+                    onClick={() => r.push('/support')}
                 >
                     <InfoCard
                         txt1="Support"
-                        txt2="Contect the SafeHouse Team"
+                        txt2="Contact the SafeHouse Team"
                     />
                 </motion.div>
-                {/* </> : null}; */}
 
-
-                {links ? 
-                    <motion.div ref={card2Ref}
-                        initial={{ opacity: 0, y: 100 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.5 }}
-                    >
-                    <QuickLinks/>
-                </motion.div> : null}
-
-                {support ?
-                    <motion.div ref={card2Ref}
-                     initial={{ opacity: 0, y: 100 }}
-                     animate={{ opacity: 1, y: 0 }}
-                     transition={{ duration: 0.8, delay: 0.5 }}
-                    > 
-                        <AppText 
-                        fontSize="20px"
-                        fontWeight="bold"
-                        color="#20514B" 
-                        txt="Email: hello@safehouseapp.ca"/> 
-                    </motion.div>
-                : null}
-
-            </div>
+            </div >
         </>
     )
 }
