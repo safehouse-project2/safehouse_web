@@ -40,8 +40,12 @@ export default function FormAddressDetail({ formData, setFormData, state, setSta
             transition={{ duration: 0.8, delay: 0 }}
           >
             <label htmlFor="addressLine1" className='text-[#f5f5f5] text-[18px]'>Address Line 1</label>
+            {/*    value={addressAry[addressAry.length - 2]?.split(" ")[0] ? addressAry[addressAry.length - 2].split(" ")[0] : formData.province}
+                onChange={(e) =>
+                  setFormData({ ...formData, province: e.target.value })
+                } */}
             <PlacesAutocomplete
-              value={state.address.split(",")[0]}
+              value={state.address && state.address.split(",")[0]}
               onChange={address => setState({ address })}
               onSelect={handleSelect}
             >
@@ -65,6 +69,7 @@ export default function FormAddressDetail({ formData, setFormData, state, setSta
                     name="addressLine1"
                     id="addressLine1"
                     variant='outlined'
+                    value={addressAry[0] ? addressAry[0] : formData.addressLine1}
                     placeholder='Address Line 1'
                     required
                   />
@@ -247,12 +252,7 @@ export default function FormAddressDetail({ formData, setFormData, state, setSta
                 onChange={(e) =>
                   setFormData({ ...formData, postalCode: e.target.value })
                 }
-                onSelect={() => setFormData({
-                  ...formData,
-                  addressLine1: addressAry[0] ? addressAry[0] : state.address,
-                  city: addressAry[addressAry.length - 3] ? addressAry[addressAry.length - 3] : formData.city,
-                  province: addressAry[addressAry.length - 2] ? addressAry[addressAry.length - 2] : formData.province
-                })}
+
               />
             </div>
           </motion.div>
