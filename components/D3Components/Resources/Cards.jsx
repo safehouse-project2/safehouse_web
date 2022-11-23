@@ -1,22 +1,25 @@
 import AppText from "../AppText/AppText"
+import QuickLinks from "./quicklinks";
 import InfoCard from "./InfoCard"
-import { useEffect, useRef } from "react";
-import { motion } from "framer-motion"
+import { useEffect, useRef,} from "react";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { ModeStandbyOutlined } from "@mui/icons-material";
 
 export default function Cards() {
     // routes
     const card1Route = () => {
-        window.open('https://firesmartbc.ca', '_blank');
+        window.open('/faq',);
     }
 
     const card2Route = () => {
-        window.open('https://www2.gov.bc.ca/assets/gov/public-safety-and-emergency-services/emergency-preparedness-response-recovery/embc/preparedbc/preparedbc-guides/wildfire_preparedness_guide.pdf', '_blank');
+        setLinks(true);
+        // setCards(false);
     }
 
     const card3Route = () => {
-        window.open('https://www2.gov.bc.ca/gov/content/safety/wildfire-status', '_blank');
+        setSupport(true);
     }
-
 
     const card1Ref = useRef(null);
     const card2Ref = useRef(null);
@@ -31,9 +34,19 @@ export default function Cards() {
         card2Element.addEventListener('click', card2Route);
         card3Element.addEventListener('click', card3Route);
     })
+
+    const [links, setLinks] = useState(false);
+    const [support, setSupport] = useState(false);
+    // const [cards, setCards] = useState(true);
+
+    useState()
+    // useState()
+
     return (
         <>
             <div className="flex justify-center items-center flex-col gap-5 text-center cardsContainer">
+            {/* {cards ? <> */}
+                {/* resource "menu" */}
                 <motion.div
                     initial={{ opacity: 0, y: 100 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -51,8 +64,8 @@ export default function Cards() {
                     transition={{ duration: 0.8, delay: 0.4 }}
                 >
                     <InfoCard
-                        txt1="FireSmartBC.ca"
-                        txt2="Fire safety preparedness"
+                        txt1="FAQ"
+                        txt2="Frequently Asked Questions"
                     />
                 </motion.div>
 
@@ -62,8 +75,8 @@ export default function Cards() {
                     transition={{ duration: 0.8, delay: 0.5 }}
                 >
                     <InfoCard
-                        txt1="Wildfire Preparedness Guide"
-                        txt2="by The BC Goverment"
+                        txt1="Resources"
+                        txt2="Quick links to any additional information you need"
                     />
                 </motion.div>
 
@@ -73,10 +86,36 @@ export default function Cards() {
                     transition={{ duration: 0.8, delay: 0.6 }}
                 >
                     <InfoCard
-                        txt1="BC Goverment Wildfire Service"
-                        txt2="Wildfire and evacuation statuses with news and updates"
+                        txt1="Support"
+                        txt2="Contect the SafeHouse Team"
                     />
                 </motion.div>
+                {/* </> : null}; */}
+
+
+                {links ? 
+                    <motion.div ref={card2Ref}
+                        initial={{ opacity: 0, y: 100 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.5 }}
+                    >
+                    <QuickLinks/>
+                </motion.div> : null}
+
+                {support ?
+                    <motion.div ref={card2Ref}
+                     initial={{ opacity: 0, y: 100 }}
+                     animate={{ opacity: 1, y: 0 }}
+                     transition={{ duration: 0.8, delay: 0.5 }}
+                    > 
+                        <AppText 
+                        fontSize="20px"
+                        fontWeight="bold"
+                        color="#20514B" 
+                        txt="Email: hello@safehouseapp.ca"/> 
+                    </motion.div>
+                : null}
+
             </div>
         </>
     )
