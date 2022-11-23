@@ -104,6 +104,18 @@ export default function Cards() {
                     />
                 </motion.div>
 
+                <motion.div
+                    initial={{ opacity: 0, y: 100 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.6 }}
+                    onClick={() => r.push('/donate')}
+                >
+                    <InfoCard
+                        txt1="Donate"
+                        txt2="Can't offer a space? There are other ways to help!"
+                    />
+                </motion.div>
+
             </div >
         </>
     )
