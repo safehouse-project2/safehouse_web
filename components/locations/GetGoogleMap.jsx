@@ -11,12 +11,8 @@ import Navbar from "../D3Components/Navbar/Navbar";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import GetHostHome from "./GetHostHome";
 import Button from "../D3Components/Button/Button";
-import styled from "styled-components";
+import Loading from "../D3Components/Loading/Loading";
 
-const GoogleMapStyle = styled(GoogleMap)`
-  width: ${props => props.width || "100vw"};
-  height: ${props => props.height || "100vh"};
-`;
 const GetGoogleMap = ({
   hostInfo = {
     lat: "",
@@ -153,7 +149,7 @@ const GetGoogleMap = ({
   if (loadError) {
     return "Error loading maps";
   }
-  if (!isLoaded) return <div>Loading Maps</div>;
+  if (!isLoaded) return <Loading />;
 
   return (
     <>
@@ -206,7 +202,7 @@ const GetGoogleMap = ({
         </button> */}
         </form>
 
-        <GoogleMapStyle
+        <GoogleMap
           mapContainerStyle={containerStyle}
           center={center}
           zoom={5}
@@ -216,23 +212,23 @@ const GetGoogleMap = ({
           {fireMarkers ? fireMarkers : null}
           {isSearched
             ? postCenter.map((item, index) => {
-                return (
-                  <div key={index}>
-                    <Marker
-                      position={{
-                        lat: parseInt(item.lat),
-                        lng: parseInt(item.lng),
-                      }}
-                      icon={{
-                        url: "/current_location.svg",
-                        scaledSize: new window.google.maps.Size(40, 40),
-                        origin: new window.google.maps.Point(0, 0),
-                        anchor: new window.google.maps.Point(15, 15),
-                      }}
-                    />
-                  </div>
-                );
-              })
+              return (
+                <div key={index}>
+                  <Marker
+                    position={{
+                      lat: parseInt(item.lat),
+                      lng: parseInt(item.lng),
+                    }}
+                    icon={{
+                      url: "/current_location.svg",
+                      scaledSize: new window.google.maps.Size(40, 40),
+                      origin: new window.google.maps.Point(0, 0),
+                      anchor: new window.google.maps.Point(15, 15),
+                    }}
+                  />
+                </div>
+              );
+            })
             : null}
           <GetHostHome
             hostInfo={hostInfo}
@@ -276,7 +272,7 @@ const GetGoogleMap = ({
               }}
             />
           ) : null}
-        </GoogleMapStyle>
+        </GoogleMap>
       </div>
     </>
   );

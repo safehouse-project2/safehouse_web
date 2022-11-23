@@ -11,6 +11,7 @@ import { v4 } from 'uuid'
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import UploadImagePopover from "../D3Components/UploadImagePopover/UploadImagePopover";
 import { motion } from 'framer-motion'
+import Loading from "../D3Components/Loading/Loading";
 
 export default function HostDetail({
   state = [{ userId: "" }, { userId: "" }],
@@ -27,6 +28,7 @@ export default function HostDetail({
   const router = useRouter()
   const [data, setData] = useState(state);
   const [open, setOpen] = useState(false);
+  const { loading, setLoading } = useState(false)
 
   const [url, setUrl] = useState(currentUser?.photoURL);
   const [uploadOpen, setUploadOpen] = useState(false);
@@ -217,37 +219,40 @@ export default function HostDetail({
             <Button txt="Add new" fontSize="16px" borderRadius="4px" endIcon={<AddBoxIcon />} onBtnClick={() => router.push('/PostHome')} />
           </motion.div>
         </div>
-        {data.length > 0 ? (
-          data.map(item => (
-            <div className="flex flex-col max-w-[400px] pb-4">
-              <motion.div
-                initial={{ opacity: 0, y: 100 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.7 }}
-              >
-                <ReservationBox key={item.id} data={data} post={item} />
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 100 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.8 }}
-              >
-                <AppText
-                  key={item.userId}
-                  txt={
-                    data?.length
-                      ? findCurrentPage(item.id) + 1 + "/" + data.length
-                      : "1/7"
-                  }
-                  color="#cdcdcd"
-                  fontSize="12px"
-                />
-              </motion.div>
-            </div>
-          ))
-        ) : (
-          <AppText txt="You have no postings" fontSize="16px" />
-        )}
+        {
+
+          data.length > 0 ? (
+            data.map(item => (
+              // show loading screen first for 2 seconds then show the data
+              <div className="flex flex-col max-w-[400px] pb-4">
+                <motion.div
+                  initial={{ opacity: 0, y: 100 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.7 }}
+                >
+                  <ReservationBox key={item.id} data={data} post={item} />
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 100 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.8 }}
+                >
+                  <AppText
+                    key={item.userId}
+                    txt={
+                      data?.length
+                        ? findCurrentPage(item.id) + 1 + "/" + data.length
+                        : "1/7"
+                    }
+                    color="#cdcdcd"
+                    fontSize="12px"
+                  />
+                </motion.div>
+              </div>
+            ))
+          ) : (
+            <AppText txt="You have no postings" fontSize="16px" />
+          )}
       </div>
     </div >
   );
