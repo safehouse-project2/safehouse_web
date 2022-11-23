@@ -16,7 +16,7 @@ import styled from "styled-components";
 const GoogleMapStyle = styled(GoogleMap)`
   width: ${props => props.width || "100vw"};
   height: ${props => props.height || "100vh"};
-`
+`;
 const GetGoogleMap = ({
   hostInfo = {
     lat: "",
@@ -115,8 +115,8 @@ const GetGoogleMap = ({
             <Marker
               key={item.id}
               position={{
-                lat: parseInt(item.geometry[0].coordinates[1]),
-                lng: parseInt(item.geometry[0].coordinates[0]),
+                lat: Number(item.geometry[0].coordinates[1]),
+                lng: Number(item.geometry[0].coordinates[0]),
               }}
               icon={{
                 url: "/Fire.svg",
@@ -155,17 +155,17 @@ const GetGoogleMap = ({
   }
   if (!isLoaded) return <div>Loading Maps</div>;
 
-  return (<>
-    <div className="z-[999]">
-      <Navbar />
-    </div>
-    <div className="w-[100vw]" >
-      <form onSubmit={onSubmitHandler}>
-        {/* <div> */}
-        {/* <Autocomplete postCenter={postCenter} setPostCenter={setPostCenter} /> */}
-        <div className="rounded-lg w-[90vw]">
-          {
-            btnState ?
+  return (
+    <>
+      <div className="z-[999]">
+        <Navbar />
+      </div>
+      <div className="w-[100vw]">
+        <form onSubmit={onSubmitHandler}>
+          {/* <div> */}
+          {/* <Autocomplete postCenter={postCenter} setPostCenter={setPostCenter} /> */}
+          <div className="rounded-lg w-[90vw]">
+            {btnState ? (
               <Button
                 txt="Get my current location"
                 onBtnClick={findmylocation}
@@ -175,15 +175,15 @@ const GetGoogleMap = ({
                 margin="15px 0px"
                 endIcon={<LocationOnIcon />}
                 hoverColor="#466c8f"
-              /> : null
-          }
-          {/* </div> */}
-          {/* <Input placeholder="Search Places" label="" /> */}
-          {/* <div>
+              />
+            ) : null}
+            {/* </div> */}
+            {/* <Input placeholder="Search Places" label="" /> */}
+            {/* <div>
           <button onClick={findNearMe}>Near me</button>
         </div> */}
-          {/* {distanceInfo} */}
-          {/* <DistanceMatrixService
+            {/* {distanceInfo} */}
+            {/* <DistanceMatrixService
             options={{
               destinations: [
                 { lat: postCenter[0].lat, lng: postCenter[0].lng },
@@ -195,8 +195,8 @@ const GetGoogleMap = ({
               setDistanceInfo(response.rows[0].elements[0].distance.text);
             }}
           /> */}
-        </div>
-        {/* <button
+          </div>
+          {/* <button
           onClick={() => {
             router.push("/Dashboard");
           }}
@@ -204,75 +204,81 @@ const GetGoogleMap = ({
         >
           Submit
         </button> */}
-      </form>
+        </form>
 
-      <GoogleMapStyle mapContainerStyle={containerStyle} center={center} zoom={5} width={width} height={height}>
-        {fireMarkers ? fireMarkers : null}
-        {isSearched
-          ? postCenter.map((item, index) => {
-            return (
-              <div key={index}>
-                <Marker
-                  position={{
-                    lat: parseInt(item.lat),
-                    lng: parseInt(item.lng),
-                  }}
-                  icon={{
-                    url: "/current_location.svg",
-                    scaledSize: new window.google.maps.Size(40, 40),
-                    origin: new window.google.maps.Point(0, 0),
-                    anchor: new window.google.maps.Point(15, 15),
-                  }}
-                />
-              </div>
-            );
-          })
-          : null}
-        <GetHostHome
-          hostInfo={hostInfo}
-          isClicked={isClicked}
-          isBothClicked={isBothClicked}
-        />
-
-        {locationInfo && (
-          <InfoWindow
-            position={{ lat: locationInfo.lat, lng: locationInfo.lng }}
-            onCloseClick={() => {
-              setLocationInfo(null);
-            }}
-          >
-            <div>
-              <h2>{locationInfo.title}</h2>
-            </div>
-          </InfoWindow>
-        )}
-
-        {selected ? (
-          <Marker
-            key={center.id}
-            position={{ lat: center.lat, lng: center.lng }}
-            icon={{
-              url: (
-                <Button
-                  txt="Get my current location"
-                  onBtnClick={findmylocation}
-                  backgroundColor="#5581AA"
-                  borderRadius="10px"
-                  fontSize="14px"
-                  margin="15px 0px"
-                  endIcon={<LocationOnIcon />}
-                  hoverColor="#466c8f"
-                />
-              ),
-              scaledSize: new window.google.maps.Size(40, 40),
-              origin: new window.google.maps.Point(0, 0),
-              anchor: new window.google.maps.Point(15, 15),
-            }}
+        <GoogleMapStyle
+          mapContainerStyle={containerStyle}
+          center={center}
+          zoom={5}
+          width={width}
+          height={height}
+        >
+          {fireMarkers ? fireMarkers : null}
+          {isSearched
+            ? postCenter.map((item, index) => {
+                return (
+                  <div key={index}>
+                    <Marker
+                      position={{
+                        lat: parseInt(item.lat),
+                        lng: parseInt(item.lng),
+                      }}
+                      icon={{
+                        url: "/current_location.svg",
+                        scaledSize: new window.google.maps.Size(40, 40),
+                        origin: new window.google.maps.Point(0, 0),
+                        anchor: new window.google.maps.Point(15, 15),
+                      }}
+                    />
+                  </div>
+                );
+              })
+            : null}
+          <GetHostHome
+            hostInfo={hostInfo}
+            isClicked={isClicked}
+            isBothClicked={isBothClicked}
           />
-        ) : null}
-      </GoogleMapStyle>
-    </div>
-  </>
+
+          {locationInfo && (
+            <InfoWindow
+              position={{ lat: locationInfo.lat, lng: locationInfo.lng }}
+              onCloseClick={() => {
+                setLocationInfo(null);
+              }}
+            >
+              <div>
+                <h2>{locationInfo.title}</h2>
+              </div>
+            </InfoWindow>
+          )}
+
+          {selected ? (
+            <Marker
+              key={center.id}
+              position={{ lat: center.lat, lng: center.lng }}
+              icon={{
+                url: (
+                  <Button
+                    txt="Get my current location"
+                    onBtnClick={findmylocation}
+                    backgroundColor="#5581AA"
+                    borderRadius="10px"
+                    fontSize="14px"
+                    margin="15px 0px"
+                    endIcon={<LocationOnIcon />}
+                    hoverColor="#466c8f"
+                  />
+                ),
+                scaledSize: new window.google.maps.Size(40, 40),
+                origin: new window.google.maps.Point(0, 0),
+                anchor: new window.google.maps.Point(15, 15),
+              }}
+            />
+          ) : null}
+        </GoogleMapStyle>
+      </div>
+    </>
   );
 };
 export default GetGoogleMap;
