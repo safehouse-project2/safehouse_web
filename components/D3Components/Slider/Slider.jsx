@@ -38,7 +38,6 @@ export default function Slider({
   },
 }) {
   const router = useRouter();
-  const items = new Array(20).fill(0);
   const findCurrentPage = id => {
     if (state.length) {
       return state.findIndex(obj => obj.id === id);
