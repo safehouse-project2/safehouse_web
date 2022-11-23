@@ -1,3 +1,4 @@
+import { textDecoration } from "@chakra-ui/react";
 import styled from "styled-components";
 
 const P = styled.p`
@@ -8,6 +9,7 @@ const P = styled.p`
   font-weight: ${props => props.fontWeight || "normal"};
   line-height: ${props => props.lineHeight};
   border-right: ${props => props.borderRight};
+  text-decoration: ${props => props.textDecoration || "underline"};
 `;
 
 export default function AppText({
@@ -18,6 +20,7 @@ export default function AppText({
   fontWeight = "normal",
   lineHeight = "number",
   borderRight = "0px 0px 0px 0px solid #CDCDCD",
+  textDecoration = "none",
 }) {
   return (
     <P
@@ -27,6 +30,7 @@ export default function AppText({
       fontWeight={fontWeight}
       lineHeight={lineHeight}
       borderRight={borderRight}
+      textDecoration={textDecoration}
     >
       {txt}
     </P>

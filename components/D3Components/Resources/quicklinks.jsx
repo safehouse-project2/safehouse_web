@@ -11,9 +11,15 @@ export default function QuickLinks() {
                     color="#20514B"
                     txt="Wildfire Assistance:"
                 />
-                <AppText txt="Emergency Management BC" />
-                <AppText txt="BC Wildfire Service.ca" />
-                <AppText txt="Evacuee Registration & Assistance" />
+                <a href="https://www2.gov.bc.ca/gov/content/safety/emergency-management" target="_blank">
+                    <AppText txt="Emergency Management BC" textDecoration="underline" />
+                </a>
+                <a href="https://www2.gov.bc.ca/gov/content/safety/wildfire-status" target="_blank">
+                    <AppText txt="BC Wildfire Service.ca" textDecoration="underline"/>
+                </a>
+                <a href="https://ess.gov.bc.ca/" target="_blank">
+                <AppText txt="Evacuee Registration & Assistance (ERA)" textDecoration="underline" />
+                </a>
 
             </div>
 
