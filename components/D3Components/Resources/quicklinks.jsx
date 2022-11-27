@@ -41,7 +41,7 @@ export default function QuickLinks() {
     return (
         <div className="flex flex-col justify-start items-start gap-[30px]">
             <div className="flex flex-col">
-            <div>
+            
             <Card
               src="assistance.jpg"
               title='Wildfire Assistance'
@@ -49,7 +49,7 @@ export default function QuickLinks() {
               btnText1='BC Wildfire Service'
               btnText2='Emergency Management BC'
               />   
-            </div>
+            
                 {/* <AppText
                     fontSize="20px"
                     fontWeight="bold"

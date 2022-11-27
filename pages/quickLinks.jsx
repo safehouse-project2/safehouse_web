@@ -12,8 +12,8 @@ export default function quickLinks() {
     return (
         <div className="overflow-x-auto bg-[#F0E6D9] h-[100vh]">
             <MainContainer>
-                <div className="flex flex-col pb-20 px-4 faqGirlCont">
-                    <UpperHalf
+                <div>
+                    <UpperHalf className="flex flex-col pb-20 px-4 faqGirlCont"
                         title="Quick Links"
                         subtitle="Quick links to our resources"
                         img="./resources3D.png"
