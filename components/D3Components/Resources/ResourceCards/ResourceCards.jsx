@@ -8,8 +8,10 @@ const Data = [
         description: 'Here are a few additonal resources to help prepare yourself in an event of an evacuation.',
         btnText1: 'FireSmartBC.ca',
         btnText2: 'Prepared BC',
+        btnText3: 'Evacuation Registration and Assistance',
         url1: "https://firesmartbc.ca/",
-        url2: "https://www2.gov.bc.ca/gov/content/safety/emergency-preparedness-response-recovery/preparedbc",
+        url2: "https://www2.gov.bc.ca/gov/content/safety/emergency-management/preparedbc",
+        url3: "https://ess.gov.bc.ca/",
     },
     {
         id: 2,
@@ -18,8 +20,10 @@ const Data = [
         description: 'Resources for more information to help keep yourself safe.',
         btnText1: 'BC Wildfire Service',
         btnText2: 'Emergency Management BC',
-        url1: "https://www2.gov.bc.ca/gov/content/safety/emergency-preparedness-response-recovery/preparedbc",
+        btnText3: 'Wildfire Preparedness Guide',
+        url1: "https://www2.gov.bc.ca/gov/content/safety/wildfire-status",
         url2: "https://www2.gov.bc.ca/gov/content/safety/emergency-management",
+        url3: "https://www2.gov.bc.ca/assets/gov/public-safety-and-emergency-services/emergency-preparedness-response-recovery/embc/preparedbc/preparedbc-guides/wildfire_preparedness_guide.pdf",
     },
 ]
 
@@ -38,8 +42,10 @@ export default function ResourceCards() {
                             description={o.description}
                             btnText1={o.btnText1}
                             btnText2={o.btnText2}
+                            btnText3={o.btnText3}
                             btn1Click={() => window.open(o.url1, "_blank")}
                             btn2Click={() => window.open(o.url2, "_blank")}
+                            btn3Click={() => window.open(o.url3, "_blank")}
                         />
                     ))
                 }
