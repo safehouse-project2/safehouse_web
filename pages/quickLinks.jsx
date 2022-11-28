@@ -10,9 +10,9 @@ import Navbar from "../components/D3Components/Navbar/Navbar";
 export default function quickLinks() {
     const router = useRouter()
     return (
-        <div className="overflow-x-auto bg-[#F0E6D9] h-[100vh]">
+        <div className="overflow-x-auto bg-[#F0E6D9] h-[100vh] pb-10">
             <MainContainer>
-                <div className="flex flex-col pb-20 px-4 faqGirlCont">
+                <div className="m-auto">
                     <UpperHalf
                         title="Quick Links"
                         subtitle="Quick links to our resources"
@@ -25,7 +25,6 @@ export default function quickLinks() {
                     >
                         <QuickLinks />
                     </motion.div>
-                    {/* <AccordionComp /> */}
                     <motion.div className="flex justify-center items-center pt-6"
                         initial={{ opacity: 0, y: 100 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -39,7 +38,6 @@ export default function quickLinks() {
                     </motion.div>
                 </div>
             </MainContainer>
-            <Navbar />
         </div>
     )
 }

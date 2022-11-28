@@ -31,7 +31,7 @@ export default function UpperHalf({
                 </motion.div>
             </div>
 
-            <motion.div className="flex justify-center items-center flex-col m-[50px]"
+            <motion.div className="flex justify-center items-center flex-col m-[50px] faqGirlCont"
                 initial={{ opacity: 0, y: 100 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}

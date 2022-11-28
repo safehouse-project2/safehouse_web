@@ -20,7 +20,7 @@ export default function Support() {
                             img="./support.png"
                         />
                     </div>
-                    <a href="mailto:hello@safehouseapp.ca">
+                    <a href="mailto:hello@safehouseapp.ca" >
                         <motion.div className="flex items-center gap-7 justify-center flex-row"
                             initial={{ opacity: 0, y: 100 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -31,7 +31,7 @@ export default function Support() {
                             </div>
                             <div className="flex flex-col gap-1 justify-start items-start">
                                 <AppText txt="Email Us" fontSize="1.5rem" />
-                                <AppText txt="Reach us at hello@safehouseapp.ca" textDecoration="underline" fontSize="1rem" color="#8C8C8C" />
+                                <AppText txt="Reach us at hello@safehouseapp.ca" fontSize="1rem" color="#8C8C8C" />
                             </div>
                         </motion.div>
                     </a>
@@ -49,7 +49,6 @@ export default function Support() {
                     </motion.div>
                 </div>
             </MainContainer>
-            <Navbar />
         </div>
     );
 }
