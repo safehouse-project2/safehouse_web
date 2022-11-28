@@ -1,9 +1,7 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-//import Button from '../././Button/Button';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 
@@ -16,19 +14,19 @@ export default function CardComp({
     description = 'Default Description',
     btnText1 = 'Default Button Text',
     btnText2 = 'Default Button Text',
-    btnText3 = 'Default Button Text',
-    btnText4 = 'Default Button Text',
-    onBtnClick = () => { },
+    btn1Click = () => { },
+    btn2Click = () => { },
 }) {
     const r = useRouter();
+
     return (
         <Card sx={{ maxWidth: 345 }}>
             <CardMedia
                 component="img"
-                height="140"
                 image={src}
+                className="cardImgCont"
                 alt="image"
-                sx={{ objectFit: 'cover', width: '100%' }}
+                sx={{ objectFit: 'cover', width: '100%', height: '100%' }}
             />
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
@@ -39,10 +37,10 @@ export default function CardComp({
                 </Typography>
             </CardContent>
             <Stack>
-                <Button sx={{ color: "#B38A58" }} size="small" onClick={onBtnClick}>{btnText1}</Button>
-                <Button sx={{ color: "#B38A58" }} size="small" onClick={onBtnClick}>{btnText2}</Button>
-                {/* <Button sx={{ color: "#B38A58" }} size="small" onClick={onBtnClick}>{btnText3}</Button>
-                <Button sx={{ color: "#B38A58" }} size="small" onClick={onBtnClick}>{btnText4}</Button> */}
+                <div className='flex flex-col justify-between items-start px-5 pb-3 w-full'>
+                    <Button sx={{ color: "#B38A58" }} size="small" onClick={btn1Click}>{btnText1}</Button>
+                    <Button sx={{ color: "#B38A58" }} size="small" onClick={btn2Click}>{btnText2}</Button>
+                </div>
             </Stack>
         </Card>
     )
