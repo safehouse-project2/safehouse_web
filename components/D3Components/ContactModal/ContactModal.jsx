@@ -50,15 +50,15 @@ export default function ContactModal({
                     }}
                 >
                     <Fade in={open}>
-                        <Box sx={style} className="mx-4">
+                        <Box sx={style}>
                             <Typography id="transition-modal-title" variant="h6" component="h2">
                                 Contact <span>{ownerTxt}</span>
                             </Typography>
                             <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-                                Phone Number: <span className="text-blue-500">{phNum}</span>
+                                Phone Number: <a href={`tel:${phNum}`} className="text-blue-500">{phNum}</a>
                             </Typography>
                             <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-                                Email: <span className="text-blue-500">{emailTxt}</span>
+                                Email: <a href={`mailto:${emailTxt}`} className="text-blue-500">{emailTxt}</a>
                             </Typography>
                         </Box>
                     </Fade>

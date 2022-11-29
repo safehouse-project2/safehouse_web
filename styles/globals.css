@@ -67,6 +67,17 @@ body, html, *{
     max-width: 300px !important;
 }
 
+/* .cardImgCont > img{
+    max-width: 10% !important;
+} */
+
+
+@media(max-width: 730px){
+    .CardCont{
+        flex-direction: column;
+    }
+}
+
 
 @media (max-width: 992px) {
     .parentWelcome{

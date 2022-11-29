@@ -1,6 +1,6 @@
 import { MainContainer } from "../../../../styles/styledComps";
 import UpperHalf from "../UpperHalf";
-import AccordionComp from "../../Accordion/Accordion";
+import AccordionComp from "../../Accordion/AccordionForQ&A";
 import Button from '../../Button/Button'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useRouter } from 'next/router'

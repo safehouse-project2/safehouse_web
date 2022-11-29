@@ -1,10 +1,7 @@
-import FAQ from '../components/D3Components/Resources/FAQ/FAQ';
+import React from 'react'
 
-
-export default function Test() {
+export default function test() {
   return (
-    <>
-      <FAQ />
-    </>
-  );
+    <div>test</div>
+  )
 }

@@ -75,7 +75,6 @@ export default function Donate() {
                     </motion.div>
                 </div>
             </MainContainer>
-            <Navbar />
         </div>
     );
 }
