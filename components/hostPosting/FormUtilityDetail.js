@@ -29,7 +29,7 @@ export default function FormUtilityDetail({ formData, setFormData }) {
             <RadioGroup
               className='utilityDetails'
               aria-labelledby="demo-radio-buttons-group-label"
-              value={formData.washer || "yes"}
+              value={formData.wifi || "yes"}
               name="radio-buttons-group"
               onChange={(e) => setFormData({ ...formData, wifi: e.target.value })}
             >
@@ -47,7 +47,7 @@ export default function FormUtilityDetail({ formData, setFormData }) {
             <FormLabel id="demo-radio-buttons-group-label">Do you Have Space for People to Set up Cars/ RVs?</FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
-              value={formData.dryer || "yes"}
+              value={formData.space || "yes"}
               name="radio-buttons-group"
               onChange={(e) => setFormData({ ...formData, space: e.target.value })}
             >
@@ -65,7 +65,7 @@ export default function FormUtilityDetail({ formData, setFormData }) {
             <FormLabel id="demo-radio-buttons-group-label">Do you Provide Food?</FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
-              value={formData.petsAllowed || "yes"}
+              value={formData.food || "yes"}
               name="radio-buttons-group"
               onChange={(e) => setFormData({ ...formData, food: e.target.value })}
             >
@@ -83,7 +83,7 @@ export default function FormUtilityDetail({ formData, setFormData }) {
             <FormLabel id="demo-radio-buttons-group-label">Is your Home Wheelchair Accessible?</FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
-              value={formData.smokingAllowed || "yes"}
+              value={formData.accessible || "yes"}
               name="radio-buttons-group"
               onChange={(e) => setFormData({ ...formData, accessible: e.target.value })}
             >
