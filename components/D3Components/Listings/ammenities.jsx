@@ -1,32 +1,20 @@
 import styled from "styled-components";
 import AppText from "../AppText/AppText";
 import WifiIcon from "@mui/icons-material/Wifi";
-import TvIcon from "@mui/icons-material/Tv";
-import AutoStoriesIcon from "@mui/icons-material/AutoStories";
-import LocalLaundryServiceIcon from "@mui/icons-material/LocalLaundryService";
-import DryCleaningIcon from "@mui/icons-material/DryCleaning";
-import CheckroomIcon from "@mui/icons-material/Checkroom";
+import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
+import LocalDiningIcon from '@mui/icons-material/LocalDining';
+import AccessibleIcon from '@mui/icons-material/Accessible';
 
 export default function Ammenities({
   state = {
     wifi: "",
-    tv: "",
-    laundry: "",
-    washer: "",
-    dryer: "",
+    space: "",
+    food: "",
+    accessible: "",
   },
 }) {
   return (
-    <div className="flex flex-col gap-4">
-
-      {/* Ammenities word container */}
-      <div className="flex flex-col pt-5">
-        <AppText
-          txt="Ammenities"
-          fontWeight="500"
-          fontSize="18px"
-        />
-      </div>
+    <div className="flex flex-col gap-4 pt-4">
 
       {/* Ammenities */}
       <div className="flex flex-col items-end gap-5 pr-10">
@@ -41,52 +29,36 @@ export default function Ammenities({
           </div>
 
           <div className="flex gap-2">
-            <TvIcon />
+            <DirectionsCarIcon />
             <AppText
-              txt={state?.tv ? "TV" : "No TV"}
+              txt={state?.space ? "Space for Cars or RVs" : "No Space for Cars or RVs"}
               fontSize="15px"
               fontWeight="500"
             />
           </div>
 
-          <div className="flex gap-2">
-            <AutoStoriesIcon />
-            <AppText
-              txt="Books"
-              fontSize="15px"
-              fontWeight="500"
-            />
-          </div>
         </div>
 
         <div className="flex flex-row justify-between w-[100%]">
           <div className="flex gap-2">
-            <LocalLaundryServiceIcon />
+            <LocalDiningIcon />
             <AppText
-              txt={state?.washer ? "Washer" : "No washer"}
+              txt={state?.food ? "Food Provided" : "No Food Provided"}
               fontSize="15px"
               fontWeight="500"
             />
           </div>
 
           <div className="flex gap-2">
-            <DryCleaningIcon />
+            <AccessibleIcon />
             <AppText
-              txt={state?.dryer ? "Dryer" : "No Dryer"}
+              txt={state?.accessible ? "WheelChair Accessibler" : "Not WheelChair Accessible"}
               color="black"
               fontSize="15px"
               fontWeight="500"
             />
           </div>
-
-          <div className="flex gap-2">
-            <CheckroomIcon />
-            <AppText
-              txt="Hangers"
-              fontSize="15px"
-              fontWeight="500"
-            />
-          </div>
+          
         </div>
       </div>
     </div>

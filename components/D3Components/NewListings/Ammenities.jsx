@@ -9,13 +9,6 @@ import CheckroomIcon from "@mui/icons-material/Checkroom";
 export default function Ammenities() {
     return (
         <div className="flex flex-col gap-4">
-            <div className='flex flex-col pt-5'>
-                <AppText
-                    txt='Ammenities'
-                    fontWeight='500'
-                    fontSize='18px'
-                />
-            </div>
 
 
             <div className="flex flex-col items-end gap-5 pr-10">
