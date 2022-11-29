@@ -88,7 +88,7 @@ export default function Cards() {
                 >
                     <InfoCard
                         txt1="Resources"
-                        txt2="Quick links to any additional information you need"
+                        txt2="Quick links to any additional information you need
                     />
                 </motion.div>
 
