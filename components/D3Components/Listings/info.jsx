@@ -26,7 +26,7 @@ export default function Info({
           txt={
             state?.bedrooms
               ? `${state.bedrooms} Bedroom suite available for wildfire evacuees`
-              : "Sorry we don't have any suites available for wildfire evacuees at this time"
+              : "No title provided by the host"
           }
           fontSize="18px"
           fontWeight="500"
@@ -49,7 +49,7 @@ export default function Info({
           />
         )}
       </div>
-      <div className="flex flex-row gap-3">
+      <div className="flex flex-row gap-3 pr-[20px]">
         <AppText
           txt={state?.guests ? `${state.guests} guests` : "No guests"}
           fontSize="14px"
@@ -78,11 +78,9 @@ export default function Info({
       </div>
       <div className="flex mt-3 flex-col gap-3">
         <AppText
-          txt={`${state.addressLine1 ? state.addressLine1 : " "}, ${
-            state.city ? state.city : " "
-          }, ${state.province ? state.province : " "}, ${
-            state.postalCode ? state.postalCode : " "
-          }`}
+          txt={`${state.addressLine1 ? state.addressLine1 : " "}, ${state.city ? state.city : " "
+            }, ${state.province ? state.province : " "}, ${state.postalCode ? state.postalCode : " "
+            }`}
           color="#8C8C8C"
           fontSize="16px"
           fontWeight="400"
