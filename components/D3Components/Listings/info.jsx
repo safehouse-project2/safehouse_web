@@ -9,9 +9,10 @@ export default function Info({
   state = {
     province: "",
     city: "",
+    homeType: "",
     guests: "",
     bedrooms: "",
-    beds: "",
+    accomodate: "",
     baths: "",
     isEdit: false,
     userName: "",
@@ -51,6 +52,18 @@ export default function Info({
       </div>
       <div className="flex flex-row gap-3 pr-[20px]">
         <AppText
+          txt={state?.homeType ? `${state.homeType}` : ""}
+          fontSize="14px"
+          fontWeight="400"
+        />
+        <CircleIcon sx={{ fontSize: 10, color: "#B38A58", margin: "5px" }} />
+        <AppText
+          txt={state?.accomodate? ` ${state.accomodate} days` : "0 days"}
+          fontSize="14px"
+          fontWeight="400"
+        />
+        <CircleIcon sx={{ fontSize: 10, color: "#B38A58", margin: "5px" }} />
+        <AppText
           txt={state?.guests ? `${state.guests} guests` : "No guests"}
           fontSize="14px"
           fontWeight="400"
@@ -58,20 +71,6 @@ export default function Info({
         <CircleIcon sx={{ fontSize: 10, color: "#B38A58", margin: "5px" }} />
         <AppText
           txt={state?.bedrooms ? `${state.bedrooms} bedrooms` : "No bedrooms"}
-          fontSize="14px"
-          fontWeight="400"
-        />
-        <CircleIcon sx={{ fontSize: 10, color: "#B38A58", margin: "5px" }} />
-        <AppText
-          txt={state?.beds ? `${state.beds} beds` : "No bed"}
-          fontSize="14px"
-          fontWeight="400"
-        />
-        <CircleIcon sx={{ fontSize: 10, color: "#B38A58", margin: "5px" }} />
-        <AppText
-          txt={
-            state?.bathrooms ? `${state.bathrooms} bathrooms` : "No bathrooms"
-          }
           fontSize="14px"
           fontWeight="400"
         />

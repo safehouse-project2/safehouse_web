@@ -11,8 +11,8 @@ export default function FormRoomDetails({ formData, setFormData }) {
     const [counter, setCounter] = useState(0);
     const [room, setRoom] = useState({
         guests: 0,
+        accomodate: 0,
         bedrooms: 0,
-        beds: 0,
         bathrooms: 0,
         kitchen: 0,
         parking: 0,
@@ -67,26 +67,26 @@ export default function FormRoomDetails({ formData, setFormData }) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, delay: 0.1 }}
                     className='flex items-between justify-between'>
-                    <label htmlFor="bedrooms">Bedrooms</label>
+                    <label htmlFor="accomodate">How Many  Days You Can Acomodate For</label>
                     <ButtonGroup size="small" aria-label="small outlined button group">
                         <CounterBtn
                             variant='contained'
                             color='inherit'
                             text='black'
-                            onClick={(e) => setFormData({ ...formData, bedrooms: Number(formData.bedrooms) > 0 ? Number(formData.bedrooms) - 1 : 0 })}
+                            onClick={(e) => setFormData({ ...formData, accomodate: Number(formData.accomodate) > 0 ? Number(formData.accomodate) - 1 : 0 })}
                         >-</CounterBtn>
                         <CounterBtnVal
                             variant='contained'
                             color='inherit'
                             text='black'
                         >
-                            {formData.bedrooms}
+                            {formData.accomodate}
                         </CounterBtnVal>
                         <CounterBtn
                             variant='contained'
                             color='inherit'
                             text='black'
-                            onClick={(e) => setFormData({ ...formData, bedrooms: Number(formData.bedrooms) + 1 })}
+                            onClick={(e) => setFormData({ ...formData, accomodate: Number(formData.accomodate) + 1 })}
                         >+</CounterBtn>
                     </ButtonGroup>
                 </motion.div>
@@ -99,23 +99,23 @@ export default function FormRoomDetails({ formData, setFormData }) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className='flex items-between justify-between '>
-                    <label htmlFor="beds">Beds</label>
+                    <label htmlFor="bedrooms">Bedrooms</label>
                     <ButtonGroup size="small" aria-label="small outlined button group">
                         <CounterBtn
                             variant='contained'
                             color='inherit'
                             text='black'
-                            onClick={(e) => setFormData({ ...formData, beds: Number(formData.beds) > 0 ? Number(formData.beds) - 1 : 0 })}
+                            onClick={(e) => setFormData({ ...formData, bedrooms: Number(formData.bedrooms) > 0 ? Number(formData.bedrooms) - 1 : 0 })}
                         >-</CounterBtn>
                         <CounterBtnVal
                             variant='contained'
                             color='inherit'
-                            text='black' >{formData.beds}</CounterBtnVal>
+                            text='black' >{formData.bedrooms}</CounterBtnVal>
                         <CounterBtn
                             variant='contained'
                             color='inherit'
                             text='black'
-                            onClick={(e) => setFormData({ ...formData, beds: Number(formData.beds) + 1 })}
+                            onClick={(e) => setFormData({ ...formData, bedrooms: Number(formData.bedrooms) + 1 })}
                         >+</CounterBtn>
                     </ButtonGroup>
                 </motion.div>

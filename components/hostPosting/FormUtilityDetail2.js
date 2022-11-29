@@ -8,7 +8,7 @@ export default function FormUtilityDetail2({ formData, setFormData }) {
     <div className='flex flex-col gap-10'>
       <div>
         <AppText
-          txt='Utility Details (2/2)'
+          txt='House Rules'
           fontSize='24px'
           color='#f5f5f5'
         />
@@ -21,12 +21,12 @@ export default function FormUtilityDetail2({ formData, setFormData }) {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
           >
-            <FormLabel id="demo-radio-buttons-group-label">Does your place offer Wifi ?</FormLabel>
+            <FormLabel id="demo-radio-buttons-group-label">Are Pets Allowed?</FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
-              value={formData.wifi || "yes"}
+              value={formData.petsAllowed || "yes"}
               name="radio-buttons-group"
-              onChange={(e) => setFormData({ ...formData, wifi: e.target.value })}
+              onChange={(e) => setFormData({ ...formData, petsAllowed: e.target.value })}
             >
               <FormControlLabel value="yes" control={<Radio />} label="Yes " />
               <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -38,12 +38,12 @@ export default function FormUtilityDetail2({ formData, setFormData }) {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <FormLabel id="demo-radio-buttons-group-label">Does your place offer Television ?</FormLabel>
+            <FormLabel id="demo-radio-buttons-group-label">Is Smoking Allowed?</FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
-              value={formData.tv || "yes"}
+              value={formData.smokingAllowed || "yes"}
               name="radio-buttons-group"
-              onChange={(e) => setFormData({ ...formData, tv: e.target.value })}
+              onChange={(e) => setFormData({ ...formData, smokingAllowed: e.target.value })}
             >
               <FormControlLabel value="yes" control={<Radio />} label="Yes " />
               <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -55,34 +55,18 @@ export default function FormUtilityDetail2({ formData, setFormData }) {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <FormLabel id="demo-radio-buttons-group-label">Does your place offer Air Conditioning ?</FormLabel>
+            <FormLabel id="demo-radio-buttons-group-label">Are Children Allowed?</FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
-              value={formData.airConditioning || "yes"}
+              value={formData.childrenAllowed || "yes"}
               name="radio-buttons-group"
-              onChange={(e) => setFormData({ ...formData, airConditioning: e.target.value })}
+              onChange={(e) => setFormData({ ...formData, childrenAllowed: e.target.value })}
             >
               <FormControlLabel value="yes" control={<Radio />} label="Yes " />
               <FormControlLabel value="no" control={<Radio />} label="No" />
             </RadioGroup>
           </motion.div>
 
-          <motion.div className='flex flex-col gap-2 mb-6'
-            initial={{ opacity: 0, x: -100 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <FormLabel id="demo-radio-buttons-group-label">Does your place offer Heating ?</FormLabel>
-            <RadioGroup
-              aria-labelledby="demo-radio-buttons-group-label"
-              value={formData.heating || "yes"}
-              name="radio-buttons-group"
-              onChange={(e) => setFormData({ ...formData, heating: e.target.value })}
-            >
-              <FormControlLabel value="yes" control={<Radio />} label="Yes " />
-              <FormControlLabel value="no" control={<Radio />} label="No" />
-            </RadioGroup>
-          </motion.div>
         </FormControl>
 
       </div>
