@@ -1,6 +1,3 @@
-import { CenterContainer } from "../../styles/styledComps";
-import Button from "../D3Components/Button/Button";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Ammenities from "../D3Components/Listings/ammenities";
 import Info from "../D3Components/Listings/info";
 import Description from "../D3Components/Listings/description";
@@ -84,8 +81,8 @@ const Detail = ({ state }) => {
         <div className="flex mx-auto justify-center items-center my-10">
           <ContactModal
             ownerTxt={state?.userName || "Host"}
-            phNum={state?.phoneNumber}
-            emailTxt={state?.email}
+            phNum={state?.phoneNumber || "Phone number not provided"}
+            emailTxt={state?.email || "Email not provided"}
           />
         </div>
       </div>

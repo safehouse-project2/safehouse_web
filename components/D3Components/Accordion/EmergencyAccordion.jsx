@@ -9,28 +9,35 @@ import {
 import { ChakraProvider } from '@chakra-ui/react'
 import HelpIcon from '@mui/icons-material/Help';
 import { motion } from 'framer-motion';
+import { useEffect, useRef } from 'react';
 
 
-export default function AccordionComp({
-    // ques = "default question",
-    // ans = "default answer"
-}) {
+export default function AccordionComp() {
+
+    // const NumberRef = useRef(null);
+
+    // useEffect(() => {
+    //     const Number = NumberRef.current;
+    //     Number.addEventListener('click', () => {
+    //         console.log("clicked");
+    //     })
+    // }, [])
 
     const EmergencyData = [
         {
             id: 1,
             title: "Fire Department, RCMP, or Ambulance",
-            description: "Call 911",
+            description: "911",
         },
         {
             id: 2,
             title: "Emergency Operations Centre (EOC)",
-            description: "Call 250-490-4225"
+            description: "2504904225"
         },
         {
             id: 3,
             title: "Emergency Support Services(ESS) for Evacuees",
-            description: "Call 250-486-1890"
+            description: "2504861890"
         }
     ]
     return (
@@ -63,8 +70,11 @@ export default function AccordionComp({
                                             </AccordionButton>
                                         </h2>
                                         <AccordionPanel pb={4} key={EmergencyData}>
-                                            <a href="tel:">
-                                                {EmergencyData.description}
+                                            <a href={`tel:${EmergencyData.description}`}>
+                                                Call {`${""}`}
+                                                <span className='text-blue-500'>
+                                                    {EmergencyData.description}
+                                                </span>
                                             </a>
                                         </AccordionPanel>
                                     </AccordionItem>
