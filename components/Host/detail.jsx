@@ -27,8 +27,8 @@ export default function HostDetail({
 
   const router = useRouter()
   const [data, setData] = useState(state);
-  const [open, setOpen] = useState(false);
-  const { loading, setLoading } = useState(false)
+
+  const [open, setOpen] = useState(true)
 
   const [url, setUrl] = useState(currentUser?.photoURL);
   const [uploadOpen, setUploadOpen] = useState(false);
@@ -56,7 +56,7 @@ export default function HostDetail({
   useEffect(() => {
     const checkIfClickedOutside = e => {
       if (!inputAreaRef.current.contains(e.target)) {
-        setOpen(false);
+        setUploadOpen(false);
       } else {
       }
     };
@@ -90,8 +90,7 @@ export default function HostDetail({
       setImageUpload(e.target.files[0])
       const i = e.target.files[0];
       setUrl(URL.createObjectURL(i));
-      setOpen(false);
-      setUploadOpen(false)
+      setUploadOpen(true)
     }
   }
 
@@ -127,7 +126,6 @@ export default function HostDetail({
         })
       }
     })
-    setOpen(false);
     setUploadOpen(false)
   }
 
@@ -161,9 +159,9 @@ export default function HostDetail({
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.1 }}
               >
-                <UploadImagePopover
+                 { open && <UploadImagePopover
                   onImageChange={uploadToClient}
-                />
+                />}
               </motion.div>
             </div>
           </div>
