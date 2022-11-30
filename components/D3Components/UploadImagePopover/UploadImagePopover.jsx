@@ -3,10 +3,11 @@ import Popover from '@mui/material/Popover';
 import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
 import EditIcon from '@mui/icons-material/Edit';
 
-export default function UploadImagePopover({onImageChange })
- {
-
-   
+export default function UploadImagePopover({
+    onImageChange = () => {  
+    }, 
+  
+}) {
     return (
         <PopupState variant="popover" popupId="demo-popup-popover">
             {(popupState) => (
@@ -24,8 +25,8 @@ export default function UploadImagePopover({onImageChange })
                             vertical: 'top',
                             horizontal: 'center',
                         }}
-                    >                    
-                    <input className='px-3 py-4' type="file" name='myImage' onChange={onImageChange}/>
+                    >
+                        <input className='px-3 py-4' type="file" name='myImage' onClick={popupState.close} onChange={onImageChange} />
                     </Popover>
                 </div>
             )}
