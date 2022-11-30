@@ -105,7 +105,7 @@ export default function Home() {
                   initial={{ opacity: 0, x: -100 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: 0 }}
-                  className="text-3xl text-[#f5f5f5] text-center">Hello,<br /> <span className="text-[#B38A58] font-semibold text-4xl">{userName}</span> 🙋🏻‍♂️</motion.p>
+                  className="text-3xl text-[#f5f5f5] text-center">Hello,<br /> <span className="text-[#B38A58] font-semibold text-4xl">{userName}</span> 👋</motion.p>
               </div>
             )}
             <div ref={inputAreaRef}>{popup && <Popup />}</div>

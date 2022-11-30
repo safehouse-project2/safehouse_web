@@ -2,6 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 import AppText from "../AppText/AppText";
 import { useRouter } from "next/router";
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 const BackgroundImageContainer = styled.div`
   background-image: linear-gradient(
@@ -34,7 +35,8 @@ export default function Slider({
     city: "Default Location",
     province: "Default Province",
     distance: "4km",
-    image: "./vercel.svg",
+    // image: "./img_placeholder.svg",
+    image: "http://placekitten.com/200/300",
   },
 }) {
   const router = useRouter();
@@ -63,7 +65,7 @@ export default function Slider({
       {state.map(post => (
         <BackgroundImageContainer
           //   src={post.image && post.length > 0 ? post.image[0] : "./vercel.svg"}
-          src={post.image[0]}
+          src={post.image[0] || "./img_placeholder.svg"}
           onClick={() => router.push(`/home/${post.id}`)}
         >
           <AppText
@@ -72,19 +74,19 @@ export default function Slider({
                 ? post.addressLine1
                 : "" + ", " + post.city
                   ? post.city
-                  : ""
+                  : "N/A"
             }
             color="#f5f5f5"
             fontSize="24px"
           />
 
           <div className="flex gap-[200px] items-center">
-            <AppText txt="4km" color="#cdcdcd" fontSize="16px" />
+            <AppText txt="4km📍" color="#cdcdcd" fontSize="16px" />
             <AppText
               txt={
                 state.length
                   ? findCurrentPage(post.id) + 1 + "/" + state.length
-                  : "1/7"
+                  : "N/A"
               }
               color="#cdcdcd"
               fontSize="16px"

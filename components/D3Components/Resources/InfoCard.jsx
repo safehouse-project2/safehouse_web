@@ -25,6 +25,7 @@ const CardText = styled.p`
     color: ${(props) => props.fontColor || "#F5F5F5"};
     padding: ${(props) => props.padding || "0px"};
     font-weight: ${(props) => props.fontWeight || "normal"};
+    
 `
 
 export default function InfoCard({
@@ -42,7 +43,9 @@ export default function InfoCard({
     return <>
         <CardStyle
             target="_blank"
-            onClick={onCrdClick}>
+            onClick={onCrdClick}
+        >
+            
             <CardText
                 fontSize={fontSize1}
                 fontColor={color1}

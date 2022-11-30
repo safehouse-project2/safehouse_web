@@ -10,11 +10,14 @@ import { db } from "/firebase";
 import GetGoogleMap from "../components/locations/GetGoogleMap";
 import { AuthProvider } from "../AuthContext/AuthContext";
 import { motion } from 'framer-motion'
+import { useAuth } from "../AuthContext/AuthContext";
 
 export default function UserHome({ data }) {
   const [isClicked, setIsClicked] = useState(false);
   const [isBothClicked, setIsBothClicked] = useState(false);
   const [state, setState] = useState([]);
+
+  const currentUser = useAuth();
 
   useEffect(() => {
     const homeRef = collection(db, "homes");
@@ -39,22 +42,35 @@ export default function UserHome({ data }) {
       case "Safehouses":
         setIsBothClicked(false);
         return setIsClicked(true);
-      case "Both":
+      case "All":
         return setIsBothClicked(true);
       default:
-        return "Both";
+        return "All";
     }
   };
 
   return (
     <AuthProvider>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-hidden">
         <BackgroundContainer src="">
           <MainContainer margin="0px 0px 30px 0px">
             <motion.div
               initial={{ opacity: 0, y: 100 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0 }}
+              className="flex flex-col items-center justify-center pb-4"
+            >
+              <AppText
+                txt="Welcome to Safehouse!"
+                fontSize="25px"
+                fontWeight="semibold"
+              />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
               className="px-5"
             >
               <Input
@@ -70,21 +86,20 @@ export default function UserHome({ data }) {
               <motion.div
                 initial={{ opacity: 0, y: 100 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.1 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
                 className="pl-5"
               >
                 <AppText
                   txt="Recent Listings"
-                  fontSize="18px"
+                  fontSize="23px"
                   fontWeight="500"
-                  padding="0px 0px 15px 0px"
                 />
               </motion.div>
 
               <motion.div className="flex flex-row gap-7"
                 initial={{ opacity: 0, y: 100 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
               >
                 <Slider state={state} />
               </motion.div>
@@ -93,12 +108,12 @@ export default function UserHome({ data }) {
             <motion.div
               initial={{ opacity: 0, y: 100 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
               className="px-5"
             >
               <AppText
-                txt="Latest data on wildfires and safehouses"
-                fontSize="18px"
+                txt="Latest data on wildfires and safe houses"
+                fontSize="20px"
                 padding="50px 0px 0px 0px"
                 fontWeight="500"
               />
@@ -107,35 +122,35 @@ export default function UserHome({ data }) {
             <motion.div
               initial={{ opacity: 0, y: 100 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
               className="px-5"
             >
               <AppText
                 txt="Filter by:"
-                fontSize="16px"
+                fontSize="18px"
                 padding="20px 0px 10px 0px"
               />
             </motion.div>
             <motion.div className="flex flex-start px-5"
               initial={{ opacity: 0, y: 100 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
             >
               <select
                 name="map"
                 id="mapHome"
-                className="py-3 px-5 text-[#8c8c8c] bg-[#fff] rounded-md"
+                className="py-3 px-3 text-[#272727] bg-[#f5f5f5] rounded-md w-[250px]"
                 onChange={selectHandler}
               >
                 <option value="Wildfires">Wildfires</option>
                 <option value="Safehouses">Safehouses</option>
-                <option value="Both">Both</option>
+                <option value="All">All</option>
               </select>
             </motion.div>
             <motion.div className="flex w-[80vw] px-5 mapContainerUserhome pb-10 googleMapCont"
               initial={{ opacity: 0, y: 100 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
             >
               {/* <Image
               onImgClick={() => r.push("/evacuee")}

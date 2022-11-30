@@ -50,7 +50,7 @@ export default function Signup() {
       setError("")
       setLoading(true)
       await googleLogin()
-      router.push('/')
+      router.push('/gettingstarted')
     } catch (error) {
       console.log(error)
       setError("Failed to login with Google")

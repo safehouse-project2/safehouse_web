@@ -70,7 +70,7 @@ export default function AccordionComp() {
                                             </AccordionButton>
                                         </h2>
                                         <AccordionPanel pb={4} key={EmergencyData}>
-                                            <a href={`tel:${EmergencyData.description}`}>
+                                            <a href={`tel:${EmergencyData.description}`} className="text-2xl">
                                                 Call {`${""}`}
                                                 <span className='text-blue-500'>
                                                     {EmergencyData.description}
