@@ -67,10 +67,11 @@ body, html, *{
     max-width: 300px !important;
 }
 
-/* .cardImgCont > img{
-    max-width: 10% !important;
+/* .backBtnCont :hover{
+    background-color: #ffffff;
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
 } */
-
 
 @media(max-width: 730px){
     .CardCont{

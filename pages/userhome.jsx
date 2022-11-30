@@ -49,7 +49,7 @@ export default function UserHome({ data }) {
 
   return (
     <AuthProvider>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-hidden">
         <BackgroundContainer src="">
           <MainContainer margin="0px 0px 30px 0px">
             <AppText 
