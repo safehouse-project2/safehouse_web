@@ -12,7 +12,7 @@ export default function FormUtilityDetail({ formData, setFormData }) {
         transition={{ duration: 0.8, delay: 0 }}
       >
         <AppText
-          txt='More Home Details'
+          txt='Utility Details (1/2)'
           fontSize='24px'
           color='#f5f5f5'
         />
@@ -25,13 +25,13 @@ export default function FormUtilityDetail({ formData, setFormData }) {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
           >
-            <FormLabel id="demo-radio-buttons-group-label">Do you Provide Wifi?</FormLabel>
+            <FormLabel id="demo-radio-buttons-group-label">Do you provide with a Washer?</FormLabel>
             <RadioGroup
               className='utilityDetails'
               aria-labelledby="demo-radio-buttons-group-label"
-              value={formData.wifi || "yes"}
+              value={formData.washer || "yes"}
               name="radio-buttons-group"
-              onChange={(e) => setFormData({ ...formData, wifi: e.target.value })}
+              onChange={(e) => setFormData({ ...formData, washer: e.target.value })}
             >
               <FormControlLabel value="yes" control={<Radio />} label="Yes " />
               <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -44,12 +44,12 @@ export default function FormUtilityDetail({ formData, setFormData }) {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <FormLabel id="demo-radio-buttons-group-label">Do you Have Space for People to Set up Cars/ RVs?</FormLabel>
+            <FormLabel id="demo-radio-buttons-group-label">Do you provide with a Dryer ?</FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
-              value={formData.space || "yes"}
+              value={formData.dryer || "yes"}
               name="radio-buttons-group"
-              onChange={(e) => setFormData({ ...formData, space: e.target.value })}
+              onChange={(e) => setFormData({ ...formData, dryer: e.target.value })}
             >
               <FormControlLabel value="yes" control={<Radio />} label="Yes " />
               <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -62,12 +62,12 @@ export default function FormUtilityDetail({ formData, setFormData }) {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <FormLabel id="demo-radio-buttons-group-label">Do you Provide Food?</FormLabel>
+            <FormLabel id="demo-radio-buttons-group-label">Are pets allowed?</FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
-              value={formData.food || "yes"}
+              value={formData.petsAllowed || "yes"}
               name="radio-buttons-group"
-              onChange={(e) => setFormData({ ...formData, food: e.target.value })}
+              onChange={(e) => setFormData({ ...formData, petsAllowed: e.target.value })}
             >
               <FormControlLabel value="yes" control={<Radio />} label="Yes " />
               <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -80,12 +80,12 @@ export default function FormUtilityDetail({ formData, setFormData }) {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <FormLabel id="demo-radio-buttons-group-label">Is your Home Wheelchair Accessible?</FormLabel>
+            <FormLabel id="demo-radio-buttons-group-label">Is smoking allowed ?</FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
-              value={formData.accessible || "yes"}
+              value={formData.smokingAllowed || "yes"}
               name="radio-buttons-group"
-              onChange={(e) => setFormData({ ...formData, accessible: e.target.value })}
+              onChange={(e) => setFormData({ ...formData, smokingAllowed: e.target.value })}
             >
               <FormControlLabel value="yes" control={<Radio />} label="Yes " />
               <FormControlLabel value="no" control={<Radio />} label="No" />

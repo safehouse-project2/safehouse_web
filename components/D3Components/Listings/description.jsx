@@ -15,7 +15,7 @@ export default function Description({
       <AppText
         txt={state?.description ? state.description : "No description provided"}
         fontSize="16px"
-        fontWeight="400"
+        fontWeight="500"
       />
     </div>
   );
