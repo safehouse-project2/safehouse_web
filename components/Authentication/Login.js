@@ -28,8 +28,10 @@ export default function Login() {
       await login(emailRef.current.value, passwordRef.current.value)
       router.push('/gettingStarted')
     } catch (error) {
-      console.log(error)
-      setError("Failed to login. Please check your email and password.")
+      emailRef.current.value = ""
+      passwordRef.current.value = ""
+      alert("Failed to login. Please check your email and password.")
+      // setError("Failed to login. Please check your email and password.")
     }
   }
 
@@ -40,6 +42,7 @@ export default function Login() {
       await googleLogin()
       router.push('/gettingStarted')
     } catch (error) {
+     
       console.log(error)
       setError("Failed to login with Google")
     }
