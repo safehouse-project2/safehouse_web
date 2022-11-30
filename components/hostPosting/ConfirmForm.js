@@ -34,7 +34,7 @@ export default function ConfirmForm({ formData }) {
           transition={{ duration: 0.8, delay: 0.1 }}
           className='flex pt-10 justify-between w-full'>
           <AppText
-            txt="Home Description"
+            txt="Home description"
             color='#F0E6D9'
             fontSize='18px'
           />
@@ -173,7 +173,7 @@ export default function ConfirmForm({ formData }) {
           transition={{ duration: 0.8, delay: 0.9 }}
           className='flex pt-10 justify-between w-full'>
           <AppText
-            txt="Phone Number"
+            txt="Phone number"
             color='#F0E6D9'
             fontSize='18px'
           />
