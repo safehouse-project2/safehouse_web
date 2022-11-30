@@ -136,15 +136,15 @@ function CreatHomePost({ editState = [], isEdit = false, docId = "" }) {
 
     function handleNext(e) {
         e.preventDefault();
-        // if (page === 0) {
-        //     if (formData.homeType === '') {
-        //         showAlert('warning', 'Please select a home type');
-        //     } else if (formData.description === '') {
-        //         showAlert('warning', 'Please enter a description');
-        //     } else {
-        //         setPage(page + 1);
-        //     }
-        // }
+        if (page === 0) {
+            if (formData.homeType === '') {
+                showAlert('warning', 'Please select a home type');
+            } else if (formData.description === '') {
+                showAlert('warning', 'Please enter a description');
+            } else {
+                setPage(page + 1);
+            }
+        }
         if (page === 1) {
 
             setFormData({ ...formData, addressLine1: state.address.split(',')[0] })
@@ -158,33 +158,38 @@ function CreatHomePost({ editState = [], isEdit = false, docId = "" }) {
             // } else {
             //     setPage(page + 1);
             // }
+            setPage(page + 1);
 
         }
-        // if (page === 2) {
-        //     if (formData.guests === 0) {
-        //         showAlert('warning', 'Please enter the number of guests allowed');
-        //     } else if (formData.bedrooms === 0) {
-        //         showAlert('warning', 'Please enter the number of bedrooms');
-        //     } else if (formData.beds === 0) {
-        //         showAlert('warning', 'Please enter the number of beds');
-        //     } else if (formData.bathrooms === 0) {
-        //         showAlert('warning', 'Please enter the number of bathrooms');
-        //     } else {
-        //         setPage(page + 1);
-        //     }
+        if (page === 2) {
+            if (formData.guests === 0) {
+                showAlert('warning', 'Please enter the number of guests allowed');
+            } else if (formData.bedrooms === 0) {
+                showAlert('warning', 'Please enter the number of bedrooms');
+            } else if (formData.beds === 0) {
+                showAlert('warning', 'Please enter the number of beds');
+            } else if (formData.bathrooms === 0) {
+                showAlert('warning', 'Please enter the number of bathrooms');
+            } else {
+                setPage(page + 1);
+            }
 
-        // }
-        // if (page === 3 || page === 4 || page === 5) {
-        //     setPage(page + 1);
-        // }
+        }
+        if (page === 3 || page === 4 || page === 5) {
+            setPage(page + 1);
+        }
 
-        // if (page === 6) {
-        //     console.log(formData);
+        if (page === 6) {
+            if (formData.phoneNumber === '' && formData.email === '') {
+                showAlert('warning', 'Please enter a phone number or email');
+            } else {
+                setPage(page + 1);
+            }
 
-        // }
+        }
 
 
-        setPage(page + 1);
+        // setPage(page + 1);
     }
 
     async function handleSubmit() {
