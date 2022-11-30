@@ -26,7 +26,7 @@ export default function Login() {
       setError("")
       setLoading(true)
       await login(emailRef.current.value, passwordRef.current.value)
-      router.push('/gettingStarted')
+      router.push('/gettingstarted')
     } catch (error) {
       console.log(error)
       setError("Failed to login. Please check your email and password.")
@@ -38,7 +38,7 @@ export default function Login() {
       setError("")
       setLoading(true)
       await googleLogin()
-      router.push('/gettingStarted')
+      router.push('/gettingstarted')
     } catch (error) {
       console.log(error)
       setError("Failed to login with Google")
@@ -63,7 +63,6 @@ export default function Login() {
             </Stack>
           }
           <form onSubmit={handleSumbmit} className='flex flex-col justify-start items-start gap-2 '>
-
             <label htmlFor="email">Email</label>
             <input type="email" placeholder="Email" ref={emailRef} required className=' px-4 py-2 bg-[#f3f3f3] rounded-md mb-3 ' />
 
@@ -72,7 +71,6 @@ export default function Login() {
             <div className='flex items-center justify-center m-auto'>
               <button className='text-[#5581AA] text-[1rem] hover:text-[#274f8f] transition-all' disabled={loading} type="submit">Login</button>
             </div>
-
           </form>
 
           {/* <Button onClick={loginWithGoogole} disabled={loading} type="submit"> continue with Google </Button> */}
@@ -81,7 +79,7 @@ export default function Login() {
             onBtnClick={loginWithGoogole}
             disabled={loading}
             type="submit"
-            backgroundColor='#20514B'
+            backgroundColor='#4285F4'
             borderRadius='5px'
             fontSize='1rem'
             startIcon={<GoogleIcon />}
