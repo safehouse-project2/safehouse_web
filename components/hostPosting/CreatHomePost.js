@@ -68,20 +68,22 @@ function CreatHomePost({ editState = [], isEdit = false, docId = "" }) {
         postalCode: '',
 
         guests: 0,
-        accomodate: 0,
         bedrooms: 0,
+        beds: 0,
         bathrooms: 0,
         kitchen: 0,
         parking: 0,
 
 
-        wifi: 'yes',
-        space: 'yes',
-        food: 'yes',
-        accessible: 'yes',
+        washer: 'yes',
+        dryer: 'yes',
         petsAllowed: 'yes',
         smokingAllowed: 'yes',
-        childrenAllowed: 'yes',
+
+        wifi: 'yes',
+        tv: 'yes',
+        airConditioning: 'yes',
+        heating: 'yes',
 
         image: [],
 
