@@ -67,12 +67,14 @@ export default function Donate() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.4 }}
                     >
-                        <Button
+                        <Button 
+                            fontSize="22px"
                             txt="Back"
                             onBtnClick={() => router.back()}
                             startIcon={<ArrowBackIcon />}
                         />
                     </motion.div>
+                    <Navbar/>
                 </div>
             </MainContainer>
         </div>

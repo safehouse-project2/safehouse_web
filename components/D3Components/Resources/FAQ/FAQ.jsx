@@ -1,7 +1,8 @@
 import { MainContainer } from "../../../../styles/styledComps";
 import UpperHalf from "../UpperHalf";
 import AccordionComp from "../../Accordion/AccordionForQ&A";
-import Button from '../../Button/Button'
+import Button from '../../Button/Button';
+import Navbar from "../../Navbar/Navbar";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useRouter } from 'next/router'
 import { motion } from 'framer-motion'
@@ -24,11 +25,13 @@ export default function FAQ() {
                         transition={{ duration: 0.8, delay: 0.4 }}
                     >
                         <Button
+                            fontSize="22px"
                             txt="Back"
                             onBtnClick={() => router.back()}
                             startIcon={<ArrowBackIcon />}
                         />
                     </motion.div>
+                    <Navbar/>
                 </div>
             </MainContainer>
         </div>

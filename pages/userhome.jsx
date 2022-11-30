@@ -1,5 +1,6 @@
 import AppText from "../components/D3Components/AppText/AppText";
 import Input from "../components/D3Components/Input/Input";
+import HomeIcon from '@mui/icons-material/Home';
 import Slider from "../components/D3Components/Slider/Slider";
 import { BackgroundContainer, MainContainer } from "../styles/styledComps";
 import SearchIcon from "@mui/icons-material/Search";
@@ -39,10 +40,10 @@ export default function UserHome({ data }) {
       case "Safehouses":
         setIsBothClicked(false);
         return setIsClicked(true);
-      case "Both":
+      case "All":
         return setIsBothClicked(true);
       default:
-        return "Both";
+        return "All";
     }
   };
 
@@ -51,12 +52,25 @@ export default function UserHome({ data }) {
       <div className="overflow-x-auto">
         <BackgroundContainer src="">
           <MainContainer margin="0px 0px 30px 0px">
+            <AppText 
+            txt="Welcome to SafeHouse"
+            fontSize="35px"
+            fontWeight="bold"
+            padding="30px"
+            />
+
             <motion.div
               initial={{ opacity: 0, y: 100 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0 }}
               className="px-5"
             >
+              <AppText
+                  txt="Search Listings"
+                  fontSize="25px"
+                  fontWeight="500"
+                  padding="0px 0px 15px 0px"
+                />
               <Input
                 label="Search here"
                 variant="outlined"
@@ -75,7 +89,7 @@ export default function UserHome({ data }) {
               >
                 <AppText
                   txt="Recent Listings"
-                  fontSize="18px"
+                  fontSize="25px"
                   fontWeight="500"
                   padding="0px 0px 15px 0px"
                 />
@@ -97,8 +111,8 @@ export default function UserHome({ data }) {
               className="px-5"
             >
               <AppText
-                txt="Latest data on wildfires and safehouses"
-                fontSize="18px"
+                txt="Latest data on wildfires and safe houses"
+                fontSize="20px"
                 padding="50px 0px 0px 0px"
                 fontWeight="500"
               />
@@ -112,7 +126,7 @@ export default function UserHome({ data }) {
             >
               <AppText
                 txt="Filter by:"
-                fontSize="16px"
+                fontSize="18px"
                 padding="20px 0px 10px 0px"
               />
             </motion.div>
@@ -124,12 +138,12 @@ export default function UserHome({ data }) {
               <select
                 name="map"
                 id="mapHome"
-                className="py-3 px-5 text-[#8c8c8c] bg-[#fff] rounded-md"
+                className="py-3 px-3 text-[#272727] bg-[#f5f5f5] rounded-md w-[250px]"
                 onChange={selectHandler}
               >
                 <option value="Wildfires">Wildfires</option>
                 <option value="Safehouses">Safehouses</option>
-                <option value="Both">Both</option>
+                <option value="All">All</option>
               </select>
             </motion.div>
             <motion.div className="flex w-[80vw] px-5 mapContainerUserhome pb-10 googleMapCont"

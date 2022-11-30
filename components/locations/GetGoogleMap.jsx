@@ -167,8 +167,8 @@ const GetGoogleMap = ({
                 onBtnClick={findmylocation}
                 backgroundColor="#5581AA"
                 borderRadius="10px"
-                fontSize="14px"
-                margin="15px 0px"
+                fontSize="16px"
+                margin="30px 0px"
                 endIcon={<LocationOnIcon />}
                 hoverColor="#466c8f"
               />

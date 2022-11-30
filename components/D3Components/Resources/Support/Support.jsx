@@ -31,7 +31,7 @@ export default function Support() {
                             </div>
                             <div className="flex flex-col gap-1 justify-start items-start">
                                 <AppText txt="Email Us" fontSize="1.5rem" />
-                                <AppText txt="Reach us at hello@safehouseapp.ca" fontSize="1rem" color="#8C8C8C" />
+                                <AppText txt="Reach us at hello@safehouseapp.ca"  fontSize="1rem" color="#8C8C8C" textDecoration = "underline" />
                             </div>
                         </motion.div>
                     </a>
@@ -43,10 +43,12 @@ export default function Support() {
                     >
                         <Button
                             txt="Back"
+                            fontSize="22px"
                             onBtnClick={() => router.back()}
                             startIcon={<ArrowBackIcon />}
                         />
                     </motion.div>
+                    <Navbar/>
                 </div>
             </MainContainer>
         </div>
