@@ -10,13 +10,15 @@ export default function UploadImagePopover({ onImageChange }) {
         <PopupState variant="popover" popupId="demo-popup-popover">
             {(popupState) => (
                 <div>
-                    <label htmlFor='myImage'>
-                        <EditIcon
-                            // {...bindTrigger(popupState)} 
-                            className="z-99 bg-blue-300 p-2 rounded-lg drop-shadow-lg" sx={{
-                                fontSize: "40px",
-                            }} />
-                    </label>
+                    <div className='flex justify-center items-center'>
+                        <label htmlFor='myImage'>
+                            <EditIcon
+                                // {...bindTrigger(popupState)} 
+                                className="z-99 bg-blue-300 p-2 rounded-lg drop-shadow-lg cursor-pointer" sx={{
+                                    fontSize: "40px",
+                                }} />
+                        </label>
+                    </div>
                     {/* <Popover
                         {...bindPopover(popupState)}
                         anchorOrigin={{
@@ -28,7 +30,7 @@ export default function UploadImagePopover({ onImageChange }) {
                             horizontal: 'center',
                         }}
                     > */}
-                    <input className='' type="file" name='myImage' id='myImage' style={{ width: 0, height: 0 }} onChange={onImageChange} />
+                    <input type="file" name='myImage' id='myImage' style={{ width: 0, height: 0 }} onChange={onImageChange} />
                     {/* </Popover> */}
                 </div>
             )
