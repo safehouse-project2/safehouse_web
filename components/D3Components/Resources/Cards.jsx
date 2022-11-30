@@ -75,8 +75,8 @@ export default function Cards() {
                     onClick={() => r.push('/faq')}
                 >
                     <InfoCard
-                        txt1="FAQ"
-                        txt2="Frequently Asked Questions"
+                        txt1="Frequently Asked Questions"
+                        txt2="Learn more about how to use SafeHouse"
                     />
                 </motion.div>
 

@@ -32,10 +32,13 @@ export default function quickLinks() {
                     >
                         <Button
                             txt="Back"
+                            fontSize="22px"
+                            margin="0px 0px 50px 0px"
                             onBtnClick={() => router.back()}
                             startIcon={<ArrowBackIcon />}
                         />
                     </motion.div>
+                    <Navbar/>
                 </div>
             </MainContainer>
         </div>

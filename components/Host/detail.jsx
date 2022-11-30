@@ -202,7 +202,7 @@ export default function HostDetail({
       </div>
 
       <div key={self.crypto.randomUUID()} className="flex flex-col justify-center items-start gap-2 px-5 pb-[50px]">
-        <div className="flex flex-row items-center w-full justify-between pb-3">
+        <div className="flex flex-row items-center w-full justify-between pb-3 gap-5 ">
           <motion.div
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
@@ -250,7 +250,13 @@ export default function HostDetail({
               </div>
             ))
           ) : (
+            <motion.div
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.9 }}
+            >
             <AppText txt="You have no postings" fontSize="16px" />
+            </motion.div>
           )}
       </div>
     </div >
