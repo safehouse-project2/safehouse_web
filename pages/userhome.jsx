@@ -1,6 +1,5 @@
 import AppText from "../components/D3Components/AppText/AppText";
 import Input from "../components/D3Components/Input/Input";
-import HomeIcon from '@mui/icons-material/Home';
 import Slider from "../components/D3Components/Slider/Slider";
 import { BackgroundContainer, MainContainer } from "../styles/styledComps";
 import SearchIcon from "@mui/icons-material/Search";
@@ -11,11 +10,14 @@ import { db } from "/firebase";
 import GetGoogleMap from "../components/locations/GetGoogleMap";
 import { AuthProvider } from "../AuthContext/AuthContext";
 import { motion } from 'framer-motion'
+import { useAuth } from "../AuthContext/AuthContext";
 
 export default function UserHome({ data }) {
   const [isClicked, setIsClicked] = useState(false);
   const [isBothClicked, setIsBothClicked] = useState(false);
   const [state, setState] = useState([]);
+
+  const currentUser = useAuth();
 
   useEffect(() => {
     const homeRef = collection(db, "homes");
@@ -52,25 +54,25 @@ export default function UserHome({ data }) {
       <div className="overflow-x-hidden">
         <BackgroundContainer src="">
           <MainContainer margin="0px 0px 30px 0px">
-            <AppText 
-            txt="Welcome to SafeHouse"
-            fontSize="35px"
-            fontWeight="bold"
-            padding="30px"
-            />
-
             <motion.div
               initial={{ opacity: 0, y: 100 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0 }}
-              className="px-5"
+              className="flex flex-col items-center justify-center pb-4"
             >
               <AppText
-                  txt="Search Listings"
-                  fontSize="25px"
-                  fontWeight="500"
-                  padding="0px 0px 15px 0px"
-                />
+                txt="Welcome to Safehouse!"
+                fontSize="25px"
+                fontWeight="semibold"
+              />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="px-5"
+            >
               <Input
                 label="Search here"
                 variant="outlined"
@@ -84,21 +86,20 @@ export default function UserHome({ data }) {
               <motion.div
                 initial={{ opacity: 0, y: 100 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.1 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
                 className="pl-5"
               >
                 <AppText
                   txt="Recent Listings"
-                  fontSize="25px"
+                  fontSize="23px"
                   fontWeight="500"
-                  padding="0px 0px 15px 0px"
                 />
               </motion.div>
 
               <motion.div className="flex flex-row gap-7"
                 initial={{ opacity: 0, y: 100 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
               >
                 <Slider state={state} />
               </motion.div>
@@ -107,7 +108,7 @@ export default function UserHome({ data }) {
             <motion.div
               initial={{ opacity: 0, y: 100 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
               className="px-5"
             >
               <AppText
@@ -121,7 +122,7 @@ export default function UserHome({ data }) {
             <motion.div
               initial={{ opacity: 0, y: 100 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
               className="px-5"
             >
               <AppText
@@ -133,7 +134,7 @@ export default function UserHome({ data }) {
             <motion.div className="flex flex-start px-5"
               initial={{ opacity: 0, y: 100 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
             >
               <select
                 name="map"
@@ -149,7 +150,7 @@ export default function UserHome({ data }) {
             <motion.div className="flex w-[80vw] px-5 mapContainerUserhome pb-10 googleMapCont"
               initial={{ opacity: 0, y: 100 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
             >
               {/* <Image
               onImgClick={() => r.push("/evacuee")}

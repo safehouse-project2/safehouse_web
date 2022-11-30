@@ -44,13 +44,13 @@ export default function Map() {
   }, []);
 
   return (
-    <div className="flex w-[100vw] m-auto]">
+    <div className="flex w-[100vw] m-auto">
       <GradDiv>
         <p className="absolute z-[999] text-[#f5f5f5] text-xl px-5 ">
           Click on any icon below to see details
         </p>
       </GradDiv>
-      <GetGoogleMap hostInfo={state} isBothClicked={true} />
+      <GetGoogleMap hostInfo={state} isBothClicked={true} height="96vh" />
     </div>
   );
 }

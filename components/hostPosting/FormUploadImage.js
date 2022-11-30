@@ -12,7 +12,7 @@ import { motion } from 'framer-motion'
 export default function FormUploadImage({ formData, setFormData, imgsSrc, setImgsSrc }) {
   const [attachment, setAttachment] = useState()
   const [file, setFile] = useState("")
- 
+
   useEffect(() => {
     if (formData.images) {
       setImgsSrc(formData.images)
@@ -59,22 +59,22 @@ export default function FormUploadImage({ formData, setFormData, imgsSrc, setImg
 
 
   return (
-    <div className='overflow-x-auto max-w-[350px]'>
+    <div className='flex flex-col'>
       <motion.p
         initial={{ opacity: 0, x: -100 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: 0 }}
-        className='text-xl text-[#f5f5f5] pb-4'>Let's add some photos of your place.</motion.p>
-      <div className='overflow-x-auto'>
+        className='text-xl text-[#f5f5f5] pb-4'>Choose the photos from your device.</motion.p>
+      <div className='flex flex-col'>
         <motion.div
           initial={{ opacity: 0, x: -100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className='r-box flex flex-row gap-4 bg-[#f5f5f5] px-4 py-4 justify-start items-center rounded-md'>
-          <input type="file" name="myImage" onChange={onFileChange} />
+          className='flex bg-[#f5f5f5] px-4 py-4 justify-start items-center rounded-md w-full'>
+          <input type="file" name="myImage" onChange={onFileChange} className="w-[280px]" />
           <DeleteIcon onClick={onClearAttachment} sx={{ color: '#272727' }} />
         </motion.div>
-        <motion.div className='flex row mt-4 gap-5'
+        {/* <motion.div className='flex row mt-4 gap-5'
           initial={{ opacity: 0, x: -100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -88,22 +88,9 @@ export default function FormUploadImage({ formData, setFormData, imgsSrc, setImg
             hoverColor=''
             endIcon={<ClearAllIcon />}
           />
-        </motion.div>
+        </motion.div> */}
 
-        <motion.div className='flex flex-col gap-4 mt-4'
-          initial={{ opacity: 0, x: -100 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-        >
-          <div className='r-box flex flex-row gap-4 bg-[#f5f5f5] px-4 py-4 justify-start items-center rounded-md'>
-            <AddAPhotoIcon />
-            <AppText
-              txt="Take photos now"
-              fontSize='18px'
-            />
-          </div>
-        </motion.div>
-        <div className='grid gap-2 grid-cols-3 drop-shadow-sm bg-[#212121] mt-4 rounded-lg imageUploadDiv place-items-center'>
+        <div className='grid gap-2 grid-cols-3 drop-shadow-sm bg-[#212121] mt-4 rounded-lg imageUploadDiv place-items-center px-3 py-5'>
           {imgsSrc?.map((link) => (
             <div key={self.crypto.randomUUID()} className='px-3 py-5'>
               <img src={link} className='max-w-[200px] uploadImageImg rounded-md' />

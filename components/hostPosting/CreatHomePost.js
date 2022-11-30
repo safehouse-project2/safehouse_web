@@ -121,7 +121,7 @@ function CreatHomePost({ editState = [], isEdit = false, docId = "" }) {
             case 4:
                 return <FormUtilityDetail2 formData={formData} setFormData={setFormData} />;
             case 5:
-                return <FormUploadImage formData={formData} setFormData={setFormData} imgsSrc={imgsSrc} setImgsSrc={setImgsSrc}/>;
+                return <FormUploadImage formData={formData} setFormData={setFormData} imgsSrc={imgsSrc} setImgsSrc={setImgsSrc} />;
             case 6:
                 return <FormContact formData={formData} setFormData={setFormData} />
             case 7:
