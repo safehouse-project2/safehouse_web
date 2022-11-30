@@ -2,9 +2,8 @@ import AppText from "../AppText/AppText";
 
 export default function Rules({
   state = {
-    petsAllowed: 'yes',
-    smokingAllowed: 'yes',
-    childrenAllowed: 'yes',
+    petsAllowed: "yes",
+    smokingAllowed: "yes",
   },
 }) {
   return (
@@ -25,12 +24,7 @@ export default function Rules({
           fontWeight="500"
         />
         <AppText
-          txt={state.smokingAllowed ? "Smoking: Allowed" : "Smoking: Not Allowed"}
-          fontSize="14px"
-          fontWeight="500"
-        />
-        <AppText
-          txt={state.childrenAllowed ? "Children: Allowed" : "Children: Not Allowed"}
+          txt={state.smokingAllowed ? "Smoking: Allowed" : "Smoking: No Allowed"}
           fontSize="14px"
           fontWeight="500"
         />

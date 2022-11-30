@@ -34,7 +34,7 @@ export default function ConfirmForm({ formData }) {
           transition={{ duration: 0.8, delay: 0.1 }}
           className='flex pt-10 justify-between w-full'>
           <AppText
-            txt="Home Description"
+            txt="Home description"
             color='#F0E6D9'
             fontSize='18px'
           />
@@ -86,12 +86,12 @@ export default function ConfirmForm({ formData }) {
           transition={{ duration: 0.8, delay: 0.4 }}
           className='flex pt-10 justify-between w-full'>
           <AppText
-            txt="Days You Can Acomodate For"
+            txt="Bedrooms"
             color='#F0E6D9'
             fontSize='18px'
           />
           <AppText
-            txt={formData.accomodate}
+            txt={formData.bedrooms}
             color='#F5F5F5'
             fontSize='18px'
           />
@@ -103,12 +103,12 @@ export default function ConfirmForm({ formData }) {
           transition={{ duration: 0.8, delay: 0.5 }}
           className='flex pt-10 justify-between w-full'>
           <AppText
-            txt="Bedrooms"
+            txt="Beds"
             color='#F0E6D9'
             fontSize='18px'
           />
           <AppText
-            txt={formData.bedrooms}
+            txt={formData.beds}
             color='#F5F5F5'
             fontSize='18px'
           />
@@ -173,7 +173,7 @@ export default function ConfirmForm({ formData }) {
           transition={{ duration: 0.8, delay: 0.9 }}
           className='flex pt-10 justify-between w-full'>
           <AppText
-            txt="Phone Number"
+            txt="Phone number"
             color='#F0E6D9'
             fontSize='18px'
           />
