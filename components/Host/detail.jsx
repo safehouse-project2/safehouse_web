@@ -55,7 +55,7 @@ export default function HostDetail({
   useEffect(() => {
     const checkIfClickedOutside = e => {
       if (!inputAreaRef.current.contains(e.target)) {
-        setUploadOpen(false);
+        // setOpen(false);
       } else {
       }
     };
@@ -86,18 +86,18 @@ export default function HostDetail({
   function uploadToClient(e) {
     e.preventDefault()
     if (e.target.files && e.target.files[0]) {
-      setImageUpload(e.target.files[0])
+      // setImageUpload(e.target.files[0])
       const i = e.target.files[0];
       setUrl(URL.createObjectURL(i));
-      setUploadOpen(true)
+      uploadImagetoFirebase(e.target.files[0]);
     }
   }
 
   const listImageRef = ref(storage, `PImages/${currentUser?.uid}`)
 
-  const [imageUpload, setImageUpload] = useState(null)
+  // const [imageUpload, setImageUpload] = useState(null)
 
-  function uploadImagetoFirebase() {
+  function uploadImagetoFirebase(imageUpload) {
     if (imageUpload === null) {
       return
     }
@@ -106,6 +106,7 @@ export default function HostDetail({
       if (res.items.length === 0) {
         uploadBytes(storageRef, imageUpload).then((snapshot) => {
           console.log('Uploaded a blob or file!');
+          setOpen(false);
         });
       } else {
         res.items.forEach((itemRef) => {
@@ -113,6 +114,7 @@ export default function HostDetail({
             .then(() => {
               uploadBytes(storageRef, imageUpload).then((snapshot) => {
                 console.log('Uploaded a blob or file!');
+                setOpen(false);
               })
                 .catch((error) => {
                   console.log(error, "failed to upload")
@@ -125,7 +127,7 @@ export default function HostDetail({
         })
       }
     })
-    setUploadOpen(false)
+    // setUploadOpen(false)
   }
 
   return (
@@ -144,30 +146,28 @@ export default function HostDetail({
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0 }}
                 style={{
-                  backgroundImage: `url(${url})`,
-                  backgroundSize: "cover",
                   borderRadius: "50%",
                   width: "200px",
                   height: "200px",
                 }}
               >
-                {/* <img className="w-[200px] h-[200px] rounded-full" src={url} alt="profile picture" /> */}
+                <img style={{ objectFit: 'cover' }} className="w-[200px] h-[200px] rounded-full" src={url} alt="profile picture" />
               </motion.div>
               <motion.div className="mt-[-20px] cursor-pointer"
                 initial={{ opacity: 0, y: 100 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.1 }}
               >
-                 { open && <UploadImagePopover
+                <UploadImagePopover
                   onImageChange={uploadToClient}
-                />}
+                />
               </motion.div>
             </div>
           </div>
-
+          {/* 
           {uploadOpen &&
-            alert("Image Uploaded", uploadImagetoFirebase())
-          }
+            alert("Image Uploaded")
+          } */}
 
         </div>
       </div>
@@ -251,11 +251,11 @@ export default function HostDetail({
             ))
           ) : (
             <motion.div
-            initial={{ opacity: 0, y: 100 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.9 }}
             >
-            <AppText txt="You have no postings" fontSize="16px" />
+              <AppText txt="You have no postings" fontSize="16px" />
             </motion.div>
           )}
       </div>
