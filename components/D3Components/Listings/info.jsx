@@ -58,7 +58,7 @@ export default function Info({
         />
         <CircleIcon sx={{ fontSize: 10, color: "#B38A58", margin: "5px" }} />
         <AppText
-          txt={state?.accomodate? ` ${state.accomodate} days` : "Can't Accomodate"}
+          txt={state?.accomodate? ` ${state.accomodate} days` : "0 days"}
           fontSize="14px"
           fontWeight="400"
         />

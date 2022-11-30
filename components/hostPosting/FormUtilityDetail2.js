@@ -24,7 +24,7 @@ export default function FormUtilityDetail2({ formData, setFormData }) {
             <FormLabel id="demo-radio-buttons-group-label">Are Pets Allowed?</FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
-              value={formData.wifi || "yes"}
+              value={formData.petsAllowed || "yes"}
               name="radio-buttons-group"
               onChange={(e) => setFormData({ ...formData, petsAllowed: e.target.value })}
             >
@@ -41,7 +41,7 @@ export default function FormUtilityDetail2({ formData, setFormData }) {
             <FormLabel id="demo-radio-buttons-group-label">Is Smoking Allowed?</FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
-              value={formData.tv || "yes"}
+              value={formData.smokingAllowed || "yes"}
               name="radio-buttons-group"
               onChange={(e) => setFormData({ ...formData, smokingAllowed: e.target.value })}
             >
@@ -58,7 +58,7 @@ export default function FormUtilityDetail2({ formData, setFormData }) {
             <FormLabel id="demo-radio-buttons-group-label">Are Children Allowed?</FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
-              value={formData.airConditioning || "yes"}
+              value={formData.childrenAllowed || "yes"}
               name="radio-buttons-group"
               onChange={(e) => setFormData({ ...formData, childrenAllowed: e.target.value })}
             >

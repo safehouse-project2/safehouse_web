@@ -31,7 +31,7 @@ export default function Ammenities({
           <div className="flex gap-2">
             <DirectionsCarIcon />
             <AppText
-              txt={state?.space ? "Space for Cars or RVs" : "No Space for Cars or RVs"}
+              txt={state?.space ? "Space for Cars or RVs" : "No Space for Cars and RVs"}
               fontSize="15px"
               fontWeight="500"
             />
@@ -52,7 +52,7 @@ export default function Ammenities({
           <div className="flex gap-2">
             <AccessibleIcon />
             <AppText
-              txt={state?.accessible ? "WheelChair Accessibler" : "Not WheelChair Accessible"}
+              txt={state?.accessible ? "Wheelchair Accessible" : "Not Wheelchair Accessible"}
               color="black"
               fontSize="15px"
               fontWeight="500"
