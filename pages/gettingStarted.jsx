@@ -139,7 +139,7 @@ export default function Home() {
                   sx={{ fontSize: 150 }}
                 /> */}
                 {handleEvacueUsesr()}
-                {auth===null && (
+                {!user && (
                   <>
                     <p
                       className="text-[#383838]">
