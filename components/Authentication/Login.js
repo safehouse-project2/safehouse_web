@@ -42,7 +42,7 @@ export default function Login() {
       await googleLogin()
       router.push('/gettingstarted')
     } catch (error) {
-     
+
       console.log(error)
       setError("Failed to login with Google")
     }
@@ -72,7 +72,7 @@ export default function Login() {
             <label htmlFor="password">Password</label>
             <input type="password" placeholder="Password" ref={passwordRef} required className='px-4 py-2 bg-[#f3f3f3] rounded-md mb-3' />
             <div className='flex items-center justify-center m-auto'>
-              <button className='text-[#5581AA] text-[1rem] hover:text-[#274f8f] transition-all' disabled={loading} type="submit">Login</button>
+              <button className='text-[#5581AA] text-[1rem] hover:text-[#274f8f] transition-all' type="submit">Login</button>
             </div>
           </form>
 
@@ -80,7 +80,7 @@ export default function Login() {
           <Button
             txt='Login with Google'
             onBtnClick={loginWithGoogole}
-            disabled={loading}
+            // disabled={loading}
             type="submit"
             backgroundColor='#4285F4'
             borderRadius='5px'
