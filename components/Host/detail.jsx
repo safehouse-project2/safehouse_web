@@ -18,6 +18,7 @@ export default function HostDetail({
 
   const { currentUser, logout } = useAuth();
 
+
   useEffect(() => {
     if (currentUser === null) {
       router.push('/auth/login')
@@ -30,6 +31,7 @@ export default function HostDetail({
   const [open, setOpen] = useState(true)
 
   const [url, setUrl] = useState(currentUser?.photoURL);
+  console.log(url)
   const [uploadOpen, setUploadOpen] = useState(false);
 
   const inputAreaRef = useRef();

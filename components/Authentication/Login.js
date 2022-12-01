@@ -21,7 +21,9 @@ export default function Login() {
 
   async function handleSumbmit(e) {
     e.preventDefault()
-
+    if(passwordRef.current.value.length < 6) {
+      return setError("Password must be at least 6 characters")
+    }
     try {
       await login(emailRef.current.value, passwordRef.current.value)
       if (!currentUser) {

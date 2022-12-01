@@ -43,18 +43,7 @@ export function AuthProvider({ children }) {
                 signInWithEmailAndPassword(auth, email, password)
                 router.push('/gettingStarted')
                 })  
-        //    .catch((error) => {
-        //     switch (error.code) {
-
-        //         case "auth/email-already-in-use":
-        //             alert( `Email address ${email } already in use`);
-
-        //             // window.location.reload();
-        //             return;
-        //         default:
-        //             alert("Something went wrong");
-
-        //     }})
+      
     }
                 
           

@@ -30,9 +30,11 @@ export default function Signup() {
     console.log(firstNameRef.current.value + " " + lastNameRef.current.value)
 
     if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-      return alert("Passwords do not match")
+      return setError("Passwords do not match")
     }
-
+    if(passwordRef.current.value.length < 6) {
+      return setError("Password must be at least 6 characters")
+    }
     try {
       await signup(firstNameRef.current.value + " " + lastNameRef.current.value, emailRef.current.value, passwordRef.current.value)
     } catch (error) {
