@@ -19,6 +19,7 @@ export default function Home() {
   const inputAreaRef = useRef();
   const [popup, setPopup] = useState(false);
 
+
   const [user, setUser] = useState(null);
   const [userName, setUserName] = useState(null);
   useEffect(() => {
@@ -138,7 +139,7 @@ export default function Home() {
                   sx={{ fontSize: 150 }}
                 /> */}
                 {handleEvacueUsesr()}
-                {!auth && (
+                {auth===null && (
                   <>
                     <p
                       className="text-[#383838]">
