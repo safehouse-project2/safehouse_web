@@ -101,7 +101,7 @@ export default function Signup() {
           <Button
             txt='Login with Google'
             onBtnClick={loginWithGoogole}
-            disabled={loading}
+            // disabled={loading}
             type="submit"
             backgroundColor='#4285F4'
             borderRadius='5px'
