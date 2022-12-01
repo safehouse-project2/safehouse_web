@@ -79,10 +79,10 @@ export default function Signup() {
           <form onSubmit={handleSumbmit} className='flex flex-col justify-start items-start gap-2'>
 
             <label htmlFor="firstName">First Name</label>
-            <input type="firstName" placeholder="Enter your firstName" ref={firstNameRef} required className="px-4 py-2 bg-[#f3f3f3] rounded-md mb-3" />
+            <input type="firstName" placeholder="Enter your First Name" ref={firstNameRef} required className="px-4 py-2 bg-[#f3f3f3] rounded-md mb-3" />
 
             <label htmlFor="lastName">Last Name</label>
-            <input type="lastName" placeholder="Enter your lastName" ref={lastNameRef} required className="px-4 py-2 bg-[#f3f3f3] rounded-md mb-3" />
+            <input type="lastName" placeholder="Enter your Last Name" ref={lastNameRef} required className="px-4 py-2 bg-[#f3f3f3] rounded-md mb-3" />
 
             <label htmlFor="email">Email</label>
             <input type="email" placeholder="Enter your email" ref={emailRef} required className="px-4 py-2 bg-[#f3f3f3] rounded-md mb-3" />
