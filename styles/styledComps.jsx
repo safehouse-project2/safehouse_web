@@ -26,6 +26,20 @@ export const BackgroundContainer = styled.div`
     justify-content: center;
     backdrop-filter: ${(props) => props.backdropFilter || "none"};
 `
+export const BGEdit = styled.div`
+    background-image: url("/bg_overlay.png");
+    min-height: 100vh;
+    // height: 100vh;
+    min-width: 100vw;
+    width:${(props) => props.width || "0"};
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    position: ${(props) => props.position || ""};
+    justify-content: center;
+    backdrop-filter: ${(props) => props.backdropFilter || "none"};
+`
 
 export const MainContainer = styled.div`
     display: flex;

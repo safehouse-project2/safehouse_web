@@ -1,5 +1,4 @@
 import React from 'react'
-import { List, ListItem, ListItemText } from '@material-ui/core/'
 import AppText from '../D3Components/AppText/AppText'
 // import { collection, addDoc, serverTimestamp, updateDoc, doc} from 'firebase/firestore'
 // import { db } from '../../firebase'
@@ -34,12 +33,12 @@ export default function ConfirmForm({ formData }) {
           transition={{ duration: 0.8, delay: 0.1 }}
           className='flex pt-10 justify-between w-full'>
           <AppText
-            txt="Home description"
+            txt="Description"
             color='#F0E6D9'
             fontSize='18px'
           />
           <AppText
-            txt={formData.description}
+            txt={formData.description.substring(0, 20) + '...'}
             color='#F5F5F5'
             fontSize='18px'
           />
@@ -217,8 +216,6 @@ export default function ConfirmForm({ formData }) {
             <img src={link} key={idx} alt="No image uploaded" className='text-[#f5f5f5] max-w-[200px] rounded-lg p-4' />
           ))}
         </div>
-
-
       </div>
     </>
   )
