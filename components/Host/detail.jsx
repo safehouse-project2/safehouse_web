@@ -14,6 +14,7 @@ import { motion } from 'framer-motion'
 
 export default function HostDetail({
   state = [{ userId: "" }, { userId: "" }],
+  defImg = "./pp_placeholder.png",
 }) {
 
   const { currentUser, logout } = useAuth();
@@ -153,7 +154,7 @@ export default function HostDetail({
                   height: "200px",
                 }}
               >
-                <img style={{ objectFit: 'cover' }} className="w-[200px] h-[200px] rounded-full" src={url} alt="profile picture" />
+                <img style={{ objectFit: 'cover' }} className="w-[200px] h-[200px] rounded-full" src={url || defImg} alt="profile picture" />
               </motion.div>
               <motion.div className="mt-[-20px] cursor-pointer"
                 initial={{ opacity: 0, y: 100 }}
