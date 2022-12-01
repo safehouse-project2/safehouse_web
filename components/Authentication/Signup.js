@@ -1,14 +1,17 @@
 import React, { useRef, useState } from 'react'
 import { useAuth } from '../../AuthContext/AuthContext'
-import { Alert } from '@mui/material'
+import Alert from '@mui/material/Alert';
+import Stack from '@mui/material/Stack';
 import { useRouter } from 'next/router'
 import AppText from '../D3Components/AppText/AppText'
 import Button from '../D3Components/Button/Button'
 import GoogleIcon from '@mui/icons-material/Google';
 import Blobs from '../D3Components/Blobs/Blobs'
+import { AlertTitle } from '@mui/material';
 
-
-export default function Signup() {
+export default function Signup({
+  severity = 'error',
+}) {
 
   const router = useRouter()
   const emailRef = useRef()
@@ -16,6 +19,7 @@ export default function Signup() {
   const passwordConfirmRef = useRef()
   const firstNameRef = useRef()
   const lastNameRef = useRef()
+
 
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
@@ -30,18 +34,18 @@ export default function Signup() {
     console.log(firstNameRef.current.value + " " + lastNameRef.current.value)
 
     if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-      return alert("Passwords do not match")
+      return setError("Passwords do not match")
     }
 
     try {
-      await signup(firstNameRef.current.value + " " + lastNameRef.current.value, emailRef.current.value, passwordRef.current.value)
+      await signup(firstNameRef.current.value + " " + lastNameRef.current.value, emailRef.current.value, passwordRef.current.value);
     } catch (error) {
       switch (error.code) {
         case "auth/email-already-in-use":
           setError(`Email address ${emailRef.current.value} already in use`);
           return;
         default:
-          setError("Something went wrong");
+          setError("Please make sure your password is at least 6 characters long");
           return;
       }
     }
@@ -54,7 +58,7 @@ export default function Signup() {
       setError("")
       setLoading(true)
       await googleLogin()
-      router.push('/gettingstarted')
+      router.push('/gettingStarted')
     } catch (error) {
       console.log(error)
       setError("Failed to login with Google")
@@ -75,7 +79,12 @@ export default function Signup() {
             />
           </div>
           {currentUser && currentUser.email}
-          {error && <Alert variant="danger">{error}</Alert>}
+          {error && <div className='w-full'>
+            <Alert severity={severity}>
+              <AlertTitle>Something went wrong</AlertTitle>
+              {error}
+            </Alert>
+          </div>}
           <form onSubmit={handleSumbmit} className='flex flex-col justify-start items-start gap-2'>
 
             <label htmlFor="firstName">First Name</label>
@@ -95,6 +104,7 @@ export default function Signup() {
             <div className='flex items-center justify-center m-auto'>
               <button className='text-[#4285F4] text-[1rem] hover:text-[#274f8f] transition-all' disabled={loading} type="submit">Sign Up</button>
             </div>
+
           </form>
 
           {/* <Button onBtnClick={loginWithGoogle} disabled={loading} type="submit"> continue with Google </Button> */}

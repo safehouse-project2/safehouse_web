@@ -75,7 +75,7 @@ export default function Intro() {
                 <Button
                     txt='Get Started'
                     endIcon={<ArrowForwardIcon />}
-                    onBtnClick={() => r.push("/gettingstarted")}
+                    onBtnClick={() => r.push("/gettingStarted")}
                 />
             </motion.div>
         </div>
