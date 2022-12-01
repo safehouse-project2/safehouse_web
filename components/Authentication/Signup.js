@@ -34,16 +34,20 @@ export default function Signup() {
     }
 
     try {
-      setError("")
-      setLoading(true)
       await signup(firstNameRef.current.value + " " + lastNameRef.current.value, emailRef.current.value, passwordRef.current.value)
-      router.push('/auth/login')
-
     } catch (error) {
-      console.log(error)
-      setError("Failed to create an account")
+      switch (error.code) {
+        case "auth/email-already-in-use":
+          setError(`Email address ${emailRef.current.value} already in use`);
+          return;
+        default:
+          setError("Something went wrong");
+          return;
+      }
     }
   }
+
+
 
   async function loginWithGoogole() {
     try {

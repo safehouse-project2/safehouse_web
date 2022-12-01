@@ -12,7 +12,7 @@ import {
     signInWithRedirect,
     onAuthStateChanged
 } from 'firebase/auth'
-import { collection, addDoc, serverTimestamp, updateDoc, doc } from 'firebase/firestore'
+import { collection, addDoc, getDoc, serverTimestamp, updateDoc, doc } from 'firebase/firestore'
 const AuthContext = React.createContext()
 
 export function useAuth() {
@@ -26,6 +26,7 @@ export function AuthProvider({ children }) {
     const [loading, setLoading] = useState(true)
 
     async function signup(name, email, password) {
+        
         return createUserWithEmailAndPassword(auth, email, password)
             .then(() =>{
                 updateProfile(auth.currentUser, {
@@ -38,15 +39,32 @@ export function AuthProvider({ children }) {
                     createdAt: serverTimestamp(),
                 })
             })
-            .catch(function (error) {
-                console.log(error)
-            })
+            .then(() => {
+                signInWithEmailAndPassword(auth, email, password)
+                router.push('/gettingStarted')
+                })  
+        //    .catch((error) => {
+        //     switch (error.code) {
+
+        //         case "auth/email-already-in-use":
+        //             alert( `Email address ${email } already in use`);
+
+        //             // window.location.reload();
+        //             return;
+        //         default:
+        //             alert("Something went wrong");
+
+        //     }})
     }
                 
           
 
-    function login(email, password) {
-        return signInWithEmailAndPassword(auth, email, password)
+    async function login(email, password) {
+        return await signInWithEmailAndPassword(auth, email, password)
+        .then (() => {
+            router.push('/gettingStarted')
+        }
+        )
     }
 
     function logout() {
@@ -70,6 +88,7 @@ export function AuthProvider({ children }) {
             const result = await signInWithPopup(auth, provider)
             const user = result.user
             setCurrentUser(user)
+            router.push('/gettingStarted')
         } catch (message) {
             return console.log(message)
         }

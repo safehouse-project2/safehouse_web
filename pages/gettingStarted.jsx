@@ -138,7 +138,7 @@ export default function Home() {
                   sx={{ fontSize: 150 }}
                 /> */}
                 {handleEvacueUsesr()}
-                {!userName && (
+                {!auth && (
                   <>
                     <p
                       className="text-[#383838]">

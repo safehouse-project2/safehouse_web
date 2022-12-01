@@ -23,16 +23,17 @@ export default function Login() {
     e.preventDefault()
 
     try {
-      setError("")
-      setLoading(true)
       await login(emailRef.current.value, passwordRef.current.value)
-      router.push('/gettingstarted')
+      if (!currentUser) {
+        emailRef.current.value = ""
+        passwordRef.current.value = ""
+      }
     } catch (error) {
-      emailRef.current.value = ""
-      passwordRef.current.value = ""
-      alert("Failed to login. Please check your email and password.")
-      // setError("Failed to login. Please check your email and password.")
+      console.log(error)
+
+      setError("Failed to login. Please check your email and password.")
     }
+    setLoading(false)
   }
 
   async function loginWithGoogole() {
@@ -40,9 +41,8 @@ export default function Login() {
       setError("")
       setLoading(true)
       await googleLogin()
-      router.push('/gettingstarted')
     } catch (error) {
-     
+
       console.log(error)
       setError("Failed to login with Google")
     }
