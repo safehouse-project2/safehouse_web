@@ -20,7 +20,7 @@ const firebaseConfig = {
 
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig, process.env.NEXT_PUBLIC_PROJECTID);
 export const auth = getAuth(app);
 
 const db = getFirestore(app);
