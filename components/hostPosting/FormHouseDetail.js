@@ -13,7 +13,7 @@ export default function FormHouseDetail({ formData, setFormData }) {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
           className='flex flex-col justify-start items-start pb-5'>
-          <label htmlFor="homeType" className='text-[#f5f5f5] text-[18px]'>What kind of place will you be hosting ?</label>
+          <label htmlFor="homeType" className='text-[#f5f5f5] text-[18px]'>What kind of space can you provide for Evacuees ?</label>
           <div className='bg-[#E9E9ED] py-3 px-3 mt-3 rounded-md'>
             <select className='text-[#272727]'
               name="homeType"

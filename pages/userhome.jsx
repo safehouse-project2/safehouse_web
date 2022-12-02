@@ -58,7 +58,7 @@ export default function UserHome({ data }) {
               initial={{ opacity: 0, y: 100 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0 }}
-              className="flex flex-col items-center justify-center pb-4"
+              className="flex flex-col items-center justify-center"
             >
               <AppText
                 txt="Welcome to Safehouse!"
