@@ -14,6 +14,7 @@ export default function SwiperComp({ imgSrc = "../img_placeholder.svg" }) {
           src="../img_placeholder.svg"
           style={{ listStyle: "none" }}
           alt=""
+          className="w-full h-full object-cover"
         />
       </SwiperSlide>
     )
