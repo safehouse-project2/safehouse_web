@@ -6,7 +6,6 @@ import { motion } from 'framer-motion'
 
 
 export default function ConfirmForm({ formData }) {
-  console.log(formData)
   return (
     <>
       <div className='flex flex-col justify-start items-start w-[100%]'>
@@ -59,7 +58,6 @@ export default function ConfirmForm({ formData }) {
             <span>{formData.addressLine2}</span>
             <span>{formData.city}</span>
             <span>{formData.province}</span>
-            <span>{formData.postalCode}</span>
           </div>
         </motion.div>
         <motion.div
