@@ -161,8 +161,8 @@ export default function FormAddressDetail({ formData, setFormData, state, setSta
                 id="city"
                 variant='outlined'
                 placeholder='City'
-                required
-                value={addressAry[addressAry.length - 3] ? addressAry[addressAry.length - 3] : formData.city}
+                required={true}
+                value={addressAry[1] ? addressAry[1] : formData.city}
                 onChange={(e) => {
                   setFormData({ ...formData, city: e.target.value })
                 }}
@@ -192,7 +192,7 @@ export default function FormAddressDetail({ formData, setFormData, state, setSta
                 variant='outlined'
                 placeholder='Province'
                 required
-                value={addressAry[addressAry.length - 2]?.split(" ")[0] ? addressAry[addressAry.length - 2].split(" ")[0] : formData.province}
+                value={addressAry[2] ? addressAry[2] : formData.province}
                 onChange={(e) =>
                   setFormData({ ...formData, province: e.target.value })
                 }
@@ -227,7 +227,7 @@ export default function FormAddressDetail({ formData, setFormData, state, setSta
             <option value="Yukon">Yukon</option>
           </select>
         </FormControl> */}
-        <FormControl>
+        {/* <FormControl>
           <motion.div
             initial={{ opacity: 0, x: -100 }}
             animate={{ opacity: 1, x: 0 }}
@@ -256,7 +256,7 @@ export default function FormAddressDetail({ formData, setFormData, state, setSta
               />
             </div>
           </motion.div>
-        </FormControl>
+        </FormControl> */}
 
 
       </form >

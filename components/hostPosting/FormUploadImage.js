@@ -20,7 +20,7 @@ export default function FormUploadImage({ formData, setFormData, imgsSrc, setImg
   }, [])
 
   const onFileChange = (e) => {
-    setFile(e.target.files[0]);
+    setFile(e.target.files[0])
     const {
       target: { files },
     } = e;
@@ -49,8 +49,7 @@ export default function FormUploadImage({ formData, setFormData, imgsSrc, setImg
       };
     }
   };
-
-
+  console.log("file", file);
 
   const onClearAttachment = () => {
     setImgsSrc([])
