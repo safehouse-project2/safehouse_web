@@ -9,7 +9,7 @@ import { collection, query, orderBy, onSnapshot } from "firebase/firestore";
 import { db } from "/firebase";
 import GetGoogleMap from "../components/locations/GetGoogleMap";
 import { AuthProvider } from "../AuthContext/AuthContext";
-import { motion } from 'framer-motion'
+import { motion } from "framer-motion";
 import { useAuth } from "../AuthContext/AuthContext";
 
 export default function UserHome({ data }) {
@@ -45,8 +45,12 @@ export default function UserHome({ data }) {
       case "All":
         return setIsBothClicked(true);
       default:
-        return "All";
+        return "Safehouses";
     }
+  };
+  const getSafeHouses = () => {
+    setIsBothClicked(false);
+    return setIsClicked(true);
   };
 
   return (
@@ -67,7 +71,7 @@ export default function UserHome({ data }) {
               />
             </motion.div>
 
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 100 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
@@ -80,7 +84,7 @@ export default function UserHome({ data }) {
                 backgroundColor="#fefefe"
                 width="100%"
               />
-            </motion.div>
+            </motion.div> */}
             {/* <SliderFull /> */}
             <div className="flex flex-col gap-2 pt-10">
               <motion.div
@@ -96,7 +100,8 @@ export default function UserHome({ data }) {
                 />
               </motion.div>
 
-              <motion.div className="flex flex-row gap-7"
+              <motion.div
+                className="flex flex-row gap-7"
                 initial={{ opacity: 0, y: 100 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
@@ -131,7 +136,8 @@ export default function UserHome({ data }) {
                 padding="20px 0px 10px 0px"
               />
             </motion.div>
-            <motion.div className="flex flex-start px-5"
+            <motion.div
+              className="flex flex-start px-5"
               initial={{ opacity: 0, y: 100 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
@@ -142,12 +148,13 @@ export default function UserHome({ data }) {
                 className="py-3 px-3 text-[#272727] bg-[#f5f5f5] rounded-md w-[250px]"
                 onChange={selectHandler}
               >
-                <option value="Wildfires">Wildfires</option>
                 <option value="Safehouses">Safehouses</option>
+                <option value="Wildfires">Wildfires</option>
                 <option value="All">All</option>
               </select>
             </motion.div>
-            <motion.div className="flex w-[80vw] px-5 mapContainerUserhome pb-10 googleMapCont"
+            <motion.div
+              className="flex w-[80vw] px-5 mapContainerUserhome pb-10 googleMapCont"
               initial={{ opacity: 0, y: 100 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.7 }}
@@ -164,6 +171,7 @@ export default function UserHome({ data }) {
                 hostInfo={state}
                 isClicked={isClicked}
                 isBothClicked={isBothClicked}
+                getSafeHouses={getSafeHouses}
                 btnState={true}
                 width="90vw"
                 height="50vh"

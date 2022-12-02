@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 import { storage } from "../../firebase"
 import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage"
@@ -12,6 +12,7 @@ import { motion } from 'framer-motion'
 export default function FormUploadImage({ formData, setFormData, imgsSrc, setImgsSrc }) {
   const [attachment, setAttachment] = useState()
   const [file, setFile] = useState("")
+  const inputRef = useRef(null);
 
   useEffect(() => {
     if (formData.images) {
@@ -20,7 +21,7 @@ export default function FormUploadImage({ formData, setFormData, imgsSrc, setImg
   }, [])
 
   const onFileChange = (e) => {
-    setFile(e.target.files[0]);
+    setFile(e.target.files[0])
     const {
       target: { files },
     } = e;
@@ -50,13 +51,11 @@ export default function FormUploadImage({ formData, setFormData, imgsSrc, setImg
     }
   };
 
-
-
   const onClearAttachment = () => {
     setImgsSrc([])
+    inputRef.current.value = null;
     return setFormData({ ...formData, image: [] })
   }
-
 
   return (
     <div className='flex flex-col'>
@@ -71,7 +70,7 @@ export default function FormUploadImage({ formData, setFormData, imgsSrc, setImg
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
           className='flex bg-[#f5f5f5] px-4 py-4 justify-start items-center rounded-md w-full'>
-          <input type="file" name="myImage" onChange={onFileChange} className="w-[280px]" />
+          <input ref={inputRef} type="file" name="myImage" onChange={onFileChange} className="w-[280px]" />
           <DeleteIcon onClick={onClearAttachment} sx={{ color: '#272727' }} />
         </motion.div>
         {/* <motion.div className='flex row mt-4 gap-5'

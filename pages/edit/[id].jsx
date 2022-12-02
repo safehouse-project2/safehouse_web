@@ -7,10 +7,12 @@ import {
   BackgroundContainer,
   MainContainer,
   LeftContainer,
+  BGEdit
 } from "../../styles/styledComps";
 import CreatHomePost from "../../components/hostPosting/CreatHomePost";
 import Script from "next/script";
 import { AuthProvider } from "../../AuthContext/AuthContext";
+import Loading from "../../components/D3Components/Loading/Loading";
 
 export default function EditPostById() {
   const [state, setState] = useState([
@@ -42,18 +44,22 @@ export default function EditPostById() {
 
   if (state) {
     return (
-      <BackgroundContainer src="homeBG.png">
-        <Script
-          id="my-script"
-          strategy="beforeInteractive"
-          src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAP_API}&libraries=places`}
-        ></Script>
-        <AuthProvider>
-          <CreatHomePost editState={state} isEdit={true} docId={id} />
-        </AuthProvider>
-      </BackgroundContainer>
+      <BGEdit>
+        <MainContainer>
+          <LeftContainer>
+            <Script
+              id="my-script"
+              strategy="beforeInteractive"
+              src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAP_API}&libraries=places`}
+            ></Script>
+            <AuthProvider>
+              <CreatHomePost editState={state} isEdit={true} docId={id} />
+            </AuthProvider>
+          </LeftContainer>
+        </MainContainer>
+      </BGEdit>
     );
   } else {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 }

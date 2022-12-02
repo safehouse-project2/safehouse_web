@@ -5,10 +5,19 @@ import "swiper/swiper-bundle.css";
 
 SwiperCore.use([Navigation, Pagination]);
 
-export default function SwiperComp({
-  imgSrc = "http://placekitten.com/500/300",
-}) {
+export default function SwiperComp({ imgSrc = "../img_placeholder.svg" }) {
   const slides = [];
+  if (imgSrc == "") {
+    slides.push(
+      <SwiperSlide>
+    <img
+      src="../img_placeholder.svg"
+      style={{ listStyle: "none" }}
+      alt=""
+    />
+    </SwiperSlide>
+    )
+  }
   for (let i = 0; i < imgSrc.length; i++) {
     slides.push(
       <SwiperSlide key={`slide-${i}`} tag="li">
