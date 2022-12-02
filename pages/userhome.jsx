@@ -45,7 +45,7 @@ export default function UserHome({ data }) {
       case "All":
         return setIsBothClicked(true);
       default:
-        return "All";
+        return "Safehouses";
     }
   };
 
@@ -67,7 +67,7 @@ export default function UserHome({ data }) {
               />
             </motion.div>
 
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 100 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
@@ -80,7 +80,7 @@ export default function UserHome({ data }) {
                 backgroundColor="#fefefe"
                 width="100%"
               />
-            </motion.div>
+            </motion.div> */}
             {/* <SliderFull /> */}
             <div className="flex flex-col gap-2 pt-10">
               <motion.div
@@ -142,8 +142,8 @@ export default function UserHome({ data }) {
                 className="py-3 px-3 text-[#272727] bg-[#f5f5f5] rounded-md w-[250px]"
                 onChange={selectHandler}
               >
-                <option value="Wildfires">Wildfires</option>
                 <option value="Safehouses">Safehouses</option>
+                <option value="Wildfires">Wildfires</option>
                 <option value="All">All</option>
               </select>
             </motion.div>
@@ -163,7 +163,9 @@ export default function UserHome({ data }) {
               <GetGoogleMap
                 hostInfo={state}
                 isClicked={isClicked}
+                setIsClicked={setIsClicked}
                 isBothClicked={isBothClicked}
+                setIsBothClicked={setIsBothClicked}
                 btnState={true}
                 width="90vw"
                 height="50vh"

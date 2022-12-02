@@ -18,8 +18,10 @@ const GetGoogleMap = ({
     lat: "",
     lng: "",
   },
-  isClicked = false,
+  isClicked = true,
   isBothClicked = false,
+  setIsClicked,
+  setIsBothClicked,
   btnState = false,
   width = "100vw",
   height = "100vh",
@@ -50,6 +52,8 @@ const GetGoogleMap = ({
       );
       const { events } = response.data;
       setData(events);
+      setIsClicked(true);
+      setIsBothClicked(false);
     })();
   }, []);
 
