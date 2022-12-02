@@ -9,11 +9,7 @@ import { TextField } from '@mui/material';
 import { motion } from 'framer-motion'
 
 
-export default function FormAddressDetail({ formData, setFormData, state, setState }) {
-
-
-  const addressAry = state.address.split(",")
-
+export default function FormAddressDetail({ formData = { addressLine1: "", addressLine2: "", city: "", province: "" }, setFormData, state, setState }) {
 
   const handleChange = address => {
     setState({ address });
@@ -40,12 +36,8 @@ export default function FormAddressDetail({ formData, setFormData, state, setSta
             transition={{ duration: 0.8, delay: 0 }}
           >
             <label htmlFor="addressLine1" className='text-[#f5f5f5] text-[18px]'>Address Line 1</label>
-            {/*    value={addressAry[addressAry.length - 2]?.split(" ")[0] ? addressAry[addressAry.length - 2].split(" ")[0] : formData.province}
-                onChange={(e) =>
-                  setFormData({ ...formData, province: e.target.value })
-                } */}
             <PlacesAutocomplete
-              value={state.address && state.address.split(",")[0]}
+              value={state?.address && state.address.split(",")[0]}
               onChange={address => setState({ address })}
               onSelect={handleSelect}
             >
@@ -69,7 +61,7 @@ export default function FormAddressDetail({ formData, setFormData, state, setSta
                     name="addressLine1"
                     id="addressLine1"
                     variant='outlined'
-                    value={addressAry[0] ? addressAry[0] : formData.addressLine1}
+                    value={state?.address && state.address.split(",")[0] || formData.addressLine1}
                     placeholder='Address Line 1'
                     required
                   />
@@ -162,7 +154,7 @@ export default function FormAddressDetail({ formData, setFormData, state, setSta
                 variant='outlined'
                 placeholder='City'
                 required={true}
-                value={addressAry[1] ? addressAry[1] : formData.city}
+                value={state?.address && state.address.split(",")[1] || formData.city}
                 onChange={(e) => {
                   setFormData({ ...formData, city: e.target.value })
                 }}
@@ -177,7 +169,7 @@ export default function FormAddressDetail({ formData, setFormData, state, setSta
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <label htmlFor="city" className='text-[#f5f5f5] text-[18px]'>Province</label>
+            <label htmlFor="province" className='text-[#f5f5f5] text-[18px]'>Province</label>
             <div className='pb-6'>
               <TextField
                 sx={{
@@ -192,7 +184,7 @@ export default function FormAddressDetail({ formData, setFormData, state, setSta
                 variant='outlined'
                 placeholder='Province'
                 required
-                value={addressAry[2] ? addressAry[2] : formData.province}
+                value={state?.address && state.address.split(",")[2] || formData.province}
                 onChange={(e) =>
                   setFormData({ ...formData, province: e.target.value })
                 }
