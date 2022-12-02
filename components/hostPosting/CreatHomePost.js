@@ -55,7 +55,7 @@ function CreatHomePost({ editState = [], isEdit = false, docId = "" }) {
     }
 
     const router = useRouter()
-    const [state, setState] = useState({ address: "," });
+    const [state, setState] = useState({ address: ",,," });
     const [formData, setFormData] = useState({
 
         homeType: 'House',
@@ -65,7 +65,6 @@ function CreatHomePost({ editState = [], isEdit = false, docId = "" }) {
         addressLine2: '',
         city: '',
         province: '',
-        postalCode: '',
 
         guests: 0,
         bedrooms: 0,
@@ -146,8 +145,13 @@ function CreatHomePost({ editState = [], isEdit = false, docId = "" }) {
             }
         }
         if (page === 1) {
-            if (state.address.split(",").length > 1) {
-                setFormData({ ...formData, addressLine1: state.address.split(',')[0], city: state.address.split(',')[1], province: state.address.split(',')[2] })
+            if (state?.address && state.address.split(",").length > 1) {
+                setFormData({
+                    ...formData,
+                    addressLine1: state.address.split(',')[0],
+                    city: state.address.split(',')[1],
+                    province: state.address.split(',')[2],
+                })
             }
 
             // if (formData.addressLine1 === '') {
