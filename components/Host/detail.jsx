@@ -257,8 +257,10 @@ export default function HostDetail({
               initial={{ opacity: 0, y: 100 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.9 }}
+              className="flex justify-center items-center w-full flex-col text-center"
             >
-              <AppText txt="You have no postings" fontSize="16px" />
+              <AppText txt="You have no postings :(" fontSize="16px" />
+              <AppText txt="Click on the add new button to host your place." fontSize="16px" />
             </motion.div>
           )}
       </div>
