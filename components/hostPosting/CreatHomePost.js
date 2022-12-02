@@ -146,8 +146,9 @@ function CreatHomePost({ editState = [], isEdit = false, docId = "" }) {
             }
         }
         if (page === 1) {
-
-            setFormData({ ...formData, addressLine1: state.address.split(',')[0] })
+            if (state.address.split(",").length > 1) {
+                setFormData({ ...formData, addressLine1: state.address.split(',')[0], city: state.address.split(',')[1], province: state.address.split(',')[2] })
+            }
 
             // if (formData.addressLine1 === '') {
             //     showAlert('warning', 'Please enter an address');
