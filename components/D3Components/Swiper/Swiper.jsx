@@ -13,7 +13,7 @@ export default function SwiperComp({ imgSrc = "../img_placeholder.svg" }) {
         <img
           src="../img_placeholder.svg"
           style={{ listStyle: "none" }}
-          alt=""
+          alt="Home image"
           className="w-full h-full object-cover"
         />
       </SwiperSlide>
@@ -24,14 +24,14 @@ export default function SwiperComp({ imgSrc = "../img_placeholder.svg" }) {
       <SwiperSlide key={`slide-${i}`} tag="li" style={{
         // margin: "auto",
       }}>
-        <img src={imgSrc[i]} style={{ listStyle: "none" }} alt={`Slide ${i}`} className="w-full" />
+        <img src={imgSrc[i]} style={{ listStyle: "none" }} alt={`Image ${i}`} className="w-full" />
       </SwiperSlide>
     );
   }
   return (
     <>
       <Swiper
-        tag="section"
+        tag="div"
         style={{
           width: "100%",
         }}

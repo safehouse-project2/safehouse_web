@@ -173,7 +173,7 @@ export default function UserHome({ data }) {
                 isBothClicked={isBothClicked}
                 getSafeHouses={getSafeHouses}
                 btnState={true}
-                width="90vw"
+                width="97vw"
                 height="50vh"
               />
             </motion.div>
