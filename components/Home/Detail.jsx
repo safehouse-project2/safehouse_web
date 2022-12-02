@@ -48,7 +48,7 @@ const Detail = ({ state }) => {
   return (
     <>
       <div>
-        <div className="absolute z-[99] top-[10px] left-[10px] bg-[#ffffff] rounded-full p-[2px] cursor-pointer opacity-[0.5] backBtnCont">
+        <div className="absolute z-[99] top-[10px] left-[10px] bg-[#ffffff] rounded-full p-[2px] cursor-pointer backBtnCont">
           <ArrowBackIcon
             sx={{ color: "#272727", fontSize: "2.2rem" }}
             onClick={() => router.push("/userhome")}
