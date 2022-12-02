@@ -2,7 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 import AppText from "../AppText/AppText";
 import { useRouter } from "next/router";
-import LocationOnIcon from '@mui/icons-material/LocationOn';
+import LocationOnIcon from "@mui/icons-material/LocationOn";
 
 const BackgroundImageContainer = styled.div`
   background-image: linear-gradient(
@@ -10,7 +10,7 @@ const BackgroundImageContainer = styled.div`
       rgba(0, 0, 0, 0) 33.98%,
       rgba(0, 0, 0, 0.85) 100%
     ),
-    url(${props => props.src || "./vercel.svg"});
+    url(${(props) => props.src || "./vercel.svg"});
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -40,9 +40,9 @@ export default function Slider({
   },
 }) {
   const router = useRouter();
-  const findCurrentPage = id => {
+  const findCurrentPage = (id) => {
     if (state.length) {
-      return state.findIndex(obj => obj.id === id);
+      return state.findIndex((obj) => obj.id === id);
     }
     return;
   };
@@ -62,25 +62,21 @@ export default function Slider({
       }}
       className="cursor-pointer"
     >
-      {state.map(post => (
+      {state.map((post) => (
         <BackgroundImageContainer
           //   src={post.image && post.length > 0 ? post.image[0] : "./vercel.svg"}
-          src={post.image[0] || "./img_placeholder.svg"}
+          src={post.image[0] || "../img_placeholder.svg"}
           onClick={() => router.push(`/home/${post.id}`)}
         >
           <AppText
-            txt={
-              post.addressLine1
-                ? post.addressLine1
-                : "" + ", " + post.city
-                  ? post.city
-                  : "N/A"
-            }
+            txt={`${post?.addressLine1 ? post.addressLine1 : ""} ${
+              post?.city ? post.city : ""
+            } ${post?.province ? post.province : ""}`}
             color="#f5f5f5"
             fontSize="24px"
           />
 
-          <div className="flex gap-[200px] items-center">
+          {/* <div className="flex gap-[200px] items-center">
             <AppText txt="4km📍" color="#cdcdcd" fontSize="16px" />
             <AppText
               txt={
@@ -91,7 +87,7 @@ export default function Slider({
               color="#cdcdcd"
               fontSize="16px"
             />
-          </div>
+          </div> */}
         </BackgroundImageContainer>
       ))}
     </div>

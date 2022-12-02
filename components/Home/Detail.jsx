@@ -20,7 +20,6 @@ const Detail = ({ state }) => {
   const { currentUser } = useAuth();
   const [isAuth, setIsAuth] = useState(false);
 
-
   useEffect(() => {
     if (currentUser?.uid === state?.userId) {
       setIsAuth(true);
@@ -39,9 +38,11 @@ const Detail = ({ state }) => {
 
   const deleteHandler = () => {
     const docRef = doc(db, "homes", id);
-    deleteDoc(docRef);
-    window.confirm("Are you sure you want to delete this post?");
-    router.push("/userhome");
+    if (window.confirm("Are you sure you want to delete this post?")) {
+      deleteDoc(docRef);
+      return router.push("/userhome");
+    }
+    return;
   };
 
   return (
