@@ -25,7 +25,7 @@ export default function FormUtilityDetail({ formData, setFormData }) {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
           >
-            <FormLabel id="demo-radio-buttons-group-label">Do you provide with a Washer?</FormLabel>
+            <FormLabel id="demo-radio-buttons-group-label">Can you provide a washing machine ?</FormLabel>
             <RadioGroup
               className='utilityDetails'
               aria-labelledby="demo-radio-buttons-group-label"
@@ -44,7 +44,7 @@ export default function FormUtilityDetail({ formData, setFormData }) {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <FormLabel id="demo-radio-buttons-group-label">Do you provide with a Dryer ?</FormLabel>
+            <FormLabel id="demo-radio-buttons-group-label">Cna you provide a clothes dryer ?</FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
               value={formData.dryer || "yes"}
@@ -62,7 +62,7 @@ export default function FormUtilityDetail({ formData, setFormData }) {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <FormLabel id="demo-radio-buttons-group-label">Are pets allowed?</FormLabel>
+            <FormLabel id="demo-radio-buttons-group-label">Do you allow pets ?</FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
               value={formData.petsAllowed || "yes"}
@@ -80,7 +80,7 @@ export default function FormUtilityDetail({ formData, setFormData }) {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <FormLabel id="demo-radio-buttons-group-label">Is smoking allowed ?</FormLabel>
+            <FormLabel id="demo-radio-buttons-group-label">Do you allow smoking ?</FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
               value={formData.smokingAllowed || "yes"}

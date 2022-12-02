@@ -10,18 +10,21 @@ export default function SwiperComp({ imgSrc = "../img_placeholder.svg" }) {
   if (imgSrc == "") {
     slides.push(
       <SwiperSlide>
-    <img
-      src="../img_placeholder.svg"
-      style={{ listStyle: "none" }}
-      alt=""
-    />
-    </SwiperSlide>
+        <img
+          src="../img_placeholder.svg"
+          style={{ listStyle: "none" }}
+          alt=""
+          className="w-full h-full object-cover"
+        />
+      </SwiperSlide>
     )
   }
   for (let i = 0; i < imgSrc.length; i++) {
     slides.push(
-      <SwiperSlide key={`slide-${i}`} tag="li">
-        <img src={imgSrc[i]} style={{ listStyle: "none" }} alt={`Slide ${i}`} />
+      <SwiperSlide key={`slide-${i}`} tag="li" style={{
+        // margin: "auto",
+      }}>
+        <img src={imgSrc[i]} style={{ listStyle: "none" }} alt={`Slide ${i}`} className="w-full" />
       </SwiperSlide>
     );
   }
