@@ -18,7 +18,9 @@ export default function HostDetail({
 }) {
 
   const { currentUser, logout } = useAuth();
+  console.log(currentUser)
 
+  // if(currentUser === undefined) return <div>loading</div>
 
   useEffect(() => {
     if (currentUser === null) {
@@ -32,7 +34,7 @@ export default function HostDetail({
   const [open, setOpen] = useState(true)
 
   const [url, setUrl] = useState(currentUser?.photoURL);
-  console.log(url)
+
   const [uploadOpen, setUploadOpen] = useState(false);
 
   const inputAreaRef = useRef();
@@ -133,7 +135,13 @@ export default function HostDetail({
     // setUploadOpen(false)
   }
 
+  const jsx = (
+    <div>loaidng</div>
+  )
+
   return (
+
+    
     <div className="flex flex-col justify-center items-center gap-3">
       <div className="flex w-[100%]">
         <div ref={inputAreaRef} className="w-full flex">
@@ -154,7 +162,8 @@ export default function HostDetail({
                   height: "200px",
                 }}
               >
-                <img style={{ objectFit: 'cover' }} className="w-[200px] h-[200px] rounded-full" src={url || defImg} alt="profile picture" />
+                {url === null || url === undefined ? jsx :
+                <img style={{ objectFit: 'cover' }} className="w-[200px] h-[200px] rounded-full" src={url || defImg} alt="profile picture" />}
               </motion.div>
               <motion.div className="mt-[-20px] cursor-pointer"
                 initial={{ opacity: 0, y: 100 }}
@@ -264,7 +273,8 @@ export default function HostDetail({
             </motion.div>
           )}
       </div>
-    </div >
+    </div>
+
   );
 
 }
