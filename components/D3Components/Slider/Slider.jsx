@@ -14,8 +14,9 @@ const BackgroundImageContainer = styled.div`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  min-width: 250px;
-  min-height: 200px;
+  // min-width: 250px !important;
+  min-width: 320px !important;
+  min-height: 180px;
   background-color: #272727;
   border-radius: 10px;
   display: flex;
@@ -23,7 +24,7 @@ const BackgroundImageContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   padding: 120px 20px 20px 20px;
-  box-shadow: 0px 4px 37px rgba(0, 0, 0, 0.35);
+  // box-shadow: 0px 4px 37px rgba(0, 0, 0, 0.35);
   transition: all 0.4s ease-in-out;
   // :hover {
   //     scale: 1.05;
@@ -69,25 +70,19 @@ export default function Slider({
           onClick={() => router.push(`/home/${post.id}`)}
         >
           <AppText
-            txt={`${post?.addressLine1 ? post.addressLine1 : ""} ${
-              post?.city ? post.city : ""
-            } ${post?.province ? post.province : ""}`}
+            txt={`${post?.addressLine1 ? post.addressLine1 : "Address not provided"}`}
             color="#f5f5f5"
             fontSize="24px"
           />
 
-          {/* <div className="flex gap-[200px] items-center">
-            <AppText txt="4km📍" color="#cdcdcd" fontSize="16px" />
+          <div className="flex flex-col items-start">
+            <AppText txt={`${post?.city ? post.city : "City not provided"}`} color="#cdcdcd" fontSize="16px" />
             <AppText
-              txt={
-                state.length
-                  ? findCurrentPage(post.id) + 1 + "/" + state.length
-                  : "N/A"
-              }
+              txt={`${post?.province ? post.province : "Province not provided"}`}
               color="#cdcdcd"
               fontSize="16px"
             />
-          </div> */}
+          </div>
         </BackgroundImageContainer>
       ))}
     </div>

@@ -21,7 +21,7 @@ export default function FormUtilityDetail2({ formData, setFormData }) {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
           >
-            <FormLabel id="demo-radio-buttons-group-label">Does your place offer Wifi ?</FormLabel>
+            <FormLabel id="demo-radio-buttons-group-label">Can you provide WiFi ?</FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
               value={formData.wifi || "yes"}
@@ -38,7 +38,7 @@ export default function FormUtilityDetail2({ formData, setFormData }) {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <FormLabel id="demo-radio-buttons-group-label">Does your place offer Television ?</FormLabel>
+            <FormLabel id="demo-radio-buttons-group-label">Does your space has a Television ?</FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
               value={formData.tv || "yes"}
@@ -55,7 +55,7 @@ export default function FormUtilityDetail2({ formData, setFormData }) {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <FormLabel id="demo-radio-buttons-group-label">Does your place offer Air Conditioning ?</FormLabel>
+            <FormLabel id="demo-radio-buttons-group-label">Does your space have Air Conditioning ?</FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
               value={formData.airConditioning || "yes"}
@@ -72,7 +72,7 @@ export default function FormUtilityDetail2({ formData, setFormData }) {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <FormLabel id="demo-radio-buttons-group-label">Does your place offer Heating ?</FormLabel>
+            <FormLabel id="demo-radio-buttons-group-label">Does your space have Heating ?</FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
               value={formData.heating || "yes"}
