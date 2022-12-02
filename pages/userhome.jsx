@@ -9,7 +9,7 @@ import { collection, query, orderBy, onSnapshot } from "firebase/firestore";
 import { db } from "/firebase";
 import GetGoogleMap from "../components/locations/GetGoogleMap";
 import { AuthProvider } from "../AuthContext/AuthContext";
-import { motion } from 'framer-motion'
+import { motion } from "framer-motion";
 import { useAuth } from "../AuthContext/AuthContext";
 
 export default function UserHome({ data }) {
@@ -47,6 +47,10 @@ export default function UserHome({ data }) {
       default:
         return "Safehouses";
     }
+  };
+  const getSafeHouses = () => {
+    setIsBothClicked(false);
+    return setIsClicked(true);
   };
 
   return (
@@ -96,7 +100,8 @@ export default function UserHome({ data }) {
                 />
               </motion.div>
 
-              <motion.div className="flex flex-row gap-7"
+              <motion.div
+                className="flex flex-row gap-7"
                 initial={{ opacity: 0, y: 100 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
@@ -131,7 +136,8 @@ export default function UserHome({ data }) {
                 padding="20px 0px 10px 0px"
               />
             </motion.div>
-            <motion.div className="flex flex-start px-5"
+            <motion.div
+              className="flex flex-start px-5"
               initial={{ opacity: 0, y: 100 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
@@ -147,7 +153,8 @@ export default function UserHome({ data }) {
                 <option value="All">All</option>
               </select>
             </motion.div>
-            <motion.div className="flex w-[80vw] px-5 mapContainerUserhome pb-10 googleMapCont"
+            <motion.div
+              className="flex w-[80vw] px-5 mapContainerUserhome pb-10 googleMapCont"
               initial={{ opacity: 0, y: 100 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.7 }}
@@ -163,9 +170,8 @@ export default function UserHome({ data }) {
               <GetGoogleMap
                 hostInfo={state}
                 isClicked={isClicked}
-                setIsClicked={setIsClicked}
                 isBothClicked={isBothClicked}
-                setIsBothClicked={setIsBothClicked}
+                getSafeHouses={getSafeHouses}
                 btnState={true}
                 width="90vw"
                 height="50vh"
