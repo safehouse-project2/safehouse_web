@@ -154,7 +154,7 @@ export default function UserHome({ data }) {
               </select>
             </motion.div>
             <motion.div
-              className="flex w-[80vw] px-5 mapContainerUserhome pb-10 googleMapCont"
+              className="flex w-[100vw] px-5 mapContainerUserhome pb-10 googleMapCont"
               initial={{ opacity: 0, y: 100 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.7 }}
@@ -173,7 +173,7 @@ export default function UserHome({ data }) {
                 isBothClicked={isBothClicked}
                 getSafeHouses={getSafeHouses}
                 btnState={true}
-                width="97vw"
+                width="100%"
                 height="50vh"
               />
             </motion.div>

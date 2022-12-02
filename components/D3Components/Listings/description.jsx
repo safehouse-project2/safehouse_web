@@ -6,7 +6,7 @@ export default function Description({
   },
 }) {
   return (
-    <div className="flex flex-col gap-2 pt-4">
+    <div className="flex flex-col gap-2 pt-4 pr-3">
       <AppText
         txt='Description'
         fontSize='18px'

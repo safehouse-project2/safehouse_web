@@ -38,7 +38,7 @@ export default function FormUtilityDetail2({ formData, setFormData }) {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <FormLabel id="demo-radio-buttons-group-label">Does your space has a Television ?</FormLabel>
+            <FormLabel id="demo-radio-buttons-group-label">Does your space have a Television ?</FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
               value={formData.tv || "yes"}
